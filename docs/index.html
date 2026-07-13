@@ -96,22 +96,34 @@ header{border-bottom:1px solid var(--line);background:rgba(12,15,19,.86);backdro
 .brief ol{list-style:none;counter-reset:b}
 .brief li{counter-increment:b;display:flex;gap:14px;padding:11px 0;border-bottom:1px dotted var(--line-soft);font-size:15.5px}
 .brief li:last-child{border:0}
+.blink{cursor:pointer;border-bottom:1px solid var(--copper-dim);transition:.15s}
+.blink:hover{color:var(--amber);border-color:var(--amber)}
 .brief li::before{content:counter(b,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--copper);padding-top:5px;flex:none}
-.audio-bar{margin-top:20px;display:none;align-items:center;gap:12px;padding:12px 14px;background:var(--panel);border:1px solid var(--line)}
+.audio-bar{margin-top:22px;display:none;align-items:center;gap:14px;padding:14px 16px;
+  background:var(--panel);border:1px solid var(--line);border-left:2px solid var(--amber)}
 .audio-bar.on{display:flex}
-.audio-bar audio{width:100%;height:32px}
+.play{flex:none;width:34px;height:34px;border:1px solid var(--copper-dim);background:var(--panel-2);
+  color:var(--amber);cursor:pointer;display:grid;place-items:center;font-size:12px;transition:.15s}
+.play:hover{border-color:var(--amber);background:var(--amber-dim)}
+.audio-meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.audio-meta b{display:block;color:var(--text);font-weight:500;margin-bottom:3px}
+.audio-bar audio{flex:1;height:34px;min-width:0}
+.audio-bar.playing audio{display:block}
 
-.metrics{padding:34px 0 34px 32px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);align-content:start}
-.metric{background:var(--ink);padding:18px 16px}
-.metric b{display:block;font-family:var(--sans);font-weight:700;font-size:30px;letter-spacing:-.03em;color:var(--amber);line-height:1.1}
-.metric span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:6px;line-height:1.4}
+/* ── GÖRSEL YUVASI ────────────────────────────────────────
+   Haftalık görseli buraya koy:  assets/img/hero.jpg
+   (JSON'da issue.image varsa o kullanılır, yoksa bu dosya.)
+   Görsel yoksa alan boş kalır — düzen bozulmaz.            */
+.visual{padding:34px 0 34px 32px;display:flex;align-items:stretch}
+.visual-slot{flex:1;min-height:240px;border:1px solid var(--line);background:var(--panel);
+  display:grid;place-items:center;overflow:hidden;position:relative}
+.visual-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.visual-slot.empty::after{content:"";}
 
-/* ── FİLTRELER ────────────────────────────────────────── */
-.filters{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--line)}
-.chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:5px 11px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:.15s}
-.chip:hover{border-color:var(--copper);color:var(--text)}
-.chip.on{background:var(--copper);border-color:var(--copper);color:#12100E;font-weight:600}
-.chip[data-cat="turkiye"].on{background:var(--tr);border-color:var(--tr);color:#fff}
+/* İnce rakam şeridi — kutular kaldırıldı, veri korundu */
+.stats{display:flex;gap:26px;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--dim);text-transform:uppercase}
+.stats b{color:var(--amber);font-weight:500;margin-right:5px}
 
 /* ── MANŞET ───────────────────────────────────────────── */
 .lead{padding:44px 0;border-bottom:1px solid var(--line);cursor:pointer}
@@ -178,7 +190,8 @@ footer strong{color:var(--muted);font-weight:500}
 @media (max-width:880px){
   .top{grid-template-columns:1fr}
   .brief{border-right:0;border-bottom:1px solid var(--line);padding:28px 0}
-  .metrics{padding:24px 0}
+  .visual{padding:24px 0 0}
+  .visual-slot{min-height:180px}
   .grid{grid-template-columns:1fr}
   .card,.grid .card:nth-child(even){padding:24px 0}
   .doc{width:100%;padding:24px 20px 50px}
@@ -216,8 +229,6 @@ footer strong{color:var(--muted);font-weight:500}
     <span class="coverage" id="coverage">—</span>
     <nav class="nav">
       <a href="arsiv.html">Arşiv</a>
-      <a href="feed.xml">RSS</a>
-      <a href="#metodoloji">Metodoloji</a>
     </nav>
   </div>
 </header>
@@ -233,14 +244,18 @@ footer strong{color:var(--muted);font-weight:500}
       <ol id="brief"></ol>
       <!-- Sesli bülten — issue.audio dolduğunda görünür (ElevenLabs, v2) -->
       <div class="audio-bar" id="audioBar">
-        <span class="tag">Dinle</span>
-        <audio controls preload="none" id="audioEl"></audio>
+        <button class="play" id="playBtn" aria-label="Sesli özeti dinle">▶</button>
+        <span class="audio-meta"><b>Sesli özet</b><span id="audioDur"></span></span>
+        <audio preload="none" controls id="audioEl"></audio>
       </div>
     </div>
-    <div class="metrics" id="metrics"></div>
+    <div class="visual">
+      <!-- HAFTALIK GÖRSEL — dosyayı buraya koy: assets/img/hero.jpg -->
+      <div class="visual-slot empty" id="visualSlot"></div>
+    </div>
   </section>
 
-  <div class="filters" id="filters"></div>
+  <div class="stats" id="stats"></div>
 
   <article class="lead hidden" id="lead"></article>
 
@@ -253,15 +268,10 @@ footer strong{color:var(--muted);font-weight:500}
 
 </main>
 
-<footer class="wrap" id="metodoloji">
-  <strong>Metodoloji.</strong> Her pazartesi otomatik üretilir. Kaynaklar Exa semantik arama ile
-  taranır; aynı gelişmeyi anlatan haberler tek <em>olay</em> altında kümelenir ve en güvenilir
-  kaynak birincil kabul edilir. Metinler Claude ile Türkçeleştirilir. Yorum ve analiz içermez —
-  yalnızca gelişme aktarılır.<br>
-  <strong>Kaynak katmanları.</strong> <span class="t1">●</span> Birincil: resmî kurum ve şirket
-  duyuruları · Destekleyici: haber ajansları ve sektör basını.<br>
-  <strong>Uyarı.</strong> Taslak sürüm. Resmî Bakanlık görüşü değildir.
-  <a href="feed.xml">RSS</a> · <a href="arsiv.html">Arşiv</a>
+<footer class="wrap">
+  Her pazartesi otomatik üretilir. <span class="t1">●</span> Birincil kaynak: resmî kurum ve
+  şirket duyuruları. Taslak sürüm — resmî Bakanlık görüşü değildir.
+  <a href="arsiv.html">Arşiv</a>
 </footer>
 
 <div class="sheet" id="sheet">
@@ -294,7 +304,7 @@ const tarih = s => { if(!s) return "—"; const d=new Date(s); return `${d.getDa
 const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const host = u => { try{ return new URL(u).hostname.replace(/^www\./,""); }catch{ return ""; } };
 
-let DATA=null, TUM=[], filtre="all", zincir=null;
+let DATA=null, TUM=[], zincir=null;
 
 fetch("data/latest.json?v="+Date.now())
   .then(r=>{ if(!r.ok) throw 0; return r.json(); })
@@ -310,26 +320,48 @@ function ciz(){
 
   TUM = [DATA.lead, ...(DATA.stories||[])].filter(Boolean);
 
-  // 60 saniyede
-  document.getElementById("brief").innerHTML =
-    (DATA.brief||[]).map(b=>`<li><span>${esc(b)}</span></li>`).join("");
+  // 60 saniyede — slug varsa tıklanabilir
+  document.getElementById("brief").innerHTML = (DATA.brief||[]).map(b=>{
+    const t = typeof b === "string" ? b : (b.text||"");
+    const sl = (typeof b === "object" && b.slug) ? b.slug : null;
+    return sl ? `<li><span class="blink" data-slug="${esc(sl)}">${esc(t)}</span></li>`
+              : `<li><span>${esc(t)}</span></li>`;
+  }).join("");
+  document.querySelectorAll(".blink").forEach(x=>x.onclick=()=>ac(x.dataset.slug));
 
-  // Sesli bülten — v2'de dolacak
+  // Sesli bülten
   if(i.audio && i.audio.url){
-    document.getElementById("audioEl").src = i.audio.url;
+    const a = document.getElementById("audioEl");
+    a.src = i.audio.url;
+    const sn = i.audio.duration_sec;
+    document.getElementById("audioDur").textContent =
+      sn ? `${Math.floor(sn/60)}:${String(sn%60).padStart(2,"0")}` : "";
     document.getElementById("audioBar").classList.add("on");
+    const btn = document.getElementById("playBtn");
+    btn.onclick = ()=>{ a.paused ? a.play() : a.pause(); };
+    a.onplay  = ()=>{ btn.textContent = "❚❚"; };
+    a.onpause = ()=>{ btn.textContent = "▶"; };
+    a.onended = ()=>{ btn.textContent = "▶"; };
   }
 
-  // Haftanın rakamları
+  // Haftalık görsel — issue.image varsa onu, yoksa assets/img/hero.jpg dene
+  const slot = document.getElementById("visualSlot");
+  const gorsel = (i.image && i.image.url) || "assets/img/hero.jpg";
+  const im = new Image();
+  im.onload = ()=>{ slot.classList.remove("empty"); slot.appendChild(im); };
+  im.onerror = ()=>{};   // görsel yoksa alan sessizce boş kalır
+  im.src = gorsel; im.alt = "";
+
+  // İnce rakam şeridi
   const m = DATA.metrics||{};
   const usd = m.aciklanan_yatirim_usd_milyon;
-  document.getElementById("metrics").innerHTML = [
-    [usd ? (usd>=1000 ? (usd/1000).toFixed(1).replace(".",",")+" mlr $" : usd+" mn $") : "—",
-     "Açıklanan yatırım"],
-    [m.fab_proje_sayisi ?? "—", "Fab / tesis projesi"],
-    [m.politika_gelismesi ?? "—", "Politika gelişmesi"],
-    [m.kapsanan_ulke ?? "—", "Kapsanan ülke"]
-  ].map(([b,s])=>`<div class="metric"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+  document.getElementById("stats").innerHTML = [
+    usd ? [`${usd>=1000 ? (usd/1000).toFixed(1).replace(".",",")+" mlr $" : usd+" mn $"}`,
+           "açıklanan yatırım"] : null,
+    m.fab_proje_sayisi ? [m.fab_proje_sayisi, "fab / tesis projesi"] : null,
+    m.politika_gelismesi ? [m.politika_gelismesi, "politika gelişmesi"] : null,
+    m.kapsanan_ulke ? [m.kapsanan_ulke, "kapsanan ülke"] : null,
+  ].filter(Boolean).map(([b,s])=>`<span><b>${esc(b)}</b>${esc(s)}</span>`).join("");
 
   // Değer zinciri rayı — imza öğe
   const sayac = {};
@@ -350,25 +382,13 @@ function ciz(){
     liste();
   });
 
-  // Kategori filtreleri — sadece o hafta içerik olan kategoriler
-  const kats = [...new Set(TUM.map(s=>s.category))];
-  document.getElementById("filters").innerHTML =
-    `<button class="chip on" data-cat="all">Tümü · ${TUM.length}</button>` +
-    kats.map(c=>`<button class="chip" data-cat="${c}">${esc(CAT[c]||c)}</button>`).join("");
-  document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
-    filtre=c.dataset.cat;
-    document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));
-    liste();
-  });
-
   liste();
   radar();
   if(location.hash.startsWith("#/haber/")) ac(location.hash.slice(8));
 }
 
 function gecer(s){
-  return (filtre==="all" || s.category===filtre) &&
-         (!zincir || (s.value_chain||[]).includes(zincir));
+  return !zincir || (s.value_chain||[]).includes(zincir);
 }
 
 function liste(){
@@ -424,7 +444,6 @@ function radar(){
 function ac(slug){
   const s = TUM.find(x=>x.slug===slug);
   if(!s) return;
-  const inv = s.investment;
   const facts = [
     ["Kategori", CAT[s.category]],
     s.maturity && MAT[s.maturity] ? ["Aşama", MAT[s.maturity]] : null,
@@ -432,8 +451,6 @@ function ac(slug){
     (s.countries||[]).length ? ["Ülke", s.countries.join(", ")] : null,
     (s.technology_nodes||[]).length ? ["Düğüm", s.technology_nodes.join(", ")] : null,
     (s.technologies||[]).length ? ["Teknoloji", s.technologies.join(", ")] : null,
-    inv?.amount_original ? ["Tutar", `${inv.amount_original} ${inv.currency||""}`] : null,
-    inv?.public_support_usd_million ? ["Kamu desteği", `${inv.public_support_usd_million} mn $`] : null,
     ["Tarih", tarih(s.event_date||s.published_date)]
   ].filter(Boolean);
 

@@ -1,5 +1,5 @@
 {
-  "issue_no": 1,
+  "issue_no": 2,
   "events": [
     {
       "baslik_ozet": "SK Hynix, Nasdaq'ta 26,5 Milyar Dolarlık Rekor Halka Arzı Tamamladı",
@@ -44,6 +44,50 @@
     {
       "baslik_ozet": "Meta, TSMC 3nm Sürecinde Iris (MTIA v3) AI Çipini Eylül 2026'da Üretime Alıyor",
       "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Türkiye HIT-30 Kapsamında 5 Milyar Dolarlık Savunma Teknolojileri Çağrısını Başlattı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Micron ABD Yatırım Taahhüdünü 250 Milyar Dolara Yükseltti, New York Fab İnşaatı Takvimin Önünde",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "HAVELSAN'ın ADVENT Savaş Yönetim Sistemi Romanya ile İlk NATO İhracatını Tamamladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "SK Hynix 26,5 Milyar Dolarlık Nasdaq Halka Arzıyla Yabancı Şirket Rekorunu Kırdı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Meta'nın Iris AI Hızlandırıcısı Eylül 2026'da TSMC'de Üretime Geçiyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Apple ve Broadcom 30 Milyar Dolarlık ASIC Anlaşması İmzaladı; ABD'de 15 Milyar Çip Üretilecek",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Intel İrlanda Leixlip Kampüsüne 5 Milyar Euro Sermaye Yatırımı Duyurdu",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Çin Helyum İhracatını Geçici Olarak Yasakladı; Küresel Yarı İletken Tedariki Risk Altında",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Nanya Technology 2027 Sermaye Harcamasını 4 Katına Çıkararak 6,2 Milyar Dolara Taşıyacak",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Çinli Firmalar AI Hızlandırıcı Bütçesinde Yerli Chip Payını Yüzde 30'dan Yüzde 46'ya Yükseltti",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Türksat 6A Uzayda İkinci Yılını Tamamladı: Yüzde 80 Yerlilik, 84 Yerli Ekipman",
+      "hafta": "2026-W29"
     }
   ],
   "urls": [
@@ -81,6 +125,43 @@
     "https://aa.com.tr/tr/bilim-teknoloji/aselsan-ilk-yerli-super-iletken-kuantum-islemci-birimini-gelistirecek/3977564",
     "https://uzay.tubitak.gov.tr/en/imece-2-ve-imece-3-uydulari-nato-gundeminde-turkiyenin-takim-uydu-kapasitesi-gucleniyor",
     "https://aa.com.tr/en/turkiye/turkish-defense-giant-aselsan-expects-higher-nato-linked-exports-after-rising-european-interest/3989292",
-    "https://aa.com.tr/tr/bilim-teknoloji/turk-savunma-sanayisinde-kuantum-donemi/3976753"
+    "https://aa.com.tr/tr/bilim-teknoloji/turk-savunma-sanayisinde-kuantum-donemi/3976753",
+    "https://aa.com.tr/en/economy/turkiyes-hit-30-defense-tech-call-expected-to-attract-international-investment-says-industry-minister/3988789",
+    "https://digitimes.com/news/a20260709VL228/micron-fab-investment-demand-technology.html",
+    "https://aa.com.tr/tr/bilim-teknoloji/milli-savas-yonetim-sisteminden-ilk-nato-ihracat-basarisi/3986483",
+    "https://bloomberght.com/cip-devi-sk-hynix-ten-nasdaq-ta-26-5-milyar-dolarlik-halka-arz-3782618",
+    "https://dunya.com/ekonomi/meta-cip-yarisinda-kendi-yolunu-ciziyor-haberi-831709",
+    "https://donanimhaber.com/apple-dan-abd-ye-devasa-yatirim-15-milyar-cip-uretilecek--207828",
+    "https://newsroom.intel.com/intel-foundry/intel-invests-5-billion-euro-to-expand-manufacturing-in-europe",
+    "https://digitimes.com/news/a20260710VL223/ban-qatar-2026-beijing-medical.html",
+    "https://digitimes.com/news/a20260713PD211/nanya-technology-capex-capacity-2027.html",
+    "https://trendforce.com/news/2026/07/07/news-chinese-firms-reportedly-raise-domestic-ai-chip-budget-share-from-30-to-46-amid-shift-from-nvidia",
+    "https://aa.com.tr/tr/bilim-teknoloji/turksat-6a-uzayda-ikinci-yilini-tamamladi/3992893",
+    "https://bloomberght.com/samsung-yongin-deki-cip-fabrikasinin-acilisini-2029-a-cekti-3782666",
+    "https://trendforce.com/news/2026/07/08/news-memory-rally-extends-as-taiwan-module-maker-adata-reportedly-sees-q3-dram-prices-up-20-30-nand-up-35-40",
+    "https://digitimes.com/news/a20260710PD216/hbm-2027-demand-hbm4-capacity.html",
+    "https://asia.nikkei.com/spotlight/supply-chain/us-emerges-as-helium-winner-amid-iran-war-and-china-restrictions2",
+    "https://digitimes.com/news/a20260710VL216/inp-coherent-substrate-capacity-production.html",
+    "https://asia.nikkei.com/business/markets/commodities/lynas-js-link-sign-deal-for-malaysian-magnet-plant",
+    "https://digitimes.com/news/a20260713VL205/nvidia-beijing-market-software-chips.html",
+    "https://apps.digitimes.com/news/a20260707PD212/samsung-sk-hynix-ic-manufacturing-equipment-china.html",
+    "https://evertiq.com/design/2026-07-07-us-import-ban-on-innosciences-gan-products-confirmed-after-presidential-review",
+    "https://trendforce.com/news/2026/07/08/news-new-dram-price-fixing-case-against-samsung-sk-hynix-and-micron-tests-whether-hbm-expansion-can-prove-collusion",
+    "https://donanimhaber.com/meta-yeni-nesil-ai-cipleri-icin-rotayi-samsung-a-cevirdi--207652",
+    "https://trendforce.com/news/2026/07/08/news-china-ai-model-developers-ramp-up-in-house-chips-deepseek-zhipu-explore-custom-silicon",
+    "https://trendforce.com/news/2026/07/08/news-tsmc-pic-capacity-seen-surging-to-25k-wafersmonth-by-2028-nvidia-broadcom-eyed-as-early-coupe-customers",
+    "https://digitimes.com/news/a20260710VL210/hbm-packaging-hbm4-bandwidth-equipment.html",
+    "https://digitimes.com/news/a20260713PD221/taiwan-advanced-packaging-industrial-development-tsmc.html",
+    "https://digitimes.com/news/a20260710VL206/jcet-packaging-capacity-demand-production.html",
+    "https://tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028",
+    "https://apps.digitimes.com/news/a20260710PD206/globalwafers-micron-semiconductors-localization-capacity-equipment.html",
+    "https://evertiq.com/design/2026-07-07-micron-breaks-ground-on-new-cleanroom-at-hiroshima-facility",
+    "https://digitimes.com/news/a20260713VL210/sk-group-chairman-investment-sk-hynix-business.html",
+    "https://donanimhaber.com/almanya-dunyanin-en-buyuk-guc-yari-iletken-tesisini-hizmete-aldi--207678",
+    "https://trendforce.com/news/2026/07/09/news-japans-rapidus-takes-on-tsmc-with-aggressive-2nm-pricing-reportedly-targeting-up-to-%c2%a53-5m-per-wafer",
+    "https://digitimes.com/news/a20260713VL204/tsmc-cowos-capacity-hbm-weekly-news-roundup.html",
+    "https://uzay.tubitak.gov.tr/imece-2-ve-imece-3-uydulari-nato-gundeminde-turkiyenin-takim-uydu-kapasitesi-gucleniyor",
+    "https://aa.com.tr/tr/ekonomi/cumhurbaskanligi-savunma-sanayii-baskani-gorgunden-hava-savunmada-yerlilik-vurgusu/3994083",
+    "https://aa.com.tr/tr/bilim-teknoloji/milli-dron-karsi-tedbir-sistemleri-nato-zirvesinde-basariyla-gorev-yapti/3996280"
   ]
 }
