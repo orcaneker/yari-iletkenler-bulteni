@@ -38,8 +38,8 @@ AYARLAR = {
     "exa_tip": "auto",
 
     # Site
-    "site_url": "https://orcaneker.github.io/yari-iletkenler-bulteni",  # deploy sonrası güncelle
-    "cikti_dizini": "dist",
+    "site_url": "https://orcaneker.github.io/yari-iletkenler-bulteni",
+    "cikti_dizini": "docs",   # GitHub Pages sadece / veya /docs kabul eder
 }
 
 # ============================================================
