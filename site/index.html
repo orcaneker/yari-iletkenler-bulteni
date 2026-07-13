@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yarı İletken Bülteni</title>
+<meta name="description" content="Haftalık yarı iletken sektörü, teknoloji ve sanayi politikası izleme bülteni.">
+<link rel="alternate" type="application/rss+xml" title="Yarı İletken Bülteni" href="/feed.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════
+   TASARIM SİSTEMİ
+   Fab temiz odaları SARI ışıkla aydınlatılır — fotorezist maviye
+   duyarlı olduğu için. Bu palette bilinçli olarak MAVİ YOKTUR.
+   Grafit gövde · bakır ara bağlantı · temiz oda kehribarı.
+   ══════════════════════════════════════════════════════════ */
+:root{
+  --ink:#0C0F13;          /* grafit gövde */
+  --panel:#13171D;
+  --panel-2:#1A1F27;
+  --line:#272E38;         /* retikül çizgisi */
+  --line-soft:#1E242C;
+  --text:#E6E8EA;
+  --muted:#8A939E;
+  --dim:#5D6672;
+  --copper:#C87A45;       /* bakır ara bağlantı — yapısal vurgu */
+  --copper-dim:#8A5530;
+  --amber:#E8B33C;        /* temiz oda ışığı — imza parıltı */
+  --amber-dim:#4A3A16;
+  --tr:#D4553C;           /* Türkiye vurgusu */
+  --ok:#7FA05E;
+
+  --sans:"Archivo",system-ui,sans-serif;
+  --serif:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --wrap:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);color:var(--text);
+  font-family:var(--serif);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    linear-gradient(var(--line-soft) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:56px 56px;
+  background-position:-1px -1px;
+}
+body::before{ /* temiz oda ışığı — üstten sızan kehribar */
+  content:"";position:fixed;inset:0 0 auto 0;height:420px;pointer-events:none;
+  background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(232,179,60,.07),transparent 70%);
+  z-index:0;
+}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* ── MASTHEAD ─────────────────────────────────────────── */
+header{border-bottom:1px solid var(--line);background:rgba(12,15,19,.86);backdrop-filter:blur(8px);position:sticky;top:0;z-index:50}
+.mast{display:flex;align-items:baseline;gap:20px;padding:18px 0;flex-wrap:wrap}
+.logo{font-family:var(--sans);font-weight:800;font-size:21px;letter-spacing:-.03em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo svg{flex:none}
+.issue{font-family:var(--mono);font-size:11px;color:var(--amber);border:1px solid var(--amber-dim);padding:3px 8px;letter-spacing:.06em}
+.coverage{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.02em}
+.nav{margin-left:auto;display:flex;gap:20px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.nav a{color:var(--muted);text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+.nav a:hover,.nav a:focus-visible{color:var(--amber);border-color:var(--amber)}
+
+/* ── İMZA: DEĞER ZİNCİRİ RAYI ─────────────────────────── */
+.rail{border-bottom:1px solid var(--line);padding:14px 0 16px;overflow-x:auto}
+.rail-inner{display:flex;align-items:stretch;min-width:760px}
+.node{flex:1;position:relative;background:none;border:0;cursor:pointer;text-align:left;padding:0 0 0 2px;color:inherit;font:inherit}
+.node::after{ /* bakır iz */
+  content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:var(--copper-dim);opacity:.5;
+}
+.node:first-child::after{left:50%}
+.node:last-child::after{right:50%}
+.die{
+  position:relative;z-index:2;width:18px;height:18px;margin:0 auto;
+  background:var(--panel);border:1px solid var(--copper-dim);
+  display:grid;place-items:center;transition:all .18s;
+}
+.die i{display:block;width:6px;height:6px;background:var(--copper-dim);transition:all .18s}
+.node[data-count]:not([data-count="0"]) .die i{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.node:hover .die,.node.on .die{border-color:var(--amber);background:var(--amber-dim)}
+.node-label{display:block;text-align:center;margin-top:9px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+.node:hover .node-label,.node.on .node-label{color:var(--text)}
+.node-count{display:block;text-align:center;font-family:var(--mono);font-size:10px;color:var(--copper);margin-top:2px}
+
+/* ── ÜST BLOK: 60 SANİYE + RAKAMLAR ───────────────────── */
+.top{display:grid;grid-template-columns:1.6fr 1fr;gap:0;border-bottom:1px solid var(--line)}
+.brief{padding:34px 32px 34px 0;border-right:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+.brief ol{list-style:none;counter-reset:b}
+.brief li{counter-increment:b;display:flex;gap:14px;padding:11px 0;border-bottom:1px dotted var(--line-soft);font-size:15.5px}
+.brief li:last-child{border:0}
+.brief li::before{content:counter(b,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--copper);padding-top:5px;flex:none}
+.audio-bar{margin-top:20px;display:none;align-items:center;gap:12px;padding:12px 14px;background:var(--panel);border:1px solid var(--line)}
+.audio-bar.on{display:flex}
+.audio-bar audio{width:100%;height:32px}
+
+.metrics{padding:34px 0 34px 32px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);align-content:start}
+.metric{background:var(--ink);padding:18px 16px}
+.metric b{display:block;font-family:var(--sans);font-weight:700;font-size:30px;letter-spacing:-.03em;color:var(--amber);line-height:1.1}
+.metric span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:6px;line-height:1.4}
+
+/* ── FİLTRELER ────────────────────────────────────────── */
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--line)}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:5px 11px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--copper);color:var(--text)}
+.chip.on{background:var(--copper);border-color:var(--copper);color:#12100E;font-weight:600}
+.chip[data-cat="turkiye"].on{background:var(--tr);border-color:var(--tr);color:#fff}
+
+/* ── MANŞET ───────────────────────────────────────────── */
+.lead{padding:44px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.lead:hover h1{color:var(--amber)}
+.lead h1{font-family:var(--sans);font-weight:800;font-size:clamp(30px,4.4vw,50px);line-height:1.08;letter-spacing:-.035em;margin:14px 0 18px;transition:color .18s;max-width:19ch}
+.lead p{font-size:19px;line-height:1.6;color:#C9CDD2;max-width:66ch}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border-left:2px solid var(--amber);padding-left:8px}
+
+/* ── ÖNE ÇIKANLAR ─────────────────────────────────────── */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.card{background:var(--ink);padding:26px 26px 26px 0;cursor:pointer;transition:background .18s;border:0;text-align:left;font:inherit;color:inherit}
+.grid .card:nth-child(even){padding-left:26px;padding-right:0}
+.card:hover{background:var(--panel)}
+.card:hover h2{color:var(--amber)}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.cat{color:var(--copper)}
+.cat[data-c="turkiye"]{color:var(--tr)}
+.mat{border:1px solid var(--line);padding:1px 6px;color:var(--muted)}
+.card h2{font-family:var(--sans);font-weight:700;font-size:20px;line-height:1.24;letter-spacing:-.02em;margin-bottom:10px;transition:color .18s}
+.card p{font-size:15px;color:var(--muted);line-height:1.6}
+.src{margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--dim);display:flex;gap:8px;align-items:center}
+.t1{color:var(--ok)}
+
+/* ── RADAR ────────────────────────────────────────────── */
+.radar{padding:40px 0}
+.cluster{margin-bottom:26px}
+.cluster h3{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--copper);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.cluster h3::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+.cluster a{display:flex;gap:12px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line-soft);color:var(--text);text-decoration:none;font-size:15px;line-height:1.5}
+.cluster a:hover{color:var(--amber)}
+.cluster a time{font-family:var(--mono);font-size:10.5px;color:var(--dim);flex:none;width:44px}
+.cluster a em{font-family:var(--mono);font-size:10.5px;color:var(--dim);font-style:normal;margin-left:auto;flex:none;padding-left:12px}
+
+/* ── DETAY PANELİ ─────────────────────────────────────── */
+.sheet{position:fixed;inset:0;z-index:100;display:none}
+.sheet.on{display:block}
+.veil{position:absolute;inset:0;background:rgba(6,8,10,.82);backdrop-filter:blur(3px)}
+.doc{position:absolute;top:0;right:0;bottom:0;width:min(680px,100%);background:var(--panel);border-left:1px solid var(--line);overflow-y:auto;padding:30px 34px 60px;animation:slide .22s ease-out}
+@keyframes slide{from{transform:translateX(24px);opacity:0}}
+.close{position:sticky;top:0;float:right;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);width:30px;height:30px;cursor:pointer;font-family:var(--mono);font-size:14px}
+.close:hover{color:var(--amber);border-color:var(--amber)}
+.doc h2{font-family:var(--sans);font-weight:800;font-size:27px;line-height:1.16;letter-spacing:-.025em;margin:16px 0 16px;clear:both}
+.doc .body p{margin-bottom:15px;font-size:16.5px;line-height:1.72;color:#CFD3D8}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0}
+.fact{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:3px 8px;background:var(--panel-2);border:1px solid var(--line);color:var(--muted)}
+.fact b{color:var(--text);font-weight:500}
+.why{display:none;margin:22px 0;padding:16px 18px;background:var(--amber-dim);border-left:2px solid var(--amber)} /* analiz katmanı — v2'de açılacak */
+.why.on{display:block}
+.why span{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:6px}
+.sources{margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.sources h4{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px}
+.sources a{display:block;padding:7px 0;color:var(--text);text-decoration:none;font-family:var(--mono);font-size:12.5px;border-bottom:1px solid var(--line-soft)}
+.sources a:hover{color:var(--amber)}
+.sources a .p{color:var(--ok);font-size:10px;letter-spacing:.06em}
+
+/* ── ALT ──────────────────────────────────────────────── */
+footer{border-top:1px solid var(--line);padding:34px 0 60px;margin-top:20px;font-family:var(--mono);font-size:11.5px;color:var(--dim);line-height:1.9}
+footer a{color:var(--muted)}
+footer strong{color:var(--muted);font-weight:500}
+
+.empty{padding:60px 0;text-align:center;font-family:var(--mono);font-size:13px;color:var(--dim)}
+.hidden{display:none!important}
+
+@media (max-width:880px){
+  .top{grid-template-columns:1fr}
+  .brief{border-right:0;border-bottom:1px solid var(--line);padding:28px 0}
+  .metrics{padding:24px 0}
+  .grid{grid-template-columns:1fr}
+  .card,.grid .card:nth-child(even){padding:24px 0}
+  .doc{width:100%;padding:24px 20px 50px}
+  .nav{width:100%;margin-left:0;padding-top:6px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ══════════════════════════════════════════════════════
+   HERO VİDEO KATMANI — v2'de açılacak (Higgsfield vb.)
+   assets/video/hero.webm + hero.mp4 + hero.jpg koyunca
+   .hero-media sınıfını masthead altına ekle, aşağıyı aç.
+   Video ÇALIŞMA ZAMANI bağımlılığı DEĞİLDİR: statik dosya.
+   ──────────────────────────────────────────────────────
+   .hero-media{position:relative;height:280px;overflow:hidden;border-bottom:1px solid var(--line)}
+   .hero-media video{width:100%;height:100%;object-fit:cover;opacity:.32;filter:grayscale(.4) contrast(1.1)}
+   .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,var(--ink))}
+   @media (max-width:880px){.hero-media{display:none}}
+   @media (prefers-reduced-motion:reduce){.hero-media video{display:none}}
+   ══════════════════════════════════════════════════════ */
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap mast">
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+        <rect x="4.5" y="4.5" width="13" height="13" fill="none" stroke="#C87A45" stroke-width="1.2"/>
+        <rect x="8.5" y="8.5" width="5" height="5" fill="#E8B33C"/>
+        <path d="M11 0v4.5M11 17.5V22M0 11h4.5M17.5 11H22M4.5 7H1M4.5 15H1M17.5 7H21M17.5 15H21M7 4.5V1M15 4.5V1M7 17.5V21M15 17.5V21" stroke="#8A5530" stroke-width="1"/>
+      </svg>
+      Yarı İletken Bülteni
+    </div>
+    <span class="issue" id="issueNo">SAYI —</span>
+    <span class="coverage" id="coverage">—</span>
+    <nav class="nav">
+      <a href="/arsiv.html">Arşiv</a>
+      <a href="/feed.xml">RSS</a>
+      <a href="#metodoloji">Metodoloji</a>
+    </nav>
+  </div>
+</header>
+
+<!-- İMZA: değer zinciri rayı — o haftanın kapsam yoğunluğunu gösterir -->
+<div class="rail"><div class="wrap"><div class="rail-inner" id="rail"></div></div></div>
+
+<main class="wrap">
+
+  <section class="top">
+    <div class="brief">
+      <div class="eyebrow">Bu hafta 60 saniyede</div>
+      <ol id="brief"></ol>
+      <!-- Sesli bülten — issue.audio dolduğunda görünür (ElevenLabs, v2) -->
+      <div class="audio-bar" id="audioBar">
+        <span class="tag">Dinle</span>
+        <audio controls preload="none" id="audioEl"></audio>
+      </div>
+    </div>
+    <div class="metrics" id="metrics"></div>
+  </section>
+
+  <div class="filters" id="filters"></div>
+
+  <article class="lead hidden" id="lead"></article>
+
+  <section class="grid" id="grid"></section>
+
+  <section class="radar">
+    <div class="eyebrow">Radar</div>
+    <div id="radar"></div>
+  </section>
+
+</main>
+
+<footer class="wrap" id="metodoloji">
+  <strong>Metodoloji.</strong> Her pazartesi otomatik üretilir. Kaynaklar Exa semantik arama ile
+  taranır; aynı gelişmeyi anlatan haberler tek <em>olay</em> altında kümelenir ve en güvenilir
+  kaynak birincil kabul edilir. Metinler Claude ile Türkçeleştirilir. Yorum ve analiz içermez —
+  yalnızca gelişme aktarılır.<br>
+  <strong>Kaynak katmanları.</strong> <span class="t1">●</span> Birincil: resmî kurum ve şirket
+  duyuruları · Destekleyici: haber ajansları ve sektör basını.<br>
+  <strong>Uyarı.</strong> Taslak sürüm. Resmî Bakanlık görüşü değildir.
+  <a href="/feed.xml">RSS</a> · <a href="/arsiv.html">Arşiv</a>
+</footer>
+
+<div class="sheet" id="sheet">
+  <div class="veil" data-close></div>
+  <div class="doc" id="doc" role="dialog" aria-modal="true"></div>
+</div>
+
+<script>
+const CAT = {
+  politika:"Politika & Jeopolitik", yatirim:"Yatırım & Üretim",
+  ekipman:"Ekipman & Malzeme", teknoloji:"Süreç Teknolojisi",
+  paketleme:"İleri Paketleme & Test", bellek:"Bellek & Depolama",
+  "ai-cip":"AI Çipleri & Veri Merkezi", tasarim:"Tasarım, EDA & IP",
+  guc:"Güç & Bileşik Yarı İletkenler", uygulama:"Otomotiv, Savunma & Endüstri",
+  turkiye:"Türkiye", rapor:"Rapor & Piyasa Verisi"
+};
+const MAT = {
+  research:"araştırma", pilot:"pilot", qualification:"nitelendirme",
+  announced:"duyuruldu", funded:"finanse edildi", construction:"inşaat",
+  equipment_install:"ekipman kurulumu", mass_production:"seri üretim",
+  delayed:"ertelendi", cancelled:"iptal"
+};
+const CHAIN = [
+  ["tasarim","Tasarım"],["eda-ip","EDA / IP"],["malzeme","Malzeme"],
+  ["ekipman","Ekipman"],["wafer-uretim","Wafer üretimi"],
+  ["paketleme-test","Paketleme / Test"],["uygulama","Uygulama"]
+];
+const AY = ["Oca","Şub","Mar","Nis","May","Haz","Tem","Ağu","Eyl","Eki","Kas","Ara"];
+const tarih = s => { if(!s) return "—"; const d=new Date(s); return `${d.getDate()} ${AY[d.getMonth()]}`; };
+const esc = s => String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const host = u => { try{ return new URL(u).hostname.replace(/^www\./,""); }catch{ return ""; } };
+
+let DATA=null, TUM=[], filtre="all", zincir=null;
+
+fetch("data/latest.json?v="+Date.now())
+  .then(r=>{ if(!r.ok) throw 0; return r.json(); })
+  .then(d=>{ DATA=d; ciz(); })
+  .catch(()=>{ document.getElementById("grid").innerHTML =
+    '<div class="empty">Bülten yüklenemedi. İlk sayı henüz yayımlanmamış olabilir.</div>'; });
+
+function ciz(){
+  const i = DATA.issue;
+  document.getElementById("issueNo").textContent = "SAYI " + String(i.number).padStart(2,"0");
+  document.getElementById("coverage").textContent =
+    `${tarih(i.coverage_start)} – ${tarih(i.coverage_end)} ${new Date(i.coverage_end).getFullYear()}`;
+
+  TUM = [DATA.lead, ...(DATA.stories||[])].filter(Boolean);
+
+  // 60 saniyede
+  document.getElementById("brief").innerHTML =
+    (DATA.brief||[]).map(b=>`<li><span>${esc(b)}</span></li>`).join("");
+
+  // Sesli bülten — v2'de dolacak
+  if(i.audio && i.audio.url){
+    document.getElementById("audioEl").src = i.audio.url;
+    document.getElementById("audioBar").classList.add("on");
+  }
+
+  // Haftanın rakamları
+  const m = DATA.metrics||{};
+  const usd = m.aciklanan_yatirim_usd_milyon;
+  document.getElementById("metrics").innerHTML = [
+    [usd ? (usd>=1000 ? (usd/1000).toFixed(1).replace(".",",")+" mlr $" : usd+" mn $") : "—",
+     "Açıklanan yatırım"],
+    [m.fab_proje_sayisi ?? "—", "Fab / tesis projesi"],
+    [m.politika_gelismesi ?? "—", "Politika gelişmesi"],
+    [m.kapsanan_ulke ?? "—", "Kapsanan ülke"]
+  ].map(([b,s])=>`<div class="metric"><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+
+  // Değer zinciri rayı — imza öğe
+  const sayac = {};
+  TUM.forEach(s=>(s.value_chain||[]).forEach(v=>sayac[v]=(sayac[v]||0)+1));
+  document.getElementById("rail").innerHTML = CHAIN.map(([k,ad])=>`
+    <button class="node" data-vc="${k}" data-count="${sayac[k]||0}"
+            aria-pressed="false" title="${ad} — ${sayac[k]||0} gelişme">
+      <span class="die"><i></i></span>
+      <span class="node-label">${ad}</span>
+      <span class="node-count">${sayac[k] ? String(sayac[k]).padStart(2,"0") : "··"}</span>
+    </button>`).join("");
+  document.querySelectorAll(".node").forEach(n=>n.onclick=()=>{
+    zincir = zincir===n.dataset.vc ? null : n.dataset.vc;
+    document.querySelectorAll(".node").forEach(x=>{
+      const on = x.dataset.vc===zincir;
+      x.classList.toggle("on",on); x.setAttribute("aria-pressed",on);
+    });
+    liste();
+  });
+
+  // Kategori filtreleri — sadece o hafta içerik olan kategoriler
+  const kats = [...new Set(TUM.map(s=>s.category))];
+  document.getElementById("filters").innerHTML =
+    `<button class="chip on" data-cat="all">Tümü · ${TUM.length}</button>` +
+    kats.map(c=>`<button class="chip" data-cat="${c}">${esc(CAT[c]||c)}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
+    filtre=c.dataset.cat;
+    document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));
+    liste();
+  });
+
+  liste();
+  radar();
+  if(location.hash.startsWith("#/haber/")) ac(location.hash.slice(8));
+}
+
+function gecer(s){
+  return (filtre==="all" || s.category===filtre) &&
+         (!zincir || (s.value_chain||[]).includes(zincir));
+}
+
+function liste(){
+  const lead = DATA.lead, el = document.getElementById("lead");
+  if(lead && gecer(lead)){
+    el.classList.remove("hidden");
+    el.innerHTML = `
+      <span class="tag">Manşet · ${esc(CAT[lead.category]||"")}</span>
+      <h1>${esc(lead.title)}</h1>
+      <p>${esc(lead.excerpt)}</p>
+      <div class="src">${lead.source?.tier===1?'<span class="t1">● birincil</span>':'<span>○ destekleyici</span>'}
+        <span>${esc(lead.source?.name||host(lead.source?.url))}</span><span>·</span>
+        <span>${tarih(lead.published_date)}</span></div>`;
+    el.onclick = ()=>ac(lead.slug);
+  } else el.classList.add("hidden");
+
+  const kartlar = (DATA.stories||[]).filter(gecer);
+  document.getElementById("grid").innerHTML = kartlar.length ? kartlar.map(s=>`
+    <button class="card" data-slug="${esc(s.slug)}">
+      <div class="meta">
+        <span class="cat" data-c="${esc(s.category)}">${esc(CAT[s.category]||s.category)}</span>
+        ${s.maturity&&MAT[s.maturity]?`<span class="mat">${esc(MAT[s.maturity])}</span>`:""}
+        ${(s.countries||[]).slice(0,2).map(c=>`<span>${esc(c)}</span>`).join("")}
+      </div>
+      <h2>${esc(s.title)}</h2>
+      <p>${esc(s.excerpt)}</p>
+      <div class="src">
+        ${s.source?.tier===1?'<span class="t1">● birincil</span>':'<span>○ destekleyici</span>'}
+        <span>${esc(s.source?.name||host(s.source?.url))}</span><span>·</span>
+        <span>${tarih(s.published_date)}</span>
+      </div>
+    </button>`).join("")
+    : (gecer(DATA.lead||{}) ? "" : '<div class="empty">Bu filtrede gelişme yok.</div>');
+
+  document.querySelectorAll(".card").forEach(c=>c.onclick=()=>ac(c.dataset.slug));
+}
+
+function radar(){
+  const kl = DATA.radar||[];
+  document.getElementById("radar").innerHTML = kl.length ? kl.map(k=>`
+    <div class="cluster">
+      <h3>${esc(k.kume)}</h3>
+      ${(k.maddeler||[]).map(m=>`
+        <a href="${esc(m.url)}" target="_blank" rel="noopener">
+          <time>${tarih(m.date)}</time>
+          <span>${esc(m.title)}</span>
+          <em>${esc(m.source||host(m.url))} ↗</em>
+        </a>`).join("")}
+    </div>`).join("")
+    : '<div class="empty">Bu hafta radar boş.</div>';
+}
+
+function ac(slug){
+  const s = TUM.find(x=>x.slug===slug);
+  if(!s) return;
+  const inv = s.investment;
+  const facts = [
+    ["Kategori", CAT[s.category]],
+    s.maturity && MAT[s.maturity] ? ["Aşama", MAT[s.maturity]] : null,
+    (s.companies||[]).length ? ["Şirket", s.companies.join(", ")] : null,
+    (s.countries||[]).length ? ["Ülke", s.countries.join(", ")] : null,
+    (s.technology_nodes||[]).length ? ["Düğüm", s.technology_nodes.join(", ")] : null,
+    (s.technologies||[]).length ? ["Teknoloji", s.technologies.join(", ")] : null,
+    inv?.amount_original ? ["Tutar", `${inv.amount_original} ${inv.currency||""}`] : null,
+    inv?.public_support_usd_million ? ["Kamu desteği", `${inv.public_support_usd_million} mn $`] : null,
+    ["Tarih", tarih(s.event_date||s.published_date)]
+  ].filter(Boolean);
+
+  document.getElementById("doc").innerHTML = `
+    <button class="close" data-close aria-label="Kapat">✕</button>
+    <span class="tag">${esc(CAT[s.category]||"")}</span>
+    <h2>${esc(s.title)}</h2>
+    <div class="facts">${facts.map(([k,v])=>
+      `<span class="fact">${esc(k)} <b>${esc(v)}</b></span>`).join("")}</div>
+    <div class="body">${String(s.detail||s.excerpt).split(/\n\n+/)
+      .map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    <div class="why ${s.neden_onemli?"on":""}">
+      <span>Editoryal değerlendirme</span>${esc(s.neden_onemli||"")}
+    </div>
+    <div class="sources">
+      <h4>Kaynaklar</h4>
+      <a href="${esc(s.source?.url)}" target="_blank" rel="noopener">
+        <span class="p">● BİRİNCİL</span> ${esc(s.source?.name||host(s.source?.url))} ↗</a>
+      ${(s.supporting_sources||[]).map(k=>`
+        <a href="${esc(k.url)}" target="_blank" rel="noopener">
+          ${esc(k.name||host(k.url))} ↗</a>`).join("")}
+    </div>`;
+  document.getElementById("sheet").classList.add("on");
+  document.body.style.overflow="hidden";
+  history.replaceState(null,"","#/haber/"+slug);
+  document.getElementById("doc").scrollTop = 0;
+}
+
+function kapat(){
+  document.getElementById("sheet").classList.remove("on");
+  document.body.style.overflow="";
+  history.replaceState(null,"",location.pathname);
+}
+document.addEventListener("click",e=>{ if(e.target.closest("[data-close]")) kapat(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") kapat(); });
+</script>
+</body>
+</html>
