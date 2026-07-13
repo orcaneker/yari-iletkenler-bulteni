@@ -302,38 +302,83 @@ def on_eleme(adaylar, state):
 # ============================================================
 # 4-5) LLM ÇAĞRILARI
 # ============================================================
-def claude(model, sistem, kullanici, max_tokens):
-    """temperature BİLEREK gönderilmiyor — model uyumsuzluk sorunu."""
+def claude(model, sistem, kullanici, max_tokens, stream=False):
+    """Claude API çağrısı.
+
+    stream=True → token'lar akarak gelir. UZUN çıktılarda ZORUNLU:
+    akışsız istekte bağlantı 300 sn'de zaman aşımına uğrayıp ölüyor
+    (Read timed out). Bülten yazımı 5 dakikadan uzun sürebiliyor.
+
+    temperature BİLEREK gönderilmiyor — model uyumsuzluk sorunu.
+    """
     body = {
         "model": model,
         "max_tokens": max_tokens,
         "system": sistem,
         "messages": [{"role": "user", "content": kullanici}],
     }
+    if stream:
+        body["stream"] = True
+
+    basliklar = {
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
+        "Content-Type": "application/json",
+    }
+
     for deneme in range(4):
         try:
-            r = requests.post(
-                ANTHROPIC_URL,
-                headers={
-                    "x-api-key": ANTHROPIC_API_KEY,
-                    "anthropic-version": "2023-06-01",
-                    "Content-Type": "application/json",
-                },
-                json=body, timeout=300,
-            )
-            if r.status_code == 200:
-                return "".join(
-                    b.get("text", "") for b in r.json().get("content", [])
-                    if b.get("type") == "text"
-                )
-            log(f"  Claude {r.status_code}: {r.text[:200]}")
-            if r.status_code in (429, 529, 500, 502, 503):
-                time.sleep(15 * (deneme + 1))
-                continue
-            break
+            if not stream:
+                r = requests.post(ANTHROPIC_URL, headers=basliklar, json=body, timeout=300)
+                if r.status_code == 200:
+                    return "".join(
+                        b.get("text", "") for b in r.json().get("content", [])
+                        if b.get("type") == "text"
+                    )
+                log(f"  Claude {r.status_code}: {r.text[:200]}")
+                if r.status_code in (429, 529, 500, 502, 503):
+                    time.sleep(15 * (deneme + 1))
+                    continue
+                break
+
+            # ── STREAMING ──
+            parcalar = []
+            with requests.post(ANTHROPIC_URL, headers=basliklar, json=body,
+                               stream=True, timeout=(30, 120)) as r:
+                if r.status_code != 200:
+                    log(f"  Claude {r.status_code}: {r.text[:200]}")
+                    if r.status_code in (429, 529, 500, 502, 503):
+                        time.sleep(15 * (deneme + 1))
+                        continue
+                    break
+
+                for satir in r.iter_lines(decode_unicode=True):
+                    if not satir or not satir.startswith("data: "):
+                        continue
+                    veri = satir[6:]
+                    if veri.strip() == "[DONE]":
+                        break
+                    try:
+                        olay = json.loads(veri)
+                    except Exception:
+                        continue
+                    tip = olay.get("type")
+                    if tip == "content_block_delta":
+                        d = olay.get("delta", {})
+                        if d.get("type") == "text_delta":
+                            parcalar.append(d.get("text", ""))
+                    elif tip == "error":
+                        raise RuntimeError(olay.get("error", {}).get("message", "stream hatası"))
+
+            if parcalar:
+                log(f"  Stream tamam — {sum(len(p) for p in parcalar)} karakter")
+                return "".join(parcalar)
+            log("  Stream boş döndü")
+
         except Exception as e:
             log(f"  Claude hata ({deneme+1}/4): {e}")
             time.sleep(10 * (deneme + 1))
+
     raise RuntimeError("Claude API başarısız")
 
 
@@ -422,6 +467,7 @@ def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere):
         AYARLAR["model_yazim"], prompts.YAZIM_PROMPT,
         prompts.yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, bas, bit, pencere),
         AYARLAR["max_tokens_yazim"],
+        stream=True,     # ← uzun çıktı: zaman aşımını önler
     )
     return json_ayikla(cikti)
 
