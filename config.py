@@ -101,8 +101,11 @@ KAYNAK_TIER1 = [
     "onsemi.com", "vishay.com", "microchip.com", "analog.com",
 ]
 
+# ⚠ reuters.com ve bloomberg.com Exa'nın includeDomains filtresinde KABUL EDİLMİYOR
+# (lisans kısıtı, 403 döner). Listeye EKLEME. Bu kaynaklar zaten domain filtresi
+# olmayan aramalarda ve diğer sitelerin alıntılarında dolaylı olarak yakalanıyor.
 KAYNAK_TIER2 = [
-    "reuters.com", "bloomberg.com", "ft.com", "asia.nikkei.com",
+    "ft.com", "asia.nikkei.com", "cnbc.com", "wsj.com",
     "eetimes.com", "eetimes.eu", "semiengineering.com", "digitimes.com",
     "trendforce.com", "techinsights.com", "theregister.com",
     "yolegroup.com", "semianalysis.com", "electronicsweekly.com",
