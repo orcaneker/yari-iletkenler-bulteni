@@ -38,7 +38,7 @@ AYARLAR = {
     "exa_tip": "auto",
 
     # Site
-    "site_url": "https://yariiletken-bulteni.pages.dev",  # deploy sonrası güncelle
+    "site_url": "https://orcaneker.github.io/yari-iletkenler-bulteni",  # deploy sonrası güncelle
     "cikti_dizini": "dist",
 }
 
