@@ -1,0 +1,86 @@
+{
+  "issue_no": 1,
+  "events": [
+    {
+      "baslik_ozet": "SK Hynix, Nasdaq'ta 26,5 Milyar Dolarlık Rekor Halka Arzı Tamamladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Türkiye HIT-30 Kapsamında 5 Milyar Dolarlık Savunma Teknolojileri Çağrısını Başlattı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Micron ABD Yatırım Taahhüdünü 250 Milyar Dolara Yükseltti, New York Fabrikasında İnşaat Başladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Micron, Hiroşima'da 9,3 Milyar Dolarlık Fab Genişletme İnşaatına Başladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Infineon, Dresden'deki 5 Milyar Euro'luk Smart Power Fab'ı Planlanandan Önce Açtı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Çin, Yarı İletken Üretimi İçin Kritik Helyum İhracatını Geçici Olarak Durdurdu",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Apple, Broadcom ile 30 Milyar Dolarlık ABD Yapımı Çip Anlaşması İmzaladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "SK Hynix, Nvidia'ya 12 Katmanlı HBM4 Seri Üretim Sevkiyatına Başladığı Bildirildi",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "TSMC, ASML ve imec Tayvan'da 2D Malzeme Çip Üretimini Beş Yıl İçinde Hedefliyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "TSMC, Chiayi Bilim Parkı'na İki Yeni İleri Paketleme Tesisi Ekliyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Meta, TSMC 3nm Sürecinde Iris (MTIA v3) AI Çipini Eylül 2026'da Üretime Alıyor",
+      "hafta": "2026-W29"
+    }
+  ],
+  "urls": [
+    "https://asia.nikkei.com/business/markets/ipo/sk-hynix-south-korean-memory-chip-titan-raises-26.5bn-in-the-us",
+    "https://aa.com.tr/tr/ekonomi/bakan-kacir-hit-30-programi-yenilikci-savunma-teknolojileri-cagrisinin-detaylarini-aaya-degerlendirdi/3988720",
+    "https://trendforce.com/news/2026/07/10/news-micron-raises-u-s-investment-target-to-250b-through-2035-begins-concrete-work-on-new-yorks-first-fab",
+    "https://electronicsweekly.com/news/business/micron-breaks-ground-on-9bn-hiroshima-fab-2026-07",
+    "https://evertiq.com/design/2026-07-02-infineon-opens-5-billion-smart-power-fab-in-dresden",
+    "https://asia.nikkei.com/economy/trade-war/china-blocks-exports-of-helium-key-for-chipmaking-as-war-squeezes-supply",
+    "https://evertiq.com/news/2026-07-09-apple-to-spend-30-billion-on-us-made-chips-from-broadcom",
+    "https://digitimes.com/news/a20260713VL219/sk-hynix-hbm4-nvidia-shipments-samsung.html",
+    "https://apps.digitimes.com/news/a20260708PD233/asml-tsmc-taiwan-production-materials.html",
+    "https://dunya.com/is-dunyasi/tsmc-93-milyar-dolara-iki-yeni-tesis-kuruyor-haberi-832003",
+    "https://electronicsweekly.com/news/business/meta-2026-07",
+    "https://digitimes.com/news/a20260706VL210/hbm4-sk-hynix-samsung-demand-market.html",
+    "https://tomshardware.com/pc-components/dram/sk-hynix-says-2027-will-be-the-worst-year-for-memory-shortage-forecasts-crunch-to-last-until-2030-ceo-shares-grim-outlook-on-the-day-sk-hynix-gets-listed-on-nasdaq",
+    "https://digitimes.com/news/a20260713VL209/huawei-dram-fab-12-inch-manufacturing.html",
+    "https://digitimes.com/news/a20260703VL215/samsung-sk-group-amkor-government-investment.html",
+    "https://digitimes.com/news/a20260706VL208/manufacturing-government-region-robotics-data.html",
+    "https://tomshardware.com/tech-industry/power-and-water-lag-the-fabs-in-south-koreas-880-billion-chip-and-ai-plan",
+    "https://digitimes.com/news/a20260713VL208/samsung-water-fab-infrastructure-government.html",
+    "https://digitimes.com/news/a20260713VL218/intel-apple-chips-tsmc-government.html",
+    "https://evertiq.com/news/2026-07-10-sandboxaq-wins-500m-award-to-accelerate-ai-led-materials-discovery",
+    "https://digitimes.com/news/a20260713VL202/2030-manufacturing-fab-chips-act-labor.html",
+    "https://digitimes.com/news/a20260710PD206/globalwafers-micron-semiconductors-localization-capacity-equipment.html",
+    "https://trendforce.com/news/2026/07/09/news-china-reportedly-to-allow-nvidia-h200-imports-but-approvals-may-be-capped-below-200k-chips-less-than-half-requested",
+    "https://tomshardware.com/tech-industry/while-the-u-s-flip-flops-on-chip-sanctions-china-is-building-its-own-chip-supply-market-export-controls-are-creating-conditions-for-a-sino-russian-chip-trade-alliance",
+    "https://digitimes.com/news/a20260708PD248/netherlands-asml-nexperia-dutch-beijing.html",
+    "https://digitimes.com/news/a20260713PD204/tsmc-infineon-fab-demand-europe.html",
+    "https://digitimes.com/news/a20260703VL217/europe-semiconductors-industrial-2025-electronics.html",
+    "https://digitimes.com/news/a20260707PD212/samsung-sk-hynix-ic-manufacturing-equipment-china.html",
+    "https://digitimes.com/news/a20260710VL208/huawei-china-mobile-baidu-technology-optics.html",
+    "https://digitimes.com/news/a20260713PD220/intel-1.4nm-tsmc-samsung-technology.html",
+    "https://digitimes.com/news/a20260713PD203/nvidia-power-components-design-data-center-rubin.html",
+    "https://aa.com.tr/tr/bilim-teknoloji/aselsan-ilk-yerli-super-iletken-kuantum-islemci-birimini-gelistirecek/3977564",
+    "https://uzay.tubitak.gov.tr/en/imece-2-ve-imece-3-uydulari-nato-gundeminde-turkiyenin-takim-uydu-kapasitesi-gucleniyor",
+    "https://aa.com.tr/en/turkiye/turkish-defense-giant-aselsan-expects-higher-nato-linked-exports-after-rising-european-interest/3989292",
+    "https://aa.com.tr/tr/bilim-teknoloji/turk-savunma-sanayisinde-kuantum-donemi/3976753"
+  ]
+}
