@@ -480,6 +480,9 @@ def insa_et(bulten, state, sayilar):
     with open(f"{OUT}/feed.xml", "w", encoding="utf-8") as f:
         f.write(rss_uret(sayilar, bulten))
 
+    # GitHub Pages'in Jekyll işlemesini kapat (yoksa bazı dosyalar yok sayılır)
+    open(f"{OUT}/.nojekyll", "w").close()
+
     # Statik site dosyaları
     for dosya in ("index.html", "arsiv.html"):
         if os.path.exists(f"site/{dosya}"):
@@ -549,7 +552,7 @@ def deploy(sayi_no):
         if r.returncode != 0:
             raise RuntimeError(f"clone: {r.stderr[:200]}")
 
-        hedef = os.path.join(tmp, "dist")
+        hedef = os.path.join(tmp, OUT)
         shutil.rmtree(hedef, ignore_errors=True)
         shutil.copytree(OUT, hedef)
 
