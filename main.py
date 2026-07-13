@@ -60,6 +60,7 @@ OUT = AYARLAR["cikti_dizini"]
 SITE_URL = AYARLAR["site_url"].rstrip("/")
 
 LOG = []
+YASAKLI_DOMAINLER = set()   # Exa'nın lisans nedeniyle reddettiği alan adları
 
 
 def log(msg):
@@ -166,7 +167,8 @@ def domain_listesi(setler):
     out = []
     for s in setler:
         out += m.get(s, [])
-    return list(dict.fromkeys(out))
+    out = [d for d in dict.fromkeys(out) if d not in YASAKLI_DOMAINLER]
+    return out
 
 
 def exa_ara(sorgu, dom_dahil, bas_tarih, bit_tarih, sonuc, konum=None):
@@ -197,6 +199,20 @@ def exa_ara(sorgu, dom_dahil, bas_tarih, bit_tarih, sonuc, konum=None):
             )
             if r.status_code == 200:
                 return r.json().get("results", [])
+
+            # 403 "domains are not available" → Exa bazı alan adlarını lisans
+            # nedeniyle filtrede kabul etmiyor (ör. reuters.com, bloomberg.com).
+            # Bunları ayıkla ve aynı sorguyu tekrar dene. Kendini onarma.
+            if r.status_code == 403 and "not available" in r.text:
+                yasakli = re.findall(r"([a-z0-9.-]+\.[a-z]{2,})", r.text.split("not available:")[-1])
+                yeni = [d for d in payload.get("includeDomains", []) if d not in yasakli]
+                if yasakli and yeni != payload.get("includeDomains"):
+                    for d in yasakli:
+                        YASAKLI_DOMAINLER.add(d)
+                    payload["includeDomains"] = yeni
+                    log(f"  Exa yasaklı alan adı ayıklandı: {', '.join(yasakli)}")
+                    continue
+
             log(f"  Exa {r.status_code}: {r.text[:160]}")
         except Exception as e:
             log(f"  Exa hata ({deneme+1}/3): {e}")
@@ -598,6 +614,8 @@ Olay oluşturuldu   : {rapor['events_created']}
 LLM reddetti       : {rapor['llm_rejected']}
 Yayımlanan (öne çıkan): {rapor['published']}
 Radar maddesi      : {rapor['radar_items']}
+
+Exa'nın reddettiği alan adları: {', '.join(sorted(YASAKLI_DOMAINLER)) or '(yok)'}
 
 Başarısız sorgular : {len(rapor['failed_queries'])}
 {chr(10).join('  - ' + q for q in rapor['failed_queries']) or '  (yok)'}
