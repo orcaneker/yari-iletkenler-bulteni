@@ -1,46 +1,52 @@
 {
   "issue": {
-    "number": 2,
+    "number": 3,
     "hafta": "2026-W29",
-    "publication_date": "2026-07-13",
-    "coverage_start": "2026-07-06",
-    "coverage_end": "2026-07-13",
+    "publication_date": "2026-07-14",
+    "coverage_start": "2026-07-07",
+    "coverage_end": "2026-07-14",
     "window_days": 7,
-    "audio": null
+    "audio": {
+      "url": "assets/audio/2026-W29.mp3",
+      "duration_sec": 52,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "chars": 649,
+      "generated_at": "2026-07-14"
+    }
   },
   "brief": [
     {
-      "text": "Türkiye, HIT-30 kapsamında 5 milyar dolarlık Yenilikçi Savunma Teknolojileri çağrısını NATO Zirvesi'yle eş zamanlı başlattı.",
-      "slug": "turkiye-hit-30-kapsaminda-5-milyar-dolarlik-savunma-teknolojileri-cagr"
+      "text": "Türkiye, HIT-30 kapsamında 5 milyar dolarlık Yenilikçi Savunma Teknolojileri çağrısını NATO Zirvesi'nde başlattı.",
+      "slug": "turkiye-hit-30-kapsaminda-5-milyar-dolarlik-savunma-teknolojileri-yati"
     },
     {
-      "text": "SK Hynix, Nasdaq'ta 26,5 milyar dolarlık halka arzla yabancı şirketler arasındaki ABD borsası rekorunu kırdı.",
-      "slug": "sk-hynix-26-5-milyar-dolarlik-nasdaq-halka-arziyla-yabanci-sirket-reko"
+      "text": "SK Hynix, ABD Nasdaq'ta yabancı şirket tarihinin en büyük hisse satışıyla 26,5 milyar dolar topladı.",
+      "slug": "sk-hynix-abd-nasdaq-ta-26-5-milyar-dolar-toplayarak-yabanci-sirket-ipo"
     },
     {
-      "text": "Meta'nın Iris AI hızlandırıcısı Eylül 2026'da TSMC'de üretime geçiyor; MTIA yol haritası her altı ayda bir yeni nesil hedefliyor.",
-      "slug": "meta-nin-iris-ai-hizlandiricisi-eylul-2026-da-tsmc-de-uretime-geciyor"
+      "text": "Samsung, Tesla AI5 çipinin 2nm teyp-çıkışını tamamladı; Taylor fab 2027'de üretime hazırlanıyor.",
+      "slug": "samsung-tesla-ai5-cipinin-2nm-teyp-cikisini-tamamladi-taylor-fab-2027-"
     },
     {
-      "text": "Çin, yarı iletken üretiminde ikamesi bulunmayan helyumu geçici ihracat yasağına tabi tuttu; küresel tedarik riski yükseliyor.",
-      "slug": "cin-helyum-ihracatini-gecici-olarak-yasakladi-kuresel-yari-iletken-ted"
+      "text": "SK Hynix, Dalian Plant 2 genişlemesini yeniden başlatıyor; V8 NAND hattında aylık 30-50 bin wafer hedefleniyor.",
+      "slug": "sk-hynix-dalian-tesis-2-de-v8-nand-hattiyla-genislemeyi-yeniden-baslat"
     },
     {
-      "text": "HAVELSAN'ın ADVENT Savaş Yönetim Sistemi Romanya'ya ihraç edilerek NATO envanterine ilk kez girdi.",
-      "slug": "havelsan-in-advent-savas-yonetim-sistemi-romanya-ile-ilk-nato-ihracati"
+      "text": "Erdoğan, imalat sanayine 1 trilyon liralık uygun koşullu kredi ve YTAK bütçesini 750 milyar liraya çıkardı.",
+      "slug": "turkiye-imalat-sanayine-1-trilyon-liralik-kredi-paketi-acikladi-ytak-b"
     }
   ],
   "metrics": {
-    "aciklanan_yatirim_usd_milyon": 617400,
-    "fab_proje_sayisi": 5,
-    "politika_gelismesi": 1,
-    "kapsanan_ulke": 8
+    "aciklanan_yatirim_usd_milyon": 48220,
+    "fab_proje_sayisi": 8,
+    "politika_gelismesi": null,
+    "kapsanan_ulke": 7
   },
   "lead": {
     "id": "event_001",
-    "title": "Türkiye HIT-30 Kapsamında 5 Milyar Dolarlık Savunma Teknolojileri Çağrısını Başlattı",
-    "excerpt": "Sanayi ve Teknoloji Bakanlığı, HIT-30 Yüksek Teknoloji Yatırım Programı kapsamında 5 milyar dolarlık destek bütçesiyle 'Yenilikçi Savunma Teknolojileri' çağrısını 7 Temmuz 2026'da başlattı. Çağrı, yüzde 60'a varan vergi teşviki, yüzde 20'ye kadar hibe ve yatırım tutarının yüzde 70'ine kadar uygun finansman içeriyor. Minimum yatırım eşiği 2 milyar Türk lirası olarak belirlendi.",
-    "detail": "Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır, 7 Temmuz 2026'da Ankara'da 36. NATO Devlet ve Hükümet Başkanları Zirvesi kapsamında düzenlenen Savunma Sanayii Forumu'nda Yenilikçi Savunma Teknolojileri çağrısını duyurdu. Çağrı, 2030 yılına kadar 30 milyar dolarlık devlet desteğini öngören HIT-30 Yüksek Teknoloji Yatırım Programı'nın savunma teknolojilerine odaklanan yeni halkasını oluşturuyor. Tahsis edilen destek bütçesi 5 milyar dolar olarak açıklandı.\n\nDestek paketi birden fazla bileşenden oluşuyor: yatırım tutarının yüzde 60'ına kadar vergi teşviki, yüzde 20'sine kadar hibe desteği, kamu alım ve istihdam desteği, kamu test ve doğrulama altyapısına erişim, yatırım yeri tahsisi ile yatırım tutarının yüzde 70'ine kadar uygun finansman. Başvurabilecek projelerde minimum yatırım eşiği 2 milyar Türk lirası olarak belirlendi. Mevzuatın izin verdiği ölçüde kamu alım garantisi de uygulanacak.\n\nKacır, programın büyük ölçekli seri üretime geçişi hızlandırmayı ve yenilikçi şirketlerin üretim kapasitesini artırmayı hedeflediğini belirtti. Mevcut savunma sanayii ekosisteminin 4.000 firmaya ve 100.000 nitelikli çalışana ulaştığını aktaran Kacır, çağrıyla binlerce yeni KOBİ'nin sektöre dahil olmasının ve mevcut teknoloji girişimlerinin ölçeklenmesinin amaçlandığını ifade etti. 114 teknoparkta faaliyet gösteren 13.000'den fazla teknoloji girişiminin savunma projelerine yönlendirilmesi de program hedefleri arasında sayıldı.\n\nHIT-30 çerçevesinde daha önce yeni nesil mobilite, yarı iletken, yapay zeka ve veri merkezleri alanlarında çağrılar yapılmıştı; toplam tutarı 4,4 milyar dolara ulaşan söz konusu dört paketin geçen yılın son çeyreğinde duyurulduğu bildirildi. Savunma teknolojileri çağrısı, NATO Zirvesi'nin hemen öncesinde ve Türkiye'nin NATO içi savunma sanayii işbirliğini ön plana çıkardığı bir dönemde açıklandı. Bakanlık, çağrının uluslararası yatırımcıları da Türkiye'ye yönlendirmesini beklediğini açıkladı; arazi tahsisinden diğer teşvik mekanizmalarına kadar uzanan fırsatların sunulacağı belirtildi.",
+    "title": "Türkiye HIT-30 kapsamında 5 milyar dolarlık savunma teknolojileri yatırım çağrısı başlattı",
+    "excerpt": "Sanayi ve Teknoloji Bakanlığı, HIT-30 Yüksek Teknoloji Yatırım Programı çerçevesinde 5 milyar dolarlık 'Yenilikçi Savunma Teknolojileri' çağrısını 7-8 Temmuz 2026'da Ankara'da gerçekleştirilen 36. NATO Devlet ve Hükümet Başkanları Zirvesi kapsamındaki Savunma Sanayii Forumu'nda duyurdu. Program, yatırımcılara yüzde 60'a varan vergi teşviki ve yatırım tutarının yüzde 70'ine kadar uygun finansman sunuyor. En düşük proje yatırım tutarı 2 milyar lira olarak belirlendi.",
+    "detail": "Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır, 7-8 Temmuz 2026 tarihlerinde Ankara'da düzenlenen 36. NATO Zirvesi bünyesindeki Savunma Sanayii Forumu'nda HIT-30 programının yeni bileşenini kamuoyuyla paylaştı. 'Yenilikçi Savunma Teknolojileri' başlıklı bu çağrı, savunma teknolojilerinin büyük ölçekli üretimine yönelik yatırımların hızlandırılmasını hedefliyor. Destek bütçesi 5 milyar dolar olarak açıklandı; bu tutar, Cumhurbaşkanı Erdoğan'ın daha önce ilan ettiği ve 2030'a kadar 30 milyar dolar devlet desteği öngören HIT-30 programının bir bileşenidir.\n\nÇağrı kapsamında yatırımcılara sunulacak teşvik paketi çok katmanlı bir yapıya sahip: yatırım tutarının yüzde 60'ına kadar vergi desteği, yüzde 20'ye kadar hibe desteği, yatırım tutarının yüzde 70'ine kadar uygun koşullu finansman, mevzuatın izin verdiği ölçüde kamu alım garantisi, kamu test ve doğrulama altyapısına erişim, yatırım yeri tahsisi ile büyük ölçekli yatırımlara yönelik istihdam desteği. Başvuru yapabilecek projelerde asgari yatırım tutarı 2 milyar lira olarak belirlendi.\n\nHIT-30, yarı iletken ve yapay zeka ile veri merkezi çağrılarına ek olarak şimdi savunma teknolojilerini de kapsıyor. Bakan Kacır, daha önce yeni nesil mobilite, yarı iletken ve yapay zeka alanlarında çağrı başlatıldığını; savunma teknolojilerinin bu sıradaki odak noktası olduğunu kaydetti. Destekleyici kaynak olan ekonomim.com'un haberine göre geçen yılın son çeyreğinde veri merkezleri dahil toplam tutarı 4,4 milyar dolara ulaşan 4 yeni destek paketi için çağrıya çıkılmıştı.\n\nTürkiye savunma sanayisinin mevcut profili Bakanlık verilerine göre şu şekilde özetlendi: sektörde 4 bin firmaya ulaşılmış, 100 bin nitelikli istihdama erişilmiştir. Program aracılığıyla binlerce yeni KOBİ ve üretici firmanın sektöre dahil edilmesi, inovatif projelerin geliştirilmesi ve ölçeklendirme süreçlerinin hızlandırılması hedeflenmektedir. Çağrının NATO Zirvesi ile eş zamanlı açıklanması, destekleyici kaynaklarda özellikle vurgulanan bir ayrıntı olarak öne çıktı.",
     "neden_onemli": null,
     "category": "turkiye",
     "subcategories": [
@@ -57,7 +63,9 @@
       "Turkey"
     ],
     "technologies": [
-      "savunma elektroniği"
+      "savunma elektroniği",
+      "radar",
+      "hava savunma"
     ],
     "technology_nodes": [],
     "investment": {
@@ -69,17 +77,13 @@
     "published_date": "2026-07-07",
     "event_date": "2026-07-07",
     "source": {
-      "name": "Anadolu Ajansı",
-      "url": "https://aa.com.tr/en/economy/turkiyes-hit-30-defense-tech-call-expected-to-attract-international-investment-says-industry-minister/3988789",
+      "name": "DonanımHaber",
+      "url": "https://donanimhaber.com/turkiye-den-savunma-teknolojilerine-5-milyar-dolarlik-destek--207792",
       "type": "news_agency",
-      "tier": 1,
+      "tier": 2,
       "primary": true
     },
     "supporting_sources": [
-      {
-        "name": "DonanımHaber",
-        "url": "https://donanimhaber.com/turkiye-den-savunma-teknolojilerine-5-milyar-dolarlik-destek--207792"
-      },
       {
         "name": "Ekonomim",
         "url": "https://ekonomim.com/ekonomi/nato-oncesi-5-milyar-dolarlik-savunma-teknolojisi-yatirimi-icin-cagriya-cikildi-haberi-904977"
@@ -91,46 +95,208 @@
       "type": null
     },
     "score": 10,
-    "slug": "turkiye-hit-30-kapsaminda-5-milyar-dolarlik-savunma-teknolojileri-cagr"
+    "slug": "turkiye-hit-30-kapsaminda-5-milyar-dolarlik-savunma-teknolojileri-yati"
   },
   "stories": [
     {
       "id": "event_002",
-      "title": "Micron ABD Yatırım Taahhüdünü 250 Milyar Dolara Yükseltti, New York Fab İnşaatı Takvimin Önünde",
-      "excerpt": "Micron Technology, 2035 yılına kadar ABD'deki fab ve teknoloji yatırımları için planlanan toplam tutarı 250 milyar doların üzerine taşıdı. Şirket, artışın AI'nın tetiklediği bellek talebindeki hızlı yükselişe dayandığını açıkladı. New York fabrikasının inşaatının belirlenen takvimin önünde ilerlediği bildirildi.",
-      "detail": "Micron Technology, 9 Temmuz 2026'da ABD'deki fab ve teknoloji yatırımı taahhüdünü 2035 yılına kadar 250 milyar doların üzerine çıkardığını duyurdu. Şirket bu artışı, yapay zekanın sürüklediği bellek talebindeki güçlü yükseliş gerekçesiyle açıkladı. Açıklanan uzun vadeli hedef, Micron'un üretiminin yüzde 40'ını ABD'de gerçekleştirme stratejisini desteklemeye yönelik olarak konumlandırıldı.\n\nNew York fabrikasının inşaatı, duyurulan takvimin önünde ilerlediği belirtildi; ancak birincil kaynak ödeme duvarı arkasında olduğundan inşaat aşamasına ilişkin ek ayrıntılar doğrulanamadı. Tom's Hardware'in haberine göre Micron aynı dönemde, ABD'nin 300 mm çaplı (wafer) wafer üretimi gerçekleştiren tek tesisi konumundaki fabrikada 500 milyon dolarlık stratejik bir pozisyon aldı; bu adım, ABD yarı iletken yerelleştirme politikasının somut bir parçası olarak değerlendiriliyor.\n\nTakvim ayrıntıları ve bireysel proje kapsamları birincil kaynakta tam olarak yer almadığından ek kapasite ve istihdam rakamları bu bültende aktarılamamaktadır.",
+      "title": "Türkiye imalat sanayine 1 trilyon liralık kredi paketi açıkladı, YTAK bütçesi 750 milyar liraya çıktı",
+      "excerpt": "Cumhurbaşkanı Erdoğan, 13 Temmuz 2026'da Kabine Toplantısı'nın ardından Yatırım Taahhütlü Avans Kredi Programı (YTAK) bütçesinin 750 milyar liraya çıkarıldığını, imalat sanayine yönelik 250 milyar liralık ek krediyle birlikte toplam 1 trilyon liralık uygun koşullu kredi imkânı sağlandığını açıkladı. Paket, Türkiye'nin NATO Zirvesi ev sahipliğinin hemen ardından ilan edildi.",
+      "detail": "Cumhurbaşkanı Recep Tayyip Erdoğan, 13 Temmuz 2026 tarihinde Kabine Toplantısı'nın ardından düzenlenen basın toplantısında imalat sanayine yönelik kapsamlı bir finansman paketini duyurdu. Buna göre Yatırım Taahhütlü Avans Kredi Programı'nın (YTAK) bütçesi 750 milyar liraya yükseltildi. Buna ek olarak imalat sanayine özel 250 milyar liralık yeni bir kredi paketi devreye alındı. İki bileşenin toplamı, Erdoğan'ın ifadesiyle 1 trilyon liralık uygun koşullu kredi imkânına karşılık gelmektedir. Takvim veya vade bilgisi kamuoyu açıklamasında paylaşılmadı.\n\nAçıklama, 36. NATO Devlet ve Hükümet Başkanları Zirvesi'nin sona ermesinin hemen ardından yapıldı. Erdoğan, Zirvede savunma sanayii işbirliğinin önündeki kısıtlamaların kaldırılması gerektiğini vurguladıklarını belirtti. Bu çerçevede NATO bağlamındaki savunma sanayii gündeminin iç kredi paketi ile eş zamanlı ilerlediği görülmektedir. İş dünyası temsilcilerinin değerlendirmeleri Anadolu Ajansı tarafından ayrıca aktarıldı; temsilciler YTAK bütçe artışını ve imalat sanayine yönelik ek krediyi olumlu karşıladıklarını bildirdi.\n\nYATAK programı kapsamında sunulan kredinin koşullarına ilişkin ayrıntılar (faiz oranı, vade, sektörel dağılım) kamuoyuyla paylaşılmadı. Duyurunun yatırım taahhüdü gerektiren bir avans kredi modeline dayandığı, yani kredi kullanımının somut yatırım taahhütlerine bağlandığı program adından anlaşılmaktadır.",
+      "neden_onemli": null,
+      "category": "turkiye",
+      "subcategories": [
+        "YTAK",
+        "imalat sanayii",
+        "kredi programı"
+      ],
+      "value_chain": [
+        "uygulama"
+      ],
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "Turkey"
+      ],
+      "technologies": [],
+      "technology_nodes": [],
+      "investment": {
+        "amount_original": 1000000000000,
+        "currency": "TRY",
+        "amount_usd_million": null,
+        "public_support_usd_million": null
+      },
+      "published_date": "2026-07-13",
+      "event_date": "2026-07-13",
+      "source": {
+        "name": "Bloomberg HT",
+        "url": "https://bloomberght.com/erdogan-imalat-sanayine-1-trilyon-liralik-kredinin-onunu-aciyoruz-3782750",
+        "type": "news_agency",
+        "tier": 1,
+        "primary": true
+      },
+      "supporting_sources": [
+        {
+          "name": "Anadolu Ajansı",
+          "url": "https://aa.com.tr/tr/ekonomi/is-dunyasi-temsilcileri-yatirim-taahhutlu-avans-kredisi-programinin-butcesinin-artirilmasini-degerlendirdi/3996939"
+        }
+      ],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 9,
+      "slug": "turkiye-imalat-sanayine-1-trilyon-liralik-kredi-paketi-acikladi-ytak-b"
+    },
+    {
+      "id": "event_003",
+      "title": "SK Hynix, ABD Nasdaq'ta 26,5 milyar dolar toplayarak yabancı şirket IPO rekoru kırdı",
+      "excerpt": "SK Hynix, 10 Temmuz 2026'da ABD Nasdaq borsasındaki halka arzda hisse başına 149 dolar fiyatla 26,5 milyar dolar topladı; bu rakam ABD'de gerçekleştirilen yabancı şirket hisse satışının tarihsel rekoru olarak kayıtlara geçti. Şirket, toplanan sermayeyi üretim tesislerinin inşası ve çip üretim ekipmanı alımı için kullanmayı planlıyor.",
+      "detail": "SK Hynix, 10 Temmuz 2026 tarihinde gerçekleştirdiği Nasdaq halka arzında hisse başına 149 dolar fiyatlandırmayla toplamda 26,5 milyar dolar sermaye topladı. Nikkei Asia'nın haberine göre bu rakam, ABD'de gerçekleştirilen en büyük yabancı şirket hisse satışı olma özelliği taşıyor. Arzın yoğun yapay zeka yatırımcı talebiyle karşılandığı ve hisselerin işlem gününde yükseliş kaydettiği bildirildi.\n\nŞirket, halka arzdan elde edilen gelirin üretim tesislerinin inşasına ve çip üretim ekipmanı alımına yönlendirileceğini açıkladı. Söz konusu açıklama, yüksek bant genişlikli bellek (HBM) üretim kapasitesinin büyük ölçekli genişletilmesi hedefiyle örtüşüyor. SK Hynix, ayrı bir gelişmede Güney Kore'de yaklaşık 50 milyar dolarlık yeni NAND flash tesisi yatırımı duyurmuş durumda; bu çerçevede Nasdaq arzı, çok boyutlu bir kapasite genişleme stratejisinin finansman ayağı olarak değerlendiriliyor.\n\nHalka arza ilişkin spesifik finansal yapı ayrıntıları (hisse adedi, satış oranı, serbest dolaşıma alınan pay yüzdesi) elde bulunan birincil kaynakta yer almadı. Destekleyici Nikkei Asia kaynağı, arzın AI hisse senetlerine yönelik yatırımcı talebini yansıttığını ve fiyatlandırmanın başlangıç bant aralığının üst sınırında belirlendiğini bildirdi.",
       "neden_onemli": null,
       "category": "yatirim",
       "subcategories": [
-        "ABD yerli üretim",
-        "CHIPS Act"
+        "halka arz",
+        "HBM",
+        "bellek"
       ],
       "value_chain": [
         "wafer-uretim"
       ],
-      "maturity": "construction",
+      "maturity": "funded",
       "companies": [
-        "Micron"
+        "SK Hynix"
       ],
       "countries": [
-        "USA"
+        "South Korea",
+        "United States"
       ],
       "technologies": [
-        "DRAM",
-        "bellek"
+        "HBM",
+        "NAND flash"
       ],
       "technology_nodes": [],
       "investment": {
-        "amount_original": 250000,
+        "amount_original": 26500,
         "currency": "USD",
-        "amount_usd_million": 250000,
+        "amount_usd_million": 26500,
         "public_support_usd_million": null
       },
-      "published_date": "2026-07-09",
-      "event_date": "2026-07-09",
+      "published_date": "2026-07-10",
+      "event_date": "2026-07-10",
       "source": {
-        "name": "Digitimes",
-        "url": "https://digitimes.com/news/a20260709VL228/micron-fab-investment-demand-technology.html",
+        "name": "Tom's Hardware",
+        "url": "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-raises-a-record-usd26-5-billion-in-historic-u-s-ipo-south-korean-memory-giant-to-fund-massive-hbm-manufacturing-expansions",
+        "type": "trade_press",
+        "tier": 2,
+        "primary": true
+      },
+      "supporting_sources": [
+        {
+          "name": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/business/markets/sk-hynix-rallies-in-biggest-ever-foreign-share-sale-in-us"
+        }
+      ],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 9,
+      "slug": "sk-hynix-abd-nasdaq-ta-26-5-milyar-dolar-toplayarak-yabanci-sirket-ipo"
+    },
+    {
+      "id": "event_004",
+      "title": "ABD Ticaret Bakanlığı Bosch'a SiC üretimi için 225 milyon dolarlık CHIPS hibesi verdi",
+      "excerpt": "ABD Ticaret Bakanlığı CHIPS Program Ofisi, 13 Temmuz 2026'da Bosch ile 225 milyon dolara kadar teşvik içeren Doğrudan Finansman Anlaşması imzaladı. Anlaşma, Bosch'un Roseville, California'daki tesisini silisyum karbür (SiC) yarı iletken üretim merkezine dönüştürmek için yaptığı 2 milyar dolarlık yatırımı destekliyor. Bosch, ABD'deki bu tesis üzerinden beş yılda 7,5 milyar dolar ek yatırım planladığını da açıkladı.",
+      "detail": "ABD Ticaret Bakanlığı CHIPS Program Ofisi, 13 Temmuz 2026 tarihinde Robert Bosch Semiconductor LLC ile Doğrudan Finansman Anlaşması imzaladığını duyurdu. Anlaşma kapsamında CHIPS ve Bilim Yasası çerçevesinde 225 milyon dolara kadar teşvik sağlanacak. Bu kamu desteği, Bosch'un Roseville, California'daki mevcut üretim tesisini dünya standartlarında bir silisyum karbür (SiC) yarı iletken üretim merkezine dönüştürmek için taahhüt ettiği 2 milyar dolarlık yatırımı desteklemeye yönelik. Roseville tesisi, Bosch'un küresel ölçekteki en büyük SiC fabrikası olma özelliği taşımaktadır.\n\nABD Ticaret Bakanlığı'nın açıklamasına göre proje kapsamında yeni temiz oda alanı (cleanroom) geliştirilecek ve SiC yarı iletken üretimine yönelik gelişmiş bir üretim hattı kurulacak. Tesisin Bosch için ABD'deki ilk yarı iletken üretim noktası olduğu özellikle vurgulandı. Örnek üretim (sample production) sürecinin halihazırda başladığı, ticari üretimin ise 2026 yılında başlamasının beklendiği bildirildi. Takvim açısından 2026 içinde ticari üretime geçilmesi planlanmakla birlikte kesin bir çeyrek bilgisi paylaşılmadı.\n\nBosch, CHIPS hibesiyle eş zamanlı olarak ABD operasyonlarına beş yıl içinde 7,5 milyar dolar yatırım yapacağını açıkladı; bu rakam yalnızca Roseville tesisini değil, ABD genelindeki faaliyetlerin tümünü kapsıyor. Şirketin 2021'den bu yana küresel ölçekte 60 milyonun üzerinde SiC çip üretip teslim ettiği belirtildi. SiC, otomotiv, endüstriyel, enerji ve tüketici elektroniği sektörlerine yönelik kritik geniş bant aralıklı (wide bandgap) bir yarı iletken teknolojisi olarak tanımlandı.",
+      "neden_onemli": null,
+      "category": "yatirim",
+      "subcategories": [
+        "CHIPS Act",
+        "SiC",
+        "geniş bant aralıklı yarı iletkenler"
+      ],
+      "value_chain": [
+        "wafer-uretim"
+      ],
+      "maturity": "announced",
+      "companies": [
+        "Bosch"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "technologies": [
+        "SiC",
+        "güç yarı iletkenleri"
+      ],
+      "technology_nodes": [],
+      "investment": {
+        "amount_original": 2000,
+        "currency": "USD",
+        "amount_usd_million": 2000,
+        "public_support_usd_million": 225
+      },
+      "published_date": "2026-07-13",
+      "event_date": "2026-07-13",
+      "source": {
+        "name": "NIST / ABD Ticaret Bakanlığı",
+        "url": "https://nist.gov/news-events/news/2026/07/department-commerce-announces-direct-funding-agreement-bosch-225-million",
+        "type": "official",
+        "tier": 1,
+        "primary": true
+      },
+      "supporting_sources": [],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 8,
+      "slug": "abd-ticaret-bakanligi-bosch-a-sic-uretimi-icin-225-milyon-dolarlik-chi"
+    },
+    {
+      "id": "event_005",
+      "title": "Micron, GlobalWafers Texas tesisine 500 milyon dolar taahhüt ederek ABD harcamasını 250 milyar dolara çıkardı",
+      "excerpt": "Micron, ABD'nin tek 300 mm wafer fabrikası olan GlobalWafers'ın Sherman, Texas tesisine 500 milyon dolarlık stratejik yatırım taahhüdünü duyurdu ve toplam ABD harcama hedefini 250 milyar dolara yükseltti. Şirket, 2035 yılına kadar DRAM üretiminin yüzde 40'ını ABD'de gerçekleştirmeyi hedefliyor.",
+      "detail": "Micron, 13 Temmuz 2026 tarihinde GlobalWafers'ın Sherman, Texas'taki 300 mm wafer üretim tesisine 500 milyon dolarlık yatırım taahhüdünü açıkladı. Bu adım, Micron'un toplam ABD harcama hedefini 250 milyar dolara yükseltmesiyle eş zamanlı gerçekleşti. Tom's Hardware'in haberine göre GlobalWafers'ın Sherman tesisi, Amerika'nın tek 300 mm wafer fabrikası konumundadır; bu özellik, yatırımın stratejik tedarik zinciri bağlamı açısından önem taşıdığını ortaya koyuyor.\n\nMicron, bu yatırımla 2035 yılına kadar DRAM üretiminin yüzde 40'ını ABD topraklarında gerçekleştirme hedefini benimsedi. 300 mm silisyum wafer, gelişmiş DRAM üretiminin temel girdisi olduğundan GlobalWafers tesisine yapılan yatırım, Micron'un yerli tedarik zinciri entegrasyonunu güçlendirmeye yönelik daha kapsamlı bir stratejinin parçası olarak değerlendiriliyor.\n\nYatırımın yapısal ayrıntıları — öz sermaye, borç veya uzun vadeli tedarik anlaşması formatında mı yapılandırıldığı — elde bulunan birincil kaynakta belirtilmedi. Toplam 250 milyar dolarlık ABD harcama taahhüdünün hangi zaman dilimine yayıldığına dair bilgi de kaynaklarda yer almıyor.",
+      "neden_onemli": null,
+      "category": "yatirim",
+      "subcategories": [
+        "DRAM",
+        "wafer tedariki",
+        "ABD yerelleşmesi"
+      ],
+      "value_chain": [
+        "malzeme",
+        "wafer-uretim"
+      ],
+      "maturity": "announced",
+      "companies": [
+        "Micron",
+        "GlobalWafers"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "technologies": [
+        "DRAM",
+        "300mm wafer"
+      ],
+      "technology_nodes": [],
+      "investment": {
+        "amount_original": 500,
+        "currency": "USD",
+        "amount_usd_million": 500,
+        "public_support_usd_million": null
+      },
+      "published_date": "2026-07-13",
+      "event_date": "2026-07-13",
+      "source": {
+        "name": "Tom's Hardware",
+        "url": "https://tomshardware.com/tech-industry/semiconductors/micron-commits-500-million-to-globalwafers-texas-wafer-plant-as-it-raises-us-spending-to-250-billion",
         "type": "trade_press",
         "tier": 2,
         "primary": true
@@ -146,313 +312,43 @@
         "credit": null,
         "type": null
       },
-      "score": 9,
-      "slug": "micron-abd-yatirim-taahhudunu-250-milyar-dolara-yukseltti-new-york-fab"
-    },
-    {
-      "id": "event_003",
-      "title": "HAVELSAN'ın ADVENT Savaş Yönetim Sistemi Romanya ile İlk NATO İhracatını Tamamladı",
-      "excerpt": "HAVELSAN'ın geliştirdiği ADVENT Savaş Yönetim Sistemi (SYS), CAm.ROMAN korveti kapsamında Romanya Deniz Kuvvetleri'ne teslim edilerek NATO envanterine ilk kez girdi. Sistem, daha önce Pakistan, Endonezya, Ukrayna, Katar, Umman, Nijerya, Malezya ve Şili'ye ihraç edilmişti. Teslimatta ADVENT'in yanı sıra YELKOVAN Elektronik Harp Sistemi ve TARGAN 12,7 mm otomatik silah sistemi de yer aldı.",
-      "detail": "HAVELSAN, Türk Deniz Kuvvetleri ile yakın işbirliğinde geliştirilen ADVENT Savaş Yönetim Sistemi'ni, CAm.ROMAN korvetinin Romanya'ya satışı kapsamında Romanya Deniz Kuvvetleri Komutanlığı envanterine kazandırdı. Teslim 5 Temmuz 2026'da gerçekleşti. ADVENT bu ihracatla Pakistan, Endonezya, Ukrayna, Katar, Umman, Nijerya, Malezya ve Şili'nin ardından dokuzuncu ülkeye ulaşırken ilk kez bir NATO müttefikinin envanterine girdi.\n\nRomanya'ya teslim edilen versiyon, Türk donanmasında aktif kullanımdaki ADVENT SYS'nin Romanya'nın harekat ihtiyaçlarına göre uyarlanmış biçimidir. Sistem, birden fazla platformu tek bir harekat resmi etrafında birleştiren kuvvet odaklı bir mimariye sahip olup tehdit değerlendirme, karar destek, hedef tespiti ile silah ve sensör kontrolü süreçlerini kapsıyor. ADVENT'in modüler yapısı, küçük botlardan büyük muharip gemilere, kara konuşlu komuta merkezlerinden insansız deniz araçlarına kadar farklı platform tiplerinde kullanılabilmesine olanak tanıyor. Sistem, çeşitli protokoller üzerinden müttefik kuvvetlerle birlikte çalışabilirlik kapasitesine sahip.\n\nADVENT, milyonlarca satır kod içeren yerli yazılım altyapısı üzerine inşa edilmiş olup ilk olarak 2019 yılında Ada sınıfı korvet TCG Kınalıada'da hizmete girdi. Sonraki süreçte TCG Ufuk, TCG Anadolu ve CAm.ROMAN platformlarına entegre edildi. HAVELSAN, sistemin yapay zeka entegrasyonuyla güçlendirilmiş 'ADVENT AI' versiyonunu da geliştirmeyi sürdürüyor.\n\nRomanya'ya yapılan teslimatta ADVENT'in yanı sıra TÜBİTAK ile birlikte geliştirilen YELKOVAN Elektronik Harp Sistemi ve UNIROBOTICS firmasıyla ortaklaşa geliştirilen TARGAN 12,7 mm otomatik stabilize silah sistemi de yer aldı. Bu ihracat, söz konusu yerli sistemlerin de NATO coğrafyasına açılmasının önünü açtı.",
-      "neden_onemli": null,
-      "category": "turkiye",
-      "subcategories": [
-        "savunma ihracatı",
-        "NATO"
-      ],
-      "value_chain": [
-        "uygulama"
-      ],
-      "maturity": "mass_production",
-      "companies": [
-        "HAVELSAN",
-        "TUBITAK",
-        "UNIROBOTICS"
-      ],
-      "countries": [
-        "Turkey",
-        "Romania"
-      ],
-      "technologies": [
-        "savaş yönetim sistemi",
-        "elektronik harp",
-        "yapay zeka entegrasyonu"
-      ],
-      "technology_nodes": [],
-      "investment": null,
-      "published_date": "2026-07-05",
-      "event_date": "2026-07-05",
-      "source": {
-        "name": "Anadolu Ajansı",
-        "url": "https://aa.com.tr/tr/bilim-teknoloji/milli-savas-yonetim-sisteminden-ilk-nato-ihracat-basarisi/3986483",
-        "type": "news_agency",
-        "tier": 1,
-        "primary": true
-      },
-      "supporting_sources": [],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 9,
-      "slug": "havelsan-in-advent-savas-yonetim-sistemi-romanya-ile-ilk-nato-ihracati"
-    },
-    {
-      "id": "event_004",
-      "title": "SK Hynix 26,5 Milyar Dolarlık Nasdaq Halka Arzıyla Yabancı Şirket Rekorunu Kırdı",
-      "excerpt": "SK Hynix, 10 Temmuz 2026'da Nasdaq borsasında hisse başına 149 dolardan gerçekleştirdiği ikincil listelemeyle ABD piyasasından 26,5 milyar dolar kaynak sağladı. Bu tutar, yabancı bir şirket tarafından ABD borsalarında gerçekleştirilen en büyük halka arz olarak tarihe geçti. Hisseler 'SKHYV' geçici koduyla 170 dolardan işlem görmeye başladı.",
-      "detail": "Güney Kore merkezli bellek çipi üreticisi SK Hynix, 10 Temmuz 2026'da Nasdaq'ta ikincil listeleme yoluyla hisse senedi piyasasına adım attı. Şirket, halka arz kapsamında hisse başına 149 dolar fiyat üzerinden satış gerçekleştirerek yaklaşık 26,5 milyar dolar kaynak sağladı; hisseler 'SKHYV' geçici koduyla 170 dolardan işlem görmeye başladı. Bu işlem, yabancı bir şirket tarafından ABD borsalarında bugüne kadar gerçekleştirilen en büyük halka arz olarak kayıtlara geçti.\n\nAçılış töreninde zili SK Group Yönetim Kurulu Başkanı Chey Tae-Won ile SK Hynix CEO'su Kwak Noh-Jung çaldı. Şirketin ABD Menkul Kıymetler ve Borsa Komisyonu'na (SEC) sunduğu belgelere göre halka arzın ardından SK Group, şirket üzerindeki kontrolünü ve stratejik karar alma yetkisini koruyacak.\n\nSK Hynix, halka arzdan elde ettiği geliri üç ana başlıkta kullanmayı planladığını açıkladı: üretim kapasitesinin artırılması, yeni nesil yapay zeka altyapısının kurulması ve mevcut yatırımların finansmanı. Şirket, halka arz öncesinde ABD'nin Indiana eyaletinde gelişmiş bir çip paketleme (advanced packaging) tesisi kurulacağını ve söz konusu tesis için AR-GE faaliyetlerine milyarlarca dolarlık yatırım yapılacağını duyurmuştu; tesisin devreye giriş takvimi kamuoyuyla paylaşılmamıştır.\n\nSK Hynix, yüksek bant genişlikli bellek (HBM) pazarının öncü üreticisi konumunda bulunmaktadır. Bu halka arz, şirketin HBM üretim kapasitesini hızla genişletmek için ihtiyaç duyduğu finansmanı ABD piyasasından doğrudan temin ettiğini göstermektedir.",
-      "neden_onemli": null,
-      "category": "yatirim",
-      "subcategories": [
-        "halka arz",
-        "HBM",
-        "ABD piyasası"
-      ],
-      "value_chain": [
-        "wafer-uretim",
-        "paketleme-test"
-      ],
-      "maturity": "funded",
-      "companies": [
-        "SK Hynix",
-        "SK Group"
-      ],
-      "countries": [
-        "South Korea",
-        "USA"
-      ],
-      "technologies": [
-        "HBM",
-        "DRAM",
-        "ileri paketleme"
-      ],
-      "technology_nodes": [],
-      "investment": {
-        "amount_original": 26500,
-        "currency": "USD",
-        "amount_usd_million": 26500,
-        "public_support_usd_million": null
-      },
-      "published_date": "2026-07-10",
-      "event_date": "2026-07-10",
-      "source": {
-        "name": "Bloomberg HT",
-        "url": "https://bloomberght.com/cip-devi-sk-hynix-ten-nasdaq-ta-26-5-milyar-dolarlik-halka-arz-3782618",
-        "type": "news_agency",
-        "tier": 1,
-        "primary": true
-      },
-      "supporting_sources": [
-        {
-          "name": "Tom's Hardware",
-          "url": "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-raises-a-record-usd26-5-billion-in-historic-u-s-ipo-south-korean-memory-giant-to-fund-massive-hbm-manufacturing-expansions"
-        }
-      ],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 9,
-      "slug": "sk-hynix-26-5-milyar-dolarlik-nasdaq-halka-arziyla-yabanci-sirket-reko"
-    },
-    {
-      "id": "event_005",
-      "title": "Meta'nın Iris AI Hızlandırıcısı Eylül 2026'da TSMC'de Üretime Geçiyor",
-      "excerpt": "Meta Platforms, yapay zeka hızlandırıcısı (AI accelerator) Iris'in üretimine Eylül 2026'da TSMC'de başlamayı planlıyor. Şirket, 2027 sonuna kadar yaklaşık altı ayda bir yeni MTIA nesli piyasaya sürmeyi hedefliyor. MTIA 300'den MTIA 500'e geçişte bellek bant genişliğinin 4,5 kat, işlem performansının ise 25 kat artması öngörülüyor.",
-      "detail": "Meta Platforms, MTIA (Meta Training and Inference Accelerators) programının üçüncü nesli olan Iris'in kütlesel üretimine Eylül 2026'da başlamayı planladığı bildirildi. Şirket içi yazışmalara göre Iris testleri altı haftada tamamlandı ve ciddi bir teknik sorunla karşılaşılmadı. Bu süre, programın önceki denemelerine kıyasla belirgin biçimde daha kısa olup üretime geçişi hızlandırdı. Üretimi TSMC üstleniyor; çip tasarımında ise Broadcom ile çalışılıyor.\n\nMeta, Mart 2026'da dört yeni MTIA neslini kamuoyuyla paylaştı: MTIA 300, MTIA 400, MTIA 450 ve MTIA 500. MTIA 300, sıralama ve öneri modellerinin eğitiminde halihazırda üretimde; MTIA 400'ün laboratuvar testleri tamamlanmış olup veri merkezlerine entegrasyon hazırlıkları sürdürülüyor. MTIA 450 için 2027'nin başı, MTIA 500 için 2027 yılı hedefleniyor. Bu tempo, sektördeki genel nesil değişim süresinin (genellikle bir yıl veya üzeri) yarısına denk geliyor.\n\nPerformans gelişimi somut verilerle destekleniyor: MTIA 300'den MTIA 500'e geçişte bellek bant genişliği 4,5 kat, işlem gücü ise 25 kat artacak. Iris, Nvidia ve AMD'den alınan GPU'ların yerini tamamen almayacak; mevcut GPU kapasitesini tamamlayacak şekilde konumlandırıldı. Meta, 2026 boyunca 7 gigavatlık bilgi işlem altyapısını işletmeyi, bu kapasiteyi 2027'de 14 gigavata çıkarmayı hedefliyor.\n\nMeta ile Broadcom ortaklığının ilk aşamasında bir gigavatı aşan kurulum planlandı; taraflar çip tasarımı, ileri paketleme ve ağ teknolojilerinde birlikte çalışacak. Şirket, Facebook ve Instagram öneri modellerini öncelikle kendi silikonuna taşımayı, ardından üretken yapay zeka uygulamalarını da aynı altyapıya almayı planladığını açıkladı.",
-      "neden_onemli": null,
-      "category": "ai-cip",
-      "subcategories": [
-        "özel silikon",
-        "ASIC",
-        "veri merkezi"
-      ],
-      "value_chain": [
-        "tasarim",
-        "wafer-uretim"
-      ],
-      "maturity": "mass_production",
-      "companies": [
-        "Meta",
-        "TSMC",
-        "Broadcom"
-      ],
-      "countries": [
-        "USA",
-        "Taiwan"
-      ],
-      "technologies": [
-        "AI hızlandırıcı",
-        "ileri paketleme",
-        "HBM"
-      ],
-      "technology_nodes": [],
-      "investment": null,
-      "published_date": "2026-07-10",
-      "event_date": "2026-07-10",
-      "source": {
-        "name": "Dünya Gazetesi",
-        "url": "https://dunya.com/ekonomi/meta-cip-yarisinda-kendi-yolunu-ciziyor-haberi-831709",
-        "type": "news_agency",
-        "tier": 2,
-        "primary": true
-      },
-      "supporting_sources": [
-        {
-          "name": "Digitimes",
-          "url": "https://digitimes.com/news/a20260710VL205/meta-ai-accelerator-infrastructure-manufacturing.html"
-        }
-      ],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 9,
-      "slug": "meta-nin-iris-ai-hizlandiricisi-eylul-2026-da-tsmc-de-uretime-geciyor"
+      "score": 8,
+      "slug": "micron-globalwafers-texas-tesisine-500-milyon-dolar-taahhut-ederek-abd"
     },
     {
       "id": "event_006",
-      "title": "Apple ve Broadcom 30 Milyar Dolarlık ASIC Anlaşması İmzaladı; ABD'de 15 Milyar Çip Üretilecek",
-      "excerpt": "Apple, Broadcom ile 2031 yılına kadar özel ASIC (uygulamaya özgü entegre devre) ürünleri geliştirme ve tedarik etme kapsamında 30 milyar doları aşan yeni uzun vadeli anlaşmalar imzaladı. Anlaşma çerçevesinde Broadcom'un Colorado, Fort Collins tesisi 1,5 milyar dolarlık sermaye yatırımıyla genişletilecek ve modernize edilecek. Üretilmesi öngörülen 15 milyar çipin tümü ABD'de imal edilecek.",
-      "detail": "Apple, 8 Temmuz 2026'da Broadcom ile birden fazla ürün nesli kapsayan yeni uzun vadeli anlaşmalar imzaladığını duyurdu. SEC'e sunulan bildirimde Broadcom, 2031 yılına kadar Apple ürünlerinin birden fazla nesli için özel ASIC silikon ürünleri geliştireceğini ve tedarik edeceğini açıkladı. Anlaşma tutarının 30 milyar doları aştığı belirtildi.\n\nAnlaşma kapsamında ABD'de 15 milyardan fazla çip üretilmesi planlanıyor. Broadcom'un Fort Collins, Colorado'daki mevcut üretim tesisi 1,5 milyar dolarlık sermaye yatırımıyla (capex) genişletilecek ve modernize edilecek. Üretilecek bileşenler, Apple cihazlarının hücresel, Wi-Fi ve Bluetooth ağlarına bağlanmasını sağlayan kablosuz bileşenleri kapsıyor. Yeni kapasitenin ne zaman devreye gireceğine dair takvim paylaşılmadı.\n\nAnlaşma, Apple'ın yaklaşık bir yıl önce Amerikan Üretim Programı (AMP) aracılığıyla taahhüt ettiği dört yıllık 600 milyar dolarlık ABD yatırım planı kapsamında bugüne kadar kamuoyuyla paylaşılan en büyük tek taahhüdü temsil ediyor. Broadcom uzun süredir Apple'ın bağlantı bileşenleri tedarikçisi konumundaydı; yeni anlaşma bu ilişkiyi ABD yapımı özel silikon ekseninde derinleştiriyor.\n\nASIC'ler yapay zeka iş yüklerinde de giderek artan ölçüde kullanılmaktadır. Anlaşmanın Apple'ın kendi silikon stratejisiyle (Apple Silicon) tamamlayıcı mı yoksa rakip mi konumlandırıldığı açıklamada netleştirilmedi; ancak kablosuz bağlantı odağı, bu bileşenlerin Apple'ın iç çip tasarım kapsamı dışında kaldığına işaret ediyor.",
+      "title": "Intel, Almanya ve Polonya projelerini iptal ederek Avrupa üretimini İrlanda Leixlip'e 5,7 milyar dolarla odakladı",
+      "excerpt": "Intel, Leixlip kampüsünü genişletmek için 5 milyar Euro (5,7 milyar dolar) taahhüt etti; bu hamle, Almanya ve Polonya'da çok daha büyük ölçekli duyurulan fab projelerinin yaklaşık bir yıl önce iptal edilmesinin ardından geldi. Dijital güvenlik açısından kaygılara yol açan bu güncelleme, Intel'in Avrupa üretim stratejisinin İrlanda merkezli tek bir tesise yoğunlaşması anlamına geliyor.",
+      "detail": "Intel, 14 Temmuz 2026'da İrlanda Leixlip kampüsünü genişletmek için 5 milyar Euro (yaklaşık 5,7 milyar dolar) taahhüt ettiğini duyurdu. Bu açıklama, Intel'in daha önce Almanya ve Polonya'da duyurduğu çok daha büyük ölçekli fab projelerini yaklaşık bir yıl önce iptal etmesinin ardından geliyor. Digitimes'ın haberine göre bu hamle, Intel'in yeni yönetim döneminde Avrupa üretim tabanının İrlanda'ya odaklanacağını teyit ediyor; İrlanda, bu kararla şirketin Avrupa kıtasındaki tek ileri teknoloji fab konumu hâline geliyor.\n\nLeixlip, Intel'in Avrupa'da uzun yıllardır faaliyet gösteren başlıca üretim kampüsü konumundadır. 5 milyar Euro yatırımın kapsamı — kaç yıllık bir zaman dilimine yayıldığı, hangi düğümleri (node) kapsayacağı ve ne zaman tamamlanması planlandığı — Digitimes'ın ödeme duvarı arkasındaki birincil kaynağında yer almakla birlikte elde bulunan özet bölümünde detaylandırılmadı; bildirildi.\n\nAlmanya (Magdeburg) ve Polonya projelerinin iptali, Avrupa Çip Yasası hedefleri açısından derin bir boşluk yaratmıştı. Leixlip yatırımı, Intel'in Avrupa'daki kamu finansmanı taahhütlerine verilen yanıtı da şekillendiriyor; ancak söz konusu yatırımın ulusal veya AB düzeyinde herhangi bir kamu destekle ilişkili olup olmadığına dair bilgi elde bulunan kaynaklarda yer almıyor.",
       "neden_onemli": null,
       "category": "yatirim",
       "subcategories": [
-        "ABD yerli üretim",
-        "ASIC",
-        "AMP"
+        "Avrupa üretim",
+        "fab konsolidasyonu"
       ],
       "value_chain": [
-        "tasarim",
         "wafer-uretim"
       ],
       "maturity": "announced",
       "companies": [
-        "Apple",
-        "Broadcom"
-      ],
-      "countries": [
-        "USA"
-      ],
-      "technologies": [
-        "ASIC",
-        "kablosuz bileşen",
-        "Wi-Fi",
-        "Bluetooth",
-        "hücresel"
-      ],
-      "technology_nodes": [],
-      "investment": {
-        "amount_original": 30000,
-        "currency": "USD",
-        "amount_usd_million": 30000,
-        "public_support_usd_million": null
-      },
-      "published_date": "2026-07-08",
-      "event_date": "2026-07-08",
-      "source": {
-        "name": "DonanımHaber",
-        "url": "https://donanimhaber.com/apple-dan-abd-ye-devasa-yatirim-15-milyar-cip-uretilecek--207828",
-        "type": "trade_press",
-        "tier": 2,
-        "primary": true
-      },
-      "supporting_sources": [],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 9,
-      "slug": "apple-ve-broadcom-30-milyar-dolarlik-asic-anlasmasi-imzaladi-abd-de-15"
-    },
-    {
-      "id": "event_007",
-      "title": "Intel İrlanda Leixlip Kampüsüne 5 Milyar Euro Sermaye Yatırımı Duyurdu",
-      "excerpt": "Intel, İrlanda'nın Leixlip kampüsünde kapasite genişlemesinin bir sonraki aşaması olarak 5 milyar euro (5,7 milyar dolar) sermaye yatırımı duyurdu. Yatırım, Intel 3 teknoloji düğümüyle üretilecek Intel Xeon 6 ve yeni nesil Intel Xeon işlemcilerin çıktısını artırmayı hedefliyor. Söz konusu harcama programının bu yıl içinde başladığı belirtildi.",
-      "detail": "Intel, 13 Temmuz 2026'da İrlanda'nın Leixlip kampüsünde 5 milyar euro (yaklaşık 5,7 milyar dolar) tutarında sermaye yatırımı (capex) başlatacağını duyurdu. Harcama programının 2026 yılı başında fiilen başladığı açıklandı. Yatırım, mevcut üretim çıktısının artırılmasını, AR-GE faaliyetlerinin geliştirilmesini ve mevcut temiz oda (cleanroom) alanlarının kullanım kapasitesinin yükseltilmesini kapsıyor.\n\nProje kapsamında mevcut fabrikasyon tesisleri yükseltilecek ve son teknoloji üretim ekipmanları kurulacak. Temel altyapı geliştirmeleri arasında kampüsün farklı modüllerini tek bir yüksek hızlı üretim ortamına entegre eden otomatik hat sisteminin genişletilmesi yer alıyor. Üretim hedefi, Intel'in Intel 3 düğümü üzerinde üretilecek Intel Xeon 6 ve bir sonraki nesil Intel Xeon işlemciler olarak belirlendi.\n\nLeixlip kampüsü, Intel'in 1989'da İrlanda'ya yerleşmesinin ardından 30 milyar euroyu aşan toplam yatırımın merkezini oluşturuyor. Kampüs halihazırda 4.900 kişiyi istihdam ediyor. İstihdam etkisine ilişkin açıklamada, inşaat ve ekipman kurulumu süreçlerinde uzman teknik personelin devreye alınacağı ve tam zamanlı yüksek teknoloji iş pozisyonları yaratılacağı belirtildi; ancak kesin istihdam rakamı paylaşılmadı.\n\nIntel, bu yatırımın AB'nin teknoloji egemenliği (Tech-Sovereignty) hedeflerine somut bir katkı sağladığını ve Avrupa'nın önde gelen yarı iletken üretim merkezi olma iddiasını güçlendirdiğini vurguladı. Yatırım, İrlanda'yı Avrupa'nın lider üretim merkezi olarak konumlandırma stratejisinin kritik bir halkası olarak sunuldu.",
-      "neden_onemli": null,
-      "category": "yatirim",
-      "subcategories": [
-        "Avrupa üretimi",
-        "AB teknoloji egemenliği"
-      ],
-      "value_chain": [
-        "wafer-uretim"
-      ],
-      "maturity": "construction",
-      "companies": [
         "Intel"
       ],
       "countries": [
-        "Ireland",
-        "EU"
+        "Ireland"
       ],
-      "technologies": [
-        "Intel 3",
-        "Xeon"
-      ],
-      "technology_nodes": [
-        "Intel 3"
-      ],
+      "technologies": [],
+      "technology_nodes": [],
       "investment": {
         "amount_original": 5000,
         "currency": "EUR",
         "amount_usd_million": 5700,
         "public_support_usd_million": null
       },
-      "published_date": "2026-07-13",
-      "event_date": "2026-07-13",
-      "source": {
-        "name": "Intel Newsroom",
-        "url": "https://newsroom.intel.com/intel-foundry/intel-invests-5-billion-euro-to-expand-manufacturing-in-europe",
-        "type": "company",
-        "tier": 1,
-        "primary": true
-      },
-      "supporting_sources": [],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 8,
-      "slug": "intel-irlanda-leixlip-kampusune-5-milyar-euro-sermaye-yatirimi-duyurdu"
-    },
-    {
-      "id": "event_008",
-      "title": "Çin Helyum İhracatını Geçici Olarak Yasakladı; Küresel Yarı İletken Tedariki Risk Altında",
-      "excerpt": "Çin, 10 Temmuz 2026'da çip üretiminde ve tıbbi görüntülemede ikamesi bulunmayan helyum gazı için geçici ihracat yasağı uygulamaya koydu. Bu adım, Orta Doğu kaynaklı helyum arzındaki baskının kısa vadede hafiflemeyeceğine ilişkin Pekin'in değerlendirmesini yansıtıyor olarak yorumlanıyor. Birincil kaynak ödeme duvarı arkasında olduğundan yasağın kapsamı ve süresi doğrulanamadı.",
-      "detail": "Çin, 10 Temmuz 2026 tarihinde helyum gazına geçici ihracat yasağı getirdiğini duyurdu. Helyum, yarı iletken fabrikasyon süreçlerinde ve tıbbi görüntüleme cihazlarında ikamesi bulunmayan kritik bir gaz olup küresel tedariki ağırlıklı olarak Katar ve ABD kaynaklıdır. Digitimes haberine göre bu adım, Pekin'in Orta Doğu'daki tedarik risklerinin kısa vadede azalmayacağı yönünde bir öngörüyle hareket ettiğine işaret ediyor.\n\nHaberler, yasağın zaten gerginleşmiş küresel helyum tedarik dengesini daha da sıkılaştırabileceğine dikkat çekiyor. Aynı haftaya ait Nikkei Asia haberleri, ABD'nin İran savaşı ve Çin kısıtlamaları nedeniyle daralan helyum pazarında Japonya, Güney Kore ve Tayvan'ın birincil tedarikçisi konumuna yükseldiğini ortaya koyuyor.\n\nYasağın tam kapsamı, hangi kullanım alanlarını kapsadığı ve ne kadar süreceği, birincil kaynak ödeme duvarı arkasında olduğundan bu bülten kapsamında doğrulanamadı. Mevcut bilgiler, söz konusu adımın geçici nitelik taşıdığı yönünde.",
-      "neden_onemli": null,
-      "category": "malzeme",
-      "subcategories": [
-        "tedarik zinciri riski",
-        "ihracat kısıtlamaları"
-      ],
-      "value_chain": [
-        "malzeme"
-      ],
-      "maturity": null,
-      "companies": [],
-      "countries": [
-        "China"
-      ],
-      "technologies": [
-        "helyum",
-        "soy gaz"
-      ],
-      "technology_nodes": [],
-      "investment": null,
-      "published_date": "2026-07-10",
-      "event_date": "2026-07-10",
+      "published_date": "2026-07-14",
+      "event_date": "2026-07-14",
       "source": {
         "name": "Digitimes",
-        "url": "https://digitimes.com/news/a20260710VL223/ban-qatar-2026-beijing-medical.html",
+        "url": "https://digitimes.com/news/a20260714VL200/intel-ireland-expansion-capacity-demand.html",
         "type": "trade_press",
         "tier": 2,
         "primary": true
@@ -464,18 +360,70 @@
         "type": null
       },
       "score": 8,
-      "slug": "cin-helyum-ihracatini-gecici-olarak-yasakladi-kuresel-yari-iletken-ted"
+      "slug": "intel-almanya-ve-polonya-projelerini-iptal-ederek-avrupa-uretimini-irl"
     },
     {
-      "id": "event_009",
-      "title": "Nanya Technology 2027 Sermaye Harcamasını 4 Katına Çıkararak 6,2 Milyar Dolara Taşıyacak",
-      "excerpt": "DRAM üreticisi Nanya Technology, 2026 ikinci çeyreğinde rekor operasyonel sonuçlar açıkladı; imzalanan uzun ve kısa vadeli anlaşmalar toplam kapasitenin yüzde 50'sine ulaştı. Şirket, 2027 sermaye harcamasını (capex) yaklaşık dört katına çıkararak 6,2 milyar dolara yükseltmeyi planlıyor. Nanya, 2026 ikinci çeyreğinde yüzde 79,5 brüt kâr marjına ulaştı.",
-      "detail": "Nanya Technology, 2026 yılı ikinci çeyreğinde rekor düzeyde operasyonel sonuçlar elde ettiğini açıkladı. Şirket Başkanı Pei-Ing Lee'nin yaptığı açıklamaya göre imzalanan uzun ve kısa vadeli anlaşmalar, toplam kapasitenin yüzde 50'sini karşılar hale geldi; bu oran, şirketin tarihsel ortalamasının belirgin biçimde üzerinde. Lee, DRAM bellek piyasasının geniş çaplı bir kıtlık dönemine girdiğini ifade etti.\n\nNanya'nın 2027 yılı için planladığı sermaye harcaması yaklaşık dört katına çıkarılarak 6,2 milyar dolara yükseltilecek. Tom's Hardware haberine göre şirket, aynı dönemde yüzde 79,5 brüt kâr marjına ulaşırken yıllık satış fiyatı (ASP) artışları ikinci çeyrekte ciroyu belirgin biçimde yukarı taşıdı. Nikkei Asia haberi, Nanya'yı dünyanın beşinci büyük DRAM üreticisi olarak konumlandırıyor ve kâr marjının 2026 boyunca büyümeye devam etmesinin beklendiğini belirtiyor.\n\nBirincil kaynak ödeme duvarı arkasında olduğundan yeni kapasite yatırımının hangi nesil DRAM süreçlerini kapsayacağı ve projenin takvimi bu bülten kapsamında doğrulanamadı. Yatırımın odak alanı ve üretim lokasyonu bilgisi paylaşılmadı.",
+      "id": "event_007",
+      "title": "ASELSAN, Ankara'da 2 milyar dolar üzerinde hava savunma altyapısı inşa ediyor; seri üretim kapasitesi iki yılda yüzde 40 arttı",
+      "excerpt": "ASELSAN Genel Müdürü Ahmet Akyol, 8 Temmuz 2026'da NATO Zirvesi kapsamındaki panelde Ankara'da dünyasının en büyük hava savunma altyapılarından birinin inşa edildiğini ve bu yatırımın 2 milyar doların üzerinde olduğunu açıkladı. Şirketin yalnızca son iki yılda seri üretim kapasitesini yüzde 40 artırdığı bildirildi.",
+      "detail": "ASELSAN Genel Müdürü Ahmet Akyol, 8 Temmuz 2026'da Cumhurbaşkanlığı İletişim Başkanlığı, Münih Güvenlik Konferansı ve SETA Vakfı iş birliğiyle düzenlenen 'Müttefikler Ankara'da' programının savunma panelinde Anadolu Ajansı'na önemli veriler aktardı. Akyol, Ankara'da dünyasının en büyük hava savunma altyapılarından birinin inşa sürecinde olduğunu ve bu altyapıya yapılan yatırımın 2 milyar doların üzerinde olduğunu kamuoyuyla paylaştı. Söz konusu inşaatın kapsamı (fiziksel yer, üretim kapasitesi, tamamlanma takvimi) elde bulunan kaynakta belirtilmedi.\n\nAkyol, ASELSAN'ın son iki yılda seri üretim kapasitesini yüzde 40 artırdığını vurguladı. Bu kapasite artışının somut bir göstergesi olarak 2025 yılında alınan siparişlerin yüzde 28'inin aynı yıl içinde teslim edildiğini açıkladı. Sektörde siparişlerin tesliminin doğası gereği 2-4 yıl sürdüğünü belirterek bu oranı endüstriyel kapasitenin bir göstergesi olarak nitelendirdi. ASELSAN'ın 3.000'i aşkın yerel tedarikçiyi kapsayan bir ekosistemi desteklediğinin de altını çizdi. Şirketin mevcut teslimat iddiasına göre hava savunma sistemleri dahil en karmaşık radar ve hava savunma sistemleri sipariş tarihinden itibaren 2 yılın altında teslim edilebilmektedir.\n\nAkyol, mevcut NATO bağlamında Türkiye'nin savunma sanayii ekosistemini 'NATO 3.0' çerçevesinde konumlandırdı: NATO 1.0'da coğrafi konum, NATO 2.0'da askeri güç, NATO 3.0'da ise savunma sanayii üretim kapasitesi belirleyici unsur olarak öne çıkıyor. Türkiye savunma sanayii ekosisteminin 4.000 firmaya ulaştığı ve 100.000 nitelikli kişiyi istihdam ettiği aktarıldı.",
+      "neden_onemli": null,
+      "category": "turkiye",
+      "subcategories": [
+        "savunma sanayii",
+        "ASELSAN",
+        "hava savunma"
+      ],
+      "value_chain": [
+        "uygulama"
+      ],
+      "maturity": "construction",
+      "companies": [
+        "ASELSAN"
+      ],
+      "countries": [
+        "Turkey"
+      ],
+      "technologies": [
+        "radar",
+        "hava savunma sistemleri"
+      ],
+      "technology_nodes": [],
+      "investment": {
+        "amount_original": 2000,
+        "currency": "USD",
+        "amount_usd_million": 2000,
+        "public_support_usd_million": null
+      },
+      "published_date": "2026-07-08",
+      "event_date": "2026-07-08",
+      "source": {
+        "name": "Anadolu Ajansı",
+        "url": "https://aa.com.tr/tr/gundem/aselsan-genel-muduru-ahmet-akyoldan-avrupanin-en-hizli-sirketlerindeniz-mesaji/3990728",
+        "type": "news_agency",
+        "tier": 1,
+        "primary": true
+      },
+      "supporting_sources": [],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 10,
+      "slug": "aselsan-ankara-da-2-milyar-dolar-uzerinde-hava-savunma-altyapisi-insa-"
+    },
+    {
+      "id": "event_008",
+      "title": "Nanya Technology 2027 sermaye harcamasını dört katına çıkararak 6,2 milyar dolara ulaştıracak",
+      "excerpt": "Dünya DRAM pazarının 5. büyük üreticisi Nanya Technology, 2027 sermaye harcamasını (capex) dört katına çıkararak 6,2 milyar dolara yükseltmeyi planladığını duyurdu. AI kaynaklı arz açığı ortamında şirketin Q2 2026 brüt kâr marjı yüzde 79,5 düzeyine yükseldi.",
+      "detail": "Tayvan'ın en büyük bellek çip üreticisi Nanya Technology, 2027 yılı sermaye harcaması (capex) planını dört kat artırarak 6,2 milyar dolara taşıyacağını 10 Temmuz 2026'da açıkladı. Nikkei Asia'nın haberine göre şirket, bellek fiyatları ve brüt marjların 2026 yılında yükselmeye devam edeceğini öngörüyor. AI kaynaklı eşi görülmemiş arz kısıtlığının bu ortamı şekillendirdiği vurgulandı. Tom's Hardware'in destekleyici haberine göre şirketin Q2 2026 brüt kâr marjı yüzde 79,5'e ulaştı ve Q2 geliri önceki döneme kıyasla belirgin biçimde yükseldi.\n\nNanya Technology, küresel DRAM piyasasında 5. büyük üretici konumundadır. 6,2 milyar dolarlık capex planının hangi tesisleri veya teknoloji düğümlerini kapsayacağı elde bulunan kaynaklarda belirtilmedi. Yatırımın zaman dilimi 2027 yılı olarak açıklandı; bunun ötesinde bir takvim bilgisi paylaşılmadı. DRAM birim satış fiyatlarının (ASP) süregelen yükselişi de şirketin yatırım kararını hızlandıran etkenler arasında gösterildi.",
       "neden_onemli": null,
       "category": "bellek",
       "subcategories": [
         "DRAM",
-        "kapasite genişleme"
+        "capex",
+        "bellek fiyatları"
       ],
       "value_chain": [
         "wafer-uretim"
@@ -497,23 +445,19 @@
         "amount_usd_million": 6200,
         "public_support_usd_million": null
       },
-      "published_date": "2026-07-13",
-      "event_date": "2026-07-13",
+      "published_date": "2026-07-10",
+      "event_date": "2026-07-10",
       "source": {
-        "name": "Digitimes",
-        "url": "https://digitimes.com/news/a20260713PD211/nanya-technology-capex-capacity-2027.html",
-        "type": "trade_press",
-        "tier": 2,
+        "name": "Nikkei Asia",
+        "url": "https://asia.nikkei.com/business/technology/taiwan-s-top-memory-chip-maker-nanya-tech-to-quadruple-2027-capex",
+        "type": "news_agency",
+        "tier": 1,
         "primary": true
       },
       "supporting_sources": [
         {
           "name": "Tom's Hardware",
           "url": "https://tomshardware.com/tech-industry/nanya-to-quadruple-capital-spending-to-6-2-billion-in-2027"
-        },
-        {
-          "name": "Nikkei Asia",
-          "url": "https://asia.nikkei.com/business/technology/taiwan-s-top-memory-chip-maker-nanya-tech-to-quadruple-2027-capex"
         }
       ],
       "image": {
@@ -522,110 +466,43 @@
         "type": null
       },
       "score": 8,
-      "slug": "nanya-technology-2027-sermaye-harcamasini-4-katina-cikararak-6-2-milya"
+      "slug": "nanya-technology-2027-sermaye-harcamasini-dort-katina-cikararak-6-2-mi"
     },
     {
-      "id": "event_010",
-      "title": "Çinli Firmalar AI Hızlandırıcı Bütçesinde Yerli Chip Payını Yüzde 30'dan Yüzde 46'ya Yükseltti",
-      "excerpt": "Bloomberg'in anketine göre Çinli şirket yöneticileri, önümüzdeki 12 ayda yapay zeka hızlandırıcı bütçelerinin yüzde 46'sını yerli ürünlere ayırmayı bekliyor; mevcut oran yüzde 30. Bernstein, Nvidia'nın Çin AI yarı iletken pazarındaki payının 2025'teki yaklaşık yüzde 40'tan 2026'da yüzde 8'e düşeceğini öngörüyor. Çin'in veri merkezi altyapısı için önümüzdeki beş yılda 2 trilyon yuan (yaklaşık 294 milyar dolar) yatırım planladığı ve bu harcamanın en az yüzde 80'inin yerli bileşenlerle karşılanmasının hedeflendiği bildirildi.",
-      "detail": "Bloomberg anketine katılan Çinli şirket yöneticileri, yapay zeka hızlandırıcı bütçelerinde yerli ürünlerin payının önümüzdeki 12 ay içinde mevcut yüzde 30 seviyesinden yüzde 46'ya çıkmasını öngörüyor. Bu kayma, ABD ihracat kontrollerinin Nvidia H20 hızlandırıcılarının temin edilebilirliğini kısıtlamasının ardından Pekin'in teknoloji şirketlerini yabancı çipten kaçınmaya yönlendirmesiyle hız kazandı.\n\nYatırım bankası Bernstein'ın tahminlerine göre Nvidia'nın Çin AI yarı iletken pazarındaki payı 2025'teki yaklaşık yüzde 40'tan 2026'da yüzde 8'e gerileme sürecine girdi. Huawei'nin pazar payının ise yüzde 50'yi aşacağı öngörülüyor. Tencent, Alibaba ve Huawei bu yeniden yapılanmadan en fazla fayda sağlayacak şirketler arasında gösteriliyor.\n\nÇin hükümetinin önümüzdeki beş yılda ülke genelinde veri merkezi altyapısı kurmak amacıyla yaklaşık 2 trilyon yuan (294 milyar dolar) yatırım yapacağı bildirildi; söz konusu programın çip dahil temel teknolojilerin en az yüzde 80'inin yerli firmalardan temin edilmesini öngördüğü aktarıldı. ByteDance'ın AI çıkarım çipleri için Iluvatar CoreX ile görüşmelerde olduğu ve Baidu'nun Kunlunxin işlemcilerini değerlendirdiği Reuters tarafından bildirildi; bu bilgiler doğrulanmış anlaşma değil, müzakere aşamasını yansıtmaktadır.\n\nTrendForce ve Digitimes tarafından aktarılan bu gelişmeler birinci el doğrulanmış veri içermemekte, ağırlıklı olarak Bloomberg ve Reuters haberlerine dayanmaktadır.",
+      "id": "event_009",
+      "title": "TSMC, CoWoS ileri paketleme kapasitesini 2027'de aylık 200.000 wafere çıkarmayı hedefliyor",
+      "excerpt": "Piyasa bilgilerine göre TSMC, CoWoS (Chip on Wafer on Substrate) ileri paketleme aylık çıktısını 2027 yılında en az 200.000 wafere ulaştırmayı planlıyor. Kapasite talebi gerilim altında olmayı sürdürürken ekipman tedarikçileri sipariş tahsisinin kesinleşmesini bekliyor.",
+      "detail": "Digitimes'ın 10 Temmuz 2026 tarihli haberine göre TSMC, CoWoS (Chip on Wafer on Substrate) ileri paketleme kapasitesini hızla genişletiyor; piyasa bilgileri 2027 yılında aylık çıktının en az 200.000 wafere ulaşacağına işaret ediyor. Bu rakam, talebin arzı ciddi ölçüde aştığı mevcut CoWoS kapasitesine kıyasla önemli bir artışa karşılık gelmekle birlikte 2026 yılı mevcut kapasitesi elde bulunan kaynakta belirtilmedi.\n\nHaber, ekipman tedarikçilerinin TSMC'nin sipariş tahsisini henüz kesinleştirmediğini aktarıyor. Bu durum, kapasitesinin nereye yönlendirileceğine dair belirsizliğin hâlâ sürdüğüne işaret ediyor. CoWoS kapasitesine yönelik talebin büyük bölümünün Nvidia GPU ve yapay zeka hızlandırıcılarından kaynaklandığı bilinmekte olup bu haberin birincil kaynağı olan Digitimes ödeme duvarı arkasında olduğundan ayrıntılar doğrulanabilir kaynaklara dayanmıyor; bildirildi.\n\n200.000 wafer/ay hedefi, bu rakama hangi tesislerden veya kapasitelerden ulaşılacağına dair herhangi bir coğrafi dağılım içermiyor. TSMC'nin CoWoS kapasitesi hem Tayvan'daki mevcut tesislerden hem de inşa sürecindeki yeni altyapıdan beslenecek; yatırım tutarı ve takvime dair bilgi kaynaklarda yer almıyor.",
       "neden_onemli": null,
-      "category": "politika",
+      "category": "paketleme",
       "subcategories": [
-        "ihracat kontrolleri",
-        "Çin yerli chip",
-        "pazar payı"
+        "CoWoS",
+        "ileri paketleme",
+        "kapasite genişletme"
       ],
       "value_chain": [
-        "tasarim",
-        "wafer-uretim"
+        "paketleme-test"
       ],
-      "maturity": null,
+      "maturity": "announced",
       "companies": [
-        "Nvidia",
-        "Huawei",
-        "Tencent",
-        "Alibaba",
-        "Iluvatar CoreX",
-        "ByteDance"
+        "TSMC"
       ],
       "countries": [
-        "China",
-        "USA"
+        "Taiwan"
       ],
       "technologies": [
-        "AI hızlandırıcı",
-        "H20"
-      ],
-      "technology_nodes": [],
-      "investment": {
-        "amount_original": 2000000,
-        "currency": "CNY",
-        "amount_usd_million": 294000,
-        "public_support_usd_million": null
-      },
-      "published_date": "2026-07-07",
-      "event_date": "2026-07-07",
-      "source": {
-        "name": "TrendForce",
-        "url": "https://trendforce.com/news/2026/07/07/news-chinese-firms-reportedly-raise-domestic-ai-chip-budget-share-from-30-to-46-amid-shift-from-nvidia",
-        "type": "research",
-        "tier": 2,
-        "primary": true
-      },
-      "supporting_sources": [
-        {
-          "name": "Digitimes",
-          "url": "https://digitimes.com/news/a20260707VL210/china-nvidia-accelerator-infrastructure.html"
-        }
-      ],
-      "image": {
-        "url": null,
-        "credit": null,
-        "type": null
-      },
-      "score": 8,
-      "slug": "cinli-firmalar-ai-hizlandirici-butcesinde-yerli-chip-payini-yuzde-30-d"
-    },
-    {
-      "id": "event_011",
-      "title": "Türksat 6A Uzayda İkinci Yılını Tamamladı: Yüzde 80 Yerlilik, 84 Yerli Ekipman",
-      "excerpt": "Türksat 6A, 9 Temmuz 2024'te fırlatılmasından bu yana iki yılı tamamladı; uydu, yüzde 80'in üzerinde yerlilik oranıyla Türkiye'nin geliştirip ürettiği 84 yerli ve milli bileşeni bünyesinde barındırıyor. Uydu, 42 derece doğu yörüngesinde görev yapıyor ve Güney Asya kapsamındaki 10 ülkeye 69 televizyon kanalı yayını sunuyor. Türksat 6A ile Türkiye, haberleşme uydusu tasarlayıp üretebilen 11 ülke arasına girdi.",
-      "detail": "Ulaştırma ve Altyapı Bakanı Abdulkadir Uraloğlu, 9 Temmuz 2026'da Türksat 6A'nın uzaydaki ikinci yılını tamamladığını açıkladı. Uydu, 9 Temmuz 2024'te Florida, Cape Canaveral Uzay Üssü'ndeki SpaceX tesislerinden fırlatıldı; 28 Aralık 2024'te nihai görev yörüngesi olan 42 derece doğu boylamına ulaştı. İlk test yayını 17 Şubat 2025'te gerçekleştirildi; resmi hizmet başlangıcı ise Cumhurbaşkanı Erdoğan'ın katılımıyla 21 Nisan 2025'te ilan edildi.\n\nProje kapsamında 84 adet yerli ve milli uydu ekipmanı üretildi. TÜBİTAK UZAY, ASELSAN, CTech ve TUSAŞ tarafından üretilen bileşenler, testlerin ardından uyduya entegre edildi. Yüzde 80'in üzerinde yerlilik oranına ulaşıldığı açıklandı. Çalışmalar, 21 Mayıs 2015'te TÜRKSAT ve Cumhurbaşkanlığı Savunma Sanayii Başkanlığı (SSB) işbirliğiyle TUSAŞ tesislerinde kurulan Uzay Sistemleri Entegrasyon ve Test Merkezi'nde (USET) yürütüldü. Ulaştırma Bakanlığı'nda hazırlık süreci 15 Aralık 2014'te başladı ve yaklaşık 10 yıl sürdü.\n\nTürsat 6A, 42 derece doğu yörüngesinde jeosenkron görev yapıyor. Yalnızca bu uydu üzerinden Güney Asya kapsama alanındaki 10 ülkede 69 televizyon kanalına yayın hizmeti sunuluyor. TÜRKSAT, 31, 42 ve 50 derece yörüngelerindeki 6 aktif uyduyla dünya uydu operatörleri arasında yer alıyor; toplam kapsama alanı 111 ülkede 5,5 milyar nüfusa hitap ediyor. Türksat 6A'nın devreye girmesiyle televizyon yayını yapan uydular yedekleme kapasitesine kavuştu ve TÜRKSAT'ın hizmet kapasitesi arttı.",
-      "neden_onemli": null,
-      "category": "turkiye",
-      "subcategories": [
-        "uzay teknolojisi",
-        "yerli uydu",
-        "haberleşme"
-      ],
-      "value_chain": [
-        "uygulama"
-      ],
-      "maturity": "mass_production",
-      "companies": [
-        "TUBITAK UZAY",
-        "ASELSAN",
-        "CTech",
-        "TUSAS",
-        "TÜRKSAT"
-      ],
-      "countries": [
-        "Turkey"
-      ],
-      "technologies": [
-        "haberleşme uydusu",
-        "jeosenkron yörünge"
+        "CoWoS",
+        "ileri paketleme (advanced packaging)"
       ],
       "technology_nodes": [],
       "investment": null,
-      "published_date": "2026-07-09",
-      "event_date": "2026-07-09",
+      "published_date": "2026-07-10",
+      "event_date": "2026-07-10",
       "source": {
-        "name": "Anadolu Ajansı",
-        "url": "https://aa.com.tr/tr/bilim-teknoloji/turksat-6a-uzayda-ikinci-yilini-tamamladi/3992893",
-        "type": "news_agency",
-        "tier": 1,
+        "name": "Digitimes",
+        "url": "https://digitimes.com/news/a20260710PD226/tsmc-cowos-2027-packaging-capacity.html",
+        "type": "trade_press",
+        "tier": 2,
         "primary": true
       },
       "supporting_sources": [],
@@ -634,220 +511,379 @@
         "credit": null,
         "type": null
       },
-      "score": 9,
-      "slug": "turksat-6a-uzayda-ikinci-yilini-tamamladi-yuzde-80-yerlilik-84-yerli-e"
+      "score": 8,
+      "slug": "tsmc-cowos-ileri-paketleme-kapasitesini-2027-de-aylik-200-000-wafere-c"
+    },
+    {
+      "id": "event_010",
+      "title": "SK Hynix, Dalian Tesis 2'de V8 NAND hattıyla genişlemeyi yeniden başlatıyor; aylık 30-50 bin wafer hedefleniyor",
+      "excerpt": "SK Hynix, ABD kısıtlamaları ve uzun süreli NAND düşüşü nedeniyle askıya aldığı Dalian Tesis 2 genişleme projesini 2026'nın ikinci yarısında yeniden başlatıyor; tesise 238 katmanlı V8 NAND hattı kurulacak. Aylık wafer kapasitesi hedefi 30.000 ile 50.000 arasında belirlendi.",
+      "detail": "TrendForce'un 10 Temmuz 2026 tarihli haberi, News Tomato ve Sisa Journal kaynaklarına dayanarak SK Hynix'in Çin'in Dalian kentindeki İkinci Tesisi'nin (Dalian Plant 2) genişleme projesini 2026'nın ikinci yarısında yeniden başlatmaya hazırlandığını aktarıyor. Plana göre şirket 2026'nın ikinci yarısında üretim ekipmanı kurulumuna başlayacak ve tesisin inşaat aşamasını 2027'nin ilk yarısına kadar aşamalı biçimde tamamlayacak. Yerli ortakların atıl NAND ekipmanını Dalian'a taşımaya başladığı, denizaşırı tedarikçilerin ise ekipman teslimatları için ön satın alma siparişi (PO) aldığı bildirildi.\n\nDalian Tesis 2'ye kurulması planlanan üretim hattı, 238 katmanlı V8 teknolojisini benimseyecek; aylık wafer kapasitesi hedefi 30.000 ile 50.000 arasında tutuldu. Eş zamanlı olarak Dalian Tesis 1'in 192 katmanlı NAND'a geçiş dönüşümünün derin aşamada olduğu ve eski ekipmanların yenilendiği aktarıldı. Bu ayrım, iki tesisin farklı teknoloji kuşaklarına odaklandığını ortaya koyuyor.\n\nSK Hynix'in toplam Dalian yatırımı bağlamı açısından şu veri kayda değer: şirketin 2025 yılında Dalian NAND üretim yan kuruluşuna yaptığı yatırım, yıllık yüzde 52 artışla 440,6 milyar Kore Wonu'na (yaklaşık 320 milyon dolar) ulaştı. Genişlemenin daha geniş bağlamı incelendiğinde SK Hynix'in Güney Kore'de yaklaşık 50 milyar dolarlık yeni NAND flash tesisi yatırımı duyurduğu görülmektedir; bu çerçevede Dalian projesinin yeniden devreye alınması, çok coğrafyalı bir NAND kapasite artış stratejisinin Çin ayağını oluşturuyor. Güncellenen ABD ihracat kontrol sistemi (Doğrulanmış Son Kullanıcı — VEU — sisteminden yıllık onay sürecine geçiş), Dalian'a yönelik ekipman tedarikinin önündeki belirsizliği azalttığı değerlendirilen etkenler arasında gösterildi.",
+      "neden_onemli": null,
+      "category": "bellek",
+      "subcategories": [
+        "NAND flash",
+        "Çin üretimi",
+        "kapasite genişletme"
+      ],
+      "value_chain": [
+        "wafer-uretim"
+      ],
+      "maturity": "construction",
+      "companies": [
+        "SK Hynix"
+      ],
+      "countries": [
+        "China"
+      ],
+      "technologies": [
+        "NAND flash",
+        "V8 NAND",
+        "238 katmanlı NAND"
+      ],
+      "technology_nodes": [],
+      "investment": {
+        "amount_original": 440600000000,
+        "currency": "KRW",
+        "amount_usd_million": 320,
+        "public_support_usd_million": null
+      },
+      "published_date": "2026-07-10",
+      "event_date": "2026-07-10",
+      "source": {
+        "name": "TrendForce",
+        "url": "https://trendforce.com/news/2026/07/10/news-sk-hynix-reportedly-revives-dalian-plant-2-expansion-in-2h26-adding-new-v8-nand-capacity",
+        "type": "research",
+        "tier": 2,
+        "primary": true
+      },
+      "supporting_sources": [],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 8,
+      "slug": "sk-hynix-dalian-tesis-2-de-v8-nand-hattiyla-genislemeyi-yeniden-baslat"
+    },
+    {
+      "id": "event_011",
+      "title": "Samsung, Tesla AI5 çipinin 2nm teyp-çıkışını tamamladı; Taylor fab 2027 üretim rampına hazırlanıyor",
+      "excerpt": "Samsung Foundry, Tesla'nın otonom sürüş sistemi çipi AI5'in teyp-çıkışını (tape-out) tamamladı; çipin Samsung'un 2nm süreci kullanılarak Texas Taylor fabrikasında üretilmesi planlanıyor. TrendForce'un haberine göre bu, Samsung Foundry'nin Tesla AI5 üretim takviminin kamuoyuyla somut biçimde paylaşıldığı ilk an olma özelliği taşıyor.",
+      "detail": "TrendForce'un 13 Temmuz 2026 tarihli haberi, Yonhap News'e dayanarak Samsung Foundry'nin Tesla AI5 çipinin teyp-çıkışını tamamladığını ve çipin Samsung'un 2nm süreci kullanılarak Taylor, Texas fabrikasında üretileceğini aktardı. Bir Samsung Foundry yetkilisinin LinkedIn paylaşımı üzerinden kamuoyuna yansıyan bu bilgi, şirketin Tesla AI5 üretim takvimine ilişkin ilk somut açıklama olarak kayda geçti.\n\nÜretim planlamasına göre AI5, Samsung ve TSMC arasında bölünmüş olacak; Samsung, Tesla'nın sonraki nesil çipi olan AI6 için tek başına üretim sorumluluğunu üstlenirken TSMC'nin AI6.5 nesline odaklanması bekleniyor. Samsung, Tesla'nın mevcut AI4 çipini halihazırda 7nm süreciyle Pyeongtaek fab hattında seri üretiyor; yükseltilmiş AI4 versiyonunun da aynı kampüste üretilmesi öngörülüyor. Bu tablo, iki üreticinin farklı nesil Tesla çiplerine nasıl konumlandığını ortaya koyuyor.\n\nTaylor fab'ı perspektifinden bakıldığında Samsung'un Nisan 2026'nın sonunda tesise temel ön-uç ve arka-uç ekipmanları taşımaya başladığı ve Güney Kore merkezinden kilit mühendisleri ilk verim güvencesi için sahaya sürdüğü aktarıldı. Samsung, Texas fabrikasının 2027'de ramp üretimine geçeceğini yeniden teyit etti. Sektör gözlemcileri, tesisin standart 2nm'nin yanı sıra iyileştirilmiş ikinci nesil SF2P+ sürecini de barındırabileceğini öngörüyor. Samsung Foundry'nin orta-uzun vadeli sipariş kitabının yaklaşık 50 trilyon Kore Wonu değerine ulaştığı ve Meta ile Anthropic'in de müşteri portföyüne dahil edildiği bildirildi.",
+      "neden_onemli": null,
+      "category": "ai-cip",
+      "subcategories": [
+        "otonom sürüş",
+        "özel çip tasarımı",
+        "foundry"
+      ],
+      "value_chain": [
+        "tasarim",
+        "wafer-uretim"
+      ],
+      "maturity": "qualification",
+      "companies": [
+        "Samsung",
+        "Tesla"
+      ],
+      "countries": [
+        "United States",
+        "South Korea"
+      ],
+      "technologies": [
+        "2nm",
+        "otonom sürüş çipi"
+      ],
+      "technology_nodes": [
+        "2nm",
+        "7nm"
+      ],
+      "investment": null,
+      "published_date": "2026-07-13",
+      "event_date": "2026-07-13",
+      "source": {
+        "name": "TrendForce",
+        "url": "https://trendforce.com/news/2026/07/13/news-samsung-reportedly-completes-tesla-ai5-tape-out-paving-the-way-for-2nm-ramp-at-taylor-fab",
+        "type": "research",
+        "tier": 2,
+        "primary": true
+      },
+      "supporting_sources": [
+        {
+          "name": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713VL216/samsung-tesla-fab-texas-2nm.html"
+        }
+      ],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 8,
+      "slug": "samsung-tesla-ai5-cipinin-2nm-teyp-cikisini-tamamladi-taylor-fab-2027-"
+    },
+    {
+      "id": "event_012",
+      "title": "Rapidus, TSMC'yi fiyatla geçmeyi hedefliyor; 2nm sınıfı wafer başına 20.000 dolar planlıyor",
+      "excerpt": "Japon çip üreticisi Rapidus, 2027 piyasaya çıkışında 2nm sınıfı wafer fiyatını wafer başına yaklaşık 20.000 dolar olarak belirlemeyi planlıyor; bu rakam TSMC'nin 2nm fiyatlandırmasının altında kalmayı hedefliyor. Bağımsız kaynaklara göre AI talebi, TSMC ve Samsung'a daha fazla fiyatlama gücü sağlarken Rapidus maliyet rekabeti stratejisini benimsiyor.",
+      "detail": "Tom's Hardware'in 10 Temmuz 2026 tarihli haberine göre Japonya merkezli Rapidus, 2027 yılındaki piyasaya çıkış döneminde 2nm sınıfı wafer fiyatını wafer başına yaklaşık 20.000 dolar olarak belirlemeyi planlıyor. Bu fiyat, hem TSMC'nin hem de Samsung'un benzer düğümler için benimsediği veya benimsemesi beklenen fiyatlandırmanın altına konumlanmak amacıyla tasarlandı. Destekleyici Digitimes kaynağı, yapay zeka talebinin TSMC ve Samsung'a önemli fiyatlama gücü kazandırdığını, bu ortamda Rapidus'un yeni bir oyuncu olarak maliyet avantajı üzerinden müşteri kazanmayı hedeflediğini aktarıyor.\n\nRapidus'un 2nm wafer fiyatlandırma stratejisinin ayrıntıları (hacim taahhüdüne bağlı indirimler, müşteri sayısı hedefi, minimum sipariş miktarı) elde bulunan kaynakta yer almıyor. Şirketin Japonya'da devlet destekli bir girişim olduğu ve IBM ile teknoloji iş birliği kapsamında ilerlediği bilinmektedir; ancak yatırım tutarları ve devlet katkısına ilişkin veriler bu haberin kapsamı dışında. 20.000 dolar/wafer rakamının piyasa bilgilerine mi yoksa resmi Rapidus açıklamasına mı dayandığı birincil Tom's Hardware kaynağında, ödeme duvarı nedeniyle doğrulanamadı; bildirildi.",
+      "neden_onemli": null,
+      "category": "yatirim",
+      "subcategories": [
+        "foundry fiyatlandırması",
+        "2nm",
+        "Japon yarı iletken politikası"
+      ],
+      "value_chain": [
+        "wafer-uretim"
+      ],
+      "maturity": "announced",
+      "companies": [
+        "Rapidus"
+      ],
+      "countries": [
+        "Japan"
+      ],
+      "technologies": [
+        "2nm"
+      ],
+      "technology_nodes": [
+        "2nm"
+      ],
+      "investment": null,
+      "published_date": "2026-07-10",
+      "event_date": "2026-07-10",
+      "source": {
+        "name": "Tom's Hardware",
+        "url": "https://tomshardware.com/tech-industry/semiconductors/japanese-chipmaker-rapidus-to-offer-lower-wafer-pricing-than-tsmc-2nm-class-silicon-to-be-priced-around-usd20-000-on-2027-launch",
+        "type": "trade_press",
+        "tier": 2,
+        "primary": true
+      },
+      "supporting_sources": [
+        {
+          "name": "Digitimes",
+          "url": "https://digitimes.com/news/a20260709VL213/tsmc-samsung-demand-2nm-rapidus.html"
+        }
+      ],
+      "image": {
+        "url": null,
+        "credit": null,
+        "type": null
+      },
+      "score": 8,
+      "slug": "rapidus-tsmc-yi-fiyatla-gecmeyi-hedefliyor-2nm-sinifi-wafer-basina-20-"
     }
   ],
   "radar": [
     {
-      "kume": "Bellek ve Hammadde Tedariki",
+      "kume": "Bellek piyasası ve HBM",
       "maddeler": [
         {
-          "title": "Samsung, AI bellek talebine yanıt vermek için Yongin fabrika açılışını 2029'a çekti",
-          "source": "Bloomberg HT",
-          "url": "https://bloomberght.com/samsung-yongin-deki-cip-fabrikasinin-acilisini-2029-a-cekti-3782666",
+          "title": "SK Hynix, Haziran sonunda Nvidia'ya 12 katmanlı HBM4 sevkiyatlarına başladı; geniş çaplı ramp Eylül'de",
+          "source": "Digitimes",
+          "url": "https://apps.digitimes.com/news/a20260713VL219/sk-hynix-hbm4-nvidia-shipments-samsung.html",
           "date": "2026-07-13",
           "category": "bellek"
         },
         {
-          "title": "DRAM fiyatları Q3 2026'da yüzde 20-30, NAND fiyatları yüzde 35-40 arttı",
+          "title": "Samsung Q2 faaliyet kârı yüzde 1.810 artışla 89,4 trilyon Won rekoruna ulaştı; DRAM ve NAND fiyatları çeyrek bazında yüzde 50-60 yükseldi",
           "source": "TrendForce",
-          "url": "https://trendforce.com/news/2026/07/08/news-memory-rally-extends-as-taiwan-module-maker-adata-reportedly-sees-q3-dram-prices-up-20-30-nand-up-35-40",
-          "date": "2026-07-08",
+          "url": "https://trendforce.com/news/2026/07/07/news-samsungs-2q-operating-profit-soars-1810-to-record-krw-89-4t-reportedly-surpassing-nvidia-and-apple",
+          "date": "2026-07-07",
           "category": "bellek"
         },
         {
-          "title": "HBM fiyatlarının Nvidia Rubin talebiyle 2027'de iki katına çıkması bekleniyor",
+          "title": "HBM fiyatlarının 2027'de iki katından fazla artması öngörülüyor; Nvidia Rubin platformu ve HBM4 üretim maliyetleri belirleyici",
           "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260710PD216/hbm-2027-demand-hbm4-capacity.html",
+          "url": "https://apps.digitimes.com/news/a20260710PD216/hbm-2027-demand-hbm4-capacity.html",
           "date": "2026-07-10",
           "category": "bellek"
         },
         {
-          "title": "ABD, İran savaşı ve Çin kısıtlamaları sonrası Japonya, Güney Kore ve Tayvan'ın birincil helyum tedarikçisi konumuna yükseldi",
-          "source": "Nikkei Asia",
-          "url": "https://asia.nikkei.com/spotlight/supply-chain/us-emerges-as-helium-winner-amid-iran-war-and-china-restrictions2",
-          "date": "2026-07-13",
-          "category": "malzeme"
-        },
-        {
-          "title": "InP yarı iletken substrat arzı daralıyor; optik modül talebi Güney Kore'yi risk altına sokuyor",
+          "title": "Q3 2026 DRAM ve NAND sözleşme fiyatları yapısal arz açığı nedeniyle yükselişini sürdürüyor",
           "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260710VL216/inp-coherent-substrate-capacity-production.html",
-          "date": "2026-07-12",
-          "category": "malzeme"
-        },
-        {
-          "title": "Lynas Rare Earths ve JS Link, Malezya'da nadir toprak kalıcı mıknatıs fabrikası için anlaşma imzaladı",
-          "source": "Nikkei Asia",
-          "url": "https://asia.nikkei.com/business/markets/commodities/lynas-js-link-sign-deal-for-malaysian-magnet-plant",
+          "url": "https://digitimes.com/news/a20260707VL203/demand-dram-nand-price-pc.html",
           "date": "2026-07-07",
-          "category": "malzeme"
-        }
-      ]
-    },
-    {
-      "kume": "İhracat Kontrolleri ve Politika",
-      "maddeler": [
+          "category": "bellek"
+        },
         {
-          "title": "Çin, Alibaba, ByteDance ve DeepSeek için Nvidia H200 erişimine sınırlı yeniden açılım hazırlığında",
+          "title": "Kioxia ve SanDisk, 332 katmanlı BiCS10 NAND örneklerini sevk etti; NAND liderliği yarışı yoğunlaşıyor",
           "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260713VL205/nvidia-beijing-market-software-chips.html",
-          "date": "2026-07-13",
-          "category": "politika"
-        },
-        {
-          "title": "Samsung ve SK Hynix, ABD ihracat kontrolü risklerine karşı Çin'deki tedarik zinciri bağımlılığını azaltmayı hızlandırıyor",
-          "source": "Digitimes",
-          "url": "https://apps.digitimes.com/news/a20260707PD212/samsung-sk-hynix-ic-manufacturing-equipment-china.html",
-          "date": "2026-07-07",
-          "category": "politika"
-        },
-        {
-          "title": "ABD, başkanlık incelemesinin ardından Innoscience GaN ürünlerine ithalat yasağını onayladı",
-          "source": "Evertiq",
-          "url": "https://evertiq.com/design/2026-07-07-us-import-ban-on-innosciences-gan-products-confirmed-after-presidential-review",
-          "date": "2026-07-07",
-          "category": "politika"
-        },
-        {
-          "title": "Samsung, SK Hynix ve Micron, DRAM fiyatlarını yüzde 700 artıran koordineli arz kesintisi iddiasıyla dava edildi",
-          "source": "TrendForce",
-          "url": "https://trendforce.com/news/2026/07/08/news-new-dram-price-fixing-case-against-samsung-sk-hynix-and-micron-tests-whether-hbm-expansion-can-prove-collusion",
-          "date": "2026-07-08",
-          "category": "politika"
-        }
-      ]
-    },
-    {
-      "kume": "AI Çip ve Paketleme",
-      "maddeler": [
-        {
-          "title": "Meta, üçüncü nesilden itibaren MTIA AI çiplerini Samsung 2nm sürecine taşıyacak",
-          "source": "DonanımHaber",
-          "url": "https://donanimhaber.com/meta-yeni-nesil-ai-cipleri-icin-rotayi-samsung-a-cevirdi--207652",
-          "date": "2026-07-03",
-          "category": "ai-cip"
-        },
-        {
-          "title": "Çinli AI startupları DeepSeek ve Zhipu AI, ABD ihracat kontrolleri karşısında yerli chip geliştirmeyi hızlandırıyor",
-          "source": "TrendForce",
-          "url": "https://trendforce.com/news/2026/07/08/news-china-ai-model-developers-ramp-up-in-house-chips-deepseek-zhipu-explore-custom-silicon",
-          "date": "2026-07-08",
-          "category": "ai-cip"
-        },
-        {
-          "title": "TSMC PIC kapasitesinin 2028'de 25.000 wafer/ay'a ulaşması bekleniyor; Nvidia ve Broadcom ilk COUPE müşterileri arasında",
-          "source": "TrendForce",
-          "url": "https://trendforce.com/news/2026/07/08/news-tsmc-pic-capacity-seen-surging-to-25k-wafersmonth-by-2028-nvidia-broadcom-eyed-as-early-coupe-customers",
-          "date": "2026-07-08",
-          "category": "ai-cip"
-        },
-        {
-          "title": "SK Hynix, HBM yoğunluğu ve termal kontrolde rekabet etmek için yeni nesil HBM'de hibrit bağlama (hybrid bonding) benimsiyor",
-          "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260710VL210/hbm-packaging-hbm4-bandwidth-equipment.html",
-          "date": "2026-07-12",
-          "category": "paketleme"
-        },
-        {
-          "title": "Tayvan Chiayi Bilim Parkı 2. Faz'ı temel atıyor; TSMC öncülüğünde 90 hektarlık ileri paketleme merkezi kuruluyor",
-          "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260713PD221/taiwan-advanced-packaging-industrial-development-tsmc.html",
-          "date": "2026-07-13",
-          "category": "paketleme"
-        },
-        {
-          "title": "JCET, güçlü Çinli müşteri talebiyle AI paketleme genişlemesi için 1,4 milyar dolar sermaye harcaması ayırdı",
-          "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260710VL206/jcet-packaging-capacity-demand-production.html",
-          "date": "2026-07-10",
-          "category": "paketleme"
-        },
-        {
-          "title": "Nvidia'nın Rubin Ultra için Kyber rafı, PCB midplane üretim sorunları nedeniyle 2028'e ertelendi",
-          "source": "Tom's Hardware",
-          "url": "https://tomshardware.com/pc-components/gpus/nvidias-kyber-rack-for-rubin-ultra-slips-to-2028",
-          "date": "2026-07-06",
-          "category": "ai-cip"
-        }
-      ]
-    },
-    {
-      "kume": "Yatırım ve Kapasite Kararları",
-      "maddeler": [
-        {
-          "title": "GlobalWafers ve Micron, ABD yarı iletken yerelleştirmesini ilerletmek için 500 milyon dolarlık stratejik yatırımla 10 yıllık wafer tedarik anlaşması imzaladı",
-          "source": "Digitimes",
-          "url": "https://apps.digitimes.com/news/a20260710PD206/globalwafers-micron-semiconductors-localization-capacity-equipment.html",
-          "date": "2026-07-10",
-          "category": "yatirim"
-        },
-        {
-          "title": "Micron, Hiroşima fabrikasında yeni temiz oda inşaatına başladı; ilk aşama 300.000 fit kare, ekipman kurulumu 2028'in ikinci yarısında",
-          "source": "Evertiq",
-          "url": "https://evertiq.com/design/2026-07-07-micron-breaks-ground-on-new-cleanroom-at-hiroshima-facility",
-          "date": "2026-07-07",
-          "category": "yatirim"
-        },
-        {
-          "title": "SK Group yönetim kurulu başkanı, mevcut taahhütlere ek olarak 35 milyar doları aşan ABD yatırım planını duyurdu",
-          "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260713VL210/sk-group-chairman-investment-sk-hynix-business.html",
-          "date": "2026-07-13",
-          "category": "yatirim"
-        }
-      ]
-    },
-    {
-      "kume": "Teknoloji ve Ekipman",
-      "maddeler": [
-        {
-          "title": "Infineon'un Dresden Smart Power Fab'ı takvimin önünde açıldı; dünyanın en büyük güç yarı iletken tesisi",
-          "source": "DonanımHaber",
-          "url": "https://donanimhaber.com/almanya-dunyanin-en-buyuk-guc-yari-iletken-tesisini-hizmete-aldi--207678",
-          "date": "2026-07-05",
-          "category": "teknoloji"
-        },
-        {
-          "title": "Rapidus, 2nm için wafer başına 3-3,5 milyon yen (18.500-21.500 dolar) hedefliyor; TSMC ile fiyat rekabeti planlıyor, 1,4nm 2029'da",
-          "source": "TrendForce",
-          "url": "https://trendforce.com/news/2026/07/09/news-japans-rapidus-takes-on-tsmc-with-aggressive-2nm-pricing-reportedly-targeting-up-to-%c2%a53-5m-per-wafer",
+          "url": "https://digitimes.com/news/a20260709VL222/kioxia-nand-sandisk-technology-shipping.html",
           "date": "2026-07-09",
-          "category": "tasarim"
+          "category": "bellek"
         },
         {
-          "title": "TSMC, HBM ve CoWoS paketleme darboğazları tedarik zincirini yeniden şekillendirirken AI çip üretimindeki liderliğini genişletiyor",
-          "source": "Digitimes",
-          "url": "https://digitimes.com/news/a20260713VL204/tsmc-cowos-capacity-hbm-weekly-news-roundup.html",
+          "title": "JEDEC, pahalı ara katmanlar gerektirmeyen organik substrat kullanımı sağlayan 512-bit dar arabirimli SPHBM4 standardını yayımladı",
+          "source": "Tom's Hardware",
+          "url": "https://tomshardware.com/pc-components/dram/jedec-releases-new-sphbm4-standard-to-slash-ai-memory-costs-narrow-512-bit-interface-enables-dropping-expensive-interposers-for-organic-substrates",
+          "date": "2026-07-08",
+          "category": "bellek"
+        }
+      ]
+    },
+    {
+      "kume": "İleri paketleme ve substrat",
+      "maddeler": [
+        {
+          "title": "LG Innotek, Vietnam Hai Phong'daki çip paketleme operasyonlarına 1 milyar dolar yatırım yapıyor",
+          "source": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/business/tech/semiconductors/lg-s-1bn-move-shows-vietnam-climbing-semiconductor-value-chain",
+          "date": "2026-07-09",
+          "category": "paketleme"
+        },
+        {
+          "title": "Sumitomo Electric, 800G/1,6T optik alıcı-verici için InP substrat kapasitesini 18 milyar Yen yatırımla genişletiyor",
+          "source": "TrendForce",
+          "url": "https://trendforce.com/news/2026/07/13/news-sumitomo-electric-to-raise-inp-substrate-expansion-scale-with-jpy-18-billion",
           "date": "2026-07-13",
+          "category": "paketleme"
+        },
+        {
+          "title": "Samsung Electronics ve Samsung Display, TSMC'nin RDL ara katmanına maliyet alternatifi olarak cam ara katman (glass interposer) geliştiriyor",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713VL221/samsung-interposer-packaging-tsmc-capacity.html",
+          "date": "2026-07-13",
+          "category": "paketleme"
+        },
+        {
+          "title": "Samsung, AI veri merkezleri için HBM, mantık çipi ve silisyum fotonik bileşenleri bir arada barındıran gelişmiş paketleme geliştiriyor",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713VL223/samsung-hbm-optics-siph-packaging-chips.html",
+          "date": "2026-07-13",
+          "category": "paketleme"
+        },
+        {
+          "title": "Çinli PCB üreticileri AI talebiyle rekor yatırıma ulaştı; Victory Giant Q1 yatırımını yıllık yaklaşık 5 kat artırdı",
+          "source": "TrendForce",
+          "url": "https://trendforce.com/news/2026/07/09/news-chinas-pcb-makers-boost-investment-to-record-highs-on-ai-demand-victory-giant-lifts-1q26-capex-nearly-5x-yoy",
+          "date": "2026-07-09",
+          "category": "paketleme"
+        }
+      ]
+    },
+    {
+      "kume": "Teknoloji düğümleri ve süreç geliştirme",
+      "maddeler": [
+        {
+          "title": "TSMC, 1,4nm (A14) pilot üretimi için Q3 2027, kitlesel üretim için 2028 takvimini Taichung tesisinde hedefliyor",
+          "source": "DonanımHaber",
+          "url": "https://donanimhaber.com/tsmc-den-1-4nm-icin-geri-sayim-pilot-uretim-icin-tarih-verildi--208025",
+          "date": "2026-07-13",
+          "category": "teknoloji"
+        },
+        {
+          "title": "TSMC, ASML ve Imec, beş yıl içinde Tayvan'da 2D çip kitlesel üretimine geçmek için iş birliği başlattı",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260708PD233/asml-tsmc-taiwan-production-materials.html",
+          "date": "2026-07-09",
+          "category": "teknoloji"
+        },
+        {
+          "title": "Intel, TSMC ve Samsung'a yanıt olarak 2027'de çift taraflı güç dağıtımlı 14A2 sürecini planlıyor",
+          "source": "DonanımHaber",
+          "url": "https://donanimhaber.com/intel-den-tsmc-ve-samsung-a-yanit-geliyor-14a2-ortaya-cikti--207761",
+          "date": "2026-07-07",
+          "category": "teknoloji"
+        },
+        {
+          "title": "Şanghay AtomIC Technology, EUV kısıtlamalarını aşmak için 8 inçlik 2D yarı iletken pilot hattını dünyada ilk olarak başlattı",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713VL217/shanghai-euv-silicon-semiconductors-materials.html",
+          "date": "2026-07-13",
+          "category": "teknoloji"
+        },
+        {
+          "title": "UMC, Singapur'da silisyum fotonikleri (silicon photonics) çip üretimine başladı; AI veri merkezi bağlantı darboğazına yanıt",
+          "source": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/business/tech/semiconductors/taiwan-s-no.-2-chipmaker-umc-starts-photonic-chip-production-in-singapore",
+          "date": "2026-07-14",
           "category": "teknoloji"
         }
       ]
     },
     {
-      "kume": "Türkiye Savunma ve Uzay",
+      "kume": "AI çipleri ve veri merkezi yatırımları",
       "maddeler": [
         {
-          "title": "Türkiye'nin IMECE-2 ve IMECE-3 gözlem uyduları, takım uydu kapasitesini NATO gündemine taşıdı",
-          "source": "TÜBİTAK UZAY",
-          "url": "https://uzay.tubitak.gov.tr/imece-2-ve-imece-3-uydulari-nato-gundeminde-turkiyenin-takim-uydu-kapasitesi-gucleniyor",
-          "date": "2026-07-08",
-          "category": "turkiye"
-        },
-        {
-          "title": "Türkiye, HİSAR-A ve HİSAR-O hava savunma sistemleri seri üretimi için ek 1,47 milyar euro sözleşme imzaladı",
-          "source": "Anadolu Ajansı",
-          "url": "https://aa.com.tr/tr/ekonomi/cumhurbaskanligi-savunma-sanayii-baskani-gorgunden-hava-savunmada-yerlilik-vurgusu/3994083",
+          "title": "Meta, Iris AI hızlandırıcı çipinin Eylül 2026'da üretime girmesini planlıyor; 14 gigawatt hesaplama genişlemesi için uzun vadeli tedarik güvenceye alınıyor",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260710VL205/meta-ai-accelerator-infrastructure-manufacturing.html",
           "date": "2026-07-10",
-          "category": "turkiye"
+          "category": "ai-cip"
         },
         {
-          "title": "Milli drone karşı tedbir sistemleri NATO Zirvesi'nde başarıyla görev yaptı",
-          "source": "Anadolu Ajansı",
-          "url": "https://aa.com.tr/tr/bilim-teknoloji/milli-dron-karsi-tedbir-sistemleri-nato-zirvesinde-basariyla-gorev-yapti/3996280",
+          "title": "Elon Musk, yüksek hızlı ara bağlantı firması Mesh Optical'ı satın almak için FTC onayı aldı",
+          "source": "Tom's Hardware",
+          "url": "https://tomshardware.com/tech-industry/big-tech/elon-musk-receives-ftc-greenlight-to-buy-mesh-optical-as-interconnects-emerge-as-ais-tightest-bottleneck-the-move-will-expand-musks-growing-stack-of-critical-ai-infrastructure",
+          "date": "2026-07-09",
+          "category": "ai-cip"
+        },
+        {
+          "title": "Apple, ABD çip stratejisi kapsamında Broadcom ile 30 milyar dolarlık genişletilmiş anlaşma imzaladı",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260709VL200/apple-broadcom-silicon-design-manufacturing-production.html",
+          "date": "2026-07-09",
+          "category": "ai-cip"
+        }
+      ]
+    },
+    {
+      "kume": "Ekipman ve foundry fiyatlandırması",
+      "maddeler": [
+        {
+          "title": "Samsung, AI hızlandırıcı ve yüksek performanslı hesaplama talebine yanıt olarak 4nm ve 5nm foundry fiyatlarını artırdı",
+          "source": "DonanımHaber",
+          "url": "https://donanimhaber.com/samsung-krizi-firsata-cevirdi-4-nm-ve-5-nm-fiyatlarini-arttirdi--207911",
+          "date": "2026-07-10",
+          "category": "ekipman"
+        },
+        {
+          "title": "Foxconn, IC tasarımı, SiC ve ileri paketlemeyi kapsayan entegre yarı iletken ekosistemi kuruyor; yan şirket 2026'da halka arz hazırlığında",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260709PD214/foxconn-ic-design-packaging-sic-young-liu.html",
+          "date": "2026-07-09",
+          "category": "ekipman"
+        }
+      ]
+    },
+    {
+      "kume": "Yeni kapasite yatırımları (Test ve imalat)",
+      "maddeler": [
+        {
+          "title": "Lite-On, McKinney Texas'ta 919 milyon dolarlık yeni üretim tesisi kuruyor; 600'den fazla istihdam yaratılacak",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260714PD206/lite-on-manufacturing-texas-investment-expansion.html",
+          "date": "2026-07-14",
+          "category": "yatirim"
+        },
+        {
+          "title": "KYEC, ABD'de çip test kapasitesini genişletmek için 1,4 milyar dolarlık test tesisi yatırımını onayladı",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713PD201/king-yuan-testing-plant-investment-manufacturing.html",
           "date": "2026-07-13",
-          "category": "turkiye"
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "İhracat kontrolleri ve politika",
+      "maddeler": [
+        {
+          "title": "ABD ITC, Innoscience GaN çiplerine yönelik ithalat yasağını onadı; Infineon patent ihlali teyit edildi",
+          "source": "Compound Semiconductor",
+          "url": "https://compoundsemiconductor.net/article/124642/US_ITC_upholds_Innoscience_GaN_chips_ban",
+          "date": "2026-07-07",
+          "category": "politika"
+        },
+        {
+          "title": "TSMC Haziran 2026 geliri 442,68 milyar Yeni Tayvan Doları (13,8 milyar dolar) ile yıllık yüzde 68 arttı",
+          "source": "Digitimes",
+          "url": "https://digitimes.com/news/a20260713VL213/tsmc-revenue-growth-demand-2026.html",
+          "date": "2026-07-13",
+          "category": "rapor"
         }
       ]
     }

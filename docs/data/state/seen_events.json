@@ -1,5 +1,5 @@
 {
-  "issue_no": 2,
+  "issue_no": 3,
   "events": [
     {
       "baslik_ozet": "SK Hynix, Nasdaq'ta 26,5 Milyar Dolarlık Rekor Halka Arzı Tamamladı",
@@ -88,6 +88,54 @@
     {
       "baslik_ozet": "Türksat 6A Uzayda İkinci Yılını Tamamladı: Yüzde 80 Yerlilik, 84 Yerli Ekipman",
       "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Türkiye HIT-30 kapsamında 5 milyar dolarlık savunma teknolojileri yatırım çağrısı başlattı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Türkiye imalat sanayine 1 trilyon liralık kredi paketi açıkladı, YTAK bütçesi 750 milyar liraya çıktı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "SK Hynix, ABD Nasdaq'ta 26,5 milyar dolar toplayarak yabancı şirket IPO rekoru kırdı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "ABD Ticaret Bakanlığı Bosch'a SiC üretimi için 225 milyon dolarlık CHIPS hibesi verdi",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Micron, GlobalWafers Texas tesisine 500 milyon dolar taahhüt ederek ABD harcamasını 250 milyar dolara çıkardı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Intel, Almanya ve Polonya projelerini iptal ederek Avrupa üretimini İrlanda Leixlip'e 5,7 milyar dolarla odakladı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "ASELSAN, Ankara'da 2 milyar dolar üzerinde hava savunma altyapısı inşa ediyor; seri üretim kapasitesi iki yılda yüzde 40 arttı",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Nanya Technology 2027 sermaye harcamasını dört katına çıkararak 6,2 milyar dolara ulaştıracak",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "TSMC, CoWoS ileri paketleme kapasitesini 2027'de aylık 200.000 wafere çıkarmayı hedefliyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "SK Hynix, Dalian Tesis 2'de V8 NAND hattıyla genişlemeyi yeniden başlatıyor; aylık 30-50 bin wafer hedefleniyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Samsung, Tesla AI5 çipinin 2nm teyp-çıkışını tamamladı; Taylor fab 2027 üretim rampına hazırlanıyor",
+      "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "Rapidus, TSMC'yi fiyatla geçmeyi hedefliyor; 2nm sınıfı wafer başına 20.000 dolar planlıyor",
+      "hafta": "2026-W29"
     }
   ],
   "urls": [
@@ -162,6 +210,43 @@
     "https://digitimes.com/news/a20260713VL204/tsmc-cowos-capacity-hbm-weekly-news-roundup.html",
     "https://uzay.tubitak.gov.tr/imece-2-ve-imece-3-uydulari-nato-gundeminde-turkiyenin-takim-uydu-kapasitesi-gucleniyor",
     "https://aa.com.tr/tr/ekonomi/cumhurbaskanligi-savunma-sanayii-baskani-gorgunden-hava-savunmada-yerlilik-vurgusu/3994083",
-    "https://aa.com.tr/tr/bilim-teknoloji/milli-dron-karsi-tedbir-sistemleri-nato-zirvesinde-basariyla-gorev-yapti/3996280"
+    "https://aa.com.tr/tr/bilim-teknoloji/milli-dron-karsi-tedbir-sistemleri-nato-zirvesinde-basariyla-gorev-yapti/3996280",
+    "https://donanimhaber.com/turkiye-den-savunma-teknolojilerine-5-milyar-dolarlik-destek--207792",
+    "https://bloomberght.com/erdogan-imalat-sanayine-1-trilyon-liralik-kredinin-onunu-aciyoruz-3782750",
+    "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-raises-a-record-usd26-5-billion-in-historic-u-s-ipo-south-korean-memory-giant-to-fund-massive-hbm-manufacturing-expansions",
+    "https://nist.gov/news-events/news/2026/07/department-commerce-announces-direct-funding-agreement-bosch-225-million",
+    "https://tomshardware.com/tech-industry/semiconductors/micron-commits-500-million-to-globalwafers-texas-wafer-plant-as-it-raises-us-spending-to-250-billion",
+    "https://digitimes.com/news/a20260714VL200/intel-ireland-expansion-capacity-demand.html",
+    "https://aa.com.tr/tr/gundem/aselsan-genel-muduru-ahmet-akyoldan-avrupanin-en-hizli-sirketlerindeniz-mesaji/3990728",
+    "https://asia.nikkei.com/business/technology/taiwan-s-top-memory-chip-maker-nanya-tech-to-quadruple-2027-capex",
+    "https://digitimes.com/news/a20260710PD226/tsmc-cowos-2027-packaging-capacity.html",
+    "https://trendforce.com/news/2026/07/10/news-sk-hynix-reportedly-revives-dalian-plant-2-expansion-in-2h26-adding-new-v8-nand-capacity",
+    "https://trendforce.com/news/2026/07/13/news-samsung-reportedly-completes-tesla-ai5-tape-out-paving-the-way-for-2nm-ramp-at-taylor-fab",
+    "https://tomshardware.com/tech-industry/semiconductors/japanese-chipmaker-rapidus-to-offer-lower-wafer-pricing-than-tsmc-2nm-class-silicon-to-be-priced-around-usd20-000-on-2027-launch",
+    "https://apps.digitimes.com/news/a20260713VL219/sk-hynix-hbm4-nvidia-shipments-samsung.html",
+    "https://trendforce.com/news/2026/07/07/news-samsungs-2q-operating-profit-soars-1810-to-record-krw-89-4t-reportedly-surpassing-nvidia-and-apple",
+    "https://apps.digitimes.com/news/a20260710PD216/hbm-2027-demand-hbm4-capacity.html",
+    "https://digitimes.com/news/a20260707VL203/demand-dram-nand-price-pc.html",
+    "https://digitimes.com/news/a20260709VL222/kioxia-nand-sandisk-technology-shipping.html",
+    "https://tomshardware.com/pc-components/dram/jedec-releases-new-sphbm4-standard-to-slash-ai-memory-costs-narrow-512-bit-interface-enables-dropping-expensive-interposers-for-organic-substrates",
+    "https://asia.nikkei.com/business/tech/semiconductors/lg-s-1bn-move-shows-vietnam-climbing-semiconductor-value-chain",
+    "https://trendforce.com/news/2026/07/13/news-sumitomo-electric-to-raise-inp-substrate-expansion-scale-with-jpy-18-billion",
+    "https://digitimes.com/news/a20260713VL221/samsung-interposer-packaging-tsmc-capacity.html",
+    "https://digitimes.com/news/a20260713VL223/samsung-hbm-optics-siph-packaging-chips.html",
+    "https://trendforce.com/news/2026/07/09/news-chinas-pcb-makers-boost-investment-to-record-highs-on-ai-demand-victory-giant-lifts-1q26-capex-nearly-5x-yoy",
+    "https://donanimhaber.com/tsmc-den-1-4nm-icin-geri-sayim-pilot-uretim-icin-tarih-verildi--208025",
+    "https://digitimes.com/news/a20260708PD233/asml-tsmc-taiwan-production-materials.html",
+    "https://donanimhaber.com/intel-den-tsmc-ve-samsung-a-yanit-geliyor-14a2-ortaya-cikti--207761",
+    "https://digitimes.com/news/a20260713VL217/shanghai-euv-silicon-semiconductors-materials.html",
+    "https://asia.nikkei.com/business/tech/semiconductors/taiwan-s-no.-2-chipmaker-umc-starts-photonic-chip-production-in-singapore",
+    "https://digitimes.com/news/a20260710VL205/meta-ai-accelerator-infrastructure-manufacturing.html",
+    "https://tomshardware.com/tech-industry/big-tech/elon-musk-receives-ftc-greenlight-to-buy-mesh-optical-as-interconnects-emerge-as-ais-tightest-bottleneck-the-move-will-expand-musks-growing-stack-of-critical-ai-infrastructure",
+    "https://digitimes.com/news/a20260709VL200/apple-broadcom-silicon-design-manufacturing-production.html",
+    "https://donanimhaber.com/samsung-krizi-firsata-cevirdi-4-nm-ve-5-nm-fiyatlarini-arttirdi--207911",
+    "https://digitimes.com/news/a20260709PD214/foxconn-ic-design-packaging-sic-young-liu.html",
+    "https://digitimes.com/news/a20260714PD206/lite-on-manufacturing-texas-investment-expansion.html",
+    "https://digitimes.com/news/a20260713PD201/king-yuan-testing-plant-investment-manufacturing.html",
+    "https://compoundsemiconductor.net/article/124642/US_ITC_upholds_Innoscience_GaN_chips_ban",
+    "https://digitimes.com/news/a20260713VL213/tsmc-revenue-growth-demand-2026.html"
   ]
 }

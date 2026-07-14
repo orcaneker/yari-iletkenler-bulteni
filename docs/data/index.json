@@ -1,13 +1,13 @@
 [
   {
-    "number": 2,
+    "number": 3,
     "hafta": "2026-W29",
-    "publication_date": "2026-07-13",
-    "coverage_start": "2026-07-06",
-    "coverage_end": "2026-07-13",
-    "lead_title": "Türkiye HIT-30 Kapsamında 5 Milyar Dolarlık Savunma Teknolojileri Çağrısını Başlattı",
-    "story_count": 10,
-    "radar_count": 26,
+    "publication_date": "2026-07-14",
+    "coverage_start": "2026-07-07",
+    "coverage_end": "2026-07-14",
+    "lead_title": "Türkiye HIT-30 kapsamında 5 milyar dolarlık savunma teknolojileri yatırım çağrısı başlattı",
+    "story_count": 11,
+    "radar_count": 25,
     "file": "data/arsiv/2026-W29.json"
   }
 ]
