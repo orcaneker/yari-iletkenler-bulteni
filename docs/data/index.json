@@ -9,5 +9,16 @@
     "story_count": 11,
     "radar_count": 25,
     "file": "data/arsiv/2026-W29.json"
+  },
+  {
+    "number": 1,
+    "hafta": "2026-W30",
+    "publication_date": "2026-07-20",
+    "coverage_start": "2026-07-13",
+    "coverage_end": "2026-07-20",
+    "lead_title": "TSMC Arizona Yatırım Taahhüdünü 265 Milyar Dolara Yükseltti",
+    "story_count": 9,
+    "radar_count": 23,
+    "file": "data/arsiv/2026-W30.json"
   }
 ]

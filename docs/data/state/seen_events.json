@@ -1,5 +1,5 @@
 {
-  "issue_no": 3,
+  "issue_no": 1,
   "events": [
     {
       "baslik_ozet": "SK Hynix, Nasdaq'ta 26,5 Milyar Dolarlık Rekor Halka Arzı Tamamladı",
@@ -136,6 +136,46 @@
     {
       "baslik_ozet": "Rapidus, TSMC'yi fiyatla geçmeyi hedefliyor; 2nm sınıfı wafer başına 20.000 dolar planlıyor",
       "hafta": "2026-W29"
+    },
+    {
+      "baslik_ozet": "TSMC Arizona Yatırım Taahhüdünü 265 Milyar Dolara Yükseltti",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Türkiye'nin Yerli Rubidyum Atomik Saati Yörüngeye Fırlatıldı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Intel, İrlanda Leixlip Fab'ına 5 Milyar Euro Ek Yatırım Taahhüt Etti",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "ASML Yüksek NA EUV ile Intel 18A'da İlk Ticari Çip Üretimini Doğruladı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "ASML'nin Çin Dengesi: Yüzde 20 Gelir Payı ve Artan ABD Baskısı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "ABD, ZTE'ye Nvidia H200 Lisansı Verdi; Çin'e Hopper Erişimi Genişledi",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Nanya, New Taipei'de 15 Milyar Dolarlık 45k wpm DRAM Fab İnşa Ediyor",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "CXMT'nin DRAM Kapasitesi Micron'u Yakalamak Üzere; Çin İkinci Sıraya Yükseliyor",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Tower Semiconductor Japonya'ya 3 Milyar Dolar Yatırım Açıkladı; METI 1 Milyar Dolar Katkı Sağlıyor",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Tesla AI5 Samsung Foundry'de 2nm Sınıfı Düğümde Tape-out Yaptı",
+      "hafta": "2026-W30"
     }
   ],
   "urls": [
@@ -247,6 +287,39 @@
     "https://digitimes.com/news/a20260714PD206/lite-on-manufacturing-texas-investment-expansion.html",
     "https://digitimes.com/news/a20260713PD201/king-yuan-testing-plant-investment-manufacturing.html",
     "https://compoundsemiconductor.net/article/124642/US_ITC_upholds_Innoscience_GaN_chips_ban",
-    "https://digitimes.com/news/a20260713VL213/tsmc-revenue-growth-demand-2026.html"
+    "https://digitimes.com/news/a20260713VL213/tsmc-revenue-growth-demand-2026.html",
+    "https://nist.gov/news-events/news/2026/07/trump-administration-secures-additional-100-billion-us-semiconductor",
+    "https://aa.com.tr/tr/bilim-teknoloji/turkiyenin-yerli-atomik-saati-uzaya-firlatildi/4001497",
+    "https://eetimes.com/after-magdeburg-intel-builds-on-ireland-existing-strength",
+    "https://asml.com/en/news/press-releases/2026/high-na-euv-reaches-new-readiness-milestone",
+    "https://cnbc.com/2026/07/17/us-china-ai-feud-asml-tightrope-sales-geopolitics.html",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/us-govt-allows-chinese-telecom-giant-zte-to-purchase-nvidia-h200-ai-chips-firm-joins-alibaba-tencent-and-bytedance-in-access-to-hopper-tech",
+    "https://electronicsweekly.com/news/business/899817-2026-07",
+    "https://tomshardware.com/pc-components/dram/cxmt-close-to-matching-microns-memory-capacity-in-2026-research-claims-would-put-china-on-track-to-become-worlds-second-largest-dram-producer",
+    "https://tomshardware.com/tech-industry/semiconductors/tower-semiconductor-revives-shuttered-panasonic-era-fab-in-3-billion-japan-photonics-expansion",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/teslas-ai5-with-2nm-class-node-tapes-out-at-samsung-foundry-production-starts-soon-months-after-tsmc-tape-out",
+    "https://bloomberght.com/ab-den-almanya-nin-yari-iletken-uretimine-659-milyon-euroluk-destege-onay-3782829",
+    "https://theregister.com/systems/2026/07/17/chinese-memory-ban-would-cut-off-rampocalypse-relief/5273993",
+    "https://cnbc.com/2026/07/17/white-house-ai-access-anthropic-openai.html",
+    "https://cnbc.com/2026/07/17/x-china-ai-summit-risks-security.html",
+    "https://caixinglobal.com/2026-07-11/china-bans-helium-exports-as-global-supply-crunch-hits-chipmaking-gas-102462943.html",
+    "https://thenationalnews.com/business/economy/2026/07/16/chinas-rare-earth-export-curbs-may-hit-65tn-in-global-production",
+    "https://tokyotribune.com/u-s-emerges-as-top-helium-supplier-to-japan-south-korea-and-taiwan",
+    "https://asml.com/en/news/press-releases/2026/q2-2026-financial-results",
+    "https://eetimes.com/asml-raises-outlook-plans-more-euv-capacity",
+    "https://airliquide.com/group/press-releases-news/2026-07-16/air-liquide-invests-over-160m-usd-us-supply-advanced-chips-manufacturing-arizona",
+    "https://eetimes.com/ai-data-centers-push-silicon-photonics-toward-300-mm-scale",
+    "https://electronicsweekly.com/news/business/umc-ships-sipho-2026-07",
+    "https://electronicsweekly.com/news/products/memory/jedecs-sphbm4-standard-for-ai-accelerators-on-organic-substrates-2026-07",
+    "https://europesays.com/korea/86550",
+    "https://electronicsweekly.com/news/business/nexchip-raises-880m-on-hkse-2026-07",
+    "https://electronicsweekly.com/news/business/899838-2026-07",
+    "https://dunya.com/finans/haberler/cip-satislarindaki-guclenme-tsmcde-kar-rekoru-getirdi-haberi-832435",
+    "https://semiengineering.com/chip-industry-week-in-review-147",
+    "https://evertiq.com/news/2026-07-14-bosch-announces-225-million-funding-deal-with-us-government",
+    "https://germany.representation.ec.europa.eu/nachrichten-und-veranstaltungen/pressemitteilungen/vier-neue-halbleiteranlagen-kommission-genehmigt-beihilfe-deutschlands-hohe-von-659-millionen-euro-2026-07-14_de",
+    "https://tomshardware.com/pc-components/gpus/nvidia-and-japans-noetra-consortium-to-build-140mw-rubin-ai-factory-with-27500-gpus",
+    "https://hellomarvisaitoday.com/articles/f10043f4-77ad-4172-87cc-1aeb681df206",
+    "https://tomshardware.com/tech-industry/semiconductors/intel-becomes-the-first-company-to-ship-high-volume-logic-chips-made-with-asmls-high-na-euv-select-panther-lake-layers-on-18a-are-now-dual-qualified-for-0-55-na-scanners"
   ]
 }
