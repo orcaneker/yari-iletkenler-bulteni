@@ -38,7 +38,8 @@ sistem-prompt-yariiletken.md   Sistemin beyni/referans belgesi
 ### 1. GitHub deposu
 Bu depo `orcaneker/yari-iletkenler-bulteni`.
 GitHub → Settings → Pages → Source: **main / docs** seçin.
-Site adresi: `https://orcaneker.github.io/yari-iletkenler-bulteni`
+Özel alan adı: `yari-iletkenler-bulteni.site` (`docs/CNAME` dosyasıyla eşleşir).
+Site adresi: `https://yari-iletkenler-bulteni.site`
 (`config.py → AYARLAR["site_url"]` ile aynı olmalı — farklıysa güncelleyin.)
 
 ### 2. Neon (veritabanı)
