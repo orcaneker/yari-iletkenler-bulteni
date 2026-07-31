@@ -64,11 +64,12 @@ AYARLAR = {
 
     # Sayı numarası: None → otomatik artar (yayınlanan son sayı + 1).
     # Sayaç canlı sitedeki data/state/seen_events.json → issue_no alanında
-    # yaşar; publish.py her yayında oraya yazar.
-    # Test amacıyla numarayı dondurmak istersen sabit bir sayı ver (ör. 1),
-    # ama YAYINA GEÇERKEN None'a geri al — aksi halde her sayı aynı numarayı
+    # yaşar; publish.py her yayında oraya yazar. Arşiv ve state sıfırlandığı
+    # için (bkz. docs/data) ilk gerçek çalıştırma otomatik olarak Sayı 1 olur.
+    # Test amacıyla numarayı dondurmak istersen sabit bir sayı ver — ama
+    # YAYINA GEÇERKEN None'a geri al, aksi halde her sayı aynı numarayı
     # alır ve arşivde mükerrer görünür.
-    "sayi_no_sabit": 1,
+    "sayi_no_sabit": None,
 }
 
 # ============================================================
