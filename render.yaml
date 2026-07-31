@@ -1,0 +1,69 @@
+# ============================================================
+# YARI İLETKEN BÜLTENİ — Render Blueprint
+# ------------------------------------------------------------
+# 2 cron + 1 web service + 1 ortak ortam değişkeni grubu.
+# TÜM anahtarlar tek grupta (yari-iletken-bulten-ortak) toplanır;
+# bir kez girilir, üç servis de oradan okur. Bir servisin
+# kullanmadığı değişken zararsızdır (yok sayılır).
+#
+# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ (taslak) ·
+#                    Pazartesi 05:00 UTC = 08:00 TSİ (yayın)
+# ============================================================
+envVarGroups:
+  - name: yari-iletken-bulten-ortak
+    envVars:
+      - key: EXA_API_KEY           # cron 1 — exa.ai
+        sync: false
+      - key: ANTHROPIC_API_KEY     # cron 1
+        sync: false
+      - key: OPENAI_API_KEY        # opsiyonel — openai: modeli denenirse
+        sync: false
+      - key: DATABASE_URL          # Neon bağlantı dizesi (hepsi)
+        sync: false
+      - key: RESEND_API_KEY        # e-postalar (hepsi)
+        sync: false
+      - key: MAIL_FROM             # gönderen; vars. onboarding@resend.dev
+        sync: false
+      - key: GITHUB_REPO           # orcaneker/yari-iletkenler-bulteni
+        sync: false
+      - key: GITHUB_TOKEN          # PAT — Contents: Read & Write
+        sync: false
+      - key: REVIEW_BASE_URL       # web servisinin URL'i (Adım 7'de eklenir)
+        sync: false
+      - key: RAPOR_ALICI           # çalışma raporu e-postası
+        sync: false
+      - key: ELEVENLABS_API_KEY    # opsiyonel — sesli bülten
+        sync: false
+      - key: ELEVENLABS_VOICE_ID   # opsiyonel
+        sync: false
+
+services:
+  # ── CRON 1: taslak üretimi (Pazar 12:00 TSİ) ──
+  - type: cron
+    name: yari-iletken-bulten-taslak
+    runtime: python
+    schedule: "0 9 * * 0"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python pipeline.py
+    envVars:
+      - fromGroup: yari-iletken-bulten-ortak
+
+  # ── CRON 2: yayın / hatırlatma (Pazartesi 08:00 TSİ) ──
+  - type: cron
+    name: yari-iletken-bulten-yayin
+    runtime: python
+    schedule: "0 5 * * 1"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python publish.py
+    envVars:
+      - fromGroup: yari-iletken-bulten-ortak
+
+  # ── WEB: hakem inceleme servisi (sürekli, ücretsiz katman) ──
+  - type: web
+    name: yari-iletken-bulten-inceleme
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn review_app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - fromGroup: yari-iletken-bulten-ortak

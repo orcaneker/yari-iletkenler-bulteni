@@ -1,98 +1,136 @@
 # Yarı İletken Bülteni
 
-Haftalık otomatik yarı iletken sektörü ve sanayi politikası izleme bülteni.
-`Exa → Claude (2 aşama) → JSON → statik site`
+Haftalık otomatik yarı iletken sektörü, teknoloji ve sanayi politikası izleme
+bülteni — **hakem onaylı yayın akışıyla**.
+
+```
+Exa → triyaj (Haiku) → yazım (Sonnet) → Neon taslak → hakem incelemesi (web)
+                                            ↓ onay (tek hakem yeterli)
+                         Pazartesi 08:00 → docs/ → GitHub Pages
+```
+
+Eski tek-script + Cloudflare Pages tabanlı sistemin yerini alan yeni mimari:
+arama motoru **Exa AI**, triyaj **Claude Haiku 4.5**, yazım **Claude Sonnet 5**,
+yayın öncesi **onay katmanı** (Neon + Resend + FastAPI inceleme arayüzü), tüm
+derin olayların yazılması (**hakem takası için yedek havuz**), sağlayıcı-bağımsız
+LLM katmanı, cron **Render**'da, yayın **GitHub Pages** üzerinden.
 
 ## Dosyalar
 
 ```
-config.py        Sorgular (12), kategori taksonomisi (12), kaynak katmanları, ayarlar
-prompts.py       LLM promptları — Aşama 1 (triyaj) + Aşama 2 (yazım)
-main.py          Pipeline
-site/index.html  Bülten
-site/arsiv.html  Arşiv
-demo/            Örnek veriyle çalışan önizleme (gerçek haber içermez)
+config.py            Sorgular (12), kategori taksonomisi (12), kaynaklar, ayarlar
+prompts.py           LLM promptları — triyaj + yazım
+llm.py               Sağlayıcı soyutlama (anthropic:… / openai:…)
+pipeline.py          CRON 1 (Pazar 12:00 TSİ): tarama → taslak → Neon → davet
+publish.py           CRON 2 (Pazartesi 08:00 TSİ): yayın veya hatırlatma
+db.py                Neon Postgres şeması + CRUD + hakem yönetimi
+emails.py            Resend şablonları (davet, hatırlatma, yayın, rapor)
+review_app/          FastAPI inceleme servisi (magic link, takas, onay)
+site/                Bülten sayfaları (index + arşiv) — "fab temiz odası" tasarımı
+docs/                GitHub Pages çıktısı (publish.py üretir)
+assets/              Hero video/görselleri (hero-loop-pingpong.mp4, hero*.avif/webp)
+render.yaml          Render blueprint: 2 cron + 1 web service
+sistem-prompt-yariiletken.md   Sistemin beyni/referans belgesi
 ```
 
 ## Kurulum
 
+### 1. GitHub deposu
+Bu depo `orcaneker/yari-iletkenler-bulteni`.
+GitHub → Settings → Pages → Source: **main / docs** seçin.
+Site adresi: `https://orcaneker.github.io/yari-iletkenler-bulteni`
+(`config.py → AYARLAR["site_url"]` ile aynı olmalı — farklıysa güncelleyin.)
+
+### 2. Neon (veritabanı)
+Neon projenizden bağlantı dizesini alın (`postgresql://...`), sonra:
+
 ```bash
-pip install -r requirements.txt
+set DATABASE_URL=postgresql://...        # PowerShell: $env:DATABASE_URL="..."
+python db.py --init                      # tabloları oluşturur
+python db.py --seed "Ad Soyad" mail@ornek.com   # hakem ekler, linkini basar
+python db.py --reviewers                 # hakemleri ve linklerini listeler
 ```
 
-Ortam değişkenleri (Render → Environment):
+### 3. Render
+Repo'yu Render'a bağlayın — `render.yaml` otomatik algılanır (Blueprint).
+Üç servis kurulur; ortak env grubuna anahtarları girin:
 
 | Anahtar | Zorunlu | Not |
 |---|---|---|
-| `EXA_API_KEY` | ✅ | exa.ai → Dashboard |
-| `ANTHROPIC_API_KEY` | ✅ | |
-| `GITHUB_REPO` | ✅ | `kullanici/repo-adi` |
-| `GITHUB_TOKEN` | ✅ | GitHub PAT — Contents: Read & Write |
-| `GITHUB_BRANCH` | — | varsayılan `main` |
-| `SMTP_USER`, `SMTP_PASS`, `RAPOR_ALICI` | — | Haftalık çalışma raporu e-postası |
+| `EXA_API_KEY` | ✅ (cron 1) | exa.ai |
+| `ANTHROPIC_API_KEY` | ✅ (cron 1) | |
+| `OPENAI_API_KEY` | — | sadece `openai:` modeli denenirse |
+| `DATABASE_URL` | ✅ (hepsi) | Neon |
+| `RESEND_API_KEY` | ✅ (hepsi) | resend.com |
+| `MAIL_FROM` | — | vars. `onboarding@resend.dev`; alan adı doğrulayınca değiştirin |
+| `GITHUB_REPO` | ✅ (cron 2 + web) | `orcaneker/yari-iletkenler-bulteni` |
+| `GITHUB_TOKEN` | ✅ (cron 2 + web) | PAT — Contents: Read & Write |
+| `REVIEW_BASE_URL` | ✅ (cron 1-2) | inceleme servisinin URL'i (ör. `https://yari-iletken-bulten-inceleme.onrender.com`) |
+| `RAPOR_ALICI` | — | çalışma raporu e-postası |
+| `ELEVENLABS_API_KEY` / `ELEVENLABS_VOICE_ID` | — | sesli bülten; yoksa sessiz yayınlanır |
 
-`config.py → AYARLAR["site_url"]` değerini deploy ettiğiniz adrese göre **mutlaka güncelleyin.**
-Durum dosyası (`seen_events.json`) bu adresten okunuyor.
+⚠ `REVIEW_BASE_URL` için önce web servisini deploy edip URL'ini alın,
+sonra cron'ların environment'ına yazın.
 
-## Çalıştırma
+### 4. LLM modeli değiştirme (opsiyonel)
+`config.py`:
+
+```python
+"model_triyaj": "anthropic:claude-haiku-4-5-20251001",   # vars.
+"model_yazim":  "anthropic:claude-sonnet-5",             # vars.
+# OpenAI denemesi: OPENAI_API_KEY tanımlayıp şunları yazın:
+# "model_triyaj": "openai:gpt-5-mini",
+# "model_yazim":  "openai:gpt-5.1",
+```
+
+Yeni model kullanırken `FIYAT` sözlüğüne fiyatını da ekleyin (maliyet raporu için).
+
+## Haftalık akış
+
+1. **Pazar 12:00 TSİ** — cron 1 taslağı üretir, Neon'a `review` durumuyla
+   yazar, hakemlere kişisel inceleme linki e-postalanır.
+2. **İnceleme** — hakem linke tıklar: haberleri okur, beğenmediğini yedek
+   havuzundan takas eder, radar maddesi çıkarabilir, manşeti değiştirebilir.
+   **Tek onay yeterli.**
+3. **Pazartesi 08:00 TSİ** — cron 2:
+   - onaylıysa → nihai bülten + ElevenLabs sesli özet + GitHub push → yayın
+   - onaysızsa → hatırlatma e-postası; **otomatik yayın yok**. Onay sonradan
+     gelirse inceleme servisi yayını anında tetikler.
+
+## Yerel test (API'siz)
 
 ```bash
-python main.py --dry-run    # deploy ve e-posta yok, sadece dist/ üretir
-python main.py              # tam akış
+pip install -r requirements.txt
+python pipeline.py --mock --dry-run    # sahte taslak → taslak_preview.json
+python publish.py --local-draft        # taslaktan docs/ üretir
+python -m http.server 8080 -d docs     # http://localhost:8080 → siteyi gör
 ```
 
-Render cron: `0 5 * * 1` (UTC 05:00 = TSİ 08:00, pazartesi)
-
-## Önizleme (API'siz)
+Gerçek anahtarlarla ama yayınsız: `python pipeline.py --dry-run`.
+İnceleme arayüzü (DATABASE_URL gerekir):
 
 ```bash
-cd demo && python3 -m http.server 8080
-```
-`demo/data/latest.json` içeriği **örnek/yer tutucudur, gerçek haber değildir.**
-
----
-
-## ⚠ Kritik: Render diski geçicidir
-
-Render cron job her çalışmada temiz diskle başlar. Bu yüzden **"görülmüş olaylar" hafızası
-diskte tutulamaz.** Çözüm: state, deploy edilen sitenin içinde yaşar.
-
-```
-main.py başlarken  →  GET {site_url}/data/state/seen_events.json
-main.py biterken   →  güncel state'i dist/ içine yazar, deploy'a dahil eder
+python pipeline.py --mock              # sahte taslağı Neon'a yazar + davet dener
+uvicorn review_app.main:app --port 8000
+# tarayıcı: http://localhost:8000/r/<hakem-token>
 ```
 
-Bu sayede 2. hafta 1. haftanın haberlerini tekrar yayımlamaz. **İlk çalıştırmada
-404 alması normaldir** — sıfırdan başlar.
+## İlk yayın öncesi kontrol listesi
 
----
+- [ ] `config.py → sayi_no_sabit = None` yapın (test değeri 1'de sabitli)
+- [ ] `db.py --seed` ile gerçek hakemleri ekleyin
+- [ ] Render'da cron 1'i elle tetikleyip (Manual Run) daveti test edin
+- [ ] İnceleme linkinden takas + onay akışını deneyin
+- [ ] Cron 2'yi elle tetikleyip yayını doğrulayın
 
-## Barındırma — Cloudflare Pages
+## Notlar
 
-Render `dist/` klasörünü GitHub'a push eder → Cloudflare Pages push'u görüp
-otomatik yayınlar. Netlify'a ihtiyaç yok.
-
-- Cloudflare Pages ayarı: Build command **boş**, Output directory **`dist`**
-- Adres: `<proje>.pages.dev`
-
-### Alan adı
-Blok `netlify.app` / `pages.dev` gibi **paylaşımlı** alan adlarında oluşuyor —
-içerikte değil. Kendi alan adınız (~15 $/yıl) bu sorun sınıfını tamamen bitirir.
-
----
-
-## v2 kancaları (bugün hazır, sonra açılacak)
-
-| Özellik | Nasıl açılır |
-|---|---|
-| **Editoryal analiz** ("Neden önemli?") | `prompts.py` → `neden_onemli: null` talimatını kaldır · `main.py → dogrula()` içindeki `s["neden_onemli"]=None` satırını sil. Site zaten `.why.on` ile render ediyor. |
-| **Sesli bülten** (ElevenLabs) | Pipeline sonunda `brief` metnini TTS'e gönder → `dist/assets/audio/{hafta}.mp3` · `issue.audio = {"url": "...", "duration_sec": N}`. Site oynatıcıyı otomatik gösterir. |
-| **Hero videosu** (Higgsfield vb.) | `assets/video/hero.webm` + `hero.mp4` + `hero.jpg` ekle · `index.html` sonundaki yorumlu CSS bloğunu aç · masthead altına `<div class="hero-media">` koy. **Çalışma zamanı bağımlılığı yok — statik dosya.** Hedef: ≤1.5 MB, 6-8 sn, sessiz, mobilde kapalı. |
-| **Perplexity katmanı** | Kredi geldiğinde: `turkiye` sorgusu için yedek arama katmanı. Exa'nın TR/İngilizce-dışı indeksi zayıf. |
-
-## Ayar noktaları
-
-- Hacim: `config.py → AYARLAR` (`one_cikan_max`, `radar_max`)
-- Kategori kotası: `config.py → KATEGORILER[...]["kota"]` + `prompts.py → YAZIM_PROMPT`
-- Kaynak ekleme: `config.py → KAYNAK_TIER1/TIER2/TURKIYE`
-- Yeni sorgu: `config.py → SORGULAR` listesine ekle
+- **State canlı sitede yaşar** (`docs/data/state/seen_events.json`) çünkü
+  Render cron diski her çalışmada sıfırlanır. İlk çalıştırmada 404 normaldir.
+- **reuters/bloomberg** Exa `includeDomains`'e eklenemez (403) — dolaylı gelir.
+- **Hero videosu**: `assets/hero-loop-pingpong.mp4` (sessiz, ileri+ters
+  birleştirilmiş pingpong döngü) + `assets/hero.avif/webp` (masaüstü) ve
+  `assets/hero-mobile.avif/webp` (mobil) zaten hazır — değiştirmek isterseniz
+  aynı dosya adlarıyla üzerine yazın.
+- Ayar noktaları: hacim `config.py → AYARLAR`, kota `KATEGORILER[...]["kota"]`,
+  kaynak `KAYNAK_TIER1/TIER2/TURKIYE`, sorgu `SORGULAR`.

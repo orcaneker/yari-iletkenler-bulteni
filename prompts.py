@@ -3,12 +3,15 @@
 YARI İLETKEN BÜLTENİ — LLM PROMPTLARI
 ======================================
 İki aşamalı mimari:
-  AŞAMA 1 (Haiku)  : ham adayları OLAY'lara kümele, ele, puanla   → ucuz
-  AŞAMA 2 (Sonnet) : seçilen olaylardan bülteni Türkçe yaz        → kaliteli
+  AŞAMA 1 (ucuz model)    : ham adayları OLAY'lara kümele, ele, puanla
+  AŞAMA 2 (kaliteli model): seçilen olaylardan bülteni Türkçe yaz
+
+Onay katmanı farkı: Aşama 2'de derin olayların TAMAMI (14) tam haber
+olarak yazılır — 8-10'u "öne çıkan", kalanı hakem takası için "yedek".
 """
 
 # ============================================================
-# AŞAMA 1 — TRİYAJ & OLAY KÜMELEME (Haiku)
+# AŞAMA 1 — TRİYAJ & OLAY KÜMELEME
 # ============================================================
 TRIYAJ_PROMPT = """Sen bir yarı iletken sektörü haber triyaj motorusun. Yorum yapmıyorsun, sınıflandırıyorsun.
 
@@ -78,9 +81,7 @@ GÖREVİN — sırayla:
 }
 
 ÇIKTIYI KISA TUT: gereksiz alan, açıklama, gerekçe YAZMA. Reject listesi
-sadece id'lerden oluşur — sebep yazma.
-
-Bilinmeyen alanlar için null kullan. yatirim_usd_milyon yoksa null.
+sadece id'lerden oluşur — sebep yazma. Bilinmeyen alanlar için null kullan.
 """
 
 
@@ -95,7 +96,7 @@ def onceki_olaylar_bloku(onceki_olaylar):
 
 
 def triyaj_kullanici_mesaji(adaylar, pencere_baslangic, pencere_bitis):
-    """Haiku'ya gönderilecek kullanıcı mesajı (parti bazlı, cache'lenmez)."""
+    """Triyaj modeline gönderilecek kullanıcı mesajı (parti bazlı)."""
     satirlar = []
     for a in adaylar:
         duvar = " [DUVAR]" if a.get("paywall") else ""
@@ -112,7 +113,7 @@ def triyaj_kullanici_mesaji(adaylar, pencere_baslangic, pencere_bitis):
 
 
 # ============================================================
-# AŞAMA 2 — BÜLTEN YAZIMI (Sonnet)
+# AŞAMA 2 — BÜLTEN YAZIMI
 # ============================================================
 YAZIM_PROMPT = """Sen T.C. Sanayi ve Teknoloji Bakanlığı için haftalık yarı iletken izleme bülteni hazırlayan kıdemli bir uzmansın.
 
@@ -132,8 +133,7 @@ politika ve jeopolitik, ihracat kontrolleri, teşvik programları.
 
 2) BU HAFTA 60 SANİYEDE (tam 5 madde)
    Her madde tek cümle, en fazla 25 kelime.
-   Madde bir MANŞET/ÖNE ÇIKAN habere dayanıyorsa "ref" alanına o haberin
-   id'sini yaz (ör. "event_003"). Dayanmıyorsa ref: null.
+   Madde bir habere dayanıyorsa "ref" alanına o haberin id'sini yaz, yoksa null.
    Şablon:
    - Haftanın en önemli politika/mevzuat gelişmesi
    - Haftanın en büyük yatırım/kapasite kararı
@@ -141,16 +141,23 @@ politika ve jeopolitik, ihracat kontrolleri, teşvik programları.
    - Haftanın en kritik tedarik zinciri riski
    - Türkiye'den gelişme (yoksa: en kritik ikinci küresel gelişme)
 
-3) ÖNE ÇIKANLAR (8-10 olay)
-   Her biri: excerpt (2-3 cümle) + detail (3-4 DOLU paragraf).
-   KATEGORİ ÇEŞİTLİLİĞİ HEDEFİ (katı kota değil, dengeleme hedefi):
+3) HABERLER — SANA VERİLEN DERİN OLAYLARIN TAMAMINI YAZ
+   Her derin olay için TAM bir haber üret: excerpt (2-3 cümle) +
+   detail (3-4 DOLU paragraf; manşette 5-6).
+   ⚠ ÖNEMLİ: Bu bülten yayına girmeden önce hakem onayından geçer. Hakemler
+   beğenmedikleri haberi senin yazdığın DİĞER haberlerle takas eder. Bu yüzden
+   HİÇBİR derin olayı atlama — hepsi aynı özenle yazılır.
+   Her habere "secim" alanı ekle:
+     "one_cikan" → bülten gövdesine önerdiğin 8-10 haber
+     "yedek"     → takas havuzuna kalan haberler
+   Seçimde KATEGORİ ÇEŞİTLİLİĞİ hedefi (katı kota değil, dengeleme hedefi):
      politika 2 · yatirim 2 · ekipman 1 · teknoloji 1 · paketleme 1
      bellek 1 · ai-cip 1 · guc 1 · turkiye 1 (varsa) · rapor 1
    ⚠ AI/veri merkezi haberleri bülteni domine ETMEMELİ. En fazla 2 tanesi
    Öne Çıkanlar'a girebilir; geri kalanı Radar'a düşer.
 
 4) RADAR (18-30 olay)
-   Öne Çıkanlar'a giremeyen ama kayda değer olaylar.
+   Öne Çıkanlar'a giremeyen ama kayda değer olaylar (sana Bölüm B'de verilir).
    Her biri TEK SATIR: 12-20 kelimelik başlık + kaynak + link.
    Tema kümelerine grupla (küme adını sen belirle, ör. "İhracat kontrolleri",
    "HBM tedariki", "Avrupa fab yatırımları"). Her kümede 2-6 madde.
@@ -164,7 +171,7 @@ Sana her olayın BİRİNCİL kaynağından geniş bir metin bölümü ve
 destekleyici kaynaklardan kısa parçalar veriliyor. Bültenin değeri, bu
 metinlerdeki SOMUT VERİYİ eksiksiz çıkarmandan gelir. Bir haberi
 "özetlemek" değil, "eldeki maddi bilginin tamamını derli toplu aktarmak"
-işin. Metin kesilmiş olabilir; ELİNDEKİ her veriyi kullan, olmayanı UYDURMA.
+işin. ELİNDEKİ her veriyi kullan, olmayanı UYDURMA.
 
 detail yazmadan önce kaynak metinden ZORUNLU olarak şu bilgileri tara ve
 BULDUKLARININ HEPSİNİ metne yerleştir:
@@ -185,8 +192,53 @@ BULDUKLARININ HEPSİNİ metne yerleştir:
   □ Taraflar — anlaşmanın kimler arasında olduğu
 
 ⚠ Kaynakta geçen bir SAYIYI atlamak, bu bültenin yapabileceği EN BÜYÜK
-HATADIR. Kısa ve akıcı bir paragraf, veri dolu ama biraz yoğun bir
-paragraftan DAHA KÖTÜDÜR. Okuyucu Bakanlık uzmanı; rakam okumaya gelir.
+HATADIR. Veri dolu ama biraz yoğun bir paragraf, akıcı ama boş paragraftan
+DAHA İYİDİR. Okuyucu Bakanlık uzmanı; rakam okumaya gelir.
+
+━━━ İKİ MUTLAK KURAL ━━━
+
+Bu iki kural bültenin güvenilirliğinin temelidir ve İSTİSNASIZ uygulanır.
+Her haberi yazdıktan sonra ikisini de tek tek kontrol et.
+
+① KAYNAKTA OLMAYANI EKLEME
+   Kaynak metinde AÇIKÇA yazmayan hiçbir şeyi yazma. Özellikle şunları
+   UYDURMA veya "muhtemelen böyledir" diye tamamlama:
+     · TARİH — yıl, ay, çeyrek, "2027'de devreye girecek" gibi takvimler
+     · POLİTİKA / MEVZUAT — yönetmelik adı, madde, teşvik, hedef, kota
+     · SÜREÇ / TEKNOLOJİ — üretim yöntemi, teknoloji düğümü, kapasite, tesis detayı
+     · TARAF — şirket, kurum, ortak, yatırımcı adı
+     · DEĞERLENDİRME — "önemli bir adım", "sektörde dönüm noktası" gibi yorum
+   Genel bilginden hatırladığın bir ayrıntı kaynakta yoksa YAZMA. Bir bilgi
+   eksikse cümleyi hiç kurma; boşluğu tahminle doldurma.
+
+② SAYISAL VERİLERİ EKSİKSİZ VE BİREBİR KORU
+   Kaynaktaki her tutar, kapasite, oran, adet, süre ve tarih metne AYNEN
+   geçmeli. Yuvarlama, "yaklaşık"a çevirme, birimi değiştirme, birden fazla
+   rakamı tek ifadede birleştirme. Para birimini olduğu gibi bırak.
+   Kaynakta beş rakam varsa metinde de beşi birden bulunmalı.
+
+━━━ UZUNLUK DİSİPLİNİ ━━━
+
+Bu bültende KISA YAZMAK ERDEM DEĞİLDİR. Görevin haberi "sıkıştırmak" değil,
+kaynaktaki maddi bilgiyi eksiksiz aktarmak. Okuyucu kaynağa gitmek zorunda
+kalmamalı.
+
+  · excerpt : 2-3 TAM cümle, yaklaşık 200-320 karakter. Tek cümlelik,
+              telgraf üslubu özet YAZMA. En az bir somut rakam içermeli.
+  · detail  : 3-4 paragraf, HER paragraf 3-5 cümle. Manşette 5-6 paragraf.
+              Kaynak zenginse 1800-3000 karakter hedefle.
+
+⛔ Bu hedeflere ulaşmak için ASLA dolgu cümlesi, tekrar, genel geçer bağlam
+veya kaynakta olmayan bilgi EKLEME. Uzunluk, kaynaktaki veriyi eksiksiz
+aktarmanın SONUCU olmalı — amacı değil.
+
+✅ Doğru davranış: Kaynakta tutar, kapasite, teknoloji düğümü, taraf, takvim
+ve yer bilgisi varsa HEPSİNİ yaz; metin doğal olarak uzar.
+❌ Yanlış davranış: Kaynakta beş ayrı rakam varken ikisini seçip "özetlemek".
+❌ Yanlış davranış: Veri bitince paragrafı doldurmak için laf uzatmak.
+
+Kaynak gerçekten sığsa (az veri içeriyorsa) metin kısa kalabilir — bu
+kabul edilebilir. Ama kaynakta veri VARKEN kısaltmak kabul edilemez.
 
 ⚠ SÖYLENTİ KISITI: Doğrulanmamış iddiaya (tarife pazarlığı söylentisi,
 "kaynaklara göre", teyitsiz Digitimes/TrendForce iddiası) AYRI PARAGRAF
@@ -223,8 +275,9 @@ tek bir kısa alıntı, tırnak içinde.
   ne yazıyorsa o. Emin değilsen yazma. Para birimini koru, USD karşılığı
   biliniyorsa parantezle ekle.
 
-• OLGUNLUK DİLİ: "Yatırım açıklandı" ≠ "inşaata başlandı" ≠ "seri üretime
-  geçildi". Fiili aşamayı net belirt. Belirsizse "duyuruldu" de.
+• OLGUNLUK DİLİ: "Yatırım açıklandı" ≠ "inşaata başlandı" ≠ "ekipman
+  kuruluyor" ≠ "seri üretime geçildi". Fiili aşamayı net belirt.
+  Belirsizse "duyuruldu" de.
 
 • KAYNAK: Her olayda birincil kaynak (primary) ile destekleyici kaynaklar
   ayrı gösterilir. Ödemeli duvar arkasındaki kaynağa dayanan iddiaları
@@ -238,8 +291,8 @@ SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
     {"text": "madde 1", "ref": "ilgili story'nin id'si veya null"},
     {"text": "madde 2", "ref": null}
   ],
-  "lead": { <story nesnesi> },
-  "stories": [ <8-10 story nesnesi> ],
+  "lead_id": "manşet olacak story'nin id'si",
+  "stories": [ <TÜM derin olaylar, her biri story nesnesi> ],
   "radar": [
     {
       "kume": "İhracat kontrolleri",
@@ -254,9 +307,10 @@ SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
 story nesnesi:
 {
   "id": "event_001",
+  "secim": "one_cikan",
   "title": "Başlık — 8-14 kelime, iddiasız, olgusal",
-  "excerpt": "2-3 cümle. En az BİR somut rakam içermeli (tutar/adet/kapasite).",
-  "detail": "3-4 dolu paragraf (manşette 5-6). Paragrafları \\n\\n ile ayır. Kaynaktaki TÜM somut veriyi içermeli.",
+  "excerpt": "2-3 TAM cümle, ~200-320 karakter. En az BİR somut rakam (tutar/kapasite/adet). Telgraf üslubu YASAK.",
+  "detail": "3-4 paragraf, her paragraf 3-5 cümle (manşette 5-6 paragraf). Kaynak zenginse 1800-3000 karakter. Paragrafları \\n\\n ile ayır.",
   "neden_onemli": null,
   "category": "yatirim",
   "subcategories": ["EU Chips Act"],
@@ -266,6 +320,7 @@ story nesnesi:
   "countries": ["Germany"],
   "technologies": ["FinFET"],
   "technology_nodes": ["28nm"],
+  "capacity": "40 bin wafer/ay",
   "investment": {"amount_original": 10, "currency": "EUR",
                  "amount_usd_million": 10800, "public_support_usd_million": 5000},
   "published_date": "2026-07-10",
@@ -280,7 +335,8 @@ story nesnesi:
 value_chain seçenekleri: tasarim | eda-ip | malzeme | ekipman |
 wafer-uretim | paketleme-test | uygulama
 source.type: official | company | news_agency | trade_press | research | academic
-Bilinmeyen alan → null. investment yoksa → null.
+"capacity" = insan-okur kısa dize (ör. "40 bin wafer/ay", "500 bin çip/yıl")
+veya null. Bilinmeyen alan → null. investment yoksa → null.
 """
 
 
@@ -290,8 +346,8 @@ DESTEK = _A["yazim_destek_karakter"]
 
 
 def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, pencere):
-    """Sonnet'e giden mesaj.
-    derin       → tam kaynak metniyle (manşet + öne çıkan havuzu)
+    """Yazım modeline giden mesaj.
+    derin       → tam kaynak metniyle (TAMAMI haber olarak yazılır)
     radar_havuz → sadece başlık/link (radar maddesi olacaklar)
     """
     bloklar = []
@@ -336,9 +392,9 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
         f"KAPSAM: {kapsam_bas} — {kapsam_bit} ({pencere} günlük pencere)\n\n"
         f"═══ BÖLÜM A — DERİN OLAYLAR ({len(derin)} adet) ═══\n"
         f"Birincil kaynak metni GENİŞ, destekleyiciler KISA verilmiştir.\n"
-        f"MANŞET ve ÖNE ÇIKANLAR bunlardan seçilir. Seçtiklerin için metindeki\n"
-        f"TÜM somut veriyi (tutar, adet, kapasite, istihdam, takvim, yer, program)\n"
-        f"detail'e taşı. Öne Çıkanlar'a giremeyen derin olaylar RADAR'a düşer.\n\n"
+        f"Bu olayların TAMAMINI tam haber olarak yaz (secim: one_cikan/yedek).\n"
+        f"Seçtiklerin için metindeki TÜM somut veriyi (tutar, kapasite, takvim,\n"
+        f"yer, program) detail'e taşı.\n\n"
         + "\n\n".join(bloklar)
         + f"\n\n═══ BÖLÜM B — RADAR ADAYLARI ({len(radar_havuz)} adet) ═══\n"
         f"Bunların tam metni yok. Doğrudan RADAR maddesi olarak kullan;\n"

@@ -2,7 +2,8 @@
 """
 YARI İLETKEN BÜLTENİ — YAPILANDIRMA
 ====================================
-Sorgular, kaynak katmanları ve ayarlar burada. main.py bunları okur.
+Sorgular, kategori taksonomisi, kaynak katmanları ve ayarlar burada.
+pipeline.py / publish.py / review_app bunları okur.
 Yeni sorgu/kaynak eklemek için sadece bu dosyayı düzenle.
 """
 
@@ -10,10 +11,14 @@ Yeni sorgu/kaynak eklemek için sadece bu dosyayı düzenle.
 # GENEL AYARLAR
 # ============================================================
 AYARLAR = {
+    # Takvim: taslak Pazar 12:00 TSİ hazırlanır, yayın Pazartesi 08:00 TSİ.
+    # Render cron (UTC): taslak "0 9 * * 0" · yayın "0 5 * * 1"
+    "taslak_gunu": "pazar",
     "yayim_gunu": "pazartesi",
+    "yayim_saati_tsi": 8,            # yayın eşiği (geç onay kontrolünde kullanılır)
+
     "pencere_gun": 7,                # birincil tarama penceresi
     "pencere_genis_gun": 14,         # yetersiz sonuçta genişletilir
-    "turkiye_pencere_gun": 21,       # TR haber akışı seyrek — daha geniş pencere
 
     # Bülten hacim hedefleri
     "manset": 1,
@@ -23,50 +28,79 @@ AYARLAR = {
     "radar_min": 18,
     "radar_max": 30,
 
-    # LLM
-    "model_triyaj": "claude-haiku-4-5-20251001",   # ucuz: eleme + kümeleme
-    "model_yazim": "claude-sonnet-4-6",            # kaliteli: nihai yazım
-    # NOT: temperature parametresi BİLEREK gönderilmiyor.
-    # (Biyoekonomi bülteninde temperature=0 ile yaşanan uyumsuzluk sorunu.)
-    "triyaj_batch": 40,              # Haiku'ya tek seferde gönderilen aday sayısı
+    # LLM — sağlayıcı öneki zorunlu: "anthropic:..." veya "openai:..."
+    "model_triyaj": "anthropic:claude-haiku-4-5-20251001",
+    "model_yazim": "anthropic:claude-sonnet-5",
+    # NOT: temperature parametresi BİLEREK gönderilmiyor (model uyumsuzluk deneyimi).
+
+    # OpenAI reasoning modelleri (gpt-5.6 ailesi) için akıl yürütme seviyesi:
+    # none | low | medium | high | xhigh | max
+    # Anthropic modellerinde yok sayılır. REASONING_EFFORT ortam değişkeni
+    # bu ayarı ezer (deneme yaparken pratik).
+    "reasoning_effort": "medium",
+    "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
     "max_tokens_triyaj": 8000,
-    "max_tokens_yazim": 20000,       # streaming ile üretilir (zaman aşımı yok)
-    "derin_olay_sayisi": 14,         # tam metinle Sonnet'e giden olay (10 haber yazılıyor, 14 yeterli seçim payı)
-    "toplam_olay_sayisi": 40,        # geri kalanı radar adayı (sadece başlık+link)
+    "max_tokens_yazim": 48000,       # 14 haberin TAMAMI yazıldığı için GENİŞ olmalı.
+                                     # ⚠ Düşük tutulursa çıktı JSON tamamlanmadan kesilir.
+    # Akıl yürüten modellerde (gpt-5.x, Sonnet 5, Opus 4.7+, Fable 5) "düşünme"
+    # token'ları da BU bütçeden düşer — görünür metne kalan pay azalır ve JSON
+    # ortadan kesilebilir. Bu modeller 128K çıktı desteklediği için rahat pay
+    # bırakıldı — kullanılmayan bütçe ücretlendirilmez.
+    "max_tokens_yazim_reasoning": 96000,
+    "derin_olay_sayisi": 14,         # tam metinle yazıma giden olay — HEPSİ haber olur
+    "toplam_olay_sayisi": 40,        # geri kalanı radar adayı (başlık+link)
 
     # Exa
     "exa_sonuc_sayisi": 20,          # sorgu başına
-    "exa_metin_karakter": 4000,      # Exa'dan çekilen makale metni (arama çağrısına dahil)
+    "exa_metin_karakter": 4000,      # çekilen makale metni
     "exa_triyaj_karakter": 700,      # triyaja giden kısa parça (ucuz)
-    # Kaynak asimetrisi: birincil kaynak DERİN okunur, destekleyici sadece
-    # fark yaratan kısmı için gönderilir. Aynı bilgiyi tekrarlayan destekleyici
-    # kaynağa tam boy token harcamak israftı.
-    "yazim_birincil_karakter": 3500,
-    "yazim_destek_karakter": 800,
+    "yazim_birincil_karakter": 3500, # birincil kaynak derin okunur
+    "yazim_destek_karakter": 800,    # destekleyici sadece fark için
     "exa_tip": "auto",
 
     # Site
     "site_url": "https://orcaneker.github.io/yari-iletkenler-bulteni",
-    "cikti_dizini": "docs",   # GitHub Pages sadece / veya /docs kabul eder
-    "prompt_cache": True,     # sistem promptlarını cache'le (tekrarlı çağrılarda ~%90 ucuz)
+    "cikti_dizini": "docs",          # GitHub Pages sadece / veya /docs kabul eder
 
-    # TASLAK MODU: sayı numarası sabitlenir (her test çalıştırmasında artmasın).
-    # Yayına geçerken None yap → otomatik artmaya başlar.
+    # Sayı numarası: None → otomatik artar (yayınlanan son sayı + 1).
+    # Sayaç canlı sitedeki data/state/seen_events.json → issue_no alanında
+    # yaşar; publish.py her yayında oraya yazar.
+    # Test amacıyla numarayı dondurmak istersen sabit bir sayı ver (ör. 1),
+    # ama YAYINA GEÇERKEN None'a geri al — aksi halde her sayı aynı numarayı
+    # alır ve arşivde mükerrer görünür.
     "sayi_no_sabit": 1,
 }
 
 # ============================================================
 # FİYATLANDIRMA (USD / 1 milyon token) — maliyet TAHMİNİ için
-# ⚠ Anthropic fiyatları değişebilir; console.anthropic.com'dan doğrula.
+# ⚠ Fiyatlar değişebilir; console.anthropic.com / platform.openai.com'dan doğrula.
 # ============================================================
 FIYAT = {
-    "claude-sonnet-4-6":         {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
-    "claude-haiku-4-5-20251001": {"in": 1.00, "out":  5.00, "cache_w": 1.25, "cache_r": 0.10},
+    "anthropic:claude-sonnet-4-6":         {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
+    "anthropic:claude-haiku-4-5-20251001": {"in": 1.00, "out":  5.00, "cache_w": 1.25, "cache_r": 0.10},
+    "openai:gpt-5-mini":                   {"in": 0.25, "out":  2.00, "cache_w": 0.25, "cache_r": 0.025},
+    "openai:gpt-5.1":                      {"in": 1.25, "out": 10.00, "cache_w": 1.25, "cache_r": 0.125},
+    "openai:gpt-5.6-luna":                 {"in": 1.00, "out":  6.00, "cache_w": 1.25, "cache_r": 0.10},
+    # ⚠ Sonnet 5 liste fiyatı 4.6 ile AYNI ($3/$15) ama 31 Ağustos 2026'ya kadar
+    # tanıtım fiyatı $2/$10. Aşağıda LİSTE fiyatı yazılı — maliyet raporu böylece
+    # olduğundan düşük görünmez.
+    "anthropic:claude-sonnet-5":           {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
+}
+
+# ============================================================
+# EXA ARAMA FİYATI (USD) — maliyet TAHMİNİ için
+# ⚠ exa.ai/pricing'den doğrula; değişebilir.
+# Model: istek başına taban ücret İLK 10 SONUCU kapsar (sayfa içeriği dahil,
+# Mart 2026 güncellemesi); 10'un üzerindeki her sonuç ayrıca ücretlenir.
+# ============================================================
+EXA_FIYAT = {
+    "arama": 7.00 / 1000,      # $7 / 1.000 istek (ilk 10 sonuç dahil)
+    "ek_sonuc": 1.00 / 1000,   # 10'un üzerindeki her sonuç için $1 / 1.000
 }
 
 # ============================================================
 # KATEGORİ TAKSONOMİSİ (12)
-# Kod → (Görünen ad, Öne Çıkanlar kotası hedefi)
+# Kod → (Görünen ad, Öne Çıkanlar kota hedefi)
 # ============================================================
 KATEGORILER = {
     "politika":  {"ad": "Politika & Jeopolitik",          "kota": 2},
@@ -83,6 +117,9 @@ KATEGORILER = {
     "rapor":     {"ad": "Rapor & Piyasa Verisi",          "kota": 1},
 }
 
+# ⚠ KOTA NEDEN VAR: AI çipi/veri merkezi haberleri akışı domine edebilir.
+# Kota olmadan bültenin yarısı AI hızlandırıcı duyurusu olur.
+
 # Değer zinciri etiketleri (site navigasyonunun omurgası)
 DEGER_ZINCIRI = [
     "tasarim", "eda-ip", "malzeme", "ekipman",
@@ -90,10 +127,28 @@ DEGER_ZINCIRI = [
 ]
 
 # ============================================================
+# OLGUNLUK ÖLÇEĞİ — yarı iletken yatırım/üretim projeleri için
+# "Yatırım açıklandı" ile "seri üretime geçildi" arasında yıllar vardır;
+# fab inşaatından ekipman kurulumuna, oradan verim eğrisine geçiş bu
+# sektörün en büyük sinyal-gürültü sorunudur.
+# ============================================================
+OLGUNLUK = [
+    "research",           # araştırma / laboratuvar kavram kanıtı
+    "pilot",               # pilot hat / küçük ölçek
+    "qualification",       # süreç/ürün nitelendirme
+    "announced",           # niyet/anlaşma duyuruldu
+    "funded",               # finansman kapandı / teşvik onaylandı
+    "construction",         # fab inşaatı sürüyor
+    "equipment_install",    # ekipman kurulumu / devreye alma
+    "mass_production",      # seri üretimde
+    "delayed",
+    "cancelled",
+]
+
+# ============================================================
 # KAYNAK KATMANLARI
-# tier 1 = birincil (resmi kurum, şirket newsroom)
+# tier 1 = birincil (resmî kurum, şirket newsroom)
 # tier 2 = güvenilir haber ajansı / sektör basını
-# tier 3 = ikincil, dikkatli kullan
 # ============================================================
 KAYNAK_TIER1 = [
     # AB
@@ -210,11 +265,12 @@ KAYNAK_DISLA = [
     "prnewswire.com", "globenewswire.com", "businesswire.com",  # ham PR dağıtım
     "marketresearchfuture.com", "marketsandmarkets.com",
     "researchandmarkets.com", "verifiedmarketresearch.com",
+    "grandviewresearch.com", "fortunebusinessinsights.com",
     "openpr.com", "einpresswire.com", "issuewire.com",
 ]
 
 # ============================================================
-# EXA SORGULARI (11)
+# EXA SORGULARI (12)
 # ------------------------------------------------------------
 # Exa'da uzun doğal dil komutu YAZILMAZ. Kısa semantik sorgu + ayrı
 # parametreler (domain, tarih, kategori) kullanılır.
@@ -350,7 +406,7 @@ SORGULAR = [
         ],
         "domain_seti": ["turkiye", "tier1", "tier2"],
         "sonuc": 25,
-        "pencere_gun": 21,        # TR için geniş pencere
+        "pencere_gun": 21,        # TR için geniş pencere — haber akışı seyrek
         "kullanici_konumu": "tr",
     },
     {
