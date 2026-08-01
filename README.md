@@ -21,7 +21,7 @@ LLM katmanı, cron **Render**'da, yayın **GitHub Pages** üzerinden.
 config.py            Sorgular (12), kategori taksonomisi (12), kaynaklar, ayarlar
 prompts.py           LLM promptları — triyaj + yazım
 llm.py               Sağlayıcı soyutlama (anthropic:… / openai:…)
-pipeline.py          CRON 1 (Pazar 12:00 TSİ): tarama → taslak → Neon → davet
+pipeline.py          CRON 1 (Pazar 12:30 TSİ): tarama → taslak → Neon → davet
 publish.py           CRON 2 (Pazartesi 08:00 TSİ): yayın veya hatırlatma
 db.py                Neon Postgres şeması + CRUD + hakem yönetimi
 emails.py            Resend şablonları (davet, hatırlatma, yayın, rapor)
@@ -88,8 +88,13 @@ Yeni model kullanırken `FIYAT` sözlüğüne fiyatını da ekleyin (maliyet rap
 
 ## Haftalık akış
 
-1. **Pazar 12:00 TSİ** — cron 1 taslağı üretir, Neon'a `review` durumuyla
+1. **Pazar 12:30 TSİ** — cron 1 taslağı üretir, Neon'a `review` durumuyla
    yazar, hakemlere kişisel inceleme linki e-postalanır.
+
+   ⚠ Bu saat diğer iki bültenle çakışmayacak şekilde seçildi (biyoekonomi
+   12:00, nükleer 13:00). Üçü de aynı Anthropic/Exa anahtarını kullanıyor
+   ve hız limitleri organizasyon başına işliyor — gerekçe `render.yaml`
+   başındaki notta.
 2. **İnceleme** — hakem linke tıklar: haberleri okur, beğenmediğini yedek
    havuzundan takas eder, radar maddesi çıkarabilir, manşeti değiştirebilir.
    **Tek onay yeterli.**

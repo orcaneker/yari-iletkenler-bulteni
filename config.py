@@ -11,8 +11,11 @@ Yeni sorgu/kaynak eklemek için sadece bu dosyayı düzenle.
 # GENEL AYARLAR
 # ============================================================
 AYARLAR = {
-    # Takvim: taslak Pazar 12:00 TSİ hazırlanır, yayın Pazartesi 08:00 TSİ.
-    # Render cron (UTC): taslak "0 9 * * 0" · yayın "0 5 * * 1"
+    # Takvim: taslak Pazar 12:30 TSİ hazırlanır, yayın Pazartesi 08:00 TSİ.
+    # Render cron (UTC): taslak "30 9 * * 0" · yayın "0 5 * * 1"
+    # ⚠ 12:30, diğer iki bültenle (biyoekonomi 12:00, nükleer 13:00) aynı
+    # Anthropic/Exa anahtarını paylaştığı için bilinçli seçildi —
+    # gerekçe render.yaml başındaki notta.
     "taslak_gunu": "pazar",
     "yayim_gunu": "pazartesi",
     "yayim_saati_tsi": 8,            # yayın eşiği (geç onay kontrolünde kullanılır)

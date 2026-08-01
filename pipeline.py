@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-YARI İLETKEN BÜLTENİ — TASLAK PIPELINE (CRON 1 — Pazar 12:00 TSİ)
+YARI İLETKEN BÜLTENİ — TASLAK PIPELINE (CRON 1 — Pazar 12:30 TSİ)
 ====================================================================
 Akış:
   1. Durum (state) yükle       → canlı siteden (Render diski geçici)

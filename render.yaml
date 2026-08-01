@@ -6,8 +6,21 @@
 # bir kez girilir, üç servis de oradan okur. Bir servisin
 # kullanmadığı değişken zararsızdır (yok sayılır).
 #
-# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ (taslak) ·
+# Cron saatleri UTC: Pazar 09:30 UTC = 12:30 TSİ (taslak) ·
 #                    Pazartesi 05:00 UTC = 08:00 TSİ (yayın)
+#
+# ⚠ TASLAK SAATİ NEDEN 12:30: Üç bülten (biyoekonomi, yarı iletken,
+# nükleer) aynı Anthropic ve Exa anahtarını kullanıyor; hız limitleri
+# anahtar değil ORGANİZASYON başınadır. Üçü de 09:00 UTC'de başlarken
+# yazım aşamasındaki büyük Sonnet çağrıları (48-96K çıktı) aynı dakikaya
+# düşüyordu. llm.py 429'da 4 kez yeniden dener (15/30/45 sn) ama bu
+# bütçe aşılırsa o hafta taslak HİÇ üretilmez. Bültenler saat olarak
+# ayrıldı:
+#   biyoekonomi  09:00 UTC (12:00 TSİ)
+#   yarı iletken 09:30 UTC (12:30 TSİ)   ← bu depo
+#   nükleer      10:00 UTC (13:00 TSİ)
+# Bir çalıştırma ~10-20 dk sürüyor, yarım saatlik aralık rahat yetiyor.
+# Yayın cron'u (Pazartesi) LLM kullanmadığı için üçünde de aynı kalabilir.
 # ============================================================
 envVarGroups:
   - name: yari-iletken-bulten-ortak
@@ -38,11 +51,11 @@ envVarGroups:
         sync: false
 
 services:
-  # ── CRON 1: taslak üretimi (Pazar 12:00 TSİ) ──
+  # ── CRON 1: taslak üretimi (Pazar 12:30 TSİ) ──
   - type: cron
     name: yari-iletken-bulten-taslak
     runtime: python
-    schedule: "0 9 * * 0"
+    schedule: "30 9 * * 0"
     buildCommand: pip install -r requirements.txt
     startCommand: python pipeline.py
     envVars:
