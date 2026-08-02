@@ -1184,6 +1184,59 @@ def mock_taslak(sayi_no, bas, bit, pencere):
 
 
 # ============================================================
+# DAVETİ YENİDEN GÖNDER — Exa/LLM çalıştırmadan
+# ------------------------------------------------------------
+# Taslak Neon'a davetlerden ÖNCE yazıldığı için, e-posta gönderimi
+# başarısız olsa bile üretilen iş kaybolmaz (yalnızca hakemler linki
+# alamaz). Tipik sebep: MAIL_FROM doğrulanmamış alan adında → Resend 403.
+# Ayarı düzelttikten sonra bu komut daveti yeniden gönderir; pipeline'ı
+# baştan çalıştırmaya gerek kalmaz (ne ücret ödenir ne taslak ezilir).
+# ============================================================
+def davet_yinele():
+    import db
+    import emails
+
+    sayi = db.issue_getir(status="review")
+    if not sayi:
+        log("İnceleme bekleyen taslak yok — gönderilecek davet de yok")
+        return 1
+
+    taslak = sayi["draft_json"]
+    if isinstance(taslak, str):
+        taslak = json.loads(taslak)
+
+    # publish.nihai_kur ile aynı seçim mantığı — manşet başlığı davette geçiyor
+    secili = [s for s in (taslak.get("stories") or [])
+              if s.get("secim") == "one_cikan"]
+    lead = next((s for s in secili if s.get("id") == taslak.get("lead_id")), None)
+    if not lead and secili:
+        lead = max(secili, key=lambda s: s.get("score") or 0)
+
+    hakemler = db.hakemler()
+    if not hakemler:
+        log("Kayıtlı hakem yok — önce: python db.py --seed \"Ad Soyad\" mail@ornek.com")
+        return 1
+
+    log(f"Sayı {sayi['sayi_no']} ({sayi['hafta']}) için davet yineleniyor — "
+        f"{len(hakemler)} hakem")
+    if not REVIEW_BASE_URL:
+        log("  ⚠ REVIEW_BASE_URL tanımlı değil — linkler çalışmaz")
+
+    gonderilen = 0
+    for h in hakemler:
+        link = f"{REVIEW_BASE_URL}/r/{h['token']}" if REVIEW_BASE_URL else "(REVIEW_BASE_URL yok)"
+        ok = emails.davet_gonder(h, link, sayi["sayi_no"], sayi["hafta"],
+                                 (lead or {}).get("title", "?"), len(secili))
+        log(f"  {'✓' if ok else '✗'} {h['ad']} <{h['email']}>")
+        if not ok:
+            log(f"     link: {link}")     # gönderilemeyeni elle iletebilmek için
+        gonderilen += bool(ok)
+
+    log(f"Davet: {gonderilen}/{len(hakemler)} hakeme ulaştı")
+    return 0 if gonderilen else 1
+
+
+# ============================================================
 # ANA AKIŞ
 # ============================================================
 def main():
@@ -1192,7 +1245,15 @@ def main():
                     help="DB ve e-posta yok; taslak_preview.json üretir")
     ap.add_argument("--mock", action="store_true",
                     help="Exa/LLM yok; sahte taslak üretir")
+    ap.add_argument("--davet-yinele", action="store_true",
+                    help="Bekleyen taslağın davetlerini yeniden gönderir; "
+                         "Exa/LLM çalıştırmaz, ücret doğurmaz")
     args = ap.parse_args()
+
+    # Davet yinelemesi hiçbir arama/model anahtarı gerektirmez — anahtar
+    # kontrolünden ÖNCE ele alınıyor.
+    if args.davet_yinele:
+        sys.exit(davet_yinele())
 
     if not args.mock and (not EXA_API_KEY or not os.environ.get("ANTHROPIC_API_KEY",
                           os.environ.get("OPENAI_API_KEY"))):
@@ -1355,6 +1416,14 @@ def main():
                                    lead.get("title", "?"), secili_sayi):
                 gonderilen += 1
         log(f"Davet e-postası: {gonderilen} hakeme gönderildi")
+        # Hakem VAR ama hiçbirine ulaşılamadıysa bu sessiz değil, GÜRÜLTÜLÜ bir
+        # hatadır: taslak Neon'da bekler, kimse linkini bilmez, Pazartesi yayın
+        # olmaz. En sık sebebi MAIL_FROM'un doğrulanmamış alan adı olması.
+        if hakemler and gonderilen == 0:
+            log("  ⚠⚠ HİÇBİR DAVET GİTMEDİ — taslak incelemesiz kalacak.")
+            log("     Genellikle MAIL_FROM doğrulanmamış alan adında olur "
+                "(Resend 403). Düzeltip şunu çalıştırın: "
+                "python pipeline.py --davet-yinele")
 
         # --- Çalışma raporu (hakemler + RAPOR_ALICI) ---
         # Koşul artık RAPOR_ALICI'ya bağlı DEĞİL: rapor hakemlere de gittiği
@@ -1388,9 +1457,15 @@ def main():
             rapor_alicilari = list(dict.fromkeys(
                 [h["email"] for h in hakemler] +
                 ([RAPOR_ALICI] if RAPOR_ALICI else [])))
-            emails.rapor_gonder(rapor_alicilari,
-                                f"Yarı İletken Bülteni — Sayı {sayi_no} taslak hazır", govde)
-            log(f"Çalışma raporu: {len(rapor_alicilari)} kişiye gönderildi")
+            # ⚠ Dönüş değeri KONTROL EDİLMELİ. Eskiden yok sayılıyordu ve log
+            # alıcı sayısını basıyordu; Resend 403 dönerken bile "3 kişiye
+            # gönderildi" yazıyordu. Sessiz hatayı gizleyen tam olarak buydu.
+            rapor_ok = emails.rapor_gonder(
+                rapor_alicilari,
+                f"Yarı İletken Bülteni — Sayı {sayi_no} taslak hazır", govde)
+            log(f"Çalışma raporu: {len(rapor_alicilari)} kişiye gönderildi" if rapor_ok
+                else f"Çalışma raporu GÖNDERİLEMEDİ "
+                     f"({len(rapor_alicilari)} alıcı) — yukarıdaki Resend hatasına bakın")
 
             # model karşılaştırması ayrı e-posta — rapor okunaklı kalsın
             if karsilastirma:
