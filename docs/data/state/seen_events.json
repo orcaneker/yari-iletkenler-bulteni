@@ -1,1 +1,107 @@
-{"issue_no": 0, "events": [], "urls": []}
+{
+  "issue_no": 1,
+  "events": [
+    {
+      "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Tayvan, Nvidia-Super Micro çip kaçakçılığı soruşturmasında çalışan gözaltına aldı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "ABD, Çin yapımı insansı robot ve güç invertörü ithalatını yasakladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Apple, Çinli CXMT'den DRAM alımı için Beyaz Saray'dan onay istediği bildirildi",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Nvidia, OpenAI'nin 10 gigawatlık Ohio veri merkezi için 250 milyar dolarlık destek görüşüyor",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Samsung ile Broadcom 200 milyar dolarlık çip anlaşması imzaladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Samsung-Broadcom anlaşması 2030'a kadar 200 milyar doları aşan iş hacmi hedefliyor",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "AB, 7 yapay zeka giga fabrikası için ihale sürecini başlattı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "ABD Ticaret Bakanlığı, hesaplama tedarik zinciri için 874 milyon dolarlık CHIPS niyet mektubu imzaladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "GlobalFoundries, silikon fotonik için 300 milyon dolarlık CHIPS ödülü ve devlet ortaklığı aldı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "İtalya ve ABD, yapay zeka tedarik zinciri girişimi Pax Silica'yı imzalayacak",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "AB, Avrupa'nın hesaplama kapasitesini artırmak için 30 milyar Euro'yu aşan yatırımı harekete geçirecek çağrıyı açıkladı",
+      "hafta": "2026-H31"
+    }
+  ],
+  "urls": [
+    "https://cnbc.com/2026/07/28/china-chipmaking-duv-tool-asml-explained.html",
+    "https://digitimes.com/news/a20260728VL202/china-asml-duv-equipment-chipmakers-manufacturing.html",
+    "https://trendforce.com/news/2026/07/28/news-china-reportedly-starts-mass-producing-immersion-duv-tools-smic-hua-hong-cxmt-deliveries-expected-this-year",
+    "https://trtworld.com/article/8c6e7049ff48",
+    "https://asia.nikkei.com/spotlight/society/crime/taiwan-detains-nvidia-employee-in-super-micro-probe-taiwan-media-says",
+    "https://theregister.com/security/2026/07/29/america-bans-imported-robots-due-to-supply-chain-and-security-risks/5280145",
+    "https://cnbc.com/2026/07/28/trump-administration-to-ban-new-chinese-robots-and-inverters-protecting-us-ai.html",
+    "https://asia.nikkei.com/spotlight/trump-administration/us-bans-new-chinese-humanoid-robots-to-protect-ai-buildout",
+    "https://trendforce.com/news/2026/07/29/news-u-s-unveils-bans-targeting-chinese-robots-power-inverters-unitree-sungrow-poised-to-be-hit",
+    "https://particle.news/story/white-house-weighs-apple-request-to-buy-chinese-memory-chips-over-micron-objections",
+    "https://digitimes.com/news/a20260727VL215/apple-micron-cxmt-chips-smartphone.html",
+    "https://cnbc.com/2026/07/30/china-us-robot-humanoid-ban-trump-visit.html",
+    "https://digitimes.com/news/a20260729VL218/security-fcc-data-technology-market.html",
+    "https://cnbc.com/2026/07/27/nvidia-and-openai-in-talks-for-up-to-250-billion-dollar-ai-backstop.html",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/chinas-moonshot-ai-reportedly-used-nvidia-blackwell-chips-for-training-kimi-k3-company-circumvented-both-u-s-export-and-chinese-import-controls-to-acquire-compute",
+    "https://donanimhaber.com/samsung-dan-broadcom-ile-200-milyar-dolarlik-dev-cip-anlasmasi--208529",
+    "https://bloomberght.com/samsung-broadcomdan-200-milyar-dolarlik-siparis-aldi-3783833",
+    "https://webrazzi.com/2026/07/27/samsung-ve-broadcom-dan-yapay-zeka-altyapisi-icin-200-milyar-dolarlik-is-birligi",
+    "https://dunya.com/dunya/abden-abd-ve-cine-yapay-zeka-resti-dev-ihale-basladi-haberi-834268",
+    "https://nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million",
+    "https://semiconductors.org/sia-commends-chips-awards-to-accelerate-advanced-compute-semiconductor-rd",
+    "https://gf.com/news-and-events/news/globalfoundries-signs-letter-of-intent-with-the-us-department-of-commerce-for-a-300-million-award-to-accelerate-us-silicon-photonics-leadership",
+    "https://theregister.com/public-sector/2026/07/29/uncle-sam-sees-the-light-offers-globalfoundries-300m-to-pursue-silicon-photonics-while-taking-1-stake/5280620",
+    "https://digitimes.com/news/a20260730VL218/globalfoundries-photonics-silicon-award-optics.html",
+    "https://channelnewsasia.com/business/italy-us-sign-pax-silica-ai-initiative-after-spat-trump-6286521",
+    "https://digitimes.com/news/a20260730VL212/italy-packaging-materials-european-commission.html",
+    "https://digital-strategy.ec.europa.eu/en/news/eu-launches-ai-gigafactories-call-boost-europes-computing-capacity-and-unlock-more-eu30-billion",
+    "https://tomshardware.com/tech-industry/zeiss-expands-german-site-that-caps-asmls-euv-scanner-output",
+    "https://smbom.com/news/48064",
+    "https://tomshardware.com/tech-industry/semiconductors/shanghai-aishengna-named-as-the-maker-of-chinas-first-domestic-immersion-duv-scanners",
+    "https://srnnews.com/taiwans-umc-raises-2026-capex-expands-singapore-and-taiwan-fabs-for-ai-demand",
+    "https://donanimhaber.com/tsmc-2nm-uretiminde-esigi-gecti-3nm-yi-geride-birakabilir--208579",
+    "https://electronicsweekly.com/news/business/tsmc-fab-20-running-20k-2nm-wpm-2026-07",
+    "https://focustaiwan.tw/business/202607290005",
+    "https://theregister.com/storage/2026/07/30/gpus-could-explode-to-multiple-tb-with-new-storage-inspired-memory-tech/5281363",
+    "https://cnbc.com/2026/07/29/sk-hynix-earnings-profit-revenue-hbm-memory.html",
+    "https://donanimhaber.com/sk-hynix-rekor-k-r-acikladi-hbm4-uretimi-resmen-basladi--208719",
+    "https://dunya.com/ekonomi/samsung-yari-iletkende-sikisikligin-2028e-uzamasini-bekliyor-haberi-834246",
+    "https://kioxia.com/en-jp/business/news/2026/20260730-1.html",
+    "https://tomshardware.com/pc-components/ram/dram-chip-supply-to-module-makers-could-drop-by-more-than-70-percent-year-on-year-in-2027-says-apacer-ceo-demand-for-hbm-and-server-ram-continues-to-devour-manufacturing-capacity",
+    "https://theregister.com/systems/2026/08/01/nvidias-vera-cpu-and-the-olympus-cores-that-power-it-deep-dive/5282056",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/google-could-build-more-ai-accelerators-than-nvidia-sells-in-2028-analyst-claims-could-push-the-company-to-use-intel-foundry-to-meet-its-goals",
+    "https://evertiq.com/news/2026-07-27-nvidia-to-invest-1-billion-in-naver-to-boost-korean-ai-infrastucture",
+    "https://rabbitreports.com/news/packaging/packaging-chinese-advanced-packaging-firms-kick-start-a-new-round-of-capacity-expansion-9b4bwr",
+    "https://newsroom.intel.com/intel-foundry/intels-us-advanced-packaging-enables-next-generation-ai-semiconductors",
+    "https://ledinside.com/news/2026/7/2026_07_29_02",
+    "https://newsroom.amd.com/news/amd-and-korea-s-ministry-of-science-and-ict-partner-to-advance-a-sovereign-ai-ecosystem",
+    "https://newsroom.intel.com/intel-foundry/intel-completes-ramp-c-program-accelerating-momentum-for-secure-enclave",
+    "https://linde.com/news-and-media/2026/linde-to-invest-$1-billion-to-support-major-u,-d-,s,-d-,-semiconductor-facility-expansion",
+    "https://aa.com.tr/tr/bilim-teknoloji/bayraktar-kizilelma-dahili-muhimmat-yuvasindan-ilk-atis-testlerini-tamamladi/4013757",
+    "https://theregister.com/ai-and-ml/2026/07/28/china-fights-back-in-ai-spat-with-claim-us-ai-companies-distil-chinese-models/5279315",
+    "https://aa.com.tr/tr/ekonomi/cinin-teknolojideki-sertlesen-rekabetciligi-yuksek-degerleme-endiselerini-artiriyor/4013536"
+  ]
+}

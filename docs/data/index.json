@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "number": 1,
+    "hafta": "2026-H31",
+    "publication_date": "2026-08-02",
+    "coverage_start": "2026-07-26",
+    "coverage_end": "2026-08-02",
+    "lead_title": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
+    "story_count": 11,
+    "radar_count": 25,
+    "file": "data/arsiv/2026-H31.json"
+  }
+]

@@ -1,0 +1,932 @@
+{
+  "issue": {
+    "number": 1,
+    "hafta": "2026-H31",
+    "publication_date": "2026-08-02",
+    "coverage_start": "2026-07-26",
+    "coverage_end": "2026-08-02",
+    "window_days": 7,
+    "audio": {
+      "url": "assets/audio/2026-H31.mp3",
+      "duration_sec": 52,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "chars": 710,
+      "generated_at": "2026-08-02"
+    }
+  },
+  "brief": [
+    {
+      "text": "ABD, Çinli insansı robotlar ve bağlantılı güç invertörlerinin ithalatını ulusal güvenlik gerekçesiyle yasakladı.",
+      "slug": "abd-cin-yapimi-insansi-robot-ve-guc-invertoru-ithalatini-yasakladi"
+    },
+    {
+      "text": "Samsung ile Broadcom, 2030'a kadar geçerli 200 milyar dolarlık bellek, üretim ve paketleme iş birliği anlaşması imzaladı.",
+      "slug": "samsung-ile-broadcom-200-milyar-dolarlik-cip-anlasmasi-imzaladi"
+    },
+    {
+      "text": "Çin'in yerli daldırmalı DUV litografi makinelerinin seri üretime geçtiği ve SMIC ile CXMT'ye bu yıl teslim edileceği bildirildi.",
+      "slug": "cin-in-yerli-duv-litografi-makinesi-seri-uretime-gectigi-bildirildi"
+    },
+    {
+      "text": "Tayvan, Nvidia çiplerinin Super Micro üzerinden Çin'e kaçak sevkiyatı soruşturmasında bir Nvidia çalışanını gözaltına aldı.",
+      "slug": "tayvan-nvidia-super-micro-cip-kacakciligi-sorusturmasinda-calisan-goza"
+    },
+    {
+      "text": "Türkiye, uygulamalı kuantum teknolojileri için 300 milyon dolar bütçeli HIT-Quantum programını başlattı.",
+      "slug": null
+    }
+  ],
+  "metrics": {
+    "aciklanan_yatirim_usd_milyon": 672774,
+    "proje_sayisi": 12,
+    "politika_gelismesi": 4,
+    "kapsanan_ulke": 7
+  },
+  "lead": {
+    "id": "china-duv-lithography-homegrown",
+    "slug": "cin-in-yerli-duv-litografi-makinesi-seri-uretime-gectigi-bildirildi",
+    "image": {
+      "url": "https://image.cnbcfm.com/api/v1/image/108291539-1776230666701-gettyimages-2267755525-SEMICON_China_2026_in_Shanghai.jpeg?v=1776230676&amp;w=1920&amp;h=1080",
+      "type": "og-sayfa",
+      "credit": "cnbc.com"
+    },
+    "score": 9,
+    "secim": "one_cikan",
+    "title": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
+    "detail": "The Information'ın pazartesi günü yayımladığı ve konuya yakın kişilere dayandırdığı haberde, adı açıklanmayan bir Çinli şirketin daldırmalı DUV litografi makinesi üretimine başladığı bildirildi. Söz konusu makinelerin bu yıl içinde Semiconductor Manufacturing International Corp. (SMIC) ve bu hafta halka arz olan Changxin Memory Technologies (CXMT) gibi Çin'in en büyük çip üreticilerine teslim edilmesi bekleniyor.\n\nHaberin yayılmasının ardından salı günü ASML hisseleri, küresel yarı iletken hisselerindeki sert satış dalgası içinde geriledi; şirket hissesi gün içinde yüzde 1,8 değer kaybetti, ancak yıl başından bu yana yüzde 123'ün üzerinde artış kaydetmiş durumda. Yatırımcılar, Çin'in yerli yarı iletken teknolojisini geliştirmeye devam etmesi halinde ABD, Avrupa ve diğer Asya firmalarının bu büyük pazardan dışlanabileceğinden endişe ediyor.\n\nDaldırmalı DUV makineleri, silikon gofretler üzerine devre desenleri kazımak için kullanılan kritik bir üretim aracı olup TSMC ve Intel gibi dökümhaneler tarafından satın alınıyor; ancak daha az gelişmiş çipler için kullanılıyor. Buna karşılık, Apple ve Nvidia gibi şirketlerin tasarladığı en ileri düzey çipler için aşırı ultraviyole (EUV) litografi makineleri gerekiyor. ASML, hem DUV hem de EUV litografi pazarına hakim olup bugüne dek hiçbir şirket bu teknolojiyi kopyalayamamıştı.\n\nAnalistler, Çin'in makinesinin performansına ilişkin soru işaretlerinin sürdüğünü belirtiyor. Sektörde 'verim' (yield) olarak adlandırılan, üretim sürecinden çıkan kullanılabilir çip sayısını ifade eden ölçüt kritik önem taşıyor; Futurum Group'tan Nick Patience, \"Sadece çalışan bir alet değil, en azından verim eşitliğine ulaşmaları gerekiyor\" dedi. ODDO BHF'den Stephane Houri ise gelişmenin \"bir tutam tuzla\" değerlendirilmesi gerektiğini, Çin'in bu alandaki hamlesinin çok düşük segmentle sınırlı kalabileceğini söyledi.\n\nÇin'in bu teknolojiyi hangi ölçekte üretebileceği ve makinenin ASML ürünleriyle karşılaştırıldığında ne düzeyde performans sunacağı halen belirsizliğini koruyor.",
+    "source": {
+      "url": "https://cnbc.com/2026/07/28/china-chipmaking-duv-tool-asml-explained.html",
+      "name": "CNBC",
+      "tier": 1,
+      "type": "news_agency",
+      "primary": true
+    },
+    "excerpt": "The Information'ın haberine göre adı açıklanmayan bir Çinli şirket, daldırmalı derin ultraviyole (DUV) litografi makinesi üretimine başladı. Cihazların bu yıl SMIC ve halka yeni açılan CXMT gibi Çin'in en büyük çip üreticilerine teslim edilmesi bekleniyor.",
+    "capacity": null,
+    "category": "ekipman",
+    "maturity": "mass_production",
+    "companies": [
+      "ASML",
+      "SMIC",
+      "Hua Hong",
+      "CXMT"
+    ],
+    "countries": [
+      "China",
+      "Netherlands"
+    ],
+    "event_date": "2026-07-27",
+    "investment": null,
+    "value_chain": [
+      "ekipman"
+    ],
+    "neden_onemli": null,
+    "technologies": [
+      "immersion DUV lithography"
+    ],
+    "subcategories": [
+      "litografi"
+    ],
+    "published_date": "2026-07-28",
+    "technology_nodes": [],
+    "supporting_sources": [
+      {
+        "url": "https://digitimes.com/news/a20260728VL202/china-asml-duv-equipment-chipmakers-manufacturing.html",
+        "name": "Digitimes"
+      },
+      {
+        "url": "https://trendforce.com/news/2026/07/28/news-china-reportedly-starts-mass-producing-immersion-duv-tools-smic-hua-hong-cxmt-deliveries-expected-this-year",
+        "name": "TrendForce"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "id": "taiwan-nvidia-export-probe",
+      "slug": "tayvan-nvidia-super-micro-cip-kacakciligi-sorusturmasinda-calisan-goza",
+      "image": {
+        "url": "https://d341l694dl30ad.cloudfront.net/images/reuters/2026/07/14/6a55b1cb12ac9f784ef5a1e7/original/720ed5b1-37b1-41b0-b749-7e7b0c2257bf-1784000971611.jpg?width=1080&amp;format=jpg&amp;quality=80",
+        "type": "og-sayfa",
+        "credit": "trtworld.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Tayvan, Nvidia-Super Micro çip kaçakçılığı soruşturmasında çalışan gözaltına aldı",
+      "detail": "AFP'ye konuşan bir kaynağa göre Tayvan savcıları, Nvidia'nın yapay zeka çiplerinin Çin'e kaçırılması soruşturması kapsamında bir Nvidia çalışanını gözaltına aldı. Keelung Bölge Savcılığı, 24 Temmuz'da şüphelinin evi ve iş yerinde yapılan aramaların ardından kişinin gözaltına alındığını, Nvidia adını doğrudan zikretmeden açıkladı; şüpheli \"Ceza Kanunu kapsamında ticari belge sahteciliği\" dahil suçlamalarla karşı karşıya.\n\nYetkililer mayıs ayında, Nasdaq'ta işlem gören Super Micro Computer tarafından üretilen ve Nvidia'nın gelişmiş çiplerini içeren \"üst düzey\" yapay zeka sunucularının ABD ihracat kontrollerini ihlal ederek Çin, Makao ve Hong Kong'a gönderildiğine dair soruşturma yürüttüklerini bildirmişti. Bir kaynak, gözaltına alınan kişinin Super Micro'ya yönelik önceki arama turunun ardından elde edilen kanıtların analizi sonucunda tespit edildiğini aktardı.\n\nSoruşturma kapsamında, aralarında Nvidia çalışanının da bulunduğu toplam yedi kişi tutuklu bulunuyor; bunlardan ikisi Super Micro, biri ise Tayvan borsasında işlem gören Albatron Technology'den. Şüpheliler, yaklaşık 50 adet Super Micro sunucusunun Çin'e gönderilmesi için belge sahteciliği yapmakla suçlanıyor; sunucuların bir kısmının Tayvan gümrüğünden geçtiği ve Japonya üzerinden Çin'e gönderildiği bir yetkili tarafından daha önce aktarılmıştı.\n\nTayvan savcıları, davanın ABD ve Singapur'da Super Micro çalışanlarını ilgilendiren başka bir Nvidia çip kaçakçılığı davasıyla bağlantılı olup olmadığını değerlendirmenin henüz erken olduğunu belirtti. Singapur polisi bu ay, yapay zeka çiplerinin transferiyle bağlantılı dolandırıcılık soruşturmaları kapsamında 40 milyon doların üzerinde değere sahip lüks bir malikaneye el koydu. Mart ayında açıklanan bir ABD iddianamesinde, şirket çalışanlarının ihracat kontrollerini ihlal ederek Nvidia yapay zeka çiplerini Çin'e yönlendirerek milyarlarca dolar kazandığı öne sürülmüştü.",
+      "source": {
+        "url": "https://trtworld.com/article/8c6e7049ff48",
+        "name": "TRT World / AFP",
+        "tier": 2,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "Tayvan savcılığı, ABD'nin ihracat kontrollerini ihlal ederek Nvidia'nın gelişmiş çiplerini içeren Super Micro sunucularının Çin'e kaçırıldığı iddiasıyla bir Nvidia çalışanını gözaltına aldı. Soruşturma kapsamında toplam yedi kişi tutuklu bulunuyor.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": null,
+      "companies": [
+        "Nvidia",
+        "Super Micro",
+        "Albatron Technology"
+      ],
+      "countries": [
+        "Taiwan",
+        "China",
+        "United States"
+      ],
+      "event_date": "2026-07-28",
+      "investment": null,
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "ihracat kontrolleri"
+      ],
+      "published_date": "2026-07-28",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://asia.nikkei.com/spotlight/society/crime/taiwan-detains-nvidia-employee-in-super-micro-probe-taiwan-media-says",
+          "name": "Nikkei Asia"
+        }
+      ]
+    },
+    {
+      "id": "us-ban-chinese-robots-inverters",
+      "slug": "abd-cin-yapimi-insansi-robot-ve-guc-invertoru-ithalatini-yasakladi",
+      "image": {
+        "url": "https://image.theregister.com/5280168.jpg?imageId=5280168&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+        "type": "og-sayfa",
+        "credit": "theregister.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "ABD, Çin yapımı insansı robot ve güç invertörü ithalatını yasakladı",
+      "detail": "ABD yönetimi, yayımlanan bir Ulusal Güvenlik Kararı ve Federal İletişim Komisyonu'nun (FCC) yasaklı cihaz listesine yapılan güncellemeyle yabancı üretimi ileri robotik cihazların ve şebekeye bağlı güç invertörlerinin satışını etkin biçimde yasakladı. Ulusal güvenlik belgesinde, \"gelişmiş robotik cihazların ekonomimizde verimlilik yaratmak, savaş alanında üstünlük sağlamak ve anavatanı güvence altına almak için kritik olacağı\" belirtilirken, modern robotların sürekli ağa bağlı olmasının veri sızıntısı, uzaktan müdahale ve güvensiz kablosuz güncellemelere bağımlılık gibi geniş saldırı yüzeyleri yarattığına dikkat çekildi.\n\nBelgede somut örnek olarak, Çinli Unitree'nin ürettiği insansı robotların ele geçirilmesine imkan tanıyan UniPwn güvenlik açıkları gösterildi. FCC, yabancı üretimi ileri robotik cihazları, ABD ve sakinleri için kabul edilemez ulusal güvenlik riski taşıdığı gerekçesiyle ithalatı yasaklı ürünler listesi olan Kapsam Listesi'ne dahil etti. Düzenleyici, tek istisna olarak Savaş Departmanı'nın bir cihaza kefil olması durumunda ithalata izin verileceğini bildirdi.\n\nKararın uygulanması yalnızca gelecekteki yabancı üretimi cihazları kapsıyor; ABD'de satışı önceden onaylanmış robotların ithalatına devam edilebilecek ve mevcut kullanıcılar sahip oldukları robotları kullanmaya devam edebilecek. Amerika'da üretim yapan yabancı sahipli şirketler de muaf tutuluyor; bu istisna, Güney Kore'li Hyundai'nin çoğunluk hissesine sahip olduğu ancak üretimini ABD'de sürdüren, ABD savunma araştırma kurumu DARPA destekli Boston Dynamics için önem taşıyor.\n\nCNBC'nin destekleyici haberine göre düzenleme, yenilenebilir enerji kaynaklarını ve bataryaları şebekeye bağlamaya yarayan güç invertörlerinin de Çin'den ithalatını kapsıyor; kararın amacı ABD'nin yapay zeka altyapısı kuruluşunu ulusal güvenlik tehditlerinden korumak ve büyük büyüme öngörülen kilit sektörleri yeniden ülkeye taşımak olarak açıklandı. Kararın, milyonlarca insansı robot üretmeyi hedeflediğini açıklayan Tesla gibi ABD'li üreticilere avantaj sağlaması bekleniyor.",
+      "source": {
+        "url": "https://theregister.com/security/2026/07/29/america-bans-imported-robots-due-to-supply-chain-and-security-risks/5280145",
+        "name": "The Register",
+        "tier": 1,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "ABD hükümeti, Ulusal Güvenlik Kararı ve FCC'nin Kapsam Listesi güncellemesiyle yabancı üretimi ileri robotik cihazların ve bağlantılı güç invertörlerinin ithalatını etkin biçimde yasakladı. Kararda Çinli Unitree'nin robotlarındaki UniPwn güvenlik açıkları örnek gösterildi.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": null,
+      "companies": [
+        "Unitree",
+        "Sungrow",
+        "Boston Dynamics",
+        "Tesla"
+      ],
+      "countries": [
+        "United States",
+        "China"
+      ],
+      "event_date": "2026-07-28",
+      "investment": null,
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "humanoid robotics",
+        "power inverters"
+      ],
+      "subcategories": [
+        "ihracat kontrolleri",
+        "robotik"
+      ],
+      "published_date": "2026-07-29",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://cnbc.com/2026/07/28/trump-administration-to-ban-new-chinese-robots-and-inverters-protecting-us-ai.html",
+          "name": "CNBC"
+        },
+        {
+          "url": "https://asia.nikkei.com/spotlight/trump-administration/us-bans-new-chinese-humanoid-robots-to-protect-ai-buildout",
+          "name": "Nikkei Asia"
+        },
+        {
+          "url": "https://trendforce.com/news/2026/07/29/news-u-s-unveils-bans-targeting-chinese-robots-power-inverters-unitree-sungrow-poised-to-be-hit",
+          "name": "TrendForce"
+        }
+      ]
+    },
+    {
+      "id": "apple-micron-cxmt-wh",
+      "slug": "apple-cinli-cxmt-den-dram-alimi-icin-beyaz-saray-dan-onay-istedigi-bil",
+      "image": {
+        "url": "https://storage.googleapis.com/uploads.mongoosehq.com/url/media/159643411/c80a6604731e8da8ef587f75c3115e86b4a7b9728f151446b2fbba5801d4e8e0",
+        "type": "og-sayfa",
+        "credit": "particle.news"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Apple, Çinli CXMT'den DRAM alımı için Beyaz Saray'dan onay istediği bildirildi",
+      "detail": "Bildirildiğine göre Apple, cihaz maliyetlerini artıran şiddetli bellek kıtlığını hafifletmek amacıyla Çinli üreticiler CXMT ve YMTC'den DRAM satın alınmasına izin verilmesi talebiyle Beyaz Saray'a başvurdu. Micron ise üst düzey ABD yetkilileri nezdinde lobi faaliyeti yürüterek, bu firmalardan büyük hacimli ithalata izin verilmesinin Amerikan bellek üretimini boşaltacağını ve sanayi teşviklerini zayıflatacağını savunuyor.\n\nPazartesi günü çıkan haberlere göre talep şu anda Başkan Trump'ın masasında bulunuyor; yetkililer arasında Apple'ın söz konusu çipleri yalnızca Çin'de satılan cihazlar için mi yoksa dünya genelinde sevk edilen ürünler için mi talep ettiği konusunda anlaşmazlık sürüyor.\n\nHem CXMT hem de YMTC, Pentagon tarafından Çin ordusuyla bağlantılı firmalar olarak nitelendiriliyor; YMTC ayrıca Ticaret Bakanlığı'nın Varlık Listesi'nde (Entity List) yer alıyor, bu da herhangi bir onayı siyasi ve hukuki açıdan hassas hale getiriyor.\n\nKararın taşıdığı ödünleşim net: onay verilmesi tüketici fiyatlarını hızla düşürebilirken uzun vadede ABD çip üretimine zarar verme riski taşıyor; talebin reddedilmesi ise şu anda yüksek bellek maliyetlerinin sürmesine yol açacak ve Micron'un çok yıllı fabrika yatırımlarının arzı ancak daha sonra düzeltmesine imkan tanıyacak.",
+      "source": {
+        "url": "https://particle.news/story/white-house-weighs-apple-request-to-buy-chinese-memory-chips-over-micron-objections",
+        "name": "Particle News",
+        "tier": 2,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "Bildirildiğine göre Apple, ağır bellek darboğazını hafifletmek için Çinli üreticiler CXMT ve YMTC'den DRAM satın almasına izin verilmesi talebini Beyaz Saray'a taşıdı. Micron ise bu planın ABD bellek üretimini zayıflatacağı gerekçesiyle karşı çıkıyor.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": null,
+      "companies": [
+        "Apple",
+        "Micron",
+        "CXMT",
+        "YMTC"
+      ],
+      "countries": [
+        "United States",
+        "China"
+      ],
+      "event_date": "2026-07-27",
+      "investment": null,
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "DRAM"
+      ],
+      "subcategories": [
+        "bellek tedariki",
+        "ihracat kontrolleri"
+      ],
+      "published_date": "2026-07-27",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://digitimes.com/news/a20260727VL215/apple-micron-cxmt-chips-smartphone.html",
+          "name": "Digitimes"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-openai-250b-backstop",
+      "slug": "nvidia-openai-nin-10-gigawatlik-ohio-veri-merkezi-icin-250-milyar-dola",
+      "image": {
+        "url": "https://image.cnbcfm.com/api/v1/image/108316430-17805267702026-06-03t224450z_1708536359_rc2mmla7s69c_rtrmadp_0_usa-congress-openai.jpeg?v=1785179838&amp;w=1920&amp;h=1080",
+        "type": "og-sayfa",
+        "credit": "cnbc.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Nvidia, OpenAI'nin 10 gigawatlık Ohio veri merkezi için 250 milyar dolarlık destek görüşüyor",
+      "detail": "CNBC'nin doğruladığı bilgilere göre OpenAI, Ohio eyaletinin Pike County bölgesinde kurmayı planladığı 10 gigawatlık yapay zeka veri merkezi kampüsünü finanse etmek amacıyla Nvidia ile 250 milyar dolara varan bir kredi teminatı (backstop) konusunda görüşüyor. Konuya yakın bir kişiye göre bu teminat, OpenAI'nin Nvidia'nın kredi gücüne dayanarak kira ve inşaat borcu için borçlanmasına imkan tanıyacak; teminat kapsamındaki alanın içindeki Nvidia çipleri ise ayrı olarak müzakere ediliyor.\n\nNvidia yorum yapmadı; Wall Street Journal, 250 milyar dolarlık müzakereleri ilk haberleştiren yayın oldu. Konuya yakın bir kişiye göre, uranyum zenginleştirme tesisi olarak kullanılmış geniş Ohio sahasındaki kampüsün toplam maliyeti 500 milyar doları aşabilir. 10 gigawatlık kapasite, CNBC'nin Enerji Bilgi İdaresi verilerine dayanan analizine göre yaklaşık 8 milyon ABD hanesinin yıllık elektrik tüketimine denk geliyor.\n\nEylül ayında Nvidia, OpenAI ile stratejik ortaklık kapsamında en az 10 gigawatlık Nvidia sistemi devreye alınması karşılığında şirkete 100 milyar dolara varan yatırım yapacağını duyurmuştu; ancak bu yatırım henüz gerçekleşmedi. Buna karşın Nvidia, Mart ayında kapanan ve rekor kıran fonlama turuna 30 milyar dolar katkı sağlamıştı. Nvidia CEO'su Jensen Huang, şirketin OpenAI halka açılmadan önce yapacağı yatırımın \"son kez\" olabileceğini söyledi; OpenAI, Haziran ayında SEC'e gizli halka arz başvurusu yaptı ancak resmi bir takvim açıklamadı.\n\nOpenAI, özel yatırımcılar tarafından yaklaşık 1 trilyon dolar değerlemeyle fiyatlanıyor. Ohio veri merkezi kampüsü, SoftBank ve SB Energy tarafından ABD Enerji Bakanlığı ortaklığıyla geliştiriliyor; SoftBank aynı zamanda OpenAI'nin başlıca yatırımcılarından biri.",
+      "source": {
+        "url": "https://cnbc.com/2026/07/27/nvidia-and-openai-in-talks-for-up-to-250-billion-dollar-ai-backstop.html",
+        "name": "CNBC",
+        "tier": 1,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "OpenAI, Ohio'daki Pike County'de kuracağı 10 gigawatlık veri merkezi kampüsünü finanse etmek için Nvidia ile 250 milyar dolara varan bir kredi teminatı görüşüyor. Kampüsün toplam maliyetinin 500 milyar doları aşabileceği belirtiliyor.",
+      "capacity": "10 gigawatt",
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "Nvidia",
+        "OpenAI",
+        "SoftBank",
+        "SB Energy"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "event_date": "2026-07-27",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 250000,
+        "amount_usd_million": 250000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "AI data center"
+      ],
+      "subcategories": [
+        "veri merkezi finansmanı"
+      ],
+      "published_date": "2026-07-27",
+      "technology_nodes": [],
+      "supporting_sources": []
+    },
+    {
+      "id": "samsung-broadcom-200b-wafer-supply",
+      "slug": "samsung-ile-broadcom-200-milyar-dolarlik-cip-anlasmasi-imzaladi",
+      "image": {
+        "url": "https://www.donanimhaber.com/images/images/haber/208529/1200x675samsung-dan-broadcom-ile-200-milyar-dolarlik-dev-cip-anlasmasi.jpg",
+        "type": "og-sayfa",
+        "credit": "donanimhaber.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Samsung ile Broadcom 200 milyar dolarlık çip anlaşması imzaladı",
+      "detail": "Samsung'un yarı iletken kolu, ABD merkezli Broadcom ile 2030 yılına kadar geçerli olacak 200 milyar dolarlık stratejik iş birliği anlaşması imzaladığını duyurdu. Anlaşma kapsamında Samsung, Broadcom'a gelişmiş bellek çipleri tedarik edecek ve şirketin tasarladığı özel çipleri (ASIC) 2 nm üretim teknolojisiyle üretecek. Taraflar ayrıca yeni nesil yüksek bant genişlikli bellek (HBM) çözümleri ve gelişmiş çip paketleme teknolojileri üzerinde birlikte çalışacak.\n\nİş birliği yalnızca bellek tedariki ve üretimle sınırlı değil; anlaşma Samsung'un 2.3D ve 2.5D gelişmiş paketleme teknolojilerini de kapsıyor. Bu teknolojiler, yapay zeka hızlandırıcılarında daha yüksek performans ve daha düşük güç tüketimi sağladığı için kritik önem taşıyor. Anlaşma ayrıca Samsung'un gelecekte ticarileştireceği 2 nm altı üretim teknolojilerini de kapsayacak.\n\nSamsung'un sağlayacağı bellek çözümleri, Broadcom'un yeni nesil yapay zeka hızlandırıcılarında kullanılacak. Samsung Foundry, sözleşmeli çip üretiminde pazar lideri TSMC'nin gerisinde kalmaya devam etse de, şirket son yıllarda 2 nm üretim teknolojileri ve HBM bellek alanındaki yatırımlarını hızlandırdı; Broadcom ile yapılan anlaşma bu hedefleri destekliyor.",
+      "source": {
+        "url": "https://donanimhaber.com/samsung-dan-broadcom-ile-200-milyar-dolarlik-dev-cip-anlasmasi--208529",
+        "name": "DonanımHaber",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Samsung'un yarı iletken kolu, Broadcom ile 2030 yılına kadar geçerli 200 milyar dolarlık bir stratejik iş birliği anlaşması imzaladı. Anlaşma; 2 nm üretim, yüksek bant genişlikli bellek (HBM) ve gelişmiş paketleme teknolojilerini kapsıyor.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "Samsung",
+        "Broadcom"
+      ],
+      "countries": [
+        "South Korea",
+        "United States"
+      ],
+      "event_date": "2026-07-26",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 200000,
+        "amount_usd_million": 200000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "wafer-uretim",
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "HBM",
+        "2.3D/2.5D packaging"
+      ],
+      "subcategories": [
+        "bellek tedariki",
+        "foundry"
+      ],
+      "published_date": "2026-07-26",
+      "technology_nodes": [
+        "2nm"
+      ],
+      "supporting_sources": [
+        {
+          "url": "https://bloomberght.com/samsung-broadcomdan-200-milyar-dolarlik-siparis-aldi-3783833",
+          "name": "BloombergHT"
+        }
+      ]
+    },
+    {
+      "id": "samsung-broadcom-ai-partnership",
+      "slug": "samsung-broadcom-anlasmasi-2030-a-kadar-200-milyar-dolari-asan-is-hacm",
+      "image": {
+        "url": "https://cdn.webrazzi.com/uploads/2026/07/samsug-broadcom-136.png",
+        "type": "og-sayfa",
+        "credit": "webrazzi.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Samsung-Broadcom anlaşması 2030'a kadar 200 milyar doları aşan iş hacmi hedefliyor",
+      "detail": "Samsung Electronics ve Broadcom, yapay zeka altyapısına yönelik iş birliklerini genişletmek üzere yeni bir anlaşma imzaladı. San Francisco'daki The Midway'de düzenlenen AI Summit kapsamında duyurulan anlaşma, yüksek bant genişlikli belleklerden gelişmiş üretim süreçlerine ve çip paketleme teknolojilerine kadar uzanan geniş bir alanı kapsıyor.\n\nŞirketlerin açıklamasına göre iş birliğinin, bellek ve yarı iletken üretimi alanlarında önümüzdeki beş yıl içinde, yani 2030'a kadar 200 milyar doların üzerinde bir iş hacmine ulaşması bekleniyor. Bu rakamın tek seferlik bir satın alma anlaşmasını değil, iş birliği kapsamında oluşması öngörülen toplam ticari hacmi ifade ettiği belirtildi.\n\nAnlaşmanın bellek tarafında Samsung, Broadcom'un yeni nesil yapay zeka hızlandırıcılarında kullanılmak üzere yüksek bant genişlikli bellek (HBM) çözümleri sunmayı planlıyor. Bu bellekler, yapay zeka modellerinin eğitilmesi ve çalıştırılması sırasında işlemcilerin büyük miktardaki veriye daha hızlı erişmesini sağlıyor. Broadcom, özellikle büyük teknoloji şirketleri için geliştirilen özelleştirilmiş yapay zeka hızlandırıcıları ve bağlantı çözümleriyle yapay zeka altyapısı pazarındaki konumunu güçlendiriyor.",
+      "source": {
+        "url": "https://webrazzi.com/2026/07/27/samsung-ve-broadcom-dan-yapay-zeka-altyapisi-icin-200-milyar-dolarlik-is-birligi",
+        "name": "Webrazzi",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "San Francisco'daki AI Summit'te duyurulan Samsung-Broadcom ortaklığının, bellek ve yarı iletken üretiminde önümüzdeki beş yılda 200 milyar doların üzerinde iş hacmine ulaşması bekleniyor. Anlaşma tek seferlik alım değil, toplam ticari hacmi ifade ediyor.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "Samsung",
+        "Broadcom"
+      ],
+      "countries": [
+        "South Korea",
+        "United States"
+      ],
+      "event_date": "2026-07-27",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 200000,
+        "amount_usd_million": 200000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "wafer-uretim",
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "HBM"
+      ],
+      "subcategories": [
+        "bellek tedariki"
+      ],
+      "published_date": "2026-07-27",
+      "technology_nodes": [],
+      "supporting_sources": []
+    },
+    {
+      "id": "ab-ai-gigafactory-financing",
+      "slug": "ab-7-yapay-zeka-giga-fabrikasi-icin-ihale-surecini-baslatti",
+      "image": {
+        "url": "https://image.dunya.com/rcman/Cw1280h720q95gc/storage/files/images/2026/05/29/yapay-zeka-w44f_cover.jpg",
+        "type": "og-sayfa",
+        "credit": "dunya.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "AB, 7 yapay zeka giga fabrikası için ihale sürecini başlattı",
+      "detail": "Avrupa Birliği (AB), yapay zeka alanındaki rekabet gücünü artırmak ve teknolojik bağımsızlığını güçlendirmek amacıyla Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurulması için ihale sürecini başlattı. AB Komisyonu, projeyle Birliğin yüksek kapasiteli yapay zeka altyapısının geliştirilmesinin ve bu alanda ABD ile Çin'e olan bağımlılığın azaltılmasının hedeflendiğini açıkladı.\n\nSektör öncülüğünde yürütülecek girişime, AB ve ulusal kaynaklardan 10 milyar Euro'ya kadar finansman desteği sağlanacak. Komisyon açıklamasında, bu desteğin Birlik genelinde en az 20 milyar Euro'luk özel yatırımı harekete geçirmesinin beklendiği belirtildi.\n\nKurulacak tesisler; startup'lara, büyüme aşamasındaki şirketlere, küçük ve orta ölçekli işletmelere, sanayi kuruluşlarına, akademik çevrelere ve kamu kurumlarına ileri düzey yapay zeka modellerinin geliştirilmesi ve eğitilmesi için gerekli altyapıyı sunacak; gelişmiş işlemciler, yazılım ve bulut teknolojileri, yüksek hızlı bağlantı sistemleri ile enerji verimli veri merkezlerini bir araya getirecek.\n\nBu tesislerin, Avrupa genelinde kurulması planlanan 19 yapay zeka fabrikasından oluşan ağla birlikte çalışacağı belirtildi. Fabrikalarda geliştirilecek yapay zeka teknolojilerinin veri koruma, güvenlik ve etik alanlarında AB standartlarına uygun olması öngörülüyor.",
+      "source": {
+        "url": "https://dunya.com/dunya/abden-abd-ve-cine-yapay-zeka-resti-dev-ihale-basladi-haberi-834268",
+        "name": "Dünya Gazetesi",
+        "tier": 2,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "Avrupa Birliği, ABD ve Çin'e teknoloji bağımlılığını azaltmak amacıyla Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurulması için ihale başlattı. Projelere AB ve ulusal kaynaklardan 10 milyar Euro'ya kadar finansman sağlanacak.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "European Union"
+      ],
+      "event_date": "2026-07-30",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 10,
+        "amount_usd_million": 10800,
+        "public_support_usd_million": 10800
+      },
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "AI gigafactory"
+      ],
+      "subcategories": [
+        "AI altyapısı"
+      ],
+      "published_date": "2026-07-30",
+      "technology_nodes": [],
+      "supporting_sources": []
+    },
+    {
+      "id": "us-chips-compute-supply-chain-874m",
+      "slug": "abd-ticaret-bakanligi-hesaplama-tedarik-zinciri-icin-874-milyon-dolarl",
+      "image": {
+        "url": "https://www.nist.gov/themes/custom/nist_www/img/homepage/nist_mark.png",
+        "type": "og",
+        "credit": "nist.gov"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "ABD Ticaret Bakanlığı, hesaplama tedarik zinciri için 874 milyon dolarlık CHIPS niyet mektubu imzaladı",
+      "detail": "ABD Ticaret Bakanlığı, CHIPS ve Bilim Yasası kapsamında 7 şirketle 874 milyon dolar tutarında federal teşvik sağlanmasına yönelik niyet mektupları (letters of intent) imzalandığını duyurdu. Teşvikler; entegre fotonik, hesaplama mimarileri, gelişmiş paketleme, alt tabakalar, malzemeler ve bellek alanlarında yerli teknolojilerin geliştirilmesini destekleyecek ve dünyanın en hızlı bilgisayarlarının performansını artıracak, yerli tedarik zincirlerini güvence altına alacak altyapıyı sağlayacak.\n\nAçıklanan şirketler ve tutarlar şöyle: GlobalFoundries, birlikte paketlenmiş optik (co-packaged optics) teknolojisinin yerli Ar-Ge'sini iki-üç yıl hızlandırmak için 300 milyon dolara kadar destek alacak. Kepler, 3D ve ferroelektrik teknolojilerle mümkün kılınan yeni nesil yüksek performanslı yapay zeka bellek teknolojisi geliştirmek için 245 milyon dolara kadar destek alacak. Multibeam Corporation, birden fazla çipi birleştirip binlerce telle bağlayan gelişmiş paketleme teknolojisi için 140 milyon dolara kadar destek alacak. Extropic, geleneksel hesaplama yöntemlerine kıyasla çok daha az enerjiyle karmaşık problemleri olasılıksal olarak çözen termodinamik örnekleme birimleri (TSU) geliştirmek için 75 milyon dolara kadar destek alacak. Thintronics ise ileri düzey yarı iletken ara bağlantılar ve gelişmiş paketleme için ultra düşük kayıplı katmanlar arası dielektrik malzemeler geliştirmek üzere 50 milyon dolara kadar destek alacak.\n\nTicaret Bakanı Howard Lutnick, \"Bugünkü hesaplama tedarik zinciri yatırımlarıyla Trump yönetimi Amerika'nın inovasyon motorunu hızlandırıyor\" dedi. Nihai anlaşmalar öncesinde Bakanlık tarafından ek inceleme ve onay süreçlerinin yürütüleceği belirtildi; teşviklerin geliştireceği teknolojilerin malzeme inovasyonu, endüstriyel optimizasyon, robotik, savunma sistemleri, ilaç keşfi ve finans gibi çok sayıda sektörü ilerletmesi hedefleniyor.",
+      "source": {
+        "url": "https://nist.gov/news-events/news/2026/07/department-commerce-announces-letters-intent-7-companies-874-million",
+        "name": "NIST / US Dept. of Commerce",
+        "tier": 1,
+        "type": "official",
+        "primary": true
+      },
+      "excerpt": "ABD Ticaret Bakanlığı, 7 şirketle entegre fotonik, hesaplama mimarileri, gelişmiş paketleme, alt tabakalar, malzeme ve bellek alanlarında Ar-Ge için 874 milyon dolarlık niyet mektubu imzaladı. GlobalFoundries en büyük payı, 300 milyon dolarla aldı.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "GlobalFoundries",
+        "Kepler",
+        "Multibeam Corporation",
+        "Extropic",
+        "Thintronics"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "event_date": "2026-07-29",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 874,
+        "amount_usd_million": 874,
+        "public_support_usd_million": 874
+      },
+      "value_chain": [
+        "eda-ip",
+        "paketleme-test",
+        "malzeme"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "co-packaged optics",
+        "advanced packaging",
+        "3D/ferroelectric memory"
+      ],
+      "subcategories": [
+        "CHIPS Act",
+        "Ar-Ge"
+      ],
+      "published_date": "2026-07-29",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://semiconductors.org/sia-commends-chips-awards-to-accelerate-advanced-compute-semiconductor-rd",
+          "name": "SIA"
+        }
+      ]
+    },
+    {
+      "id": "globalfoundries-silicon-photonics-300m",
+      "slug": "globalfoundries-silikon-fotonik-icin-300-milyon-dolarlik-chips-odulu-v",
+      "image": {
+        "url": "https://assets.gf.com/image/328833518282/image_2fbc1ehavd03j1oq80m8ml5j0e/-B1920-FWEBP",
+        "type": "og-sayfa",
+        "credit": "gf.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "GlobalFoundries, silikon fotonik için 300 milyon dolarlık CHIPS ödülü ve devlet ortaklığı aldı",
+      "detail": "GlobalFoundries (Nasdaq: GFS), ABD Ticaret Bakanlığı ile yeni nesil silikon fotonik teknolojisinin Ar-Ge'sini hızlandırmak üzere bir niyet mektubu imzaladığını duyurdu. Bakanlığın CHIPS Araştırma ve Geliştirme Ofisi'nin, gelişmiş optik malzemeler, gofret teknolojileri ve gelişmiş paketleme alanında ilerlemeyi desteklemek üzere GF'ye 300 milyon dolara kadar destek vermesi bekleniyor. Yatırım, GF'nin SCALE (Silicon Photonics Co-Packaged Advanced Light Engine) platformu üzerine inşa edilecek ve 400Gb/s performans ile mevcut nesil uygulamalara kıyasla 5 kat enerji verimliliği artışını hedefliyor.\n\nAyrı bir anlaşma kapsamında ABD Ticaret Bakanlığı, GF'den bugün itibarıyla yaklaşık yüzde 1 oranında hisse devralacak; bu adım, Amerikan halkının GF'nin büyümesinden pay almasını sağlayacak. The Register'ın haberine göre bu hisse payı yaklaşık 269 milyon dolar değerinde. Ticaret Bakanı Howard Lutnick, \"Bugünkü hesaplama tedarik zinciri yatırımlarıyla Trump yönetimi Amerika'nın inovasyon motorunu hızlandırıyor\" dedi.\n\nSilikon fotonik, bilgiyi elektriksel sinyaller yerine ışıkla ileterek yüksek bant genişliği ve enerji verimli veri taşınmasını sağlıyor; yapay zeka ve veri merkezi iş yükleri büyüdükçe daha yüksek performans, daha yoğun ara bağlantı ve daha düşük güç tüketimi sunuyor. GF'nin silikon fotonik platformu bugün takılabilir optik ara bağlantıları (pluggable optical interconnects) desteklerken, sektörün yakın paketlenmiş optik (NPO) ve birlikte paketlenmiş optik (CPO) teknolojilerine geçişini sağlayacak konumda bulunuyor. Çalışma, GF'nin Malta (New York) ve Burlington (Vermont) tesislerindeki mevcut kabiliyetlerinden yararlanarak ABD merkezli yüksek hacimli silikon fotonik üretimine geçişi hızlandıracak.",
+      "source": {
+        "url": "https://gf.com/news-and-events/news/globalfoundries-signs-letter-of-intent-with-the-us-department-of-commerce-for-a-300-million-award-to-accelerate-us-silicon-photonics-leadership",
+        "name": "GlobalFoundries",
+        "tier": 1,
+        "type": "company",
+        "primary": true
+      },
+      "excerpt": "GlobalFoundries, ABD Ticaret Bakanlığı'ndan silikon fotonik Ar-Ge'si için 300 milyon dolarlık niyet mektubu aldı; karşılığında hükümete yaklaşık yüzde 1 hisse devretti. Yatırım, Malta (New York) ve Burlington (Vermont) tesislerindeki mevcut yetkinlikleri kullanacak.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "GlobalFoundries"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "event_date": "2026-07-29",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 300,
+        "amount_usd_million": 300,
+        "public_support_usd_million": 300
+      },
+      "value_chain": [
+        "wafer-uretim",
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "silicon photonics",
+        "co-packaged optics",
+        "near-packaged optics"
+      ],
+      "subcategories": [
+        "silikon fotonik",
+        "CHIPS Act"
+      ],
+      "published_date": "2026-07-29",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://theregister.com/public-sector/2026/07/29/uncle-sam-sees-the-light-offers-globalfoundries-300m-to-pursue-silicon-photonics-while-taking-1-stake/5280620",
+          "name": "The Register"
+        },
+        {
+          "url": "https://digitimes.com/news/a20260730VL218/globalfoundries-photonics-silicon-award-optics.html",
+          "name": "Digitimes"
+        }
+      ]
+    },
+    {
+      "id": "italy-us-pax-silica-agreement",
+      "slug": "italya-ve-abd-yapay-zeka-tedarik-zinciri-girisimi-pax-silica-yi-imzala",
+      "image": {
+        "url": "https://dam.mediacorp.sg/image/upload/s--mVMsbIIV--/c_fill,g_auto,h_676,w_1200/fl_relative,g_south_east,l_mediacorp:cna:watermark:2024-04:reuters_1,w_0.1/f_auto,q_auto/v1/one-cms/core/2026-07-29T170007Z_2_LYNXMPEM6S1NN_RTROPTP_3_AI-JOBS.JPG?itok=oi--OrJ2",
+        "type": "og-sayfa",
+        "credit": "channelnewsasia.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "İtalya ve ABD, yapay zeka tedarik zinciri girişimi Pax Silica'yı imzalayacak",
+      "detail": "İtalya Dışişleri Bakanlığı'nın açıklamasına göre İtalya ve Amerika Birleşik Devletleri, yapay zeka tedarik zincirlerine ilişkin ABD Dışişleri Bakanlığı girişimi Pax Silica kapsamında bir iş birliği anlaşmasını cuma günü imzalayacak. Pax Silica, yarı iletkenlerden kritik minerallere, ileri üretimden yapay zeka modellerine kadar uzanan alanlarda müttefik ülkeleri bir araya getiren bir ABD girişimi olarak tanımlanıyor.\n\nİtalya'nın Washington Büyükelçisi Armando Varricchio ile ABD'nin İtalya Büyükelçisi Tilman Fertitta, anlaşmayı cuma günü İtalya'nın güneyindeki Brindisi'de imzalayacak. İtalya'nın Haziran ayında Miami'de Pax Silica'ya katılması planlanmışken, Başbakan Giorgia Meloni ile Başkan Donald Trump arasında yaşanan kamuoyuna yansıyan anlaşmazlığın ardından Dışişleri Bakanı Antonio Tajani bu seyahati iptal etmişti; Washington, Roma'yı İran savaşında yeterli destek vermemekle suçlamıştı.\n\nİtalyan bakanlık, girişimin amacının \"bu kilit sektörlerin büyümesini destekleyecek bir ekosistem oluşturmak ve ihracatçı ülkelere olan bağımlılığı azaltmak\" olduğunu belirtti.",
+      "source": {
+        "url": "https://channelnewsasia.com/business/italy-us-sign-pax-silica-ai-initiative-after-spat-trump-6286521",
+        "name": "Channel News Asia / Reuters",
+        "tier": 1,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "İtalya ve ABD, yarı iletkenler ve kritik minerallerden ileri üretime kadar uzanan Pax Silica yapay zeka tedarik zinciri girişimi kapsamında iş birliği anlaşmasını Brindisi'de imzalayacağı bildirildi. Anlaşma, Meloni-Trump arasındaki gerginliğin ardından geldi.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "Italy",
+        "United States"
+      ],
+      "event_date": "2026-07-29",
+      "investment": null,
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "Pax Silica",
+        "AI tedarik zinciri"
+      ],
+      "published_date": "2026-07-30",
+      "technology_nodes": [],
+      "supporting_sources": [
+        {
+          "url": "https://digitimes.com/news/a20260730VL212/italy-packaging-materials-european-commission.html",
+          "name": "Digitimes"
+        }
+      ]
+    },
+    {
+      "id": "eu-ai-gigafactories-30b",
+      "slug": "ab-avrupa-nin-hesaplama-kapasitesini-artirmak-icin-30-milyar-euro-yu-a",
+      "image": {
+        "url": "https://digital-strategy.ec.europa.eu/sites/default/files/styles/newsroom_large/public/newsroom/items/AdobeStock_1770028153Tikka_MS_360x240px_iB4vg7qWky42iMdzaS6ge1vG4o_242595.jpg?itok=Ombw5qg4",
+        "type": "og",
+        "credit": "digital-strategy.ec.europa.eu"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "AB, Avrupa'nın hesaplama kapasitesini artırmak için 30 milyar Euro'yu aşan yatırımı harekete geçirecek çağrıyı açıkladı",
+      "detail": "AB, teknolojik egemenliğini hızlandırma ve \"AI Kıtası\" olma hedefi doğrultusunda son büyük hamlesi kapsamında, Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurulması için tekliflere açık bir ihale çağrısı başlattı. Sektör öncülüğünde ve AB ile ulusal kaynaklardan sağlanan 10 milyar Euro'ya varan finansman desteğiyle yürütülecek girişimin, Birlik genelinde en az 20 milyar Euro'luk özel yatırımı harekete geçirmesi bekleniyor; bu da Avrupa'nın yapay zeka hesaplama kapasitesini genişletecek.\n\nYapay zeka giga fabrikaları; gelişmiş yapay zeka işlemcileri, yazılım ve bulut teknoloji yığınlarını, yüksek hızlı bağlantıyı ve enerji verimli veri merkezlerini bir araya getirecek. Bu tesisler, startup'lara, büyüme aşamasındaki şirketlere, KOBİ'lere, sanayi kuruluşlarına, akademik çevrelere ve kamu kurumlarına gelişmiş yapay zeka modellerinin geliştirilmesi ve eğitilmesi için gerekli altyapıyı sunacak.\n\nGirişim, Avrupa genelinde kurulması planlanan 19 yapay zeka fabrikasından oluşan ağla birlikte çalışarak Avrupa'nın teknolojik liderliğini, dayanıklılığını ve stratejik özerkliğini güçlendirecek. Giga fabrikalarda geliştirilecek yapay zeka teknolojilerinin veri koruma, güvenlik ve etik konusunda AB standartlarına uygun olması öngörülüyor.",
+      "source": {
+        "url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-ai-gigafactories-call-boost-europes-computing-capacity-and-unlock-more-eu30-billion",
+        "name": "European Commission - Digital Strategy",
+        "tier": 1,
+        "type": "official",
+        "primary": true
+      },
+      "excerpt": "Avrupa Komisyonu, Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurmak için tekliflere açtığı çağrıda 10 milyar Euro'ya kadar AB ve ulusal fon desteği sunacağını, bunun en az 20 milyar Euro'luk özel yatırımı tetiklemesinin beklendiğini açıkladı.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "European Union"
+      ],
+      "event_date": "2026-07-30",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 10,
+        "amount_usd_million": 10800,
+        "public_support_usd_million": 10800
+      },
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "AI gigafactory"
+      ],
+      "subcategories": [
+        "AI altyapısı"
+      ],
+      "published_date": "2026-07-31",
+      "technology_nodes": [],
+      "supporting_sources": []
+    }
+  ],
+  "radar": [
+    {
+      "kume": "Litografi ve ileri düğüm gelişmeleri",
+      "maddeler": [
+        {
+          "url": "https://tomshardware.com/tech-industry/zeiss-expands-german-site-that-caps-asmls-euv-scanner-output",
+          "date": "2026-07-26",
+          "title": "Zeiss, ASML litografi darboğazını çözmek için Almanya Oberkochen tesisini genişletiyor",
+          "source": "Tom's Hardware",
+          "category": "ekipman"
+        },
+        {
+          "url": "https://smbom.com/news/48064",
+          "date": "2026-07-31",
+          "title": "TSMC'nin 1,4nm fabrikası takvimin önünde; ilk bina Nisan 2027'den önce tamamlanacak",
+          "source": "SMBOM",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/shanghai-aishengna-named-as-the-maker-of-chinas-first-domestic-immersion-duv-scanners",
+          "date": "2026-07-30",
+          "title": "Çin'in yerli 28nm DUV programı, Shanghai Aishengna'nın ilk beş sistemiyle fabrika doğrulama aşamasına girdi",
+          "source": "Tom's Hardware",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://srnnews.com/taiwans-umc-raises-2026-capex-expands-singapore-and-taiwan-fabs-for-ai-demand",
+          "date": "2026-07-29",
+          "title": "UMC, Singapur ve Tayvan fabrikalarını genişletirken 2026 capex'ini 2 milyar dolara yükseltti",
+          "source": "SRN News",
+          "category": "yatirim"
+        },
+        {
+          "url": "https://donanimhaber.com/tsmc-2nm-uretiminde-esigi-gecti-3nm-yi-geride-birakabilir--208579",
+          "date": "2026-07-27",
+          "title": "TSMC 2nm üretiminde aylık 20 bin wafer eşiğini geçti, kapasite artıyor",
+          "source": "DonanımHaber",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://electronicsweekly.com/news/business/tsmc-fab-20-running-20k-2nm-wpm-2026-07",
+          "date": "2026-07-29",
+          "title": "TSMC Fab20, 2nm süreçte aylık 20 bin wafer'a ulaştı; gelir katkısı yüzde 3'te",
+          "source": "Electronics Weekly",
+          "category": "teknoloji"
+        }
+      ]
+    },
+    {
+      "kume": "Deprem ve tedarik zinciri riskleri",
+      "maddeler": [
+        {
+          "url": "https://focustaiwan.tw/business/202607290005",
+          "date": "2026-07-29",
+          "title": "7,1 büyüklüğündeki Kumamoto depreminde TSMC'nin JASM fabrikası hasar görmedi, ikinci fabrikanın inşaatı geçici olarak durduruldu",
+          "source": "Focus Taiwan",
+          "category": "guc"
+        }
+      ]
+    },
+    {
+      "kume": "Bellek pazarı (HBM/DRAM)",
+      "maddeler": [
+        {
+          "url": "https://theregister.com/storage/2026/07/30/gpus-could-explode-to-multiple-tb-with-new-storage-inspired-memory-tech/5281363",
+          "date": "2026-07-30",
+          "title": "SanDisk'in HBF teknolojisi, GPU'lar için HBM4'ün 14 katı kapasiteye ulaştı",
+          "source": "The Register",
+          "category": "bellek"
+        },
+        {
+          "url": "https://cnbc.com/2026/07/29/sk-hynix-earnings-profit-revenue-hbm-memory.html",
+          "date": "2026-07-28",
+          "title": "SK Hynix, HBM4 seri sevkiyatıyla rekor 2. çeyrek karı açıkladı; DRAM yüzde 30, NAND yüzde 50 fiyat artışı",
+          "source": "CNBC",
+          "category": "bellek"
+        },
+        {
+          "url": "https://donanimhaber.com/sk-hynix-rekor-k-r-acikladi-hbm4-uretimi-resmen-basladi--208719",
+          "date": "2026-07-30",
+          "title": "SK Hynix, yapay zeka veri merkezleri için HBM4 bellek seri üretimine resmen başladı",
+          "source": "DonanımHaber",
+          "category": "bellek"
+        },
+        {
+          "url": "https://dunya.com/ekonomi/samsung-yari-iletkende-sikisikligin-2028e-uzamasini-bekliyor-haberi-834246",
+          "date": "2026-07-30",
+          "title": "Samsung, bellek arz sıkışıklığının yapay zeka talebi nedeniyle 2028'e uzamasını bekliyor",
+          "source": "Dünya Gazetesi",
+          "category": "bellek"
+        },
+        {
+          "url": "https://kioxia.com/en-jp/business/news/2026/20260730-1.html",
+          "date": "2026-07-30",
+          "title": "Kioxia, yapay zeka bağlam önbelleği için 61,44TB kapasiteli PCIe 6.0 kurumsal SSD tanıttı",
+          "source": "Kioxia",
+          "category": "bellek"
+        },
+        {
+          "url": "https://tomshardware.com/pc-components/ram/dram-chip-supply-to-module-makers-could-drop-by-more-than-70-percent-year-on-year-in-2027-says-apacer-ceo-demand-for-hbm-and-server-ram-continues-to-devour-manufacturing-capacity",
+          "date": "2026-07-29",
+          "title": "Apacer CEO'su, 2027'de modül üreticilerine DRAM arzının yüzde 70'in üzerinde düşebileceği uyarısında bulundu",
+          "source": "Tom's Hardware",
+          "category": "bellek"
+        }
+      ]
+    },
+    {
+      "kume": "AI çipleri ve veri merkezi yatırımları",
+      "maddeler": [
+        {
+          "url": "https://theregister.com/systems/2026/08/01/nvidias-vera-cpu-and-the-olympus-cores-that-power-it-deep-dive/5282056",
+          "date": "2026-08-01",
+          "title": "Nvidia'nın Vera CPU'su, TSMC 3nm sürecinde 88 monolitik çekirdek ve 8 LPDDR5x kontrolörü barındırıyor",
+          "source": "The Register",
+          "category": "ai-cip"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/artificial-intelligence/google-could-build-more-ai-accelerators-than-nvidia-sells-in-2028-analyst-claims-could-push-the-company-to-use-intel-foundry-to-meet-its-goals",
+          "date": "2026-07-30",
+          "title": "Analist, Google'ın 2028'de Nvidia'nın satışından fazla AI hızlandırıcı üretebileceğini öne sürdü",
+          "source": "Tom's Hardware",
+          "category": "ai-cip"
+        },
+        {
+          "url": "https://evertiq.com/news/2026-07-27-nvidia-to-invest-1-billion-in-naver-to-boost-korean-ai-infrastucture",
+          "date": "2026-07-27",
+          "title": "Nvidia, Kore'nin ulusal AI altyapısını 200 megawatta çıkarmak için Naver'e 1 milyar dolar yatırım yapıyor",
+          "source": "Evertiq",
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "Paketleme kapasitesi",
+      "maddeler": [
+        {
+          "url": "https://rabbitreports.com/news/packaging/packaging-chinese-advanced-packaging-firms-kick-start-a-new-round-of-capacity-expansion-9b4bwr",
+          "date": "2026-07-29",
+          "title": "Çinli ileri paketleme firmaları yaklaşık 10 projede 40 milyar RMB'lik yeni kapasite genişlemesi başlattı",
+          "source": "Rabbit Reports",
+          "category": "paketleme"
+        },
+        {
+          "url": "https://newsroom.intel.com/intel-foundry/intels-us-advanced-packaging-enables-next-generation-ai-semiconductors",
+          "date": "2026-07-29",
+          "title": "Intel, AI çiplet'leri için endüstri standardının 8 katı retikül boyutuna ölçeklenen paketleme kabiliyetini gösterdi",
+          "source": "Intel Newsroom",
+          "category": "paketleme"
+        }
+      ]
+    },
+    {
+      "kume": "Kurumsal yatırımlar ve devlet programları",
+      "maddeler": [
+        {
+          "url": "https://ledinside.com/news/2026/7/2026_07_29_02",
+          "date": "2026-07-29",
+          "title": "Samsung Display, Asan Kampüs 2 OLED genişletme planını 67 trilyon won yatırımla canlandırdı",
+          "source": "LEDinside",
+          "category": "yatirim"
+        },
+        {
+          "url": "https://newsroom.amd.com/news/amd-and-korea-s-ministry-of-science-and-ict-partner-to-advance-a-sovereign-ai-ecosystem",
+          "date": "2026-07-27",
+          "title": "AMD ve Güney Kore Bilim ve BİT Bakanlığı, ulusal AI yarı iletken ekosistemi için stratejik ortaklık imzaladı",
+          "source": "AMD Newsroom",
+          "category": "politika"
+        },
+        {
+          "url": "https://newsroom.intel.com/intel-foundry/intel-completes-ramp-c-program-accelerating-momentum-for-secure-enclave",
+          "date": "2026-07-28",
+          "title": "Intel, RAMP-C üretim pilot programını tamamlayarak Secure Enclave yolunda ilerledi",
+          "source": "Intel Newsroom",
+          "category": "politika"
+        },
+        {
+          "url": "https://linde.com/news-and-media/2026/linde-to-invest-$1-billion-to-support-major-u,-d-,s,-d-,-semiconductor-facility-expansion",
+          "date": "2026-07-31",
+          "title": "Linde, Arizona'daki büyük yarı iletken fabrika genişlemesini desteklemek için 1 milyar dolar yatırım yapıyor",
+          "source": "Linde",
+          "category": "malzeme"
+        }
+      ]
+    },
+    {
+      "kume": "Türkiye'den gelişmeler",
+      "maddeler": [
+        {
+          "url": "https://aa.com.tr/tr/bilim-teknoloji/bayraktar-kizilelma-dahili-muhimmat-yuvasindan-ilk-atis-testlerini-tamamladi/4013757",
+          "date": "2026-07-30",
+          "title": "Baykar'ın KIZILELMA insansız savaş uçağı dahili mühimmat atış testlerini tamamladı",
+          "source": "Anadolu Ajansı",
+          "category": "turkiye"
+        }
+      ]
+    },
+    {
+      "kume": "Jeopolitik ve piyasa etkileri",
+      "maddeler": [
+        {
+          "url": "https://theregister.com/ai-and-ml/2026/07/28/china-fights-back-in-ai-spat-with-claim-us-ai-companies-distil-chinese-models/5279315",
+          "date": "2026-07-28",
+          "title": "Çin, ABD'nin AI yaptırımlarına misilleme tehdidi savurdu, ABD şirketlerini Çin modellerini kopyalamakla suçladı",
+          "source": "The Register",
+          "category": "politika"
+        },
+        {
+          "url": "https://aa.com.tr/tr/ekonomi/cinin-teknolojideki-sertlesen-rekabetciligi-yuksek-degerleme-endiselerini-artiriyor/4013536",
+          "date": "2026-07-30",
+          "title": "Çin'in beklenenden hızlı teknoloji ilerlemesi küresel çip hisselerinde satış dalgasına yol açtı",
+          "source": "Anadolu Ajansı",
+          "category": "rapor"
+        }
+      ]
+    }
+  ]
+}
