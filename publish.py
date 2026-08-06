@@ -111,6 +111,17 @@ SIRA = ["Bir", "İki", "Üç", "Dört", "Beş", "Altı", "Yedi"]
 # telaffuz edemiyor; ses metninde açık yazılır. Uzun birimler önce
 # (TWh, GW'den önce eşleşmeli). Sadece SES metnini etkiler, bülteni değil.
 TTS_ACILIMLAR = [
+    # --- ARALIK VE SAYI BİÇİMLERİ (birimlerden ÖNCE çalışmalı) ---
+    # ⚠ Tire, seslendiricide en sık yanlış okunan işaret. "2026-28 dönemi"
+    # iki ayrı sayı gibi ya da çıkarma işlemi gibi okunuyor. Tireyi hiç
+    # bırakmadan "ila" ile açıyoruz: kısa yıl da 4 haneye tamamlanır.
+    (r"\b(19|20)(\d{2})\s*[-–—]\s*((?:19|20)\d{2})\b", r"\1\2 ila \3"),
+    (r"\b((?:19|20)\d{2})\s*[-–—]\s*(\d{2})\b", r"\1 ila 20\2"),
+    # sayı aralığı: "50-60 bin ton" → "50 ila 60 bin ton"
+    (r"(?<=\d)\s*[-–—]\s*(?=\d)", " ila "),
+    # binlik ayıracı: "1.223 dolar" ondalık gibi okunuyor → ayıracı kaldır
+    (r"(?<=\d)\.(?=\d{3}(?!\d))", ""),
+    # --- BİRİMLER ---
     (r"\bTWh\b", "teravat saat"),
     (r"\bGWh\b", "gigavat saat"),
     (r"\bMWh\b", "megavat saat"),

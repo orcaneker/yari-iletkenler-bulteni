@@ -148,22 +148,36 @@ def url_normalize(url: str) -> str:
         return url
 
 
-GORSEL_RED_IZLERI = (
+# Her koşulda reddedilenler — bunlar haber fotoğrafı OLAMAZ.
+GORSEL_RED_KESIN = (
     "/logo", "-logo", "_logo", "logo.", "favicon", "placeholder",
     "og-default", "og_default", "default-image", "1x1", "/pixel",
     "spacer", "amp-logo", "site-logo", "header-logo", "publisher-logo",
-    # paylaşım/sosyal medya ikonları da haber görseli değildir
-    "share", "/social", "-social", "social.", "sprite",
-    "/icons/", "-icon.", "_icon.",
+    "sprite", "/icons/", "-icon.", "_icon.",
     # kurumsal/jenerik marka kartları (haber fotoğrafı DEĞİL): resmî sitelerin
     # fotoğrafsız basın bültenlerinde koyduğu markalı OG görselleri. Örn. gov.uk
     # "govuk-opengraph-image-….png" ve "s300_GOV.UK__12_.png" gibi numaralı kartlar.
     "opengraph-image", "gov.uk__", "govuk-opengraph", "default-og", "generic-og",
+    # reklam kuşakları — Exa bazen makale görseli sanıp bunları veriyor.
+    # Gerçek vaka: Green Queen haberine "Green-Queen-Wire-Banner-Ad.png" bağlandı.
+    "banner-ad", "banner_ad", "wire-banner", "/ads/", "advertisement", "-advert",
 )
+
+# ⚠ Yalnızca dosya adı KISA ve jenerikse reddedilir.
+# Birçok yayın, makalenin paylaşım kartını makalenin KENDİ slug'ıyla
+# adlandırıyor — bu kart makalenin gerçek görselidir. Gerçek vaka:
+# Green Queen'in og:image'ı ".../ferments-du-futur-food-fermentation-project-
+# funding-france-social.png" idi; eski liste "-social" izini gördüğü için
+# bunu paylaşım ikonu sanıp eledi ve haberler görselsiz yayınlandı.
+# Kısa "social.png" / "share-thumb.png" ise gerçekten ikondur.
+GORSEL_JENERIK = ("social", "share", "thumb", "avatar")
+GORSEL_JENERIK_AZAMI_AD = 24
+_BOYUT_EKI = re.compile(r"[-_]\d{2,4}x\d{2,4}$")
+_UZANTI = re.compile(r"\.(jpe?g|png|webp|gif|avif|bmp)$")
 
 
 def gorsel_gecerli(u):
-    """Yalnızca KESİN logo/placeholder işaretlerini ele; kararsızsa KORU."""
+    """Yalnızca KESİN logo/reklam/placeholder işaretlerini ele; kararsızsa KORU."""
     if not u or not isinstance(u, str):
         return False
     if not u.lower().startswith("http"):
@@ -171,7 +185,10 @@ def gorsel_gecerli(u):
     ul = u.lower().split("?")[0]
     if ul.endswith(".svg"):
         return False
-    if any(x in ul for x in GORSEL_RED_IZLERI):
+    if any(x in ul for x in GORSEL_RED_KESIN):
+        return False
+    ad = _BOYUT_EKI.sub("", _UZANTI.sub("", ul.rsplit("/", 1)[-1]))
+    if len(ad) <= GORSEL_JENERIK_AZAMI_AD and any(x in ad for x in GORSEL_JENERIK):
         return False
     return True
 
