@@ -982,6 +982,15 @@ def kaynaklari_sabitle(taslak, derin, radar_havuz=None):
             dusenler.append(s.get("title") or "?")
     taslak["stories"] = kalanlar
 
+    # Manşet düşen habere işaret ediyorsa lead_id'yi TEMİZLE — dogrula_taslak
+    # o zaman en yüksek puanlıyı seçip log'a yazar. Bırakılırsa yayın aşaması
+    # sessizce yedek mekanizmasına düşer ve kimse manşetin değiştiğini görmez.
+    if taslak.get("lead_id") and not any(
+            s.get("id") == taslak["lead_id"] for s in kalanlar):
+        notlar.append(f"manşet düşen habere işaret ediyordu "
+                      f"({taslak['lead_id']}) → lead_id temizlendi")
+        taslak["lead_id"] = None
+
     # --- radar: URL beyaz listesi (model burada da URL uyduruyor olabilir) ---
     izinli = set()
     for o in list(derin) + list(radar_havuz or []):
@@ -1668,6 +1677,11 @@ def main():
                 f"{', '.join(sorted(YASAKLI_DOMAINLER)) or '(yok)'}\n\n"
                 f"Başarısız sorgular : {len(rapor['failed_queries'])}\n"
                 + "".join(f"  - {q}\n" for q in rapor["failed_queries"]) +
+                f"\nKAYNAK SABİTLEME\n"
+                f"  Yayından düşen (kaynağı doğrulanamadı): "
+                f"{len(rapor.get('kaynaksiz_dusen') or [])}\n"
+                + "".join(f"  ✗ {t}\n" for t in (rapor.get("kaynaksiz_dusen") or []))
+                + "".join(f"  · {n}\n" for n in (rapor.get("kaynak_notlari") or [])[:15]) +
                 f"\nŞema uyarıları     : {len(hatalar)}\n"
                 + "".join(f"  ! {h}\n" for h in hatalar[:15]) +
                 f"\nMALİYET (bu sayının üretimi)\n{em}\n{mm}\n"
