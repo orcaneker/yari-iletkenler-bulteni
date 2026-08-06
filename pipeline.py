@@ -814,6 +814,196 @@ def model_karsilastir(model, derin, radar_havuz, sayi_no, bas, bit, pencere, asi
 
 
 # ============================================================
+# 5.95) KAYNAK SABİTLEME — modelin yazdığı URL'i boru hattının
+#       kendi verisiyle DEĞİŞTİR
+# ------------------------------------------------------------
+# ⚠ Yazım modeli tek promptta onlarca URL görüyor (BÖLÜM A derin olaylar +
+# BÖLÜM B radar adayları) ve kaynak yazarken bunları karıştırabiliyor.
+# Gerçek vaka (biyoekonomi, Sayı 1): manşetteki SOCAR–Pegasus SAF haberine
+# promptun BAŞKA bir kalemine ait Neste/biomassmagazine URL'si iliştirildi;
+# görsel de o URL'in sayfasından çekildiği için haberin üstüne alakasız bir
+# Neste sunum slaydı düştü. source.name de melez çıktı:
+# "SOCAR Türkiye / Biomass Magazine".
+#
+# Kural: model artık URL'in SAHİBİ DEĞİL. Her haber event_key ile kendi
+# olayına bağlanır; source / supporting_sources / published_date alanları
+# o olayın gerçek kaynaklarından yeniden yazılır. Hiçbir olaya bağlanamayan
+# haber YAYINLANMAZ — kaynağı doğrulanamayan metin, eksik haberden kötüdür.
+# ============================================================
+BENZERLIK_ESIGI = 0.18          # bu değerin altındaki eşleşme kabul edilmez
+
+
+def _olay_metni(o):
+    """Olayı temsil eden karşılaştırma metni (özet + şirketler + ülkeler)."""
+    return " ".join([o.get("baslik_ozet") or ""]
+                    + list(o.get("sirketler") or [])
+                    + list(o.get("ulkeler") or []))
+
+
+def _haber_metni(s):
+    """Haberi temsil eden karşılaştırma metni.
+
+    Başlık Türkçe, olay özeti çoğunlukla İngilizce → asıl taşıyıcı sinyal
+    şirket/ülke adları. Bu yüzden ikisi de metne katılır."""
+    return " ".join([s.get("title") or "", s.get("excerpt") or ""]
+                    + list(s.get("companies") or [])
+                    + list(s.get("countries") or []))
+
+
+def _kaynak_yaz(st, o):
+    """Haberin kaynak alanlarını olayın GERÇEK kaynaklarıyla doldur."""
+    kaynaklar = o.get("kaynaklar") or []
+    if not kaynaklar:
+        return False
+    bir = kaynaklar[0]
+    onceki_tip = ((st.get("source") or {}).get("type")) or None
+    st["source"] = {
+        "name": bir["name"], "url": bir["url"], "domain": bir["domain"],
+        "type": onceki_tip, "tier": bir["tier"], "primary": True,
+    }
+    st["supporting_sources"] = [
+        {"name": k["name"], "url": k["url"], "domain": k["domain"]}
+        for k in kaynaklar[1:]
+    ]
+    if bir.get("published_date"):
+        st["published_date"] = bir["published_date"]
+    st["event_key"] = o.get("event_key")
+    # varlik_denetimi için geçici — taslak kaydedilmeden önce silinir
+    st["_kaynak_metni"] = bir.get("text") or ""
+    return True
+
+
+def kaynaklari_sabitle(taslak, derin, radar_havuz=None):
+    """Haberleri olaylarına bağla, kaynakları üzerine yaz, bağlanamayanı çıkar.
+
+    Eşleme merdiveni (her basamak yalnızca BOŞTA olan olaylara bakar, aynı
+    olay iki habere verilemez):
+      1. id == event_key            → modelin kopyaladığı anahtar (normal yol)
+      2. source.url                 → olayın kaynak URL'lerinden biriyle eşleşme
+      3. şirket/ülke/başlık benzerliği (eşik üstü ve tek aday)
+      4. artakalanlar sırayla       → |haber| == |olay| olduğunda kapanış
+
+    Dönen: (notlar, dusenler) — notlar log/e-posta için, dusenler çıkarılan
+    haberlerin başlıkları.
+    """
+    stories = taslak.get("stories") or []
+    if not derin or not stories:
+        return [], []
+
+    notlar, bosta = [], {}
+    for o in derin:
+        anahtar = o.get("event_key")
+        if anahtar and o.get("kaynaklar"):
+            bosta[anahtar] = o
+    eslesen = {}                       # story index -> olay
+
+    # --- 1) event_key ---
+    for i, s in enumerate(stories):
+        k = s.get("id")
+        if k in bosta:
+            eslesen[i] = bosta.pop(k)
+
+    # --- 2) URL ---
+    url_sahibi = {}
+    for o in bosta.values():
+        for k in o["kaynaklar"]:
+            url_sahibi.setdefault(url_normalize(k["url"]), o.get("event_key"))
+    for i, s in enumerate(stories):
+        if i in eslesen:
+            continue
+        u = url_normalize((s.get("source") or {}).get("url") or "")
+        anahtar = url_sahibi.get(u)
+        if anahtar and anahtar in bosta:
+            eslesen[i] = bosta.pop(anahtar)
+            notlar.append(f"URL ile eşlendi (id tutmadı): "
+                          f"'{(s.get('title') or '?')[:45]}' → {anahtar}")
+
+    # --- 3) benzerlik ---
+    for i, s in enumerate(stories):
+        if i in eslesen or not bosta:
+            continue
+        metin = _haber_metni(s)
+        puanlar = sorted(
+            ((benzerlik(metin, _olay_metni(o))[0], a) for a, o in bosta.items()),
+            reverse=True)
+        if puanlar and puanlar[0][0] >= BENZERLIK_ESIGI:
+            # ikinci aday da yakınsa karar verme — 4. basamağa bırak
+            if len(puanlar) > 1 and puanlar[1][0] > puanlar[0][0] * 0.8:
+                continue
+            anahtar = puanlar[0][1]
+            eslesen[i] = bosta.pop(anahtar)
+            notlar.append(f"benzerlikle eşlendi ({puanlar[0][0]:.2f}): "
+                          f"'{(s.get('title') or '?')[:45]}' → {anahtar}")
+
+    # --- 4) artakalanlar sırayla ---
+    artan = [i for i in range(len(stories)) if i not in eslesen]
+    if artan and len(artan) == len(bosta):
+        for i, anahtar in zip(artan, list(bosta)):
+            eslesen[i] = bosta.pop(anahtar)
+            notlar.append(f"sırayla eşlendi (son çare): "
+                          f"'{(stories[i].get('title') or '?')[:45]}' → {anahtar}")
+
+    # --- kaynakları üzerine yaz / bağlanamayanı çıkar ---
+    kalanlar, dusenler, degisen = [], [], 0
+    for i, s in enumerate(stories):
+        o = eslesen.get(i)
+        if not o:
+            dusenler.append(s.get("title") or "?")
+            notlar.append(
+                f"✗ ÇIKARILDI — hiçbir olaya bağlanamadı: "
+                f"'{(s.get('title') or '?')[:60]}' "
+                f"(modelin yazdığı kaynak: {(s.get('source') or {}).get('url') or '-'})")
+            continue
+        onceki = url_normalize((s.get("source") or {}).get("url") or "")
+        if _kaynak_yaz(s, o):
+            if onceki and onceki != url_normalize(s["source"]["url"]):
+                degisen += 1
+                notlar.append(f"kaynak düzeltildi: '{(s.get('title') or '?')[:40]}' "
+                              f"{onceki[:55]} → {s['source']['url'][:55]}")
+            kalanlar.append(s)
+        else:
+            dusenler.append(s.get("title") or "?")
+    taslak["stories"] = kalanlar
+
+    # --- radar: URL beyaz listesi (model burada da URL uyduruyor olabilir) ---
+    izinli = set()
+    for o in list(derin) + list(radar_havuz or []):
+        for k in (o.get("kaynaklar") or []):
+            izinli.add(url_normalize(k["url"]))
+    radar_atilan = 0
+    for kume in (taslak.get("radar") or []):
+        once = len(kume.get("maddeler", []))
+        kume["maddeler"] = [m for m in kume.get("maddeler", [])
+                            if url_normalize(m.get("url") or "") in izinli]
+        radar_atilan += once - len(kume["maddeler"])
+    taslak["radar"] = [k for k in (taslak.get("radar") or []) if k.get("maddeler")]
+    if radar_atilan:
+        notlar.append(f"radar: {radar_atilan} madde havuzda olmayan URL taşıyordu → çıkarıldı")
+
+    log(f"Kaynak sabitleme: {len(kalanlar)} haber bağlandı · "
+        f"{degisen} kaynak düzeltildi · {len(dusenler)} haber çıkarıldı · "
+        f"radar {radar_atilan} madde elendi")
+    return notlar, dusenler
+
+
+def varlik_denetimi(taslak):
+    """Kaynak doğru bağlandıktan SONRA: haberin şirketleri kaynak metninde
+    gerçekten geçiyor mu? Geçmiyorsa yanlış kümeleme ya da uydurma içerik
+    şüphesi var — haberi ELEMEZ, yalnızca işaretler."""
+    uyarilar = []
+    for st in (taslak.get("stories") or []):
+        sirketler = [c for c in (st.get("companies") or []) if len(c) >= 3]
+        metin = (st.get("_kaynak_metni") or "").lower()
+        if not sirketler or not metin:
+            continue
+        if not any(c.split()[0].lower() in metin for c in sirketler):
+            uyarilar.append(
+                f"⚠ şirket eşleşmiyor: '{(st.get('title') or '?')[:50]}' — "
+                f"{', '.join(sirketler[:3])} birincil kaynak metninde geçmiyor")
+    return uyarilar
+
+
+# ============================================================
 # 6) DOĞRULAMA — taslak düzeyinde
 # ============================================================
 ESLESME = {
@@ -1083,7 +1273,10 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
     idx = {}
     for a in adaylar:
         if a.get("image"):
-            idx[a["url"]] = {"url": a["image"], "credit": a["domain"], "type": "og"}
+            # ⚠ anahtar NORMALİZE edilmeli — aramalar url_normalize ile yapılıyor.
+            # Ham URL ile anahtarlanırken bu katman pratikte hiç eşleşmiyordu.
+            idx[url_normalize(a["url"])] = {
+                "url": a["image"], "credit": a["domain"], "type": "og"}
 
     olay_gorsel = {}
     for o in (olaylar or []):
@@ -1280,6 +1473,7 @@ def main():
         log("MOCK modu — Exa/LLM atlanıyor")
         b = mock_taslak(sayi_no, kapsam_bas, kapsam_bit, pencere)
         adaylar, olaylar, sayfa_gorselleri = [], [], {}
+        derin, radar_havuz = [], []
     else:
         # --- Tarama (7 gün → yetersizse 14 gün) ---
         log(f"Exa taraması ({pencere} gün)…")
@@ -1333,6 +1527,15 @@ def main():
                 KARSILASTIR_MODEL, derin, radar_havuz, sayi_no,
                 kapsam_bas, kapsam_bit, pencere, b)
 
+    # Kaynakları modelden GERİ AL — şema doğrulamasından da görsel
+    # bağlamadan da ÖNCE, çünkü ikisi de source.url'e güveniyor.
+    kaynak_notlari, dusen_haberler = kaynaklari_sabitle(b, derin, radar_havuz)
+    kaynak_notlari += varlik_denetimi(b)
+    for n in kaynak_notlari[:20]:
+        log(f"  · {n}")
+    rapor["kaynak_notlari"] = kaynak_notlari
+    rapor["kaynaksiz_dusen"] = dusen_haberler
+
     hatalar = dogrula_taslak(b, kapsam_bas, kapsam_bit)
     if hatalar:
         log(f"⚠ {len(hatalar)} şema uyarısı")
@@ -1340,6 +1543,9 @@ def main():
             log(f"  ! {h}")
 
     gorselleri_bagla(b, adaylar, olaylar, sayfa_gorselleri)
+
+    for st in (b.get("stories") or []):     # geçici alanları temizle
+        st.pop("_kaynak_metni", None)
 
     stories = b.get("stories") or []
     rapor["written"] = len(stories)
