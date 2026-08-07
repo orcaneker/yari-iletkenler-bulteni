@@ -42,6 +42,9 @@ AYARLAR = {
     # bu ayarı ezer (deneme yaparken pratik).
     "reasoning_effort": "medium",
     "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
+    "model_birlestirme": "anthropic:claude-sonnet-5",   # olay birlestirme
+    # ^ girdi kucuk (yalnizca olay ozetleri) -> guclu model ucuza gelir
+    "max_tokens_birlestirme": 4000,
     "max_tokens_triyaj": 8000,
     "max_tokens_yazim": 48000,       # 14 haberin TAMAMI yazıldığı için GENİŞ olmalı.
                                      # ⚠ Düşük tutulursa çıktı JSON tamamlanmadan kesilir.

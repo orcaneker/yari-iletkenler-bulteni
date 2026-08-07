@@ -113,6 +113,58 @@ def triyaj_kullanici_mesaji(adaylar, pencere_baslangic, pencere_bitis):
 
 
 # ============================================================
+# AŞAMA 1.5 — OLAY BİRLEŞTİRME (partiler arası)
+# ------------------------------------------------------------
+# ⚠ Triyaj adayları 40'lık PARTİLER halinde işliyor ve kümeleme her
+# partinin İÇİNDE yapılıyor. Farklı partilere düşen iki haber aynı olayı
+# anlatsa bile model onları hiç aynı istemde görmüyor — kümeleyemez.
+# Parti sonrası birleştirme de yalnızca event_key dizgisi birebir aynıysa
+# çalışıyordu. Gerçek vaka (yarı iletken, Sayı 1): Samsung–Broadcom
+# anlaşması ve AB yapay zeka giga fabrikaları İKİŞER kez haber oldu.
+#
+# Bu adım TÜM olayları tek seferde, tam metinsiz (yalnızca özet + şirket +
+# ülke) görür; girdi küçük olduğu için güçlü model kullanmak ucuzdur.
+# ============================================================
+BIRLESTIRME_PROMPT = """Sen bir olay birleştirme denetçisisin. Görevin TEK: verilen olay çiftlerinin AYNI gerçek dünya olayını anlatıp anlatmadığına karar vermek.
+
+AYNI OLAY sayılır:
+- Aynı anlaşma/yatırım/karar, farklı yayınlarca aktarılmış
+- Biri resmî duyuru, diğeri o duyurunun haberi
+- Aynı olayın farklı ayrıntıları öne çıkarılmış (tutar vs. kapasite vs. taraflar)
+- Başlıklar farklı ama taraflar, tutar ve tarih örtüşüyor
+
+FARKLI OLAY sayılır:
+- Aynı şirketlerin AYRI anlaşmaları/yatırımları
+- Bir olayın duyurusu ile SONRAKİ bir aşaması (duyuru ≠ imza ≠ inşaat ≠ üretim)
+- Aynı program kapsamında ama ayrı ayrı kararlar/ihaleler
+- Aynı sektör/tema ama farklı taraflar
+
+⚠ KARARSIZSAN "farklı" DE. Yanlış birleştirme iki ayrı haberi yok eder;
+yanlış ayırma yalnızca bir tekrara yol açar. Ayırmak daha az zararlıdır.
+
+ÇIKTI — SADECE geçerli JSON, başka metin YOK:
+{"kararlar": [{"cift": 1, "ayni": true, "gerekce": "en fazla 10 kelime"}]}
+"""
+
+
+def birlestirme_kullanici_mesaji(ciftler):
+    """ciftler: [(sira_no, olay_a, olay_b), ...] — tam metin GÖNDERİLMEZ."""
+    def blok(o):
+        return (f"    özet    : {o.get('baslik_ozet') or '-'}\n"
+                f"    şirket  : {', '.join(o.get('sirketler') or []) or '-'}\n"
+                f"    ülke    : {', '.join(o.get('ulkeler') or []) or '-'}\n"
+                f"    kategori: {o.get('kategori') or '-'} | "
+                f"olgunluk: {o.get('olgunluk') or '-'} | "
+                f"yatırım: {o.get('yatirim_usd_milyon') or '-'}")
+
+    parcalar = []
+    for no, a, b in ciftler:
+        parcalar.append(f"### ÇİFT {no}\n  A)\n{blok(a)}\n  B)\n{blok(b)}")
+    return (f"Aşağıda {len(ciftler)} olay çifti var. Her biri için aynı olay mı "
+            f"karar ver.\n\n" + "\n\n".join(parcalar))
+
+
+# ============================================================
 # AŞAMA 2 — BÜLTEN YAZIMI
 # ============================================================
 YAZIM_PROMPT = """Sen T.C. Sanayi ve Teknoloji Bakanlığı için haftalık yarı iletken izleme bülteni hazırlayan kıdemli bir uzmansın.

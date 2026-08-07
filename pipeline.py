@@ -650,6 +650,125 @@ def triyaj(adaylar, bas, bit, state):
     return sonuc, reject
 
 
+# ============================================================
+# 4.5) OLAY BİRLEŞTİRME — partiler arası mükerrer temizliği
+# ------------------------------------------------------------
+# ⚠ triyaj() adayları PARTİLER halinde işler; kümeleme her partinin
+# İÇİNDE olur. Ayrı partilere düşen iki haber aynı olayı anlatsa bile
+# model onları hiç birlikte görmez. Parti sonrası birleştirme de yalnızca
+# event_key dizgisi birebir aynıysa çalışıyordu — farklı anahtar üreten
+# iki kayıt yan yana durmaya devam ediyordu.
+# Gerçek vaka (yarı iletken, Sayı 1): Samsung–Broadcom anlaşması ve AB
+# yapay zeka giga fabrikaları ikişer kez haber oldu; 12 haberin 2'si
+# tekrardı ve yatırım metriği çift sayıyordu.
+#
+# İki katman:
+#   1. KESİN — ortak aday kaynağı ya da aynı birincil URL: LLM'e sorulmaz.
+#   2. ADAY  — şirket örtüşmesi + başlık benzerliği eşik üstü çiftler
+#              TEK bir küçük isteme konur (tam metin yok, sadece özetler).
+# ============================================================
+BIRLESTIRME_ESIK_BENZERLIK = 0.22
+BIRLESTIRME_AZAMI_CIFT = 40          # istemi küçük tut; puan sırası öncelikli
+
+
+def _olay_sirketler(o):
+    return {s.lower().strip() for s in (o.get("sirketler") or []) if len(s) >= 3}
+
+
+def _kesin_ayni(a, b):
+    """LLM'e sormaya gerek olmayan durumlar."""
+    ids_a = set([a.get("primary_id")] + list(a.get("supporting_ids") or [])) - {None}
+    ids_b = set([b.get("primary_id")] + list(b.get("supporting_ids") or [])) - {None}
+    return bool(ids_a & ids_b)
+
+
+def _birlestir_cift(tutulan, atilan):
+    """atilan'ı tutulan'a kat: kaynakları birleştir, puanı yükselt."""
+    ids = list(dict.fromkeys(
+        list(tutulan.get("supporting_ids") or [])
+        + ([atilan.get("primary_id")] if atilan.get("primary_id") else [])
+        + list(atilan.get("supporting_ids") or [])))
+    tutulan["supporting_ids"] = [i for i in ids if i != tutulan.get("primary_id")]
+    tutulan["puan"] = max(tutulan.get("puan") or 0, atilan.get("puan") or 0)
+    for alan in ("sirketler", "ulkeler"):
+        tutulan[alan] = list(dict.fromkeys(
+            (tutulan.get(alan) or []) + (atilan.get(alan) or [])))
+    if not tutulan.get("yatirim_usd_milyon"):
+        tutulan["yatirim_usd_milyon"] = atilan.get("yatirim_usd_milyon")
+
+
+def olaylari_birlestir(olaylar):
+    """Partiler arası mükerrer olayları tek olaya indir.
+    Dönen: (kalan olaylar, notlar)"""
+    if len(olaylar) < 2:
+        return olaylar, []
+
+    notlar = []
+    olaylar = sorted(olaylar, key=lambda o: o.get("puan") or 0, reverse=True)
+    olu = set()                       # birleştirilip düşen olayların indisi
+
+    # --- 1) KESİN eşleşmeler ---
+    for i in range(len(olaylar)):
+        if i in olu:
+            continue
+        for j in range(i + 1, len(olaylar)):
+            if j in olu:
+                continue
+            if _kesin_ayni(olaylar[i], olaylar[j]):
+                _birlestir_cift(olaylar[i], olaylar[j])
+                olu.add(j)
+                notlar.append(f"kesin birleşme (ortak kaynak): "
+                              f"{olaylar[j].get('event_key')} → {olaylar[i].get('event_key')}")
+
+    # --- 2) ADAY çiftleri: şirket örtüşmesi + başlık benzerliği ---
+    adaylar_cift = []
+    for i in range(len(olaylar)):
+        if i in olu:
+            continue
+        for j in range(i + 1, len(olaylar)):
+            if j in olu:
+                continue
+            a, b = olaylar[i], olaylar[j]
+            ortak = _olay_sirketler(a) & _olay_sirketler(b)
+            benz = benzerlik(a.get("baslik_ozet") or "", b.get("baslik_ozet") or "")[0]
+            if len(ortak) >= 2 or (ortak and benz >= BIRLESTIRME_ESIK_BENZERLIK) \
+                    or benz >= 0.45:
+                adaylar_cift.append((i, j))
+    adaylar_cift = adaylar_cift[:BIRLESTIRME_AZAMI_CIFT]
+
+    if adaylar_cift:
+        numarali = [(n + 1, olaylar[i], olaylar[j])
+                    for n, (i, j) in enumerate(adaylar_cift)]
+        try:
+            cikti = llm.llm_cagri(
+                AYARLAR.get("model_birlestirme") or AYARLAR["model_yazim"],
+                prompts.BIRLESTIRME_PROMPT,
+                prompts.birlestirme_kullanici_mesaji(numarali),
+                AYARLAR.get("max_tokens_birlestirme", 4000),
+            )
+            kararlar = {k.get("cift"): k for k in json_ayikla(cikti).get("kararlar", [])}
+        except Exception as e:
+            log(f"  ! Birleştirme adımı başarısız ({e}) — mükerrer kontrolü atlandı")
+            kararlar = {}
+
+        for n, (i, j) in enumerate(adaylar_cift, start=1):
+            k = kararlar.get(n)
+            if not k or not k.get("ayni") or i in olu or j in olu:
+                continue
+            _birlestir_cift(olaylar[i], olaylar[j])
+            olu.add(j)
+            notlar.append(
+                f"birleştirildi ({(k.get('gerekce') or '')[:40]}): "
+                f"{olaylar[j].get('event_key')} → {olaylar[i].get('event_key')}")
+
+    kalan = [o for n, o in enumerate(olaylar) if n not in olu]
+    log(f"Olay birleştirme: {len(adaylar_cift)} aday çift sorgulandı · "
+        f"{len(olu)} mükerrer olay birleştirildi · {len(kalan)} olay kaldı")
+    for n in notlar[:10]:
+        log(f"  · {n}")
+    return kalan, notlar
+
+
 def olaylari_zenginlestir(olaylar, adaylar):
     """Olaylara kaynak metinlerini bağla + birincil kaynak onarımı.
     Tüm kaynaklar duvarlıysa 'sadece_radar' işaretlenir."""
@@ -1581,6 +1700,9 @@ def main():
         # --- Aşama 1: triyaj ---
         log("Aşama 1 — triyaj…")
         olaylar, reject = triyaj(adaylar, kapsam_bas, kapsam_bit, state)
+        # Partiler arası mükerrerleri temizle — triyaj bunu göremez
+        olaylar, birlestirme_notlari = olaylari_birlestir(olaylar)
+        rapor["birlestirilen_olay"] = len(birlestirme_notlari)
         olaylar = olaylari_zenginlestir(olaylar, adaylar)
         teyit_ara(olaylar, adaylar)
 
