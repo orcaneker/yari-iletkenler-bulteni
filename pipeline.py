@@ -22,6 +22,7 @@ Akış:
 
 import os
 import re
+import html as html_mod
 import sys
 import json
 import time
@@ -1277,6 +1278,11 @@ def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
 # → Exa'nın yanlış görsel tahminleri (paylaşım ikonu, alakasız render)
 # yerine makalenin kendi görseli kullanılır.
 # ============================================================
+# Sayfadan cikarilan metin, Exa metninin yerini ancak BELIRGIN olcude
+# zenginse alir - kisa/bozuk cikarimla iyi metni bozmayalim.
+METIN_ASGARI = 600
+METIN_KAT = 1.3
+
 OG_GORSEL_KALIPLARI = (
     r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
     r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
@@ -1334,17 +1340,52 @@ def _tarih_ayikla(html):
     return None
 
 
+# ⚠ Exa bazı sayfalardan metnin YALNIZCA küçük bir parçasını döndürüyor
+# (JS ile kurulan sayfalar, Türkçe haber siteleri, kayıt duvarları). Boru
+# hattı bunu fark etmiyordu: aday kaydına ne geldiyse onu yazım modeline
+# veriyordu ve model "kaynakta olmayanı yazma" kuralına uyarak KISA metin
+# üretiyordu. Gerçek vaka (nükleer, Sayı 1): ANS'ın TerraPower haberinde
+# sayfada 5.520 karakter varken bültende 463 karakter yazıldı; ekonomim'in
+# Çin haberinde 1.976'ya karşılık 493.
+#
+# Sayfayı tarih ve og:image için ZATEN indiriyoruz — aynı indirmeden gövde
+# metnini de çıkarıyoruz. Ek ağ maliyeti YOK.
+_TEMIZLE_ETIKET = re.compile(
+    r"<(script|style|noscript|svg|template)\b[^>]*>.*?</\1>|<!--.*?-->",
+    re.I | re.S)
+_ARTICLE_BLOK = re.compile(r"<article\b[^>]*>(.*?)</article>", re.I | re.S)
+_PARAGRAF = re.compile(r"<p\b[^>]*>(.*?)</p>", re.I | re.S)
+_IC_ETIKET = re.compile(r"<[^>]+>")
+PARAGRAF_ASGARI = 40          # bundan kısa <p> genelde altyazı/menü
+
+
+def _govde_metni(html):
+    """HTML'den makale gövdesini çıkar. Bağımlılık yok — <p> temelli."""
+    if not html:
+        return ""
+    temiz = _TEMIZLE_ETIKET.sub(" ", html)
+    bloklar = _ARTICLE_BLOK.findall(temiz)
+    kapsam = max(bloklar, key=len) if bloklar else temiz
+    paragraflar = []
+    for ham in _PARAGRAF.findall(kapsam):
+        t = html_mod.unescape(_IC_ETIKET.sub(" ", ham))
+        t = re.sub(r"\s+", " ", t).strip()
+        if len(t) >= PARAGRAF_ASGARI:
+            paragraflar.append(t)
+    return "\n\n".join(paragraflar)[:AYARLAR["exa_metin_karakter"]]
+
+
 def sayfa_bilgisi(url):
-    """Makale sayfasını çek → (gerçek yayın tarihi, og görseli).
+    """Makale sayfasını çek → (gerçek yayın tarihi, og görseli, gövde metni).
     Ağ hatası / bulunamadı / belirsiz tarih → (None, ...); akış etkilenmez."""
     try:
         r = requests.get(url, timeout=10, headers={
             "User-Agent": "Mozilla/5.0 (compatible; BultenBot/1.0)"})
         if r.status_code != 200:
-            return None, None
+            return None, None, ""
         html = r.text[:150000]
     except Exception:
-        return None, None
+        return None, None, ""
 
     tarih = _tarih_ayikla(html)
 
@@ -1354,7 +1395,7 @@ def sayfa_bilgisi(url):
         if m and gorsel_gecerli(m.group(1)):
             gorsel = m.group(1)
             break
-    return tarih, gorsel
+    return tarih, gorsel, _govde_metni(html)
 
 
 def tarih_dogrula(olaylar, pencere):
@@ -1368,18 +1409,28 @@ def tarih_dogrula(olaylar, pencere):
     """
     bugun = datetime.now(timezone.utc).date()
     onbellek, sayfa_gorselleri = {}, {}
-    kalan, atilan = [], 0
+    kalan, atilan, zenginlesen = [], 0, 0
 
     for o in olaylar[:60]:          # maliyet/süre sınırı — kullanılan en çok 40
         k = o["kaynaklar"][0]
         url = k["url"]
         if url not in onbellek:
             onbellek[url] = sayfa_bilgisi(url)
-        tarih, gorsel = onbellek[url]
+        tarih, gorsel, sayfa_metni = onbellek[url]
 
         if gorsel:
             sayfa_gorselleri[url_normalize(url)] = {
                 "url": gorsel, "credit": k["domain"], "type": "og-sayfa"}
+
+        # Exa metni ince kaldıysa sayfadan çıkardığımızla değiştir — yazım
+        # modeli kaynakta olmayanı yazmadığı için ince metin KISA haber demek.
+        eski = k.get("text") or ""
+        if len(sayfa_metni) >= METIN_ASGARI and len(sayfa_metni) > len(eski) * METIN_KAT:
+            k["text"] = sayfa_metni
+            zenginlesen += 1
+            log(f"  ↑ kaynak metni sayfadan zenginleştirildi "
+                f"({len(eski)} → {len(sayfa_metni)} krkt) [{k['domain']}]")
+
 
         if tarih:
             k["published_date"] = tarih          # görünen tarihi düzelt
@@ -1396,7 +1447,7 @@ def tarih_dogrula(olaylar, pencere):
 
     kalan += olaylar[60:]
     log(f"Tarih doğrulama: {len(onbellek)} sayfa çekildi · {atilan} olay atıldı · "
-        f"{len(sayfa_gorselleri)} sayfa görseli alındı")
+        f"{len(sayfa_gorselleri)} sayfa görseli · {zenginlesen} kaynak metni zenginleşti")
     return kalan, sayfa_gorselleri
 
 
