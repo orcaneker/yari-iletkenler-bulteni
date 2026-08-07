@@ -3,3 +3,4 @@ __pycache__/
 .env
 taslak_preview.json
 .claude/
+*.onceki
