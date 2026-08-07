@@ -1214,6 +1214,10 @@ def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
         gorulen.add(sl)
         st["slug"] = sl
         st["neden_onemli"] = None          # analiz katmanı şimdilik kapalı
+        # Olay tarihi KALDIRILDI: modelin metinden çıkardığı, doğrulanamayan
+        # bir tarihti ve doğrulanmış published_date ile çelişiyordu.
+        # (DOE haberi: kaynak 28 Temmuz yayımlı, olay tarihi 24 Temmuz yazıldı.)
+        st.pop("event_date", None)
         if st.get("secim") not in ("one_cikan", "yedek"):
             st["secim"] = "yedek"
             hatalar.append(f"'{(st.get('title') or '?')[:30]}' → secim onarıldı")
@@ -1315,10 +1319,59 @@ def _gecerli_tarih(aday):
         return None
 
 
+# ⚠ Bazı yayınlar HİÇBİR makine-okur tarih etiketi vermiyor: ne
+# article:published_time, ne JSON-LD, ne <time>. Tarih yalnızca başlığın
+# altında düz metin olarak duruyor. O zaman _tarih_ayikla None dönüyordu,
+# pencere denetimi HİÇ çalışmıyordu ve Exa'nın (bazen düpedüz yanlış)
+# tarihi olduğu gibi kalıyordu. Gerçek vaka (nükleer, Sayı 1): ans.org'un
+# iki haberi Mart 2026 tarihliyken Temmuz sonu diye yayımlandı — biri
+# manşetti.
+#
+# Çözüm: makalenin BAŞ kısmındaki görünür tarihi oku. Kapsam bilerek dar
+# tutulur (gövdenin ilk 400 karakteri) — sayfa geneli taransa "ilgili
+# haberler" bölümündeki BAŞKA makalelerin tarihleri yakalanırdı.
+_AY_ADLARI = {
+    "jan": 1, "oca": 1, "feb": 2, "şub": 2, "sub": 2, "mar": 3,
+    "apr": 4, "nis": 4, "may": 5, "jun": 6, "haz": 6,
+    "jul": 7, "tem": 7, "aug": 8, "ağu": 8, "agu": 8, "sep": 9, "eyl": 9,
+    "oct": 10, "eki": 10, "nov": 11, "kas": 11, "dec": 12, "ara": 12,
+}
+_BAS_KAPSAM = 400
+
+
+def _gorunur_tarih(html):
+    """Makale başındaki düz metin tarihini ISO'ya çevir; bulunamazsa None."""
+    bloklar = _ARTICLE_BLOK.findall(_TEMIZLE_ETIKET.sub(" ", html))
+    kapsam = max(bloklar, key=len) if bloklar else html
+    metin = re.sub(r"\s+", " ", html_mod.unescape(_IC_ETIKET.sub(" ", kapsam)))
+    bas = metin[:_BAS_KAPSAM]
+
+    def kur(y, a, g):
+        try:
+            return datetime(int(y), int(a), int(g)).strftime("%Y-%m-%d")
+        except ValueError:
+            return None
+
+    m = re.search(r"\b(\d{4})-(\d{2})-(\d{2})\b", bas)          # 2026-07-30
+    if m:
+        return kur(*m.groups())
+    m = re.search(r"\b([A-Za-zÇĞİÖŞÜçğıöşü]{3,9})\.?\s+(\d{1,2}),\s*(\d{4})\b", bas)
+    if m and m.group(1)[:3].lower() in _AY_ADLARI:              # Mar 26, 2026
+        return kur(m.group(3), _AY_ADLARI[m.group(1)[:3].lower()], m.group(2))
+    m = re.search(r"\b(\d{1,2})\s+([A-Za-zÇĞİÖŞÜçğıöşü]{3,9})\.?\s+(\d{4})\b", bas)
+    if m and m.group(2)[:3].lower() in _AY_ADLARI:              # 27 July 2026
+        return kur(m.group(3), _AY_ADLARI[m.group(2)[:3].lower()], m.group(1))
+    m = re.search(r"\b(\d{1,2})[./](\d{1,2})[./](\d{4})\b", bas)  # 30.07.2026
+    if m:
+        return kur(m.group(3), m.group(2), m.group(1))
+    return None
+
+
 def _tarih_ayikla(html):
     """Katmanlı çıkarım: (1) makale-kapsamlı meta/JSON-LD, (2) makale
     sınıflı <time>, (3) sayfadaki datePublished <time>'lar TEK benzersiz
-    değerse o. Birden çok aday varsa BELİRSİZ → None (yanlış karar verme)."""
+    değerse o, (4) makale başındaki GÖRÜNÜR tarih.
+    Birden çok aday varsa BELİRSİZ → None (yanlış karar verme)."""
     for kalip in TARIH_META_KALIPLARI:
         m = re.search(kalip, html, re.I)
         if m:
@@ -1337,7 +1390,7 @@ def _tarih_ayikla(html):
         r'datetime=["\'](\d{4}-\d{2}-\d{2})[^"\']*["\'][^>]*itemprop=["\']datePublished["\']', html))
     if len(tarihler) == 1:
         return tarihler.pop()
-    return None
+    return _gorunur_tarih(html)
 
 
 # ⚠ Exa bazı sayfalardan metnin YALNIZCA küçük bir parçasını döndürüyor
@@ -1594,7 +1647,7 @@ def mock_taslak(sayi_no, bas, bit, pencere):
             "investment": {"amount_original": 8000, "currency": "USD",
                            "amount_usd_million": 8000,
                            "public_support_usd_million": None},
-            "published_date": bit, "event_date": bit,
+            "published_date": bit,
             "source": {"name": "example.org", "url": f"https://example.org/haber-{i}",
                        "type": "trade_press", "tier": 2, "primary": True},
             "supporting_sources": [],

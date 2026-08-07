@@ -393,7 +393,6 @@ story nesnesi:
   "investment": {"amount_original": 10, "currency": "EUR",
                  "amount_usd_million": 10800, "public_support_usd_million": 5000},
   "published_date": "2026-07-10",
-  "event_date": "2026-07-09",
   "source": {"name": "<BİRİNCİL kaynağın adı>", "url": "<o olayın BİRİNCİL satırındaki URL — aynen kopyala>",
              "type": "company", "tier": 1, "primary": true},
   "supporting_sources": [{"name": "<destek kaynak adı>", "url": "<aynı olayın destek satırındaki URL>"}],
