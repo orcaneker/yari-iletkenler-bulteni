@@ -110,7 +110,86 @@ SIRA = ["Bir", "İki", "Üç", "Dört", "Beş", "Altı", "Yedi"]
 # TTS birim/kısaltma açılımları — seslendirici "GW", "TWh" gibi birimleri
 # telaffuz edemiyor; ses metninde açık yazılır. Uzun birimler önce
 # (TWh, GW'den önce eşleşmeli). Sadece SES metnini etkiler, bülteni değil.
+_BIRLER = ("", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz")
+_ONLAR = ("", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş",
+          "seksen", "doksan")
+_BASAMAK = ("", " bin", " milyon", " milyar", " trilyon")
+
+
+def _uc_hane(n):
+    p = []
+    yuz, kalan = divmod(n, 100)
+    if yuz:
+        p.append("yüz" if yuz == 1 else _BIRLER[yuz] + " yüz")
+    on, bir = divmod(kalan, 10)
+    if on:
+        p.append(_ONLAR[on])
+    if bir:
+        p.append(_BIRLER[bir])
+    return " ".join(p)
+
+
+def sayi_yaziyla(n):
+    """1223 → "bin iki yüz yirmi üç". Seslendirici dört ve daha çok haneli
+    sayıları ondalık gibi ya da rakam rakam okuyor; ses metninde yazıya
+    çeviriyoruz. Bülten metnine dokunulmaz, orada rakam kalır."""
+    if n == 0:
+        return "sıfır"
+    if n >= 1000 ** len(_BASAMAK):
+        return str(n)                    # okunamayacak kadar büyük — dokunma
+    gruplar = []
+    while n:
+        n, g = divmod(n, 1000)
+        gruplar.append(g)
+    parcalar = []
+    for i in range(len(gruplar) - 1, -1, -1):
+        if not gruplar[i]:
+            continue
+        if i == 1 and gruplar[i] == 1:   # "bin", "bir bin" değil
+            parcalar.append("bin")
+        else:
+            parcalar.append(_uc_hane(gruplar[i]) + _BASAMAK[i])
+    return " ".join(parcalar)
+
+
+_OLCEK = {"bin": 1000, "milyon": 10 ** 6, "milyar": 10 ** 9, "trilyon": 10 ** 12}
+
+
+def _yaziya(m):
+    return sayi_yaziyla(int(m.group(0).replace(".", "")))
+
+
+def _olcekli_ondalik(m):
+    """"19,1 milyon" → "on dokuz milyon yüz bin". Virgül seslendiricinin en
+    çok takıldığı işaret; büyüklük sözcüğü varsa ondalığı hiç okutmuyoruz."""
+    tam, kesir, olcek = m.group(1).replace(".", ""), m.group(2), m.group(3)
+    carpan = _OLCEK[olcek]
+    return sayi_yaziyla(int(tam) * carpan + int(kesir) * carpan // 10 ** len(kesir))
+
+
+def _ondalik(m):
+    """Büyüklük sözcüğü olmayan ondalık: "3,5 puan" → "üç virgül beş puan"."""
+    kesir = m.group(2)
+    if kesir.startswith("0"):            # "3,05" → "üç virgül sıfır beş"
+        okunan = " ".join(sayi_yaziyla(int(r)) for r in kesir)
+    else:
+        okunan = sayi_yaziyla(int(kesir))
+    return f"{sayi_yaziyla(int(m.group(1).replace('.', '')))} virgül {okunan}"
+
+
+def _yaziya_yil_haric(m):
+    s = m.group(0)
+    if len(s) == 4 and 1900 <= int(s) <= 2099:
+        return s                         # yıl doğru okunuyor, bozma
+    return sayi_yaziyla(int(s))
+
+# TTS birim/kısaltma açılımları — seslendirici "GW", "TWh" gibi birimleri
+# telaffuz edemiyor; ses metninde açık yazılır. Uzun birimler önce
+# (TWh, GW'den önce eşleşmeli). Sadece SES metnini etkiler, bülteni değil.
 TTS_ACILIMLAR = [
+    # ⚠ Yüzde işareti sayı kurallarından ÖNCE açılmalı: sayı yazıya
+    # çevrildikten sonra "%" kendinden sonra rakam bulamaz.
+    (r"%\s*(?=\d)", "yüzde "),
     # --- ARALIK VE SAYI BİÇİMLERİ (birimlerden ÖNCE çalışmalı) ---
     # ⚠ Tire, seslendiricide en sık yanlış okunan işaret. "2026-28 dönemi"
     # iki ayrı sayı gibi ya da çıkarma işlemi gibi okunuyor. Tireyi hiç
@@ -119,9 +198,18 @@ TTS_ACILIMLAR = [
     (r"\b((?:19|20)\d{2})\s*[-–—]\s*(\d{2})\b", r"\1 ila 20\2"),
     # sayı aralığı: "50-60 bin ton" → "50 ila 60 bin ton"
     (r"(?<=\d)\s*[-–—]\s*(?=\d)", " ila "),
-    # binlik ayıracı: "1.223 dolar" ondalık gibi okunuyor → ayıracı kaldır
-    (r"(?<=\d)\.(?=\d{3}(?!\d))", ""),
+    # ondalık + büyüklük: "19,1 milyon avro" → "on dokuz milyon yüz bin avro"
+    (r"\b(\d[\d.]*),(\d+)\s*(bin|milyon|milyar|trilyon)\b", _olcekli_ondalik),
+    # binlik ayıraçlı sayı: "1.223 dolar" ondalık gibi okunuyor → yazıyla
+    (r"\b\d{1,3}(?:\.\d{3})+\b", _yaziya),
+    # kalan ondalık: "3,5 puan" → "üç virgül beş puan"
+    (r"\b(\d[\d.]*),(\d+)\b", _ondalik),
+    # ayıraçsız uzun sayı da rakam rakam okunuyor; yıllar dokunulmadan kalır
+    (r"\b\d{4,}\b", _yaziya_yil_haric),
     # --- BİRİMLER ---
+    # "110MW" bitişik yazılınca rakamla harf arasında \b yok, birim açılmıyor;
+    # önce araya boşluk koyuyoruz ki aşağıdaki kurallar eşleşsin.
+    (r"(?<=\d)(?=(?:TWh|GWh|MWh|kWh|GWe|MWe|GWt|MWt|GW|MW|kW)\b)", " "),
     (r"\bTWh\b", "teravat saat"),
     (r"\bGWh\b", "gigavat saat"),
     (r"\bMWh\b", "megavat saat"),
@@ -133,7 +221,6 @@ TTS_ACILIMLAR = [
     (r"\bGW\b", "gigavat"),
     (r"\bMW\b", "megavat"),
     (r"\bkW\b", "kilovat"),
-    (r"%\s*(\d)", r"yüzde \1"),
 ]
 
 

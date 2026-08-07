@@ -1289,12 +1289,57 @@ def og_gorsel_cek(url):
     return sayfa_bilgisi(url)[1]
 
 
+# ⚠ Bazı yayınlar HOTLINK KORUMASI uyguluyor: görsel kendi sayfalarında
+# açılıyor ama Referer başka bir alan adıysa sunucu reddediyor. Bizim
+# tarafta hiçbir hata görünmez — og:image etiketi okunur, URL kaydedilir,
+# ama okuyucunun tarayıcısı görseli çekemez ve haber görselsiz görünür.
+# Gerçek vaka (yarı iletken, Sayı 1): donanimhaber.com'un og:image'ı
+# bültende hiç yüklenmedi; aynı olayın bloomberght kaynağındaki görsel
+# sorunsuz çalışıyordu ama sıraya hiç gelmemişti.
+# Çözüm: seçilen görsel, bültenin kendi adresi Referer olarak gönderilerek
+# denenir; geçmezse bir sonraki aday görsele düşülür.
+GORSEL_DENETIM_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36")
+
+
+def gorsel_erisilebilir(url, onbellek=None):
+    """Görsel DIŞ bir siteden çekilebiliyor mu? Ağ hatasında KABUL et —
+    geçici bir kesinti yüzünden çalışan görseli atmayalım."""
+    if onbellek is not None and url in onbellek:
+        return onbellek[url]
+    sonuc = True
+    try:
+        # Başlıklar, okuyucunun tarayıcısının yapacağı çapraz kaynaklı
+        # <img> isteğini taklit eder — bazı korumalar Sec-Fetch-* başlıklarına
+        # da bakıyor, eksik gönderirsek yanlış "erişilebilir" kararı çıkar.
+        r = requests.get(url, timeout=8, stream=True, headers={
+            "User-Agent": GORSEL_DENETIM_UA,
+            "Referer": SITE_URL.rstrip("/") + "/",
+            "Accept": "image/avif,image/webp,image/*,*/*;q=0.8",
+            "Sec-Fetch-Dest": "image",
+            "Sec-Fetch-Mode": "no-cors",
+            "Sec-Fetch-Site": "cross-site",
+        })
+        tur = (r.headers.get("content-type") or "").lower()
+        r.close()
+        # Yalnızca KESİN ret durumunda ele: sunucu hata döndürdü ya da
+        # görsel yerine HTML (engel sayfası) verdi.
+        if r.status_code != 200 or not tur.startswith("image/"):
+            sonuc = False
+    except requests.RequestException:
+        sonuc = True                      # ağ sorunu — karar verme, koru
+    if onbellek is not None:
+        onbellek[url] = sonuc
+    return sonuc
+
+
 def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
     """TÜM haberlere (yedekler dahil) görsel bağla — takas sonrası da görsel olsun.
 
     Öncelik: (1) makale sayfasından doğrulanmış og:image (tarih_dogrula
     çekti — en güvenilir), (2) Exa'nın verdiği görsel, (3) olayın diğer
-    kaynaklarındaki görsel, (4) son çare OG çekimi."""
+    kaynaklarındaki görsel, (4) son çare OG çekimi.
+    Her aday, bağlanmadan önce dış siteden çekilebilirlik denetiminden geçer."""
     sayfa_gorselleri = sayfa_gorselleri or {}
     idx = {}
     for a in adaylar:
@@ -1313,15 +1358,25 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
                     "url": g, "credit": k["domain"], "type": "og"}
 
     stories = taslak.get("stories") or []
-    bagli, kaynaksiz = 0, 0
+    bagli, kaynaksiz, elenen = 0, 0, 0
+    denetim = {}
     for st in stories:
         urller = [(st.get("source") or {}).get("url")]
         urller += [k.get("url") for k in (st.get("supporting_sources") or [])]
         urller = [url_normalize(u) for u in urller if u]
 
-        g = next((sayfa_gorselleri[u] for u in urller if u in sayfa_gorselleri), None) \
-            or next((idx[u] for u in urller if u in idx), None) \
-            or next((olay_gorsel[u] for u in urller if u in olay_gorsel), None)
+        # Tüm adaylar öncelik sırasıyla; ilk ERİŞİLEBİLİR olan bağlanır.
+        adaylar_g = ([sayfa_gorselleri[u] for u in urller if u in sayfa_gorselleri]
+                     + [idx[u] for u in urller if u in idx]
+                     + [olay_gorsel[u] for u in urller if u in olay_gorsel])
+        g = None
+        for aday in adaylar_g:
+            if gorsel_erisilebilir(aday["url"], denetim):
+                g = aday
+                break
+            elenen += 1
+            log(f"  ✗ görsel dış siteden çekilemiyor (hotlink engeli?): "
+                f"{aday['credit']} — {(st.get('title') or '?')[:45]}")
         if g:
             st["image"] = g
             bagli += 1
@@ -1336,12 +1391,13 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
             continue
         u = (st.get("source") or {}).get("url")
         og = og_gorsel_cek(u) if u else None
-        if og:
+        if og and gorsel_erisilebilir(og, denetim):
             st["image"] = {"url": og, "credit": (st.get("source") or {}).get("name"),
                            "type": "og-fetch"}
             bagli += 1; kaynaksiz -= 1; cekilen += 1
 
-    log(f"Görsel bağlandı: {bagli} haber (OG çekilen: {cekilen}) · görselsiz: {kaynaksiz}")
+    log(f"Görsel bağlandı: {bagli} haber (OG çekilen: {cekilen}) · "
+        f"erişilemediği için elenen aday: {elenen} · görselsiz: {kaynaksiz}")
     return bagli
 
 
