@@ -37,8 +37,8 @@
     }
   ],
   "metrics": {
-    "aciklanan_yatirim_usd_milyon": 672774,
-    "proje_sayisi": 12,
+    "aciklanan_yatirim_usd_milyon": 461974,
+    "proje_sayisi": 10,
     "politika_gelismesi": 4,
     "kapsanan_ulke": 7
   },
@@ -384,61 +384,13 @@
         {
           "url": "https://bloomberght.com/samsung-broadcomdan-200-milyar-dolarlik-siparis-aldi-3783833",
           "name": "BloombergHT"
+        },
+        {
+          "name": "Webrazzi",
+          "url": "https://webrazzi.com/2026/07/27/samsung-ve-broadcom-dan-yapay-zeka-altyapisi-icin-200-milyar-dolarlik-is-birligi",
+          "domain": "webrazzi.com"
         }
       ]
-    },
-    {
-      "id": "samsung-broadcom-ai-partnership",
-      "slug": "samsung-broadcom-anlasmasi-2030-a-kadar-200-milyar-dolari-asan-is-hacm",
-      "image": {
-        "url": "https://cdn.webrazzi.com/uploads/2026/07/samsug-broadcom-136.png",
-        "type": "og-sayfa",
-        "credit": "webrazzi.com"
-      },
-      "score": 9,
-      "secim": "one_cikan",
-      "title": "Samsung-Broadcom anlaşması 2030'a kadar 200 milyar doları aşan iş hacmi hedefliyor",
-      "detail": "Samsung Electronics ve Broadcom, yapay zeka altyapısına yönelik iş birliklerini genişletmek üzere yeni bir anlaşma imzaladı. San Francisco'daki The Midway'de düzenlenen AI Summit kapsamında duyurulan anlaşma, yüksek bant genişlikli belleklerden gelişmiş üretim süreçlerine ve çip paketleme teknolojilerine kadar uzanan geniş bir alanı kapsıyor.\n\nŞirketlerin açıklamasına göre iş birliğinin, bellek ve yarı iletken üretimi alanlarında önümüzdeki beş yıl içinde, yani 2030'a kadar 200 milyar doların üzerinde bir iş hacmine ulaşması bekleniyor. Bu rakamın tek seferlik bir satın alma anlaşmasını değil, iş birliği kapsamında oluşması öngörülen toplam ticari hacmi ifade ettiği belirtildi.\n\nAnlaşmanın bellek tarafında Samsung, Broadcom'un yeni nesil yapay zeka hızlandırıcılarında kullanılmak üzere yüksek bant genişlikli bellek (HBM) çözümleri sunmayı planlıyor. Bu bellekler, yapay zeka modellerinin eğitilmesi ve çalıştırılması sırasında işlemcilerin büyük miktardaki veriye daha hızlı erişmesini sağlıyor. Broadcom, özellikle büyük teknoloji şirketleri için geliştirilen özelleştirilmiş yapay zeka hızlandırıcıları ve bağlantı çözümleriyle yapay zeka altyapısı pazarındaki konumunu güçlendiriyor.",
-      "source": {
-        "url": "https://webrazzi.com/2026/07/27/samsung-ve-broadcom-dan-yapay-zeka-altyapisi-icin-200-milyar-dolarlik-is-birligi",
-        "name": "Webrazzi",
-        "tier": 2,
-        "type": "trade_press",
-        "primary": true
-      },
-      "excerpt": "San Francisco'daki AI Summit'te duyurulan Samsung-Broadcom ortaklığının, bellek ve yarı iletken üretiminde önümüzdeki beş yılda 200 milyar doların üzerinde iş hacmine ulaşması bekleniyor. Anlaşma tek seferlik alım değil, toplam ticari hacmi ifade ediyor.",
-      "capacity": null,
-      "category": "yatirim",
-      "maturity": "announced",
-      "companies": [
-        "Samsung",
-        "Broadcom"
-      ],
-      "countries": [
-        "South Korea",
-        "United States"
-      ],
-      "event_date": "2026-07-27",
-      "investment": {
-        "currency": "USD",
-        "amount_original": 200000,
-        "amount_usd_million": 200000,
-        "public_support_usd_million": null
-      },
-      "value_chain": [
-        "wafer-uretim",
-        "paketleme-test"
-      ],
-      "neden_onemli": null,
-      "technologies": [
-        "HBM"
-      ],
-      "subcategories": [
-        "bellek tedariki"
-      ],
-      "published_date": "2026-07-27",
-      "technology_nodes": [],
-      "supporting_sources": []
     },
     {
       "id": "ab-ai-gigafactory-financing",
@@ -486,7 +438,13 @@
       ],
       "published_date": "2026-07-30",
       "technology_nodes": [],
-      "supporting_sources": []
+      "supporting_sources": [
+        {
+          "name": "European Commission - Digital Strategy",
+          "url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-ai-gigafactories-call-boost-europes-computing-capacity-and-unlock-more-eu30-billion",
+          "domain": "digital-strategy.ec.europa.eu"
+        }
+      ]
     },
     {
       "id": "us-chips-compute-supply-chain-874m",
@@ -662,54 +620,6 @@
           "name": "Digitimes"
         }
       ]
-    },
-    {
-      "id": "eu-ai-gigafactories-30b",
-      "slug": "ab-avrupa-nin-hesaplama-kapasitesini-artirmak-icin-30-milyar-euro-yu-a",
-      "image": {
-        "url": "https://digital-strategy.ec.europa.eu/sites/default/files/styles/newsroom_large/public/newsroom/items/AdobeStock_1770028153Tikka_MS_360x240px_iB4vg7qWky42iMdzaS6ge1vG4o_242595.jpg?itok=Ombw5qg4",
-        "type": "og",
-        "credit": "digital-strategy.ec.europa.eu"
-      },
-      "score": 8,
-      "secim": "one_cikan",
-      "title": "AB, Avrupa'nın hesaplama kapasitesini artırmak için 30 milyar Euro'yu aşan yatırımı harekete geçirecek çağrıyı açıkladı",
-      "detail": "AB, teknolojik egemenliğini hızlandırma ve \"AI Kıtası\" olma hedefi doğrultusunda son büyük hamlesi kapsamında, Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurulması için tekliflere açık bir ihale çağrısı başlattı. Sektör öncülüğünde ve AB ile ulusal kaynaklardan sağlanan 10 milyar Euro'ya varan finansman desteğiyle yürütülecek girişimin, Birlik genelinde en az 20 milyar Euro'luk özel yatırımı harekete geçirmesi bekleniyor; bu da Avrupa'nın yapay zeka hesaplama kapasitesini genişletecek.\n\nYapay zeka giga fabrikaları; gelişmiş yapay zeka işlemcileri, yazılım ve bulut teknoloji yığınlarını, yüksek hızlı bağlantıyı ve enerji verimli veri merkezlerini bir araya getirecek. Bu tesisler, startup'lara, büyüme aşamasındaki şirketlere, KOBİ'lere, sanayi kuruluşlarına, akademik çevrelere ve kamu kurumlarına gelişmiş yapay zeka modellerinin geliştirilmesi ve eğitilmesi için gerekli altyapıyı sunacak.\n\nGirişim, Avrupa genelinde kurulması planlanan 19 yapay zeka fabrikasından oluşan ağla birlikte çalışarak Avrupa'nın teknolojik liderliğini, dayanıklılığını ve stratejik özerkliğini güçlendirecek. Giga fabrikalarda geliştirilecek yapay zeka teknolojilerinin veri koruma, güvenlik ve etik konusunda AB standartlarına uygun olması öngörülüyor.",
-      "source": {
-        "url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-ai-gigafactories-call-boost-europes-computing-capacity-and-unlock-more-eu30-billion",
-        "name": "European Commission - Digital Strategy",
-        "tier": 1,
-        "type": "official",
-        "primary": true
-      },
-      "excerpt": "Avrupa Komisyonu, Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurmak için tekliflere açtığı çağrıda 10 milyar Euro'ya kadar AB ve ulusal fon desteği sunacağını, bunun en az 20 milyar Euro'luk özel yatırımı tetiklemesinin beklendiğini açıkladı.",
-      "capacity": null,
-      "category": "yatirim",
-      "maturity": "announced",
-      "companies": [],
-      "countries": [
-        "European Union"
-      ],
-      "event_date": "2026-07-30",
-      "investment": {
-        "currency": "EUR",
-        "amount_original": 10,
-        "amount_usd_million": 10800,
-        "public_support_usd_million": 10800
-      },
-      "value_chain": [
-        "uygulama"
-      ],
-      "neden_onemli": null,
-      "technologies": [
-        "AI gigafactory"
-      ],
-      "subcategories": [
-        "AI altyapısı"
-      ],
-      "published_date": "2026-07-31",
-      "technology_nodes": [],
-      "supporting_sources": []
     }
   ],
   "radar": [
