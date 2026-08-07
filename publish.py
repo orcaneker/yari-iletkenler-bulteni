@@ -206,6 +206,12 @@ TTS_ACILIMLAR = [
     (r"\b(\d[\d.]*),(\d+)\b", _ondalik),
     # ayıraçsız uzun sayı da rakam rakam okunuyor; yıllar dokunulmadan kalır
     (r"\b\d{4,}\b", _yaziya_yil_haric),
+    # Sayı yazıya çevrilince Türkçe ekin kesme işareti ortada kalıyor:
+    # "%6,5'ten" → "yüzde altı virgül beş'ten". Kesmeyi kaldırıyoruz ki
+    # seslendirici "beş ten" diye iki kelime okumasın.
+    (r"\b(bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on|yirmi|otuz|kırk"
+     r"elli|altmış|yetmiş|seksen|doksan|yüz|bin|milyon|milyar|trilyon)"
+     r"['’]([a-zçğıöşü]+)", r"\1\2"),
     # --- BİRİMLER ---
     # "110MW" bitişik yazılınca rakamla harf arasında \b yok, birim açılmıyor;
     # önce araya boşluk koyuyoruz ki aşağıdaki kurallar eşleşsin.
