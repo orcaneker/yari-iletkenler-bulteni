@@ -1487,6 +1487,7 @@ def tarih_dogrula(olaylar, pencere):
 
         if tarih:
             k["published_date"] = tarih          # görünen tarihi düzelt
+            o["tarih_dogrulandi"] = True
             try:
                 yas = (bugun - datetime.strptime(tarih, "%Y-%m-%d").date()).days
             except ValueError:
@@ -1496,11 +1497,22 @@ def tarih_dogrula(olaylar, pencere):
                 log(f"  ✗ gerçek tarih pencere dışı ({tarih}): "
                     f"{(o.get('baslik_ozet') or '')[:55]} [{k['domain']}]")
                 continue
+        else:
+            # ⚠ Sayfada hiçbir tarih bulunamadı — pencere denetimi bu olay
+            # için ÇALIŞMADI, Exa'nın tarihi olduğu gibi kalıyor. Elemiyoruz
+            # (bazı meşru kaynaklar tarih yayımlamıyor) ama raporda görünsün:
+            # Sayı 1'de ans.org'un iki haberi tam olarak buradan sızmıştı.
+            o["tarih_dogrulandi"] = False
+            log(f"  ? tarih doğrulanamadı, Exa tarihi kullanılıyor "
+                f"({k.get('published_date')}): "
+                f"{(o.get('baslik_ozet') or '')[:48]} [{k['domain']}]")
         kalan.append(o)
 
     kalan += olaylar[60:]
+    dogrulanamayan = sum(1 for o in kalan if o.get("tarih_dogrulandi") is False)
     log(f"Tarih doğrulama: {len(onbellek)} sayfa çekildi · {atilan} olay atıldı · "
-        f"{len(sayfa_gorselleri)} sayfa görseli · {zenginlesen} kaynak metni zenginleşti")
+        f"{len(sayfa_gorselleri)} sayfa görseli · {zenginlesen} kaynak metni zenginleşti · "
+        f"{dogrulanamayan} olayın tarihi doğrulanamadı")
     return kalan, sayfa_gorselleri
 
 
@@ -1771,7 +1783,8 @@ def main():
 
     rapor = {"queries_run": 0, "results_found": 0, "dedup_removed": 0,
              "events_created": 0, "llm_rejected": 0, "written": 0,
-             "radar_items": 0, "failed_queries": []}
+             "radar_items": 0, "failed_queries": [],
+             "tarih_dogrulanamayan": []}
     karsilastirma = None          # KARSILASTIR_MODEL tanımlıysa doldurulur
 
     if args.mock:
@@ -1824,6 +1837,16 @@ def main():
         derin = yazilabilir[:D]
         radar_havuz = (yazilabilir[D:] + duvarlilar)[:T - D]
         log(f"Yazıma giden: {len(derin)} derin (tam metin) + {len(radar_havuz)} radar adayı")
+
+        # Tarihi doğrulanamayan haberler: pencere denetimi bu olaylar için
+        # ÇALIŞMADI, Exa tarihine güveniliyor. Elenmiyorlar (bazı meşru
+        # kaynaklar tarih yayımlamıyor) ama raporda görünsünler — sistemin
+        # en sessiz kör noktası burasıydı.
+        rapor["tarih_dogrulanamayan"] = [
+            f"{(o.get('baslik_ozet') or '?')[:58]} "
+            f"[{o['kaynaklar'][0]['domain']}, "
+            f"{o['kaynaklar'][0].get('published_date')}]"
+            for o in derin if o.get("tarih_dogrulandi") is False]
 
         # --- Aşama 2: yazım ---
         log("Aşama 2 — yazım…")
@@ -1959,7 +1982,12 @@ def main():
                 f"{', '.join(sorted(YASAKLI_DOMAINLER)) or '(yok)'}\n\n"
                 f"Başarısız sorgular : {len(rapor['failed_queries'])}\n"
                 + "".join(f"  - {q}\n" for q in rapor["failed_queries"]) +
-                f"\nKAYNAK SABİTLEME\n"
+                f"\nTARİH DOĞRULAMA\n"
+                f"  Tarihi doğrulanamayan haber: "
+                f"{len(rapor.get('tarih_dogrulanamayan') or [])}\n"
+                + "".join(f"  ? {t}\n"
+                          for t in (rapor.get("tarih_dogrulanamayan") or []))
+                + f"\nKAYNAK SABİTLEME\n"
                 f"  Yayından düşen (kaynağı doğrulanamadı): "
                 f"{len(rapor.get('kaynaksiz_dusen') or [])}\n"
                 + "".join(f"  ✗ {t}\n" for t in (rapor.get("kaynaksiz_dusen") or []))
