@@ -1582,12 +1582,46 @@ def _govde_metni(html):
     return "\n\n".join(paragraflar)[:AYARLAR["exa_metin_karakter"]]
 
 
+# ⚠ ÖLÜ KAYNAK BAĞLANTISI
+# Exa'nın dizininde, artık var olmayan bir sayfanın metni durabiliyor: aday
+# metinle birlikte geliyor, haber yazılıyor, ama okuyucu bağlantıya
+# tıkladığında sitenin ANA SAYFASINA düşüyor. Gerçek vaka (biyoekonomi,
+# Sayı 2): Aleph Farms haberinin birincil kaynağı
+# foodingredientsfirst.com/news/aleph-farms-singapore-cultivated-beef-approval.html
+# idi; adres foodingredientsfirst.com köküne yönleniyordu. Olayın üç
+# erişilebilir kaynağı daha vardı ama boru hattı bunu fark etmedi.
+#
+# ⚠ 403 ÖLÜ SAYILMAZ: birçok yayın bot koruması yüzünden 403 döndürür ama
+# sayfa tarayıcıda açılır (euractiv.com böyle). Ağ hatası da ölü değildir —
+# geçici kesinti yüzünden geçerli kaynağı düşürmeyelim.
+_KOK_YOLLAR = {"", "news", "home", "index.html", "index.php", "articles"}
+OLU = "ÖLÜ"          # sayfa_bilgisi'nin tarih yerine döndürdüğü işaret
+
+
+def _olu_baglanti(r, istenen):
+    """Yanıt, istenen makaleye DEĞİL sitenin köküne mi düştü?"""
+    if r.status_code in (404, 410):
+        return True
+    if r.status_code != 200:
+        return False                      # 403/5xx → karar verme
+    varilan = urlparse(r.url).path.strip("/").lower()
+    if varilan in _KOK_YOLLAR:
+        # istenen adres zaten kök değilse, kökte bitmek "sayfa yok" demektir
+        return urlparse(istenen).path.strip("/").lower() not in _KOK_YOLLAR
+    return False
+
+
 def sayfa_bilgisi(url):
     """Makale sayfasını çek → (gerçek yayın tarihi, og görseli, gövde metni).
-    Ağ hatası / bulunamadı / belirsiz tarih → (None, ...); akış etkilenmez."""
+    Ağ hatası / bulunamadı / belirsiz tarih → (None, ...); akış etkilenmez.
+
+    Bağlantı ölüyse tarih yerine "ÖLÜ" işareti döner — çağıran kaynağı düşürür.
+    """
     try:
         r = requests.get(url, timeout=10, headers={
             "User-Agent": "Mozilla/5.0 (compatible; BultenBot/1.0)"})
+        if _olu_baglanti(r, url):
+            return OLU, None, ""
         if r.status_code != 200:
             return None, None, ""
         html = r.text[:150000]
@@ -1616,13 +1650,33 @@ def tarih_dogrula(olaylar, pencere):
     """
     bugun = datetime.now(timezone.utc).date()
     onbellek, sayfa_gorselleri = {}, {}
-    kalan, atilan, zenginlesen = [], 0, 0
+    kalan, atilan, zenginlesen, olu = [], 0, 0, 0
 
     for o in olaylar[:60]:          # maliyet/süre sınırı — kullanılan en çok 40
+        # ── Ölü birincil bağlantıyı düşür, sıradakini birincil yap ──
+        # Olayın başka erişilebilir kaynağı varsa haber kurtulur; hiç
+        # kalmazsa olay tamamen atılır (okuyucunun açamadığı tek kaynak,
+        # eksik haberden kötüdür).
+        while o["kaynaklar"]:
+            u0 = o["kaynaklar"][0]["url"]
+            if u0 not in onbellek:
+                onbellek[u0] = sayfa_bilgisi(u0)
+            if onbellek[u0][0] is not OLU:
+                break
+            olu += 1
+            log(f"  ✗ ölü kaynak bağlantısı (site köküne yönleniyor): "
+                f"{o['kaynaklar'][0]['domain']} — {(o.get('baslik_ozet') or '')[:44]}")
+            o["kaynaklar"].pop(0)
+            if o["kaynaklar"]:
+                o["kaynaklar"][0]["primary"] = True
+        if not o["kaynaklar"]:
+            atilan += 1
+            log(f"  ✗ olay atıldı — erişilebilir kaynağı kalmadı: "
+                f"{(o.get('baslik_ozet') or '')[:55]}")
+            continue
+
         k = o["kaynaklar"][0]
         url = k["url"]
-        if url not in onbellek:
-            onbellek[url] = sayfa_bilgisi(url)
         tarih, gorsel, sayfa_metni = onbellek[url]
 
         if gorsel:
@@ -1665,6 +1719,7 @@ def tarih_dogrula(olaylar, pencere):
     kalan += olaylar[60:]
     dogrulanamayan = sum(1 for o in kalan if o.get("tarih_dogrulandi") is False)
     log(f"Tarih doğrulama: {len(onbellek)} sayfa çekildi · {atilan} olay atıldı · "
+        f"{olu} ölü kaynak bağlantısı düşürüldü · "
         f"{len(sayfa_gorselleri)} sayfa görseli · {zenginlesen} kaynak metni zenginleşti · "
         f"{dogrulanamayan} olayın tarihi doğrulanamadı")
     return kalan, sayfa_gorselleri
