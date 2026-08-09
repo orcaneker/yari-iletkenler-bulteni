@@ -4,3 +4,5 @@ __pycache__/
 taslak_preview.json
 .claude/
 *.onceki
+kiyas/
+ca-bundle.local.pem

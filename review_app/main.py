@@ -18,12 +18,15 @@ Yerel çalıştırma:
 """
 
 import os
+import re
 import sys
 import json
 import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
+import requests
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 
@@ -229,6 +232,81 @@ async def metin_duzelt(token: str, req: Request):
     db.govde_guncelle(sayi["id"], govde_alani, govde)
     db.logla(sayi["id"], h["ad"], "metin_duzelt", detay)
     return {"ok": True, "yayinda": sayi["status"] == "published"}
+
+
+# ============================================================
+# GÖRSEL DEĞİŞTİR / KALDIR — her aşamada
+# ------------------------------------------------------------
+# Boru hattı görseli otomatik seçer ama seçim her zaman isabetli değil:
+# birincil kaynağın sayfasında haber görseli yerine kurumun LOGOSU ya da
+# genel amaçlı bir STOK görseli durabiliyor. Hakem ya olayın başka bir
+# kaynağındaki görseli seçer, ya elle bir URL verir, ya da tamamen kaldırır.
+# Metin düzeltmesi gibi yayınlanmış sayıda da çalışır (sonra /republish).
+# ============================================================
+GORSEL_UZANTILARI = (".jpg", ".jpeg", ".png", ".webp", ".avif", ".gif")
+
+
+def _gorsel_dogrula(url):
+    """URL gerçekten dışarıdan çekilebilen bir görsel mi?
+
+    Hakemin yapıştırdığı adres makale sayfası ya da kırık bağlantı olabilir;
+    o zaman haber sitede görselsiz çıkar ve kimse fark etmez. Burada peşinen
+    denetlenir. Ağ hatasında KABUL edilir — geçici kesinti yüzünden geçerli
+    bir görseli reddetmeyelim.
+    """
+    if not re.match(r"^https://[^\s]+$", url or ""):
+        raise HTTPException(400, "Görsel adresi https:// ile başlamalı")
+    try:
+        r = requests.get(url, timeout=8, stream=True, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; BultenBot/1.0)",
+            "Accept": "image/avif,image/webp,image/*,*/*;q=0.8",
+        })
+        tur = (r.headers.get("content-type") or "").lower()
+        r.close()
+        if r.status_code != 200:
+            raise HTTPException(400, f"Görsel çekilemedi (HTTP {r.status_code})")
+        if not tur.startswith("image/"):
+            raise HTTPException(
+                400, "Bu adres görsel değil (sayfa adresi vermiş olabilirsiniz). "
+                     "Görsele sağ tıklayıp “Resim adresini kopyala” deyin.")
+    except HTTPException:
+        raise
+    except Exception:
+        if not url.lower().split("?")[0].endswith(GORSEL_UZANTILARI):
+            raise HTTPException(400, "Görsel adresine ulaşılamadı")
+    return True
+
+
+@app.post("/api/{token}/image")
+async def gorsel_ayarla(token: str, req: Request):
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    veri = await req.json()
+    govde, govde_alani = _govde(sayi)
+
+    st = _haber_bul(govde, govde_alani, veri.get("id"))
+    if not st:
+        raise HTTPException(400, "Haber bulunamadı")
+
+    eski = (st.get("image") or {}).get("url")
+    url = (veri.get("url") or "").strip()
+
+    if not url:                                   # kaldır
+        st["image"] = {"url": None, "credit": None, "type": None}
+    else:
+        _gorsel_dogrula(url)
+        st["image"] = {
+            "url": url,
+            "credit": (veri.get("credit") or "").strip()
+            or urlparse(url).netloc.replace("www.", "") or None,
+            "type": "hakem",                      # elle seçildi — izlenebilsin
+        }
+
+    db.govde_guncelle(sayi["id"], govde_alani, govde)
+    db.logla(sayi["id"], h["ad"], "gorsel_degistir",
+             {"id": veri.get("id"), "eski": eski, "yeni": url or None})
+    return {"ok": True, "image": st["image"],
+            "yayinda": sayi["status"] == "published"}
 
 
 @app.post("/api/{token}/swap")

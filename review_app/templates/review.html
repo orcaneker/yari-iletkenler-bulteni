@@ -68,11 +68,56 @@ body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
 .detay-ac{font-family:var(--mono);font-size:11px;color:var(--yesil-koyu);
   cursor:pointer;border:0;background:none;text-decoration:underline;padding:0}
 .detay{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--cizgi);
-  font-size:14.5px;color:#33475C;white-space:pre-line}
+  font-size:14.5px;color:#33475C;white-space:pre-line;clear:both}
 .detay.acik{display:block}
 
+/* ── HABER GÖRSELİ ──
+   Görsel taslakta zaten vardı ama bu ekranda hiç gösterilmiyordu; hakem
+   ancak yayına aldıktan sonra görebiliyordu. Sayı 1'de manşete alakasız bir
+   Neste sunum slaydı bu yüzden fark edilmeden geçmişti. */
+.kart .gorsel{float:right;width:172px;margin:0 0 12px 16px;
+  border:1px solid var(--cizgi);background:var(--panel-2)}
+.kart .gorsel img{display:block;width:100%;height:112px;object-fit:cover}
+.kart .gorsel .bilgi{font-family:var(--mono);font-size:9.5px;line-height:1.45;
+  color:var(--soluk);padding:5px 7px;word-break:break-word}
+.kart .gorsel .bos{height:112px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:11px;color:var(--soluk);
+  background:repeating-linear-gradient(45deg,transparent,transparent 7px,
+    rgba(0,0,0,.035) 7px,rgba(0,0,0,.035) 14px)}
+.kart .gorsel.hata{border-color:#C0392B}
+.kart .gorsel.hata .bos{color:#C0392B}
+.kart .gorsel.hata .bilgi{color:#C0392B}
+.kart .gorsel .g-islem{display:flex;border-top:1px solid var(--cizgi)}
+.kart .gorsel .g-islem button{flex:1;font-family:var(--mono);font-size:10px;
+  padding:5px 4px;cursor:pointer;border:0;background:none;color:var(--yesil-koyu)}
+.kart .gorsel .g-islem button+button{border-left:1px solid var(--cizgi);color:var(--uyari)}
+.kart .gorsel .g-islem button:hover{background:var(--panel-2)}
+.kart::after{content:"";display:block;clear:both}   /* float temizliği */
+
+/* ── GÖRSEL DEĞİŞTİRME PANELİ ── */
+.g-panel{display:none;clear:both;margin-top:12px;padding:12px;
+  border:1px dashed var(--yesil);background:var(--yesil-acik)}
+.g-panel.acik{display:block}
+.g-panel .baslik{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:10px;color:var(--yesil-koyu)}
+.g-panel label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--soluk);margin:10px 0 4px}
+.g-panel input[type=url]{width:100%;font-family:var(--mono);font-size:12px;
+  padding:8px 10px;border:1px solid var(--cizgi);background:#fff}
+.g-panel input[type=url]:focus{outline:2px solid var(--yesil);outline-offset:-1px}
+.g-panel .ipucu{font-size:12px;color:var(--soluk);margin-top:6px}
+.g-adaylar{display:flex;gap:10px;flex-wrap:wrap}
+.g-aday{display:block;width:150px;cursor:pointer;background:#fff;
+  border:1px solid var(--cizgi);padding:6px;margin:0}
+.g-aday:hover{border-color:var(--yesil)}
+.g-aday:has(input:checked){border-color:var(--yesil-koyu);border-width:2px;padding:5px}
+.g-aday img{display:block;width:100%;height:82px;object-fit:cover;margin:5px 0}
+.g-aday span{display:block;font-family:var(--mono);font-size:9.5px;
+  color:var(--soluk);word-break:break-word}
+
 /* ── METİN DÜZENLEME ── */
-.duzen{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--yesil)}
+.duzen{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--yesil);
+  clear:both}
 .duzen.acik{display:block}
 .duzen label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--soluk);margin:10px 0 4px}
@@ -140,7 +185,13 @@ body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
   padding:12px 18px;font-size:14px;z-index:100;display:none;max-width:340px}
 .mesaj.hata{background:var(--uyari)}
 #yukleniyor{text-align:center;padding:80px 0;font-family:var(--mono);color:var(--soluk)}
-@media(max-width:640px){.kart h3{font-size:18px}}
+@media(max-width:640px){
+  .kart h3{font-size:18px}
+  /* Dar ekranda 172px'lik float, başlığa ~150px bırakıyor — okunmuyor.
+     Görsel tam genişliğe alınıp metnin üstüne yerleşir. */
+  .kart .gorsel{float:none;width:100%;margin:0 0 12px}
+  .kart .gorsel img,.kart .gorsel .bos{height:150px}
+}
 </style>
 </head>
 <body>
@@ -214,6 +265,96 @@ async function api(yol, govde){
 
 function esc(s){ const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
 
+// Görsel kaynağı: og-sayfa = makale sayfasının kendi görseli (en güvenilir),
+// og = arama sonucundan, og-fetch = son çare olarak sayfadan çekildi.
+const GORSEL_TIPI = {
+  "og-sayfa": "kaynak sayfasından",
+  "og": "arama sonucundan",
+  "og-fetch": "sayfadan çekildi",
+};
+
+function gorselHTML(s){
+  const g = s.image || {};
+  const ic = g.url
+    ? `<a href="${esc(g.url)}" target="_blank" rel="noopener" title="Görseli tam boyutta aç">
+         <img src="${esc(g.url)}" alt="" onerror="gorselHata('${s.id}')"></a>
+       <div class="bilgi">${esc(g.credit || "kaynak belirtilmemiş")}${
+         GORSEL_TIPI[g.type] ? " · " + esc(GORSEL_TIPI[g.type]) : ""}</div>`
+    : `<div class="bos">görsel yok</div>
+       <div class="bilgi">bu haber sitede görselsiz yayınlanır</div>`;
+  // Panel kartın SONUNDA duruyor (bkz. kartHTML): burada olsaydı float'ı
+  // temizleyip başlığı aşağı iterdi.
+  return `<div class="gorsel${g.url ? "" : " yok"}" id="gorsel-${s.id}">${ic}
+    <div class="g-islem">
+      <button onclick="gorselPanel('${s.id}')">değiştir</button>
+      ${g.url ? `<button onclick="gorselKaldir('${s.id}')">kaldır</button>` : ""}
+    </div>
+  </div>`;
+}
+
+// Boru hattının bulduğu ama seçmediği alternatifler + elle URL girişi.
+function gorselPanelHTML(s){
+  const alt = (s.gorsel_adaylari || []).map((a, i) => `
+    <label class="g-aday">
+      <input type="radio" name="ga-${s.id}" value="${esc(a.url)}">
+      <img src="${esc(a.url)}" alt="" onerror="this.style.display='none'">
+      <span>${esc(a.credit || "")}${GORSEL_TIPI[a.type] ? " · " + esc(GORSEL_TIPI[a.type]) : ""}</span>
+    </label>`).join("");
+  return `<div class="g-panel" id="g-panel-${s.id}">
+    <div class="baslik">Görseli değiştir</div>
+    ${alt ? `<div class="g-adaylar">${alt}</div>`
+          : `<div class="ipucu">Bu olayın kaynaklarında başka kullanılabilir
+             görsel bulunamadı — aşağıya elle adres girebilirsiniz.</div>`}
+    <label for="g-url-${s.id}">Görsel adresi</label>
+    <input type="url" id="g-url-${s.id}" placeholder="https://…/gorsel.jpg">
+    <div class="ipucu">Herhangi bir haber sayfasındaki görsele sağ tıklayıp
+      <b>“Resim adresini kopyala”</b> deyin. Sayfa adresi değil, görselin
+      kendi adresi olmalı.</div>
+    <div class="islemler">
+      <button class="btn mavi" onclick="gorselKaydet('${s.id}')">Kaydet</button>
+      <button class="btn" onclick="gorselPanel('${s.id}')">Vazgeç</button>
+    </div>
+  </div>`;
+}
+
+function gorselPanel(id){
+  document.getElementById("g-panel-" + id).classList.toggle("acik");
+}
+
+async function gorselKaydet(id){
+  const secili = document.querySelector(`input[name="ga-${id}"]:checked`);
+  const elle = document.getElementById("g-url-" + id).value.trim();
+  const url = elle || (secili ? secili.value : "");
+  if(!url){ mesaj("Bir görsel seçin ya da adres girin", true); return; }
+  try{
+    const r = await api("image", {id, url});
+    mesaj(r.yayinda ? "Görsel değişti — siteye gitmesi için “Düzeltmeleri yayınla”"
+                    : "Görsel değişti");
+    await yukle();
+  }catch(e){ mesaj(e.message, true); }
+}
+
+async function gorselKaldir(id){
+  if(!confirm("Bu haber görselsiz yayınlansın mı?")) return;
+  try{
+    const r = await api("image", {id, url: null});
+    mesaj(r.yayinda ? "Görsel kaldırıldı — “Düzeltmeleri yayınla” demeyi unutmayın"
+                    : "Görsel kaldırıldı");
+    await yukle();
+  }catch(e){ mesaj(e.message, true); }
+}
+
+// Yüklenemeyen görseli GİZLEME — sitede de görünmeyeceği için hakem bunu
+// bilmeli. Canlı sitede aynı görsel sessizce kaldırılıyor (hotlink engeli).
+function gorselHata(id){
+  const d = document.getElementById("gorsel-" + id);
+  if(!d) return;
+  d.className = "gorsel hata";
+  d.innerHTML = `<div class="bos">yüklenemedi</div>
+    <div class="bilgi">kaynak sitesi dış erişimi engelliyor olabilir —
+      haber sitede görselsiz çıkar</div>`;
+}
+
 function kartHTML(s, secili){
   const t = VERI.taslak;
   const manset = t.lead_id === s.id;
@@ -248,6 +389,7 @@ function kartHTML(s, secili){
       ${DEGISENLER.has(s.id) ? '<span class="duzeltildi">düzeltildi</span>' : ""}
       <span class="puan">puan ${s.score ?? "?"}</span>
     </div>
+    ${gorselHTML(s)}
     <h3>${esc(s.title)}</h3>
     <p class="ozet">${esc(s.excerpt)}</p>
     <p class="kaynak">Kaynak: ${kaynak}${destek ? " · Destek: " + destek : ""}
@@ -269,6 +411,7 @@ function kartHTML(s, secili){
         <button class="btn" onclick="duzenAc('${s.id}')">Vazgeç</button>
       </div>
     </div>
+    ${gorselPanelHTML(s)}
     ${islemler}
   </div>`;
 }

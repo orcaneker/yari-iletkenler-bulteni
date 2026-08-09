@@ -57,6 +57,10 @@ def nihai_kur(taslak):
         lead = max(secili, key=lambda s: s.get("score") or 0)
     digerleri = [s for s in secili if s is not lead]
 
+    # Görsel alternatifleri yalnızca inceleme ekranı içindir — yayına çıkmaz.
+    for s in secili:
+        s.pop("gorsel_adaylari", None)
+
     # brief ref (story id) → slug; çıkarılan habere işaret ediyorsa null
     id2slug = {s.get("id"): s.get("slug") for s in secili}
     brief = [{"text": m.get("text", ""), "slug": id2slug.get(m.get("ref"))}

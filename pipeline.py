@@ -267,6 +267,35 @@ def iso_hafta(d: datetime):
     return f"{y}-H{w:02d}"
 
 
+_KACIS_HARITASI = {"\n": "\\n", "\r": "\\r", "\t": "\\t",
+                   "\b": "\\b", "\f": "\\f"}
+
+
+def _kontrol_kacir(govde):
+    """JSON dizeleri İÇİNDEKİ ham kontrol karakterlerini kaçışla.
+
+    Dize dışındaki boşluklara dokunulmaz (JSON'da geçerlidirler); yalnızca
+    tırnak içinde kalan U+0000-001F aralığı kaçışlanır. Bu dönüşüm kayıpsızdır:
+    metnin kendisi değişmez, yalnızca JSON'a uygun biçimde yazılır.
+    """
+    cikti, dize_icinde, kacis = [], False, False
+    for ch in govde:
+        if kacis:                       # önceki karakter ters bölüydü
+            cikti.append(ch)
+            kacis = False
+        elif ch == "\\":
+            cikti.append(ch)
+            kacis = dize_icinde
+        elif ch == '"':
+            dize_icinde = not dize_icinde
+            cikti.append(ch)
+        elif dize_icinde and ch < " ":
+            cikti.append(_KACIS_HARITASI.get(ch, f"\\u{ord(ch):04x}"))
+        else:
+            cikti.append(ch)
+    return "".join(cikti)
+
+
 def json_ayikla(metin):
     """Model ```json bloğu veya önsöz eklerse kurtar.
 
@@ -284,6 +313,21 @@ def json_ayikla(metin):
     try:
         return json.loads(govde)
     except json.JSONDecodeError as e:
+        # ── 1) Ham kontrol karakteri onarımı ──
+        # Sonnet 5 uzun metinlerde dize İÇİNE kaçışsız satır başı/sekme
+        # koyabiliyor → "Invalid control character". json_repair bu durumda
+        # bazen gövdenin tamamını değil yalnızca ilk birkaç kaydı kurtarıyor;
+        # gerçek vaka (Sayı 2): 14 haberden 5'i kurtarıldı, radar tamamen
+        # kayboldu, kalanın yerine modelin yer tutucusu kaldı.
+        # Bu kaçışlama deterministik ve kayıpsız — json_repair'e düşmeden önce
+        # denenir.
+        try:
+            d = json.loads(_kontrol_kacir(govde))
+            log(f"  ⚠ JSON'da kaçışsız kontrol karakteri vardı — onarıldı ({e})")
+            return d
+        except json.JSONDecodeError:
+            pass
+        # ── 2) Son çare: json_repair (kayıplı olabilir) ──
         log(f"  ⚠ JSON hatalı ({e}) — json_repair ile onarılıyor")
         from json_repair import repair_json
         onarik = repair_json(govde, return_objects=True)
@@ -668,8 +712,8 @@ def triyaj(adaylar, bas, bit, state):
 #   2. ADAY  — şirket örtüşmesi + başlık benzerliği eşik üstü çiftler
 #              TEK bir küçük isteme konur (tam metin yok, sadece özetler).
 # ============================================================
-BIRLESTIRME_ESIK_BENZERLIK = 0.22
-BIRLESTIRME_AZAMI_CIFT = 40          # istemi küçük tut; puan sırası öncelikli
+BIRLESTIRME_AZAMI_OLAY = 80          # tek isteme konacak azami olay sayısı
+BIRLESTIRME_AZAMI_KUME = 4           # bundan büyük grup = tema gruplaması şüphesi
 
 
 def _olay_sirketler(o):
@@ -681,6 +725,40 @@ def _kesin_ayni(a, b):
     ids_a = set([a.get("primary_id")] + list(a.get("supporting_ids") or [])) - {None}
     ids_b = set([b.get("primary_id")] + list(b.get("supporting_ids") or [])) - {None}
     return bool(ids_a & ids_b)
+
+
+def _ayirt_edici_sayilar(o):
+    """Olayın özetindeki AYIRT EDİCİ sayılar (biçimden arındırılmış).
+
+    Ayırt edici = en az 4 basamaklı ve YIL DEĞİL. "5 milyon", "%3", "2026"
+    gibi değerler onlarca haberde geçer ve birleştirme sinyali taşımaz;
+    "23731" (crore rupi) ya da "700000" (ton/yıl) pratikte tek bir olaya aittir.
+    Para birimi çevrimi bu izi bozmaz: iki yayın "USD 2.5bn" ve "US$2.7bn"
+    yazsa bile ikisi de rupi tutarını aktarıyorsa iz tutar.
+    """
+    ham = re.findall(r"\d[\d.,]*", o.get("baslik_ozet") or "")
+    izler = set()
+    for h in ham:
+        s = h.rstrip(".,").replace(".", "").replace(",", "").lstrip("0")
+        if len(s) >= 4 and not (1900 <= int(s) <= 2100 if s.isdigit() else False):
+            izler.add(s)
+    return izler
+
+
+def _ortak_sinyal(a, b):
+    """İki olayın aynı olabilmesi için asgari örtüşme.
+
+    LLM kararının üstüne konan ucuz emniyet kemeri: model yanlışlıkla
+    alakasız iki haberi gruplarsa (tema gruplaması) burada elenir.
+    Yanlış birleştirme İKİ haberi birden yok ettiği için bu denetim var.
+    """
+    if _olay_sirketler(a) & _olay_sirketler(b):
+        return True
+    ulke_a = {u.lower().strip() for u in (a.get("ulkeler") or [])}
+    ulke_b = {u.lower().strip() for u in (b.get("ulkeler") or [])}
+    if ulke_a & ulke_b:
+        return True
+    return bool(a.get("kategori")) and a.get("kategori") == b.get("kategori")
 
 
 def _birlestir_cift(tutulan, atilan):
@@ -721,50 +799,72 @@ def olaylari_birlestir(olaylar):
                 notlar.append(f"kesin birleşme (ortak kaynak): "
                               f"{olaylar[j].get('event_key')} → {olaylar[i].get('event_key')}")
 
-    # --- 2) ADAY çiftleri: şirket örtüşmesi + başlık benzerliği ---
-    adaylar_cift = []
+    # --- 2) SAYI PARMAK İZİ (deterministik, LLM'siz) ---
+    # Aynı ayırt edici tutarı/kapasiteyi taşıyan iki olay pratikte aynı olaydır.
     for i in range(len(olaylar)):
         if i in olu:
             continue
+        pi = _ayirt_edici_sayilar(olaylar[i])
+        if not pi:
+            continue
         for j in range(i + 1, len(olaylar)):
-            if j in olu:
+            if j in olu or not (pi & _ayirt_edici_sayilar(olaylar[j])):
                 continue
-            a, b = olaylar[i], olaylar[j]
-            ortak = _olay_sirketler(a) & _olay_sirketler(b)
-            benz = benzerlik(a.get("baslik_ozet") or "", b.get("baslik_ozet") or "")[0]
-            if len(ortak) >= 2 or (ortak and benz >= BIRLESTIRME_ESIK_BENZERLIK) \
-                    or benz >= 0.45:
-                adaylar_cift.append((i, j))
-    adaylar_cift = adaylar_cift[:BIRLESTIRME_AZAMI_CIFT]
+            if not _ortak_sinyal(olaylar[i], olaylar[j]):
+                continue          # aynı sayı ama alakasız olay → dokunma
+            ortak_sayi = sorted(pi & _ayirt_edici_sayilar(olaylar[j]))[0]
+            _birlestir_cift(olaylar[i], olaylar[j])
+            olu.add(j)
+            notlar.append(f"sayı parmak izi ({ortak_sayi}): "
+                          f"{olaylar[j].get('event_key')} → {olaylar[i].get('event_key')}")
 
-    if adaylar_cift:
-        numarali = [(n + 1, olaylar[i], olaylar[j])
-                    for n, (i, j) in enumerate(adaylar_cift)]
+    # --- 3) KÜRESEL KÜMELEME — kalan TÜM olaylar tek istemde ---
+    # ⚠ Burada eskiden eşik tabanlı bir ÖN ELEME vardı ve asıl kusur oydu:
+    # eşiği geçemeyen çift hakeme hiç gitmiyordu. Künye küçük olduğu için
+    # (olay başına ~200 karakter) hepsini birden sormak birkaç sent tutuyor.
+    kalanlar = [(n, o) for n, o in enumerate(olaylar) if n not in olu]
+    sorulan = kalanlar[:BIRLESTIRME_AZAMI_OLAY]
+    gruplar = []
+    if len(sorulan) >= 2:
         try:
             cikti = llm.llm_cagri(
                 AYARLAR.get("model_birlestirme") or AYARLAR["model_yazim"],
                 prompts.BIRLESTIRME_PROMPT,
-                prompts.birlestirme_kullanici_mesaji(numarali),
+                prompts.birlestirme_kullanici_mesaji([o for _, o in sorulan]),
                 AYARLAR.get("max_tokens_birlestirme", 4000),
             )
-            kararlar = {k.get("cift"): k for k in json_ayikla(cikti).get("kararlar", [])}
+            gruplar = json_ayikla(cikti).get("gruplar") or []
         except Exception as e:
             log(f"  ! Birleştirme adımı başarısız ({e}) — mükerrer kontrolü atlandı")
-            kararlar = {}
 
-        for n, (i, j) in enumerate(adaylar_cift, start=1):
-            k = kararlar.get(n)
-            if not k or not k.get("ayni") or i in olu or j in olu:
+    indis = {o.get("event_key"): n for n, o in sorulan if o.get("event_key")}
+    for g in gruplar:
+        anahtarlar = [a for a in (g.get("anahtarlar") or []) if a in indis]
+        indisler = [indis[a] for a in anahtarlar if indis[a] not in olu]
+        if len(indisler) < 2:
+            continue
+        if len(indisler) > BIRLESTIRME_AZAMI_KUME:
+            log(f"  ! {len(indisler)} olaylık grup atlandı (tema gruplaması şüphesi): "
+                f"{', '.join(anahtarlar[:5])}")
+            continue
+        # en yüksek puanlı olay tutulur — diğerleri ona katılır
+        indisler.sort(key=lambda n: -(olaylar[n].get("puan") or 0))
+        tutulan = indisler[0]
+        for n in indisler[1:]:
+            if not _ortak_sinyal(olaylar[tutulan], olaylar[n]):
+                log(f"  ! birleştirme reddedildi (ortak sinyal yok): "
+                    f"{olaylar[n].get('event_key')} ↮ {olaylar[tutulan].get('event_key')}")
                 continue
-            _birlestir_cift(olaylar[i], olaylar[j])
-            olu.add(j)
+            _birlestir_cift(olaylar[tutulan], olaylar[n])
+            olu.add(n)
             notlar.append(
-                f"birleştirildi ({(k.get('gerekce') or '')[:40]}): "
-                f"{olaylar[j].get('event_key')} → {olaylar[i].get('event_key')}")
+                f"birleştirildi ({(g.get('gerekce') or '')[:40]}): "
+                f"{olaylar[n].get('event_key')} → {olaylar[tutulan].get('event_key')}")
 
     kalan = [o for n, o in enumerate(olaylar) if n not in olu]
-    log(f"Olay birleştirme: {len(adaylar_cift)} aday çift sorgulandı · "
-        f"{len(olu)} mükerrer olay birleştirildi · {len(kalan)} olay kaldı")
+    log(f"Olay birleştirme: {len(sorulan)} olay tek istemde soruldu · "
+        f"{len(gruplar)} mükerrer grup bulundu · "
+        f"{len(olu)} olay birleştirildi · {len(kalan)} olay kaldı")
     for n in notlar[:10]:
         log(f"  · {n}")
     return kalan, notlar
@@ -819,14 +919,52 @@ def olaylari_zenginlestir(olaylar, adaylar):
 # ============================================================
 # 5) AŞAMA 2 — YAZIM
 # ============================================================
+# ⚠ NEDEN TAMLIK DENETİMİ VAR
+# Gerçek vaka (biyoekonomi, Sayı 2 — 9 Ağustos 2026): 14 derin olay verildi,
+# model 5 haber yazıp kalanların yerine "__PLACEHOLDER_NOT_USED__" adlı bir
+# yer tutucu koydu ve radar bölümünü hiç açmadı. Çıktı çağrı başına 8,3K
+# token'dı — tam bülten 29-33K gerektiriyor, yani model işi yarıda bıraktı.
+# Boru hattı bunu fark etmedi: dogrula_taslak yalnızca "stories az (5)" diye
+# bir uyarı satırı yazdı, taslak Neon'a kaydedildi ve 3 hakeme davet gitti.
+# Aynı olayla yapılan iki tekrar denemesinde model 14/14 yazdı — arıza her
+# hafta değil, BAZI haftalar çıkıyor. Bu yüzden sessiz geçmemeli.
+YAZIM_ASGARI_ORAN = 0.7          # derin olayların bu kadarı haber olmalı
+YAZIM_YER_TUTUCU_IZLERI = ("placeholder", "not_used", "notused", "todo", "tbd")
+
+
+def yazim_eksik(b, derin, radar_havuz):
+    """Yazım çıktısı kabul edilebilir mi? Sorun varsa AÇIKLAMA döndürür."""
+    stories = b.get("stories") or []
+    if derin and len(stories) < max(1, int(len(derin) * YAZIM_ASGARI_ORAN)):
+        return f"{len(derin)} derin olaya karşılık yalnızca {len(stories)} haber yazıldı"
+
+    yer_tutucu = [s.get("id") or s.get("title") or "?" for s in stories
+                  if any(iz in ((s.get("id") or "") + (s.get("title") or "")).lower()
+                         for iz in YAZIM_YER_TUTUCU_IZLERI)]
+    if yer_tutucu:
+        return f"model yer tutucu üretti: {', '.join(yer_tutucu[:3])}"
+
+    radar_madde = sum(len(k.get("maddeler") or []) for k in (b.get("radar") or []))
+    if radar_havuz and not radar_madde:
+        return f"{len(radar_havuz)} radar adayı verildi ama radar boş döndü"
+
+    return None
+
+
 def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=None):
     """json_repair'e rağmen geçersiz çıktı gelirse yazımı BİR kez daha dene —
     haftalık cron tek bozuk üretim yüzünden boş geçmesin.
 
-    model: None ise AYARLAR["model_yazim"]. Model karşılaştırma modunda
-    (KARSILASTIR_MODEL) aynı veriyle ikinci bir model çalıştırmak için kullanılır.
+    model: None ise MODEL_YAZIM ortam değişkeni, o da yoksa
+    AYARLAR["model_yazim"]. Model karşılaştırma modunda (KARSILASTIR_MODEL)
+    aynı veriyle ikinci bir model çalıştırmak için kullanılır.
+
+    ⚠ MODEL_YAZIM neden var: model denemesi yaparken config.py'yi düzenlemek
+    gerekiyordu; düzeltmeyi geri almayı unutmak, haftalık cron'un yanlış
+    modelle yayına çıkması demek. Ortam değişkeni tek çalışmayı etkiler.
     """
-    model = model or AYARLAR["model_yazim"]
+    model = model or os.environ.get("MODEL_YAZIM", "").strip() \
+        or AYARLAR["model_yazim"]
     # Akıl yürüten modellerde düşünme token'ları da çıktı bütçesinden düşer →
     # görünür metnin kesilmemesi için daha geniş limit kullanılır.
     # (gpt-5.x · Sonnet 5 · Opus 4.7+ · Fable 5 — hepsinde düşünme varsayılan açık)
@@ -834,10 +972,13 @@ def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=None):
                     "anthropic:claude-opus-", "anthropic:claude-fable-")
     limit = (AYARLAR.get("max_tokens_yazim_reasoning", AYARLAR["max_tokens_yazim"])
              if model.startswith(AKIL_YURUTEN) else AYARLAR["max_tokens_yazim"])
-    son_hata = None
+    log(f"  yazım modeli: {model} · max_tokens={limit:,} · "
+        f"{len(derin)} derin olay + {len(radar_havuz)} radar adayı")
+    son_hata, son_b, son_eksik = None, None, None
     for deneme in range(2):
         if deneme:
-            log("  ⚠ Yazım çıktısı kurtarılamadı — yazım yeniden deneniyor (2/2)")
+            log(f"  ⚠ Yazım yeniden deneniyor (2/2) — sebep: "
+                f"{son_eksik or 'çıktı kurtarılamadı'}")
         try:
             cikti = llm.llm_cagri(
                 model, prompts.YAZIM_PROMPT,
@@ -845,9 +986,22 @@ def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=None):
                 limit,
                 stream=True,     # uzun çıktı — zaman aşımını önler
             )
-            return json_ayikla(cikti)
+            b = json_ayikla(cikti)
         except (ValueError, json.JSONDecodeError) as e:
             son_hata = e
+            continue
+
+        eksik = yazim_eksik(b, derin, radar_havuz)
+        if not eksik:
+            return b
+        son_b, son_eksik = b, eksik           # elde bir şey var; yine de sakla
+
+    if son_b is not None:
+        # İki deneme de eksik kaldı: elde olanı DÖNDÜR ama sessizce geçme —
+        # bu uyarı çalışma raporunun en üstüne çıkar.
+        son_b["_yazim_uyarisi"] = son_eksik
+        log(f"  ‼ YAZIM EKSİK KALDI (2 deneme): {son_eksik}")
+        return son_b
     raise son_hata
 
 
@@ -1568,6 +1722,33 @@ def gorsel_erisilebilir(url, onbellek=None):
     return sonuc
 
 
+# ⚠ Birincil kaynağın sayfa görseli HER ZAMAN en iyisi değil. Gerçek vaka
+# (biyoekonomi, Sayı 2): World Biogas Association haberine kurumun LOGOSU
+# (WBA-wheel-in-square-transparent.png), Hindistan haberine ise sitenin genel
+# amaçlı STOK görseli (bigstock-Growth-And-Expansion-44625217.jpg) düştü.
+# İkisi de erişilebilir olduğu için "ilk çalışan adayı al" kuralına takılmadı.
+# Çözüm: dosya adından şüpheli olanları listenin SONUNA at — elenmezler,
+# yalnızca habere özel bir görsel varsa o öne geçer.
+GORSEL_SUPHELI_IZLER = (
+    "logo", "-transparent", "favicon", "sprite", "avatar", "placeholder",
+    "default", "generic", "banner", "header", "watermark", "no-image",
+    "bigstock", "shutterstock", "istock", "gettyimages", "depositphotos",
+    "adobestock", "dreamstime", "stock-photo", "stockphoto",
+)
+
+
+GORSEL_AZAMI_ADAY = 4        # haber başına denetlenecek azami aday (istek sınırı)
+
+
+def gorsel_supheli(url):
+    """Dosya adı stok görseli / logo olduğunu düşündürüyor mu?"""
+    u = (url or "").lower()
+    if any(iz in u for iz in GORSEL_SUPHELI_IZLER):
+        return True
+    # 150x150 gibi küçük kare boyut adı → çoğunlukla küçük resim/ikon
+    return bool(re.search(r"[-_](\d{2,3})x\1[._]", u))
+
+
 def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
     """TÜM haberlere (yedekler dahil) görsel bağla — takas sonrası da görsel olsun.
 
@@ -1600,24 +1781,40 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
         urller += [k.get("url") for k in (st.get("supporting_sources") or [])]
         urller = [url_normalize(u) for u in urller if u]
 
-        # Tüm adaylar öncelik sırasıyla; ilk ERİŞİLEBİLİR olan bağlanır.
-        adaylar_g = ([sayfa_gorselleri[u] for u in urller if u in sayfa_gorselleri]
+        # Tüm adaylar öncelik sırasıyla; aynı URL bir kez.
+        adaylar_g, gorulen = [], set()
+        for aday in ([sayfa_gorselleri[u] for u in urller if u in sayfa_gorselleri]
                      + [idx[u] for u in urller if u in idx]
-                     + [olay_gorsel[u] for u in urller if u in olay_gorsel])
-        g = None
-        for aday in adaylar_g:
+                     + [olay_gorsel[u] for u in urller if u in olay_gorsel]):
+            if aday["url"] not in gorulen:
+                gorulen.add(aday["url"])
+                adaylar_g.append(aday)
+        # Şüpheliler (logo/stok) sıranın SONUNA — sadece başka aday yoksa seçilir.
+        adaylar_g.sort(key=lambda a: gorsel_supheli(a["url"]))
+
+        # Erişilebilir olanları topla: ilki bağlanır, kalanlar hakemin
+        # "değiştir" panelinde alternatif olarak sunulur.
+        erisilebilir = []
+        for aday in adaylar_g[:GORSEL_AZAMI_ADAY]:
             if gorsel_erisilebilir(aday["url"], denetim):
-                g = aday
-                break
+                erisilebilir.append(aday)
+                continue
             elenen += 1
             log(f"  ✗ görsel dış siteden çekilemiyor (hotlink engeli?): "
                 f"{aday['credit']} — {(st.get('title') or '?')[:45]}")
-        if g:
-            st["image"] = g
+
+        if erisilebilir:
+            st["image"] = erisilebilir[0]
+            if gorsel_supheli(erisilebilir[0]["url"]):
+                log(f"  ⚠ yalnızca şüpheli görsel bulundu (logo/stok olabilir): "
+                    f"{erisilebilir[0]['url'][:70]} — {(st.get('title') or '?')[:40]}")
             bagli += 1
         else:
             st["image"] = {"url": None, "credit": None, "type": None}
             kaynaksiz += 1
+        # Hakem "değiştir" panelinde görsün diye alternatifler taslakta kalır.
+        # (publish.nihai_kur bu alanı yayına çıkarmadan siler.)
+        st["gorsel_adaylari"] = erisilebilir[1:]
 
     # Son çare: görselsiz ÖNE ÇIKAN haberler için OG etiketi çek (≤6 istek)
     cekilen = 0
@@ -1820,6 +2017,7 @@ def main():
         # Partiler arası mükerrerleri temizle — triyaj bunu göremez
         olaylar, birlestirme_notlari = olaylari_birlestir(olaylar)
         rapor["birlestirilen_olay"] = len(birlestirme_notlari)
+        rapor["birlestirme_notlari"] = birlestirme_notlari   # raporda tek tek görünsün
         olaylar = olaylari_zenginlestir(olaylar, adaylar)
         teyit_ara(olaylar, adaylar)
 
@@ -1851,6 +2049,7 @@ def main():
         # --- Aşama 2: yazım ---
         log("Aşama 2 — yazım…")
         b = yaz(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, pencere)
+        rapor["yazim_uyarisi"] = b.pop("_yazim_uyarisi", None)
 
         # --- opsiyonel: ikinci modelle aynı veriden yazım (yalnızca kıyas) ---
         if KARSILASTIR_MODEL:
@@ -1968,11 +2167,18 @@ def main():
         if hakemler or RAPOR_ALICI:
             govde = (
                 f"Yarı İletken Bülteni — Sayı {sayi_no} Taslak Raporu\n"
-                f"{'=' * 52}\n"
+                + (f"\n‼ DİKKAT — YAZIM EKSİK KALDI: {rapor['yazim_uyarisi']}\n"
+                   f"  İki deneme de tamamlanmadı. Bülteni yayına almadan ÖNCE\n"
+                   f"  eksikleri gözden geçirin.\n"
+                   if rapor.get("yazim_uyarisi") else "")
+                + f"{'=' * 52}\n"
                 f"Kapsam        : {kapsam_bas} — {kapsam_bit} ({pencere} gün)\n\n"
                 f"Sorgu çalıştırıldı : {rapor['queries_run']}\n"
                 f"Ham sonuç          : {rapor['results_found']}\n"
                 f"Deterministik elenen: {rapor['dedup_removed']}\n"
+                f"Mükerrer birleşen  : {rapor.get('birlestirilen_olay', 0)}\n"
+                + "".join(f"  ⇄ {n}\n"
+                          for n in (rapor.get("birlestirme_notlari") or [])[:10]) +
                 f"Olay oluşturuldu   : {rapor['events_created']}\n"
                 f"LLM reddetti       : {rapor['llm_rejected']}\n"
                 f"Yazılan haber      : {rapor['written']} ({secili_sayi} öne çıkan + "

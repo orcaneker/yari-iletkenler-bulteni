@@ -7,6 +7,58 @@ pipeline.py / publish.py / review_app bunları okur.
 Yeni sorgu/kaynak eklemek için sadece bu dosyayı düzenle.
 """
 
+import os
+
+# ============================================================
+# .env YÃœKLEYÄ°CÄ°
+# ------------------------------------------------------------
+# Yerelde deneme yaparken anahtarlarÄ± her seferinde kabuÄŸa yazdÄ±rmamak iÃ§in
+# repo kÃ¶kÃ¼ndeki .env okunur (.gitignore'da â€” git'e girmez).
+# Render'da .env dosyasÄ± YOKTUR; deÄŸiÅŸkenler zaten ortamda tanÄ±mlÄ± olduÄŸu
+# iÃ§in bu fonksiyon sessizce Ã§Ä±kar. Ãœretim davranÄ±ÅŸÄ± deÄŸiÅŸmez.
+#
+# âš  Burada duruyor Ã§Ã¼nkÃ¼ config, llm ve pipeline'dan Ã–NCE import edilen tek
+#   modÃ¼l â€” o ikisi anahtarlarÄ± import anÄ±nda okuyor.
+# âš  setdefault: gerÃ§ek ortam deÄŸiÅŸkeni her zaman .env'i EZER.
+# ============================================================
+def _env_yukle(dosya=".env"):
+    yol = os.path.join(os.path.dirname(os.path.abspath(__file__)), dosya)
+    if not os.path.exists(yol):
+        return
+    # errors="replace": .env'i Not Defteri ANSI olarak kaydederse TÃ¼rkÃ§e
+    # karakterli yorum satÄ±rÄ± yÃ¼zÃ¼nden Ã§Ã¶kmesin â€” anahtarlar zaten ASCII.
+    with open(yol, encoding="utf-8", errors="replace") as f:
+        for satir in f:
+            satir = satir.strip()
+            if not satir or satir.startswith("#") or "=" not in satir:
+                continue
+            k, v = satir.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+_env_yukle()
+
+
+# ============================================================
+# YEREL CA PAKETÄ° (yalnÄ±zca TLS'i araya giren antivirÃ¼s/proxy varsa)
+# ------------------------------------------------------------
+# Avast / ESET / Kaspersky gibi araÃ§lar "HTTPS taramasÄ±" aÃ§Ä±kken trafiÄŸi
+# Ã§Ã¶zÃ¼p KENDÄ° kÃ¶k sertifikalarÄ±yla yeniden imzalÄ±yor. O kÃ¶k Windows
+# sertifika deposunda vardÄ±r â€” tarayÄ±cÄ± sorunsuz Ã§alÄ±ÅŸÄ±r â€” ama Python'un
+# certifi paketinde YOKTUR, dolayÄ±sÄ±yla requests ÅŸu hatayÄ± verir:
+#   CERTIFICATE_VERIFY_FAILED: unable to get local issuer certificate
+#
+# Ã‡Ã¶zÃ¼m: repo kÃ¶kÃ¼nde ca-bundle.local.pem varsa (certifi paketi + araya
+# giren aracÄ±n kÃ¶k sertifikasÄ±) onu kullan. Dosya .gitignore'dadÄ±r ve
+# makineye Ã¶zeldir; Render'da bulunmadÄ±ÄŸÄ± iÃ§in Ã¼retim etkilenmez.
+# âš  DoÄŸrulama KAPATILMIYOR â€” sadece gÃ¼venilen kÃ¶k listesi geniÅŸletiliyor.
+# ============================================================
+_YEREL_CA = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                         "ca-bundle.local.pem")
+if os.path.exists(_YEREL_CA) and not os.environ.get("REQUESTS_CA_BUNDLE"):
+    os.environ["REQUESTS_CA_BUNDLE"] = _YEREL_CA
+
+
 # ============================================================
 # GENEL AYARLAR
 # ============================================================
@@ -87,7 +139,14 @@ FIYAT = {
     "anthropic:claude-haiku-4-5-20251001": {"in": 1.00, "out":  5.00, "cache_w": 1.25, "cache_r": 0.10},
     "openai:gpt-5-mini":                   {"in": 0.25, "out":  2.00, "cache_w": 0.25, "cache_r": 0.025},
     "openai:gpt-5.1":                      {"in": 1.25, "out": 10.00, "cache_w": 1.25, "cache_r": 0.125},
-    "openai:gpt-5.6-luna":                 {"in": 1.00, "out":  6.00, "cache_w": 1.25, "cache_r": 0.10},
+    # GPT-5.6 ailesi (Temmuz 2026): Sol (amiral) / Terra (dengeli) / Luna (ucuz).
+    # Reasoning modelidir: "dusunme" token'lari CIKTI fiyatindan faturalanir,
+    # bu yuzden reasoning_effort ayari maliyeti dogrudan etkiler.
+    # OpenAI'de cache YAZMA ucretsizdir (cache_w = normal girdi fiyati);
+    # okuma girdinin %10'u. 30 Tem 2026 indirimi sonrasi liste fiyatlari:
+    "openai:gpt-5.6-sol":                  {"in": 5.00, "out": 30.00, "cache_w": 5.00, "cache_r": 0.50},
+    "openai:gpt-5.6-terra":                {"in": 2.00, "out": 12.00, "cache_w": 2.00, "cache_r": 0.20},
+    "openai:gpt-5.6-luna":                 {"in": 0.20, "out":  1.20, "cache_w": 0.20, "cache_r": 0.02},
     # ⚠ Sonnet 5 liste fiyatı 4.6 ile AYNI ($3/$15) ama 31 Ağustos 2026'ya kadar
     # tanıtım fiyatı $2/$10. Aşağıda LİSTE fiyatı yazılı — maliyet raporu böylece
     # olduğundan düşük görünmez.
