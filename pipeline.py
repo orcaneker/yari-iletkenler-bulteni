@@ -1341,6 +1341,39 @@ ESLESME = {
 }
 
 
+# ============================================================
+# 6.2) ÜSLUP ÖLÇÜMÜ — cümle disiplini tutuyor mu?
+# ------------------------------------------------------------
+# YAZIM_PROMPT'a cümle uzunluğu kuralı eklendi (hedef 12-20, üst sınır 28).
+# Tutup tutmadığı ölçülmezse körlemesine gidilir. Ölçülen taban (biyoekonomi
+# Sayı 2, kural eklenmeden önce): ortalama 20,5 kelime · %18'i 30+ kelime ·
+# en uzun 48. Bu satır raporda görünür; haberi ENGELLEMEZ.
+# ============================================================
+CUMLE_UST_SINIR = 28
+
+
+def uslup_ozeti(stories):
+    """detail metinlerinin cümle uzunluğu istatistiği. Boşsa None."""
+    uzunluk = []
+    for s in (stories or []):
+        for c in re.split(r"(?<=[.!?])\s+", s.get("detail") or ""):
+            c = c.strip()
+            if len(c) > 10:
+                uzunluk.append(len(c.split()))
+    if not uzunluk:
+        return None
+    uzunluk.sort()
+    n = len(uzunluk)
+    return {
+        "cumle": n,
+        "ortalama": round(sum(uzunluk) / n, 1),
+        "medyan": uzunluk[n // 2],
+        "en_uzun": uzunluk[-1],
+        "asan": sum(1 for k in uzunluk if k > CUMLE_UST_SINIR),
+        "asan_yuzde": round(sum(1 for k in uzunluk if k > CUMLE_UST_SINIR) / n * 100),
+    }
+
+
 def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
     """Şema doğrulama + slug üretimi + radar tarih kesimi.
     Metrikler yayında (nihai seçim üzerinden) hesaplanır — burada değil."""
@@ -2054,7 +2087,7 @@ def main():
     rapor = {"queries_run": 0, "results_found": 0, "dedup_removed": 0,
              "events_created": 0, "llm_rejected": 0, "written": 0,
              "radar_items": 0, "failed_queries": [],
-             "tarih_dogrulanamayan": []}
+             "tarih_dogrulanamayan": [], "uslup": None}
     karsilastirma = None          # KARSILASTIR_MODEL tanımlıysa doldurulur
 
     if args.mock:
@@ -2138,6 +2171,13 @@ def main():
         log(f"  · {n}")
     rapor["kaynak_notlari"] = kaynak_notlari
     rapor["kaynaksiz_dusen"] = dusen_haberler
+
+    rapor["uslup"] = uslup_ozeti(b.get("stories"))
+    if rapor["uslup"]:
+        u = rapor["uslup"]
+        log(f"Üslup: ortalama {u['ortalama']} kelime/cümle · medyan {u['medyan']} · "
+            f"{CUMLE_UST_SINIR} kelimeyi aşan {u['asan']} cümle (%{u['asan_yuzde']}) · "
+            f"en uzun {u['en_uzun']}")
 
     hatalar = dogrula_taslak(b, kapsam_bas, kapsam_bit)
     if hatalar:
@@ -2261,6 +2301,13 @@ def main():
                 f"{', '.join(sorted(YASAKLI_DOMAINLER)) or '(yok)'}\n\n"
                 f"Başarısız sorgular : {len(rapor['failed_queries'])}\n"
                 + "".join(f"  - {q}\n" for q in rapor["failed_queries"]) +
+                f"\nÜSLUP (cümle disiplini)\n"
+                + (f"  ortalama {rapor['uslup']['ortalama']} kelime/cümle · "
+                   f"medyan {rapor['uslup']['medyan']} · "
+                   f"en uzun {rapor['uslup']['en_uzun']} · "
+                   f"{CUMLE_UST_SINIR} kelimeyi aşan: {rapor['uslup']['asan']} cümle "
+                   f"(%{rapor['uslup']['asan_yuzde']})\n"
+                   if rapor.get("uslup") else "  (ölçülemedi)\n") +
                 f"\nTARİH DOĞRULAMA\n"
                 f"  Tarihi doğrulanamayan haber: "
                 f"{len(rapor.get('tarih_dogrulanamayan') or [])}\n"
