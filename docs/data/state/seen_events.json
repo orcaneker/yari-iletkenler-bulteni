@@ -1,5 +1,5 @@
 {
-  "issue_no": 1,
+  "issue_no": 2,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -40,6 +40,46 @@
     {
       "baslik_ozet": "İtalya ve ABD, yapay zeka tedarik zinciri girişimi Pax Silica'yı imzalayacak",
       "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "SpaceX ve Tesla, Teksas'ta 16,8 milyar dolarlık çip tesisine ortak yatırım yapıyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "ABD, polisilikon ürünlerine yüzde 15 gümrük vergisi ve taban fiyat uyguluyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "SK Hynix, 54 trilyon won (38,1 milyar dolar) ile iki yeni bellek fabrikası kuruyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "TSMC'nin 49 milyar dolarlık 1,4nm fabrikası takvimin önünde ilerliyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Samsung, zHBM ve zNAND-O konseptleriyle yapay zeka bellek yol haritasını açıkladı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "SK Group ve Nvidia, 500 milyar doları aşan yapay zeka altyapı ortaklığını genişletiyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "İndiyum fosfit kıtlığı yapay zeka optik bağlantılarında kritik darboğaz haline geldi",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Tayvan, yasa dışı personel transferi soruşturmasında 17 Çinli şirkete 330 ajanla baskın düzenledi",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Samsung ve SK Hynix, Çin'deki fabrikalarında AMEC'in çip ekipmanlarını test ediyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Güçlü talep nedeniyle TSMC’nin aylık 3 nm wafer üretimi 2026’nın 4. çeyreği başında 180 bine ulaşacak; beklentilerin 2-3 ay önünde",
+      "hafta": "2026-H32"
     }
   ],
   "urls": [
@@ -94,6 +134,60 @@
     "https://linde.com/news-and-media/2026/linde-to-invest-$1-billion-to-support-major-u,-d-,s,-d-,-semiconductor-facility-expansion",
     "https://aa.com.tr/tr/bilim-teknoloji/bayraktar-kizilelma-dahili-muhimmat-yuvasindan-ilk-atis-testlerini-tamamladi/4013757",
     "https://theregister.com/ai-and-ml/2026/07/28/china-fights-back-in-ai-spat-with-claim-us-ai-companies-distil-chinese-models/5279315",
-    "https://aa.com.tr/tr/ekonomi/cinin-teknolojideki-sertlesen-rekabetciligi-yuksek-degerleme-endiselerini-artiriyor/4013536"
+    "https://aa.com.tr/tr/ekonomi/cinin-teknolojideki-sertlesen-rekabetciligi-yuksek-degerleme-endiselerini-artiriyor/4013536",
+    "https://ekonomim.com/ekonomi/spacex-ve-tesladan-teksasa-168-milyar-dolarlik-cip-yatirimi-haberi-910703",
+    "https://bloomberght.com/elon-musk-tan-16-8-milyar-dolarlik-cip-uretim-tesisi-3784910",
+    "https://tomshardware.com/tech-industry/semiconductors/drone-flyover-reveals-rapid-progress-at-elon-musks-atcf-chip-fab-texas-site-prepares-for-all-in-one-logic-memory-and-packaging-facility",
+    "https://aa.com.tr/tr/bilim-teknoloji/guney-koreli-cip-ureticisi-bellek-cipi-uretim-tesisleri-kurmak-icin-38-milyar-dolar-yatirim-yapacak/4021082",
+    "https://eetimes.com/sk-hynix-nasdaq-debut-shows-global-memory-expansion-race",
+    "https://cnbc.com/2026/08/07/polysilicon-solar-tariffs-donald-trump-us-china-trade-war-energy-semiconductors.html",
+    "https://digitimes.com/news/a20260807VL200/polysilicon-price-donald-trump-security-solar.html",
+    "https://digitimes.com/news/a20260806VL211/polysilicon-solar-security-price-demand.html",
+    "https://digitimes.com/news/a20260807PD240/polysilicon-low-priced-solar-tariffs-usa.html",
+    "https://cnbc.com/2026/08/07/sk-hynix-memory-chips-ai-prices.html",
+    "https://news.bloomberglaw.com/international-trade/china-hits-back-at-us-with-tighter-drone-export-curbs-sanctions",
+    "https://asia.nikkei.com/politics/international-relations/us-china-tensions/china-hits-back-at-us-fcc-bans-with-sanctions-and-drone-curbs",
+    "https://electronicsweekly.com/news/business/tsmc-ahead-of-schedule-with-1-4nm-fab-2026-08",
+    "https://eetimes.com/samsung-lays-out-ai-memory-roadmap",
+    "https://digitimes.com/news/a20260805VL200/samsung-2026-nand-dram-3d.html",
+    "https://evertiq.com/design/2026-08-03-sk-group-nvidia-expand-partnership-across-ai-factories-memory",
+    "https://koreajoongangdaily.com/business/sk-hynix-board-approves-38b-investment-to-build-two-facilities-for-dram-and-nand-chips/12814527",
+    "https://trendforce.com/news/2026/08/07/news-memory-giants-race-ahead-sk-hynix-targets-2029-yongin-y2-cleanroom-samsung-advances-pyeongtaek-p5-p5-fab-2",
+    "https://trendforce.com/news/2026/08/06/news-nanya-unveils-up-to-us10-7b-fab-5a-investment-plan-through-2029-targets-10nm-class-dram-with-euv",
+    "https://mrj-laserclean.com/news/ai-computing-boom-creates-optical-interconnect-85605481.html",
+    "https://trendforce.com/news/2026/08/06/news-inp-shortage-emerges-as-ai-optical-interconnect-bottleneck",
+    "https://ekonomim.com/kuresel-ekonomi/abdden-yari-iletken-ve-gunes-paneli-sektorunu-etkileyecek-vergi-karari-haberi-910674",
+    "https://dunya.com/dunya/cip-yarisinda-yeni-perde-trumptan-yuzde-15-gumruk-vergisi-karari-haberi-835297",
+    "https://dunya.com/dunya/tayvandan-cinli-sirketlere-330-ajanla-baskin-haberi-835014",
+    "https://donanimhaber.com/samsung-ve-sk-hynix-cinli-cip-ekipmanlarini-test-ediyorlar--208945",
+    "https://trendforce.com/news/2026/08/05/news-u-s-export-curbs-backfire-samsung-sk-hynix-reportedly-mull-amecs-chipmaking-tools-as-china-fab-backup",
+    "https://odaily.news/en/newsflash/506031",
+    "https://trendforce.com/news/2026/08/03/news-tsmc-3nm-monthly-wafer-starts-to-hit-180k-by-early-4q26-on-strong-demand-2-3-months-ahead-of-expectations",
+    "https://cnbc.com/2026/08/06/us-china-trump-xi-summit-trade-technology-restrictions.html",
+    "https://english.news.cn/20260805/bd90467a4e5648f8b00cd6de0b2be45f/c.html",
+    "https://theregister.com/security/2026/08/07/china-launches-mysterious-probe-into-security-of-palo-alto-networks-products/5284453",
+    "https://cnbc.com/2026/08/03/eu-ai-act-enforcement-powers.html",
+    "https://semiengineering.com/chip-industry-week-in-review-150",
+    "https://usa-news.biz/2026/08/05/indiana/sk-hynix-to-launch-3-9-billion-chip-packaging-plant-in-indiana-this-august",
+    "https://eetimes.com/globalfoundries-growth-makes-the-case-for-a-u-s-photonics-buildout",
+    "https://evertiq.com/news/2026-08-04-linde-wins-semiconductor-supply-deal-to-invest-1-billion-in-us",
+    "https://evertiq.com/news/2026-08-04-asip-breaks-ground-on-260-million-osat-facility-in-india",
+    "https://evertiq.com/news/2026-08-06-air-liquide-invests-150m-in-idaho-semiconductor-gas-plant",
+    "https://3dincites.com/2026/08/brewer-science-acquisition",
+    "https://electronicsweekly.com/news/business/lumilens-raises-900m-2026-08",
+    "https://tomshardware.com/tech-industry/anthropic-to-build-its-own-co-designed-custom-ai-accelerator-for-inferencing-workloads-samsung-reported-to-be-partnering-with-the-claude-ai-maker-for-manufacturing",
+    "https://newsroom.amd.com/news/amd-acquires-taalas-ai-inference",
+    "https://theregister.com/ai-and-ml/2026/08/03/mediatek-lines-up-5b-war-chest-for-ai-datacenter-push/5282304",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/elon-musk-says-spacex-will-exclusively-use-nvidia-gpus-because-they-are-the-best-says-optimized-vera-rubin-nvl72-will-be-launched-into-space-next-year",
+    "https://bloomberght.com/anthropic-claude-icin-kendi-yapay-zeka-ciplerini-tasarlayacak-3784795",
+    "https://tomshardware.com/tech-industry/three-major-pc-makers-now-using-chinese-memory-to-fight-unprecedented-memory-shortage-report-claims-hp-asus-and-acer-using-small-amounts-of-cxmt-chips-in-limited-number-of-notebooks-for-non-us-market",
+    "https://tomshardware.com/pc-components/dram/chinas-cxmt-targets-30-percent-dram-memory-market-share-by-2030-with-sixth-mega-fab-future-plans-bottlenecked-by-access-to-advanced-chipmaking-tools",
+    "https://tomshardware.com/pc-components/ssds/sandisk-and-sk-hynix-unveil-hbf-spec-up-to-16-hi-nand-stacks-3-tb-s-bandwidth-ucie",
+    "https://tomshardware.com/pc-components/dram/samsung-debuts-three-next-generation-memory-technologies-for-ai-data-centers-zhbm-znand-o-and-bv-nand-all-rely-on-advanced-wafer-bonding-technologies",
+    "https://sammobile.com/news/samsung-foundrys-4nm-production-fully-booked-through-next-year",
+    "https://evertiq.com/design/2026-08-03-intel-partners-with-lens-to-boost-advanced-semiconductor-packaging",
+    "https://electronicsweekly.com/news/power-integrations-demonstrates-2200v-gan-technology-2026-08",
+    "https://evertiq.com/news/2026-08-05-ai-server-shipments-forecast-raised-to-31-yoy-in-2026",
+    "https://cnbc.com/2026/08/04/amd-earnings-report-q2-2026.html"
   ]
 }

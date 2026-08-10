@@ -4,85 +4,85 @@
   <link>https://yari-iletkenler-bulteni.site</link>
   <description>Haftalık yarı iletken sektörü ve sanayi politikası izleme bülteni</description>
   <language>tr</language>
-  <lastBuildDate>Fri, 07 Aug 2026 06:54:00 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 10 Aug 2026 06:59:34 +0000</lastBuildDate>
   <item>
-    <title>Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/cin-in-yerli-duv-litografi-makinesi-seri-uretime-gectigi-bildirildi</link>
-    <guid isPermaLink="false">cin-in-yerli-duv-litografi-makinesi-seri-uretime-gectigi-bildirildi</guid>
-    <pubDate>2026-07-28</pubDate>
+    <title>SpaceX ve Tesla, Teksas'ta 16,8 milyar dolarlık çip tesisine ortak yatırım yapıyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/spacex-ve-tesla-teksas-ta-16-8-milyar-dolarlik-cip-tesisine-ortak-yati</link>
+    <guid isPermaLink="false">spacex-ve-tesla-teksas-ta-16-8-milyar-dolarlik-cip-tesisine-ortak-yati</guid>
+    <pubDate>2026-08-07</pubDate>
+    <category>Yatırım &amp; Üretim</category>
+    <description>SpaceX ve Tesla, Teksas'ta kurulacak Terafab yarı iletken kompleksine 16,8 milyar dolar yatırım yapacaklarını duyurdu. Tesis, mantık, bellek ve paketleme işlevlerini tek çatı altında birleştiren entegre bir üretim tesisi olarak inşa ediliyor.</description>
+  </item>
+  <item>
+    <title>ABD, polisilikon ürünlerine yüzde 15 gümrük vergisi ve taban fiyat uyguluyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/abd-polisilikon-urunlerine-yuzde-15-gumruk-vergisi-ve-taban-fiyat-uygu</link>
+    <guid isPermaLink="false">abd-polisilikon-urunlerine-yuzde-15-gumruk-vergisi-ve-taban-fiyat-uygu</guid>
+    <pubDate>2026-08-07</pubDate>
+    <category>Politika &amp; Jeopolitik</category>
+    <description>ABD Başkanı Donald Trump, yarı iletken ve güneş paneli üretiminde kritik hammadde olan polisilikondan yapılan ithal ürünlere yüzde 15 gümrük vergisi ve bazı ürünler için taban fiyat uygulamasını yürürlüğe koydu. Karar sonrası First Solar hisseleri yüzde 6, SolarEdge yüzde 1 yükseldi.</description>
+  </item>
+  <item>
+    <title>SK Hynix, 54 trilyon won (38,1 milyar dolar) ile iki yeni bellek fabrikası kuruyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/sk-hynix-54-trilyon-won-38-1-milyar-dolar-ile-iki-yeni-bellek-fabrikas</link>
+    <guid isPermaLink="false">sk-hynix-54-trilyon-won-38-1-milyar-dolar-ile-iki-yeni-bellek-fabrikas</guid>
+    <pubDate>2026-08-07</pubDate>
+    <category>Yatırım &amp; Üretim</category>
+    <description>SK Hynix, Yongin'de DRAM üretecek "Y2" ve Cheongju'da NAND üretecek "M17" fabrikaları için toplam 54 trilyon won (38,1 milyar dolar) yatırım yapacağını duyurdu. Y2'nin ilk temiz odası Haziran 2029'da, M17'ninki ise Aralık 2028'de açılacak.</description>
+  </item>
+  <item>
+    <title>TSMC'nin 49 milyar dolarlık 1,4nm fabrikası takvimin önünde ilerliyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/tsmc-nin-49-milyar-dolarlik-1-4nm-fabrikasi-takvimin-onunde-ilerliyor</link>
+    <guid isPermaLink="false">tsmc-nin-49-milyar-dolarlik-1-4nm-fabrikasi-takvimin-onunde-ilerliyor</guid>
+    <pubDate>2026-08-03</pubDate>
+    <category>Süreç Teknolojisi</category>
+    <description>TSMC'nin Taichung'daki Merkez Tayvan Bilim Parkı'nda inşa ettiği 49 milyar dolarlık 1,4nm fabrikası planlanandan önde gidiyor. İlk silikonun Nisan 2027'de çalışması, seri üretimin ise 2028 ortasına kadar başlaması bekleniyor.</description>
+  </item>
+  <item>
+    <title>Samsung, zHBM ve zNAND-O konseptleriyle yapay zeka bellek yol haritasını açıkladı</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/samsung-zhbm-ve-znand-o-konseptleriyle-yapay-zeka-bellek-yol-haritasin</link>
+    <guid isPermaLink="false">samsung-zhbm-ve-znand-o-konseptleriyle-yapay-zeka-bellek-yol-haritasin</guid>
+    <pubDate>2026-08-05</pubDate>
+    <category>Bellek &amp; Depolama</category>
+    <description>Samsung, FMS 2026 konferansında mantık çipini doğrudan HBM yığınının üzerine yerleştiren zHBM konseptini ve kenar yapay zeka için zNAND-O adlı yeni NAND teknolojisini tanıttı. Şirket, 2030 yılına kadar kullanıcı başına 1.000 token/saniye hedeflendiğini belirtti.</description>
+  </item>
+  <item>
+    <title>SK Group ve Nvidia, 500 milyar doları aşan yapay zeka altyapı ortaklığını genişletiyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/sk-group-ve-nvidia-500-milyar-dolari-asan-yapay-zeka-altyapi-ortakligi</link>
+    <guid isPermaLink="false">sk-group-ve-nvidia-500-milyar-dolari-asan-yapay-zeka-altyapi-ortakligi</guid>
+    <pubDate>2026-08-03</pubDate>
+    <category>AI Çipleri &amp; Veri Merkezi</category>
+    <description>SK Group ve Nvidia, yapay zeka fabrikaları inşasından bellek tedarikine uzanan 500 milyar doların üzerinde kapsamlı bir ortaklık için mutabakat mektubu imzaladı. SK Telecom, Nvidia DSX platformuyla Kore'de 2 gigawatt ölçekli bir AI Bulutu kuracak; ilk yapay zeka fabrikası 2027'de devreye girecek.</description>
+  </item>
+  <item>
+    <title>İndiyum fosfit kıtlığı yapay zeka optik bağlantılarında kritik darboğaz haline geldi</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/indiyum-fosfit-kitligi-yapay-zeka-optik-baglantilarinda-kritik-darboga</link>
+    <guid isPermaLink="false">indiyum-fosfit-kitligi-yapay-zeka-optik-baglantilarinda-kritik-darboga</guid>
+    <pubDate>2026-08-04</pubDate>
     <category>Ekipman &amp; Malzeme</category>
-    <description>The Information'ın haberine göre adı açıklanmayan bir Çinli şirket, daldırmalı derin ultraviyole (DUV) litografi makinesi üretimine başladı. Cihazların bu yıl SMIC ve halka yeni açılan CXMT gibi Çin'in en büyük çip üreticilerine teslim edilmesi bekleniyor.</description>
+    <description>Bildirildiğine göre, optik şirketi Lumentum, indiyum fosfit (InP) lazer kıtlığının bellek çiplerindeki daralmadan bile daha ciddi olduğunu, sevkiyatların müşteri talebinin yüzde 30'undan fazla altında kaldığını ve açığın giderek büyüdüğünü bildirdi. Çin, küresel birincil indiyum üretiminin yaklaşık yüzde 70'ini elinde bulunduruyor.</description>
   </item>
   <item>
-    <title>Tayvan, Nvidia-Super Micro çip kaçakçılığı soruşturmasında çalışan gözaltına aldı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/tayvan-nvidia-super-micro-cip-kacakciligi-sorusturmasinda-calisan-goza</link>
-    <guid isPermaLink="false">tayvan-nvidia-super-micro-cip-kacakciligi-sorusturmasinda-calisan-goza</guid>
-    <pubDate>2026-07-28</pubDate>
+    <title>Tayvan, yasa dışı personel transferi soruşturmasında 17 Çinli şirkete 330 ajanla baskın düzenledi</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/tayvan-yasa-disi-personel-transferi-sorusturmasinda-17-cinli-sirkete-3</link>
+    <guid isPermaLink="false">tayvan-yasa-disi-personel-transferi-sorusturmasinda-17-cinli-sirkete-3</guid>
+    <pubDate>2026-08-05</pubDate>
     <category>Politika &amp; Jeopolitik</category>
-    <description>Tayvan savcılığı, ABD'nin ihracat kontrollerini ihlal ederek Nvidia'nın gelişmiş çiplerini içeren Super Micro sunucularının Çin'e kaçırıldığı iddiasıyla bir Nvidia çalışanını gözaltına aldı. Soruşturma kapsamında toplam yedi kişi tutuklu bulunuyor.</description>
+    <description>Tayvan Adalet Bakanlığı Soruşturma Bürosu, 13 Temmuz-4 Ağustos tarihleri arasında 17 Çinli şirkete yönelik operasyonda 330 ajan görevlendirdi; 64 adreste arama yapıldı, 114 kişi ifade verdi. Soruşturma, Çinli şirketlerin yarı iletken alanında yasa dışı personel temini yaptığı iddiasına dayanıyor.</description>
   </item>
   <item>
-    <title>ABD, Çin yapımı insansı robot ve güç invertörü ithalatını yasakladı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/abd-cin-yapimi-insansi-robot-ve-guc-invertoru-ithalatini-yasakladi</link>
-    <guid isPermaLink="false">abd-cin-yapimi-insansi-robot-ve-guc-invertoru-ithalatini-yasakladi</guid>
-    <pubDate>2026-07-29</pubDate>
-    <category>Politika &amp; Jeopolitik</category>
-    <description>ABD hükümeti, Ulusal Güvenlik Kararı ve FCC'nin Kapsam Listesi güncellemesiyle yabancı üretimi ileri robotik cihazların ve bağlantılı güç invertörlerinin ithalatını etkin biçimde yasakladı. Kararda Çinli Unitree'nin robotlarındaki UniPwn güvenlik açıkları örnek gösterildi.</description>
+    <title>Samsung ve SK Hynix, Çin'deki fabrikalarında AMEC'in çip ekipmanlarını test ediyor</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/samsung-ve-sk-hynix-cin-deki-fabrikalarinda-amec-in-cip-ekipmanlarini-</link>
+    <guid isPermaLink="false">samsung-ve-sk-hynix-cin-deki-fabrikalarinda-amec-in-cip-ekipmanlarini-</guid>
+    <pubDate>2026-08-05</pubDate>
+    <category>Ekipman &amp; Malzeme</category>
+    <description>Reuters'a yakın kaynaklara göre Samsung ve SK Hynix, Çin'deki tesislerinde Çinli ekipman üreticisi AMEC'in aşındırma sistemlerini test ediyor; testlerin yaklaşık iki yıl önce başladığı, henüz geniş çaplı kullanım kararı alınmadığı bildirildi. Deutsche Bank'a göre Naura, AMEC, Piotech ve ACM Research'ün her biri 2026'da 1 milyar doların üzerinde gelir elde edecek.</description>
   </item>
   <item>
-    <title>Apple, Çinli CXMT'den DRAM alımı için Beyaz Saray'dan onay istediği bildirildi</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/apple-cinli-cxmt-den-dram-alimi-icin-beyaz-saray-dan-onay-istedigi-bil</link>
-    <guid isPermaLink="false">apple-cinli-cxmt-den-dram-alimi-icin-beyaz-saray-dan-onay-istedigi-bil</guid>
-    <pubDate>2026-07-27</pubDate>
-    <category>Politika &amp; Jeopolitik</category>
-    <description>Bildirildiğine göre Apple, ağır bellek darboğazını hafifletmek için Çinli üreticiler CXMT ve YMTC'den DRAM satın almasına izin verilmesi talebini Beyaz Saray'a taşıdı. Micron ise bu planın ABD bellek üretimini zayıflatacağı gerekçesiyle karşı çıkıyor.</description>
-  </item>
-  <item>
-    <title>Nvidia, OpenAI'nin 10 gigawatlık Ohio veri merkezi için 250 milyar dolarlık destek görüşüyor</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/nvidia-openai-nin-10-gigawatlik-ohio-veri-merkezi-icin-250-milyar-dola</link>
-    <guid isPermaLink="false">nvidia-openai-nin-10-gigawatlik-ohio-veri-merkezi-icin-250-milyar-dola</guid>
-    <pubDate>2026-07-27</pubDate>
-    <category>Yatırım &amp; Üretim</category>
-    <description>OpenAI, Ohio'daki Pike County'de kuracağı 10 gigawatlık veri merkezi kampüsünü finanse etmek için Nvidia ile 250 milyar dolara varan bir kredi teminatı görüşüyor. Kampüsün toplam maliyetinin 500 milyar doları aşabileceği belirtiliyor.</description>
-  </item>
-  <item>
-    <title>Samsung ile Broadcom 200 milyar dolarlık çip anlaşması imzaladı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/samsung-ile-broadcom-200-milyar-dolarlik-cip-anlasmasi-imzaladi</link>
-    <guid isPermaLink="false">samsung-ile-broadcom-200-milyar-dolarlik-cip-anlasmasi-imzaladi</guid>
-    <pubDate>2026-07-26</pubDate>
-    <category>Yatırım &amp; Üretim</category>
-    <description>Samsung'un yarı iletken kolu, Broadcom ile 2030 yılına kadar geçerli 200 milyar dolarlık bir stratejik iş birliği anlaşması imzaladı. Anlaşma; 2 nm üretim, yüksek bant genişlikli bellek (HBM) ve gelişmiş paketleme teknolojilerini kapsıyor.</description>
-  </item>
-  <item>
-    <title>AB, 7 yapay zeka giga fabrikası için ihale sürecini başlattı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/ab-7-yapay-zeka-giga-fabrikasi-icin-ihale-surecini-baslatti</link>
-    <guid isPermaLink="false">ab-7-yapay-zeka-giga-fabrikasi-icin-ihale-surecini-baslatti</guid>
-    <pubDate>2026-07-30</pubDate>
-    <category>Yatırım &amp; Üretim</category>
-    <description>Avrupa Birliği, ABD ve Çin'e teknoloji bağımlılığını azaltmak amacıyla Avrupa genelinde 7'ye kadar yapay zeka giga fabrikası kurulması için ihale başlattı. Projelere AB ve ulusal kaynaklardan 10 milyar Euro'ya kadar finansman sağlanacak.</description>
-  </item>
-  <item>
-    <title>ABD Ticaret Bakanlığı, hesaplama tedarik zinciri için 874 milyon dolarlık CHIPS niyet mektubu imzaladı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/abd-ticaret-bakanligi-hesaplama-tedarik-zinciri-icin-874-milyon-dolarl</link>
-    <guid isPermaLink="false">abd-ticaret-bakanligi-hesaplama-tedarik-zinciri-icin-874-milyon-dolarl</guid>
-    <pubDate>2026-07-29</pubDate>
-    <category>Yatırım &amp; Üretim</category>
-    <description>ABD Ticaret Bakanlığı, 7 şirketle entegre fotonik, hesaplama mimarileri, gelişmiş paketleme, alt tabakalar, malzeme ve bellek alanlarında Ar-Ge için 874 milyon dolarlık niyet mektubu imzaladı. GlobalFoundries en büyük payı, 300 milyon dolarla aldı.</description>
-  </item>
-  <item>
-    <title>GlobalFoundries, silikon fotonik için 300 milyon dolarlık CHIPS ödülü ve devlet ortaklığı aldı</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/globalfoundries-silikon-fotonik-icin-300-milyon-dolarlik-chips-odulu-v</link>
-    <guid isPermaLink="false">globalfoundries-silikon-fotonik-icin-300-milyon-dolarlik-chips-odulu-v</guid>
-    <pubDate>2026-07-29</pubDate>
-    <category>Yatırım &amp; Üretim</category>
-    <description>GlobalFoundries, ABD Ticaret Bakanlığı'ndan silikon fotonik Ar-Ge'si için 300 milyon dolarlık niyet mektubu aldı; karşılığında hükümete yaklaşık yüzde 1 hisse devretti. Yatırım, Malta (New York) ve Burlington (Vermont) tesislerindeki mevcut yetkinlikleri kullanacak.</description>
-  </item>
-  <item>
-    <title>İtalya ve ABD, yapay zeka tedarik zinciri girişimi Pax Silica'yı imzalayacak</title>
-    <link>https://yari-iletkenler-bulteni.site/#/haber/italya-ve-abd-yapay-zeka-tedarik-zinciri-girisimi-pax-silica-yi-imzala</link>
-    <guid isPermaLink="false">italya-ve-abd-yapay-zeka-tedarik-zinciri-girisimi-pax-silica-yi-imzala</guid>
-    <pubDate>2026-07-30</pubDate>
-    <category>Politika &amp; Jeopolitik</category>
-    <description>İtalya ve ABD, yarı iletkenler ve kritik minerallerden ileri üretime kadar uzanan Pax Silica yapay zeka tedarik zinciri girişimi kapsamında iş birliği anlaşmasını Brindisi'de imzalayacağı bildirildi. Anlaşma, Meloni-Trump arasındaki gerginliğin ardından geldi.</description>
+    <title>Güçlü talep nedeniyle TSMC’nin aylık 3 nm wafer üretimi 2026’nın 4. çeyreği başında 180 bine ulaşacak; beklentilerin 2-3 ay önünde</title>
+    <link>https://yari-iletkenler-bulteni.site/#/haber/tsmc-nin-3nm-uretimi-c4-2026-da-aylik-180-bin-wafer-a-takvimin-onunde-</link>
+    <guid isPermaLink="false">tsmc-nin-3nm-uretimi-c4-2026-da-aylik-180-bin-wafer-a-takvimin-onunde-</guid>
+    <pubDate>2026-08-03</pubDate>
+    <category>Süreç Teknolojisi</category>
+    <description>Nvidia, AMD ve Broadcom gibi büyük müşterilerin kapasite talebiyle TSMC'nin 3nm süreci, yıl sonu hedefinden 2-3 ay önce, Ç4 2026 başında aylık 180.000 wafer üretim hedefine ulaşacak. 2nm süreci için de yıl sonuna kadar aylık üretim yaklaşık 100.000 wafer'a yaklaşması bekleniyor.</description>
   </item>
 </channel></rss>

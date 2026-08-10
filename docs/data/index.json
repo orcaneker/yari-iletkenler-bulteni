@@ -1,5 +1,16 @@
 [
   {
+    "number": 2,
+    "hafta": "2026-H32",
+    "publication_date": "2026-08-10",
+    "coverage_start": "2026-08-02",
+    "coverage_end": "2026-08-09",
+    "lead_title": "SpaceX ve Tesla, Teksas'ta 16,8 milyar dolarlık çip tesisine ortak yatırım yapıyor",
+    "story_count": 9,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H32.json"
+  },
+  {
     "number": 1,
     "hafta": "2026-H31",
     "publication_date": "2026-08-02",

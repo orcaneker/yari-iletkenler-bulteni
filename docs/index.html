@@ -626,6 +626,7 @@ function modalGoster(slug){
     ["Şirketler",(s.companies||[]).join(", ")||null],
     ["Ülkeler",(s.countries||[]).join(", ")||null],
     ["Teknoloji",(s.technologies||[]).join(", ")||null],
+    ["Olay tarihi",s.event_date?trTarih(s.event_date):null],
   ].filter(([,v])=>v);
   const destek=(s.supporting_sources||[]).map(k=>
     `<a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.name)}</a>`).join(" · ");
