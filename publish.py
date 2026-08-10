@@ -27,7 +27,7 @@ from datetime import datetime, timezone
 import requests
 
 from config import AYARLAR, KATEGORILER
-from pipeline import url_normalize, iso_hafta, log, LOG
+from pipeline import url_normalize, iso_hafta, log, LOG, benzerlik
 
 OUT = AYARLAR["cikti_dizini"]
 SITE_URL = AYARLAR["site_url"].rstrip("/")
@@ -47,6 +47,26 @@ RAPOR_ALICI = os.environ.get("RAPOR_ALICI", "")
 # ============================================================
 # NİHAİ BÜLTEN KURULUMU — taslak + hakem kararları → yayın JSON'u
 # ============================================================
+BRIEF_ESLESME_ESIGI = 0.20      # bunun altında bağlama YAPILMAZ
+
+
+def _brief_esle(metin, secili):
+    """Brief maddesini metin benzerliğiyle bir habere bağla.
+
+    Yalnızca eşleşme AÇIK ARA öndeyse bağlar: ikinci aday yakınsa karar
+    vermez ve None döner. Yanlış bağlantı, bağlantısızlıktan kötüdür —
+    okuyucu tıklayıp alakasız bir habere düşmemeli."""
+    puanlar = sorted(
+        ((benzerlik(metin, f"{s.get('title', '')} "
+                          f"{' '.join(s.get('companies') or [])}")[0], s.get("slug"))
+         for s in secili), reverse=True)
+    if not puanlar or puanlar[0][0] < BRIEF_ESLESME_ESIGI:
+        return None
+    if len(puanlar) > 1 and puanlar[1][0] > puanlar[0][0] * 0.75:
+        return None
+    return puanlar[0][1]
+
+
 def nihai_kur(taslak):
     """secim=one_cikan haberlerden nihai bülteni kur.
     Metrikler burada, NİHAİ seçim üzerinden deterministik hesaplanır."""
@@ -62,9 +82,28 @@ def nihai_kur(taslak):
         s.pop("gorsel_adaylari", None)
 
     # brief ref (story id) → slug; çıkarılan habere işaret ediyorsa null
+    #
+    # ⚠ Model "ref" alanını sık sık boş bırakıyor. O zaman brief maddesi,
+    # bültende KARŞILIĞI OLDUĞU HÂLDE tıklanamıyordu. Gerçek vaka (biyoekonomi
+    # Sayı 2): "Casella ve Waga Energy" maddesi ile aynı adlı haber yayında
+    # yan yana duruyordu ama maddeye tıklanınca hiçbir yere gidilmiyordu.
+    # Çözüm: ref boşsa maddeyi metin benzerliğiyle habere bağla.
     id2slug = {s.get("id"): s.get("slug") for s in secili}
-    brief = [{"text": m.get("text", ""), "slug": id2slug.get(m.get("ref"))}
-             for m in (taslak.get("brief") or [])]
+    brief, eslenen = [], 0
+    for m in (taslak.get("brief") or []):
+        metin = m.get("text", "")
+        slug = id2slug.get(m.get("ref"))
+        if not slug:
+            slug = _brief_esle(metin, secili)
+            if slug:
+                eslenen += 1
+        brief.append({"text": metin, "slug": slug})
+    if eslenen:
+        log(f"Brief: {eslenen} madde metin benzerliğiyle habere bağlandı")
+    bagsiz = sum(1 for m in brief if not m["slug"])
+    if bagsiz:
+        log(f"⚠ Brief: {bagsiz} madde hiçbir habere bağlanamadı — "
+            f"bültende karşılığı olmayabilir")
 
     # --- metrikler ---
     # ⚠ Yarı iletkende kapasite birimleri heterojendir (wafer/ay, çip/yıl,

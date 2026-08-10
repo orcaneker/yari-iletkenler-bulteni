@@ -172,7 +172,12 @@ GORSEL_RED_KESIN = (
 # bunu paylaşım ikonu sanıp eledi ve haberler görselsiz yayınlandı.
 # Kısa "social.png" / "share-thumb.png" ise gerçekten ikondur.
 GORSEL_JENERIK = ("social", "share", "thumb", "avatar")
-GORSEL_JENERIK_AZAMI_AD = 24
+# Jenerik sözcük dosya adına HÂKİM mi? Ham uzunluk eşiği kırılgandı:
+# "ferments-du-futur-social" tam 24 karakter olduğu için gerçek bir makale
+# görseli elenebiliyordu. Artık jenerik sözcükleri düşüp KALAN harflere
+# bakıyoruz — "social" tek başınaysa hiçbir şey kalmaz (ikon), makale
+# slug'ı varsa çok şey kalır (gerçek görsel).
+GORSEL_JENERIK_ASGARI_KALAN = 6
 _BOYUT_EKI = re.compile(r"[-_]\d{2,4}x\d{2,4}$")
 _UZANTI = re.compile(r"\.(jpe?g|png|webp|gif|avif|bmp)$")
 
@@ -189,8 +194,21 @@ def gorsel_gecerli(u):
     if any(x in ul for x in GORSEL_RED_KESIN):
         return False
     ad = _BOYUT_EKI.sub("", _UZANTI.sub("", ul.rsplit("/", 1)[-1]))
-    if len(ad) <= GORSEL_JENERIK_AZAMI_AD and any(x in ad for x in GORSEL_JENERIK):
+    # ⚠ Kurumsal logolar her zaman "-logo"/"_logo" biçiminde adlandırılmıyor;
+    # camelCase de yaygın. Gerçek vaka (biyoekonomi Sayı 2): Biomass
+    # Magazine'in Montana Renewables haberinin og:image'ı
+    # "MontanaRenewablesLogo_1683754971.jpg" idi — 665x665 kare bir logo.
+    # Kesin liste ("-logo", "_logo", "logo.") bunu yakalamıyordu.
+    # Yayında kullanılan 38 görselin hiçbirinin adında "logo" geçmiyor,
+    # yani koşulsuz eleme gerçek fotoğrafları etkilemiyor.
+    if "logo" in ad:
         return False
+    if any(x in ad for x in GORSEL_JENERIK):
+        kalan = ad
+        for t in GORSEL_JENERIK:
+            kalan = kalan.replace(t, "")
+        if len(re.sub(r"[^a-z0-9çğıöşü]", "", kalan)) < GORSEL_JENERIK_ASGARI_KALAN:
+            return False
     return True
 
 
