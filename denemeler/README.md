@@ -44,3 +44,27 @@ Model denemek için (Exa araması ve triyaj tekrar çalışmaz):
 ```bash
 python yeniden_yaz.py --girdi kiyas/taslak.json --model openai:gpt-5.6-terra --effort high --cikti kiyas/deneme
 ```
+
+## Birim testleri
+
+`*_birim_testi.py` betikleri **ağ, API anahtarı ve ücret gerektirmez** — ağ
+çağrıları taklit edilir. İddia üretir ve çıkış kodu dönerler, dolayısıyla
+her kod değişikliğinden sonra saniyeler içinde koşulabilirler.
+
+Hepsini birden koşturmak için:
+
+    cd denemeler/araclar
+    python birim_testleri.py
+
+| betik | neyi doğrular | iddia |
+|---|---|---|
+| `birlestirme_birim_testi.py` | üç katmanlı mükerrer birleştirmenin karar mantığı; sayı parmak izi, ortak sinyal emniyeti, grup boyutu sınırı | 38 |
+| `govde_metni_birim_testi.py` | `_govde_metni()` çıkarımı; script/menü/footer sızdırmıyor, zengin metni bozmuyor | 16 |
+| `tarih_okuma_birim_testi.py` | `_tarih_ayikla()` katman sırası; görünür tarih okunuyor, "ilgili haberler" tarihine atlanmıyor | 11 |
+| `gorsel_denetim_birim_testi.py` | `gorsel_erisilebilir()`; hotlink engelli görsel elenip sıradaki adaya düşülüyor | 10 |
+| `kaynak_sabitleme_birim_testi.py` | `kaynaklari_sabitle()`; yanlış URL düzeltiliyor, kaynaksız haber yayına girmiyor | 6 |
+| `tarih_raporu_birim_testi.py` | tarihi doğrulanamayan haber sayacı; elenmiyor ama raporda görünüyor | 6 |
+
+Ayrım: birim eki olmayan `*_testi.py` betikleri CANLI testtir — gerçek veri
+ve gerçek LLM/ağ çağrısı kullanır, ücretlidir, sonucunu insan okur.
+`birim_testleri.py` onları bilerek çalıştırmaz.
