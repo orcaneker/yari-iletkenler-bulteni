@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
-"""TÜM BİRİM TESTLERİNİ KOŞTUR — ağ yok, API anahtarı yok, ücret yok.
+"""TÜM ÇEVRİMDIŞI TESTLERİ KOŞTUR — ağ yok, API anahtarı yok, ücret yok.
 
-Bu klasördeki *_birim_testi.py betiklerinin tamamını ayrı süreçlerde
-çalıştırır ve özet döner. Çıkış kodu: hepsi geçtiyse 0, biri bile
-kaldıysa 1 — böylece bir kancaya ya da yayın öncesi denetime bağlanabilir.
+Bu klasördeki *_testi.py betiklerinin tamamını ayrı süreçlerde çalıştırır
+ve özet döner. Çıkış kodu: hepsi geçtiyse 0, biri bile kaldıysa 1 — böylece
+bir kancaya ya da yayın öncesi denetime bağlanabilir.
 
-⚠ Canlı testler (birlestirme_testi.py, olu_baglanti_testi.py gibi gerçek
-LLM/ağ çağrısı yapanlar) BİLEREK dışarıda: onlar ücretli ve yavaş, bunlar
-her değişiklikten sonra saniyeler içinde koşulmalı.
+⚠ CANLI testler açık listeyle dışarıda tutulur (aşağıdaki CANLI kümesi).
+Adlandırmaya güvenilmez: `olu_baglanti_testi.py`, `supheli_testi.py` ve
+`yazim_denetimi_testi.py` "birim" eki taşımadıkları hâlde ÇEVRİMDIŞIDIR —
+sahte yanıt nesneleri kullanır, iddia üretir, çıkış kodu döner. Bir dönem
+bu betikler yalnızca ada bakıldığı için koşulmuyordu. Yeni bir test
+eklerken: gerçek ağ/LLM çağrısı yapıyorsa CANLI'ya ekle, yapmıyorsa
+hiçbir şey yapma — kendiliğinden koşulur.
 
 Kullanım (bu dizinden):  python birim_testleri.py
 """
@@ -17,13 +21,19 @@ import subprocess
 import sys
 
 ARACLAR = os.path.dirname(os.path.abspath(__file__))
-DESEN = os.path.join(ARACLAR, "*_birim_testi.py")
+DESEN = os.path.join(ARACLAR, "*_testi.py")
+
+# Gerçek LLM / ağ çağrısı yapanlar — ücretli ve yavaş, elle koşulur.
+CANLI = {
+    "birlestirme_testi.py",      # gerçek sayı verisiyle gerçek LLM çağrısı
+}
 
 
 def main():
-    betikler = sorted(glob.glob(DESEN))
+    betikler = sorted(y for y in glob.glob(DESEN)
+                      if os.path.basename(y) not in CANLI)
     if not betikler:
-        sys.exit("Birim testi bulunamadı.")
+        sys.exit("Çevrimdışı test bulunamadı.")
 
     ortam = dict(os.environ, PYTHONIOENCODING="utf-8")
     sonuclar, cikti = [], {}
@@ -56,7 +66,7 @@ def main():
             print()
         sys.exit(1)
 
-    print(f"{len(sonuclar)} birim testi de geçti.")
+    print(f"{len(sonuclar)} çevrimdışı test de geçti.")
 
 
 if __name__ == "__main__":
