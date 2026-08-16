@@ -505,7 +505,9 @@ def tara(pencere_gun):
                 if not url or url in gorulmus:
                     continue
                 gorulmus.add(url)
-                tam = temizle(r.get("text") or "")
+                # "Related Stories" / "Latest News" bloğunu at — yoksa
+                # başka haberlerin özetleri bu adayın metni sanılıyor.
+                tam = kaynak_metni_kirp(temizle(r.get("text") or ""))
                 one = " … ".join(r.get("highlights") or [])
                 adaylar.append({
                     "id": f"c{len(adaylar):04d}",
@@ -518,6 +520,9 @@ def tara(pencere_gun):
                     "image": gorsel_sec(r),
                     "snippet": (temizle(one) or tam)[:AYARLAR["exa_triyaj_karakter"]],
                     "text": tam[:AYARLAR["exa_metin_karakter"]],
+                    # ⚠ paywall denetimi KIRPILMIŞ metne bakar: "Related
+                    # Stories" bloğu 4.000 karakteri doldurup içi boş bir
+                    # sayfayı "dolu" gösteriyordu.
                     "paywall": odeme_duvarli(domain_of(url), tam),
                     "sorgu_id": s["id"],
                     "kategori_ipucu": s["kategori"],
@@ -739,10 +744,23 @@ def _olay_sirketler(o):
 
 
 def _kesin_ayni(a, b):
-    """LLM'e sormaya gerek olmayan durumlar."""
-    ids_a = set([a.get("primary_id")] + list(a.get("supporting_ids") or [])) - {None}
-    ids_b = set([b.get("primary_id")] + list(b.get("supporting_ids") or [])) - {None}
-    return bool(ids_a & ids_b)
+    """LLM'e sormaya gerek olmayan TEK durum: aynı BİRİNCİL kaynak.
+
+    ⚠ Eskiden HERHANGİ bir aday id'sinin örtüşmesi yeterliydi ve bu, hiçbir
+    benzerlik denetimi olmadan olayları zincirliyordu. Gerçek vaka
+    (biyoekonomi, Sayı 3): biomassmagazine.com'un "Related Stories" bloğu
+    yüzünden triyaj dört ayrı SAF haberine aynı aday id'lerini paylaştırdı;
+    bu fonksiyon Montana Renewables ve Gevo olaylarını American Airlines
+    eSAF haberine kattı. Üç alakasız haber tek habere çöktü ve okuyucuya
+    üç yanlış "destek kaynağı" gösterildi.
+
+    Bir makale iki olayın BİRİNCİL kaynağı olamaz — o örtüşme kesindir.
+    Yalnızca DESTEK listelerinin kesişmesi zayıf sinyaldir; karar küresel
+    kümeleme adımına bırakılır, orada hem LLM hakemi hem _ortak_sinyal
+    emniyeti devrededir.
+    """
+    pa, pb = a.get("primary_id"), b.get("primary_id")
+    return bool(pa) and pa == pb
 
 
 def _ayirt_edici_sayilar(o):
@@ -1617,6 +1635,57 @@ _IC_ETIKET = re.compile(r"<[^>]+>")
 PARAGRAF_ASGARI = 40          # bundan kısa <p> genelde altyazı/menü
 
 
+# ⚠ "İLGİLİ HABERLER" BLOĞU — SESSİZ ZEHİRLENME
+# JavaScript ile kurulan haber siteleri sunucudan yalnızca kabuk HTML
+# döndürüyor: makale gövdesi YOK, ama sayfanın "Related Stories" / "Latest
+# News" listesi VAR. Hem Exa hem bizim çıkarıcımız o listeyi makale metni
+# sanıp alıyor. Sonuç, metnin BAŞKA haberlerin özetlerinden oluşması.
+#
+# Gerçek vaka (biyoekonomi, Sayı 3 — biomassmagazine.com):
+# American Airlines/Infinium eSAF haberinin metni 4.000 karakterdi ama
+# içinde "Infinium" kelimesi yalnızca başlıkta geçiyordu; gövde tamamen
+# "Related Stories" bloğuydu (Montana Renewables, Gevo, XCF, Clean Energy).
+# Üç sonucu birden oldu:
+#   1) Triyaj bu özetleri okuyup dört ayrı haberi AYNI olay sandı ve aynı
+#      aday id'lerini paylaştırdı → olaylar birleşti, haberin altına üç
+#      ALAKASIZ destek kaynağı iliştirildi.
+#   2) Yazım modeline eSAF hakkında hiçbir bilgi gitmedi → 407 karakterlik
+#      içi boş haber çıktı (hedef 1.800-3.000).
+#   3) Varlık denetimi "şirket eşleşmiyor" uyarısı verdi ama haber yine geçti.
+#
+# Çözüm: metni bu blokların başladığı yerden KES. Kalan gövde ince kalırsa
+# aday zaten "duvarlı/ince" sayılıp radara düşer — içi boş haber yazılmaz.
+ILGISIZ_BLOK_IZLERI = (
+    "related stories", "related articles", "related posts", "latest news",
+    "most read", "most popular", "you may also like", "recommended for you",
+    "more from this", "trending now", "upcoming events", "sponsored content",
+    "editor's picks", "ilgili haberler", "en çok okunan", "bunlar da ilginizi",
+)
+# İşaret metnin çok başındaysa gövde hiç yok demektir; yine de kesilir ama
+# bu eşiğin altında kalan metin kullanılamaz sayılır.
+ILGISIZ_KESIM_ASGARI = 120
+
+
+def kaynak_metni_kirp(metin):
+    """Makale gövdesinin bittiği yerden sonrasını at.
+
+    "Related Stories" gibi bir başlık gördüğü ilk yerde keser. Bulamazsa
+    metne DOKUNMAZ — normal makalelerde davranış değişmez.
+    """
+    if not metin:
+        return metin
+    # ⚠ "İ".lower() Python'da İKİ karakter üretir (i + birleşen nokta) ve
+    # hem eşleşmeyi hem karakter konumlarını bozar. Küçültmeden önce
+    # noktalı büyük harfleri birebir karşılıklarıyla değiştiriyoruz —
+    # uzunluk korunur, dolayısıyla bulunan konum ham metinde de geçerlidir.
+    kucuk = metin.replace("İ", "i").replace("I", "i").lower()
+    yerler = [kucuk.find(iz) for iz in ILGISIZ_BLOK_IZLERI]
+    yerler = [y for y in yerler if y >= 0]
+    if not yerler:
+        return metin
+    return metin[:min(yerler)].rstrip()
+
+
 def _govde_metni(html):
     """HTML'den makale gövdesini çıkar. Bağımlılık yok — <p> temelli."""
     if not html:
@@ -1630,7 +1699,9 @@ def _govde_metni(html):
         t = re.sub(r"\s+", " ", t).strip()
         if len(t) >= PARAGRAF_ASGARI:
             paragraflar.append(t)
-    return "\n\n".join(paragraflar)[:AYARLAR["exa_metin_karakter"]]
+    # Sayfadan çıkarılan gövde de "Related Stories" bloğunu içerebilir.
+    return kaynak_metni_kirp(
+        "\n\n".join(paragraflar))[:AYARLAR["exa_metin_karakter"]]
 
 
 # ⚠ ÖLÜ KAYNAK BAĞLANTISI

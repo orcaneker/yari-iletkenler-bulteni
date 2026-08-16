@@ -109,16 +109,37 @@ def kos(olaylar, gruplar=None, llm=sahte_llm):
 
 # ============================================================
 # 3) KATMAN 1 — kesin eşleşme, LLM'siz
+# ------------------------------------------------------------
+# ⚠ DAVRANIŞ DEĞİŞTİ (biyoekonomi Sayı 3). Eskiden HERHANGİ bir aday
+# id'sinin örtüşmesi "kesin aynı olay" sayılıyordu. biomassmagazine.com'un
+# "Related Stories" bloğu yüzünden triyaj dört ayrı SAF haberine aynı
+# destek id'lerini paylaştırdı ve bu katman üçünü tek habere çökertti;
+# okuyucuya üç alakasız "destek kaynağı" gösterildi.
+# Artık yalnızca AYNI BİRİNCİL kaynak kesindir — bir makale iki olayın
+# birincili olamaz. Destek listelerinin kesişmesi küresel kümeleme
+# adımına bırakılır (LLM hakemi + _ortak_sinyal emniyeti).
 # ============================================================
 kalan, notlar = kos([
     olay("ana", "Neste expands refinery", "c10", puan=8, sirket=["Neste"]),
-    olay("kopya", "Neste refinery expansion reported", "c99", puan=6,
-         sirket=["Neste"], dest=["c10"]),          # ortak kaynak c10
+    olay("kopya", "Neste refinery expansion reported", "c10", puan=6,
+         sirket=["Neste"]),                        # AYNI birincil: c10
 ])
-ek("ortak kaynaklı olay LLM'siz birleşti",
+ek("aynı birincil kaynak → LLM'siz birleşti",
    "ana" in kalan and "kopya" not in kalan)
 ek("kesin birleşme notu yazıldı",
    any("kesin birleşme" in n for n in notlar))
+
+# Yalnızca DESTEK örtüşmesi kesin sayılmamalı — asıl hata buydu.
+kalan, notlar = kos([
+    olay("esaf", "American Airlines and Infinium eSAF flight", "c10",
+         puan=8, sirket=["Infinium"]),
+    olay("montana", "Montana Renewables MaxSAF expansion", "c99",
+         puan=7, sirket=["Montana Renewables"], dest=["c10"]),
+])
+ek("yalnızca destek örtüşmesi KESİN birleştirmiyor",
+   "esaf" in kalan and "montana" in kalan)
+ek("kesin birleşme notu YAZILMADI",
+   not any("kesin birleşme" in n for n in notlar))
 
 # ============================================================
 # 4) KATMAN 2 — sayı parmak izi (GERÇEK VAKA: GOBARdhan)
@@ -197,8 +218,8 @@ ek("bilinmeyen anahtar güvenle yok sayıldı", len(kalan) == 3)
 # ============================================================
 kalan, _ = kos([
     olay("ana", "Neste expands refinery", "c70", puan=8, sirket=["Neste"]),
-    olay("kopya", "Neste refinery expansion", "c71", puan=6,
-         sirket=["Neste"], dest=["c70"]),
+    olay("kopya", "Neste refinery expansion", "c70", puan=6,
+         sirket=["Neste"]),                        # AYNI birincil
     olay("ucuncu", "Another unrelated item", "c72", puan=7,
          sirket=["Gamma"], kategori="tarim"),
 ], llm=patlak_llm)
