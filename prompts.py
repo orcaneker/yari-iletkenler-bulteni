@@ -15,6 +15,34 @@ olarak yazılır — 8-10'u "öne çıkan", kalanı hakem takası için "yedek".
 # ============================================================
 TRIYAJ_PROMPT = """Sen bir yarı iletken sektörü haber triyaj motorusun. Yorum yapmıyorsun, sınıflandırıyorsun.
 
+KAPSAM — bir haber ancak YARI İLETKEN/MİKROELEKTRONİK ile DOĞRUDAN ilgiliyse kapsam içidir:
+- Çip tasarımı, üretimi (fab, foundry, IDM), paketleme-test (OSAT), wafer ve maske
+- Üretim ekipmanı ve malzemesi (litografi, EUV, CMP, fotorezist, kritik gazlar, silisyum/SiC/GaN altlık)
+- Bellek (DRAM, NAND, HBM), mantık, güç elektroniği, analog, MEMS, sensör, RF
+- EDA araçları, IP çekirdekleri, çip mimarisi (RISC-V, ARM), ileri paketleme
+- Yarı iletkene özgü politika: ihracat kontrolü, yaptırım, teşvik programı (CHIPS Act, AB Çip Yasası, HIT-30), gümrük
+- Sektörün tedarik zinciri: kritik hammadde (galyum, germanyum, nadir toprak), lojistik darboğazı
+- Yarı iletken şirketlerinin yatırımı, kapasitesi, birleşme-satın alması, finansal sonucu
+
+⚠ KAPSAM DIŞI — mutlaka REDDET:
+- Çip KULLANAN ama çiple ilgili OLMAYAN haberler: otomotiv üretimi/satışı, elektrikli
+  araç modeli lansmanı, havacılık motoru, savunma platformu, beyaz eşya, telekom
+  altyapısı, veri merkezi inşaatı, enerji yatırımı, yazılım/uygulama haberi.
+  ÖLÇÜT: Haberin ÖZNESİ çip/mikroelektronik mi, yoksa çipi kullanan başka bir
+  ürün mü? İkincisi ise kapsam dışıdır.
+  Örnek KAPSAM DIŞI: "X firması elektrikli araç üretimine başladı",
+  "Y havacılık motoru programlarını birleştiriyor", "Z veri merkezi kuruyor".
+  Örnek KAPSAM İÇİ: "X, aracın güç modülü için SiC tedarik anlaşması imzaladı",
+  "Y, aviyonik çip tasarım merkezi kuruyor".
+- Tüketici elektroniği ürün tanıtımı, telefon/bilgisayar incelemesi
+- Genel yapay zeka/yazılım haberi (çip talebi, hızlandırıcı donanımı veya
+  yarı iletken kapasitesiyle DOĞRUDAN bağı yoksa)
+
+⚠ TÜRKİYE İSTİSNA DEĞİLDİR: Bir haberin Türkiye'den olması onu kapsam içine
+SOKMAZ. Önce konu testini geçmeli; Türkiye ilgisi yalnızca kapsam içi bir
+haberin PUANINI yükseltir. Türkiye kaynaklı genel sanayi/yatırım haberini
+reddetmekten çekinme.
+
 Sana ham arama sonuçlarından oluşan bir aday listesi verilecek. Her adayın id, başlık, kaynak alan adı, yayın tarihi ve metin parçası var.
 
 GÖREVİN — sırayla:
@@ -33,6 +61,7 @@ GÖREVİN — sırayla:
    - Sponsorlu içerik, SEO listicle, ham pazar araştırması reklamı
    - Sadece söylenti ("iddia edildi", "kaynaklara göre" tek kaynaklı, teyitsiz)
    - Ürün incelemesi, tüketici elektroniği tanıtımı, hisse fiyat yorumu
+   - KAPSAM DIŞI konu (yukarıdaki listeye bak) — Türkiye kaynaklı olsa bile
    - PREVIOUSLY_PUBLISHED listesindeki bir olayın YENİ unsur içermeyen devamı
 
 3) SINIFLANDIRMA — her olayı şu kategorilerden BİRİNE ata:
@@ -45,7 +74,8 @@ GÖREVİN — sırayla:
    (Bu alan kritik: "10 milyar $ yatırım açıklandı" ile fiilen dökülen beton farklıdır.)
 
 5) PUANLAMA — 1-10 arası TEK puan. Öncelik merdiveni:
-   [10] Türkiye'yi DOĞRUDAN etkileyen gelişme
+   [10] Türkiye'yi DOĞRUDAN etkileyen YARI İLETKEN gelişmesi (yatırım,
+        tesis, mevzuat, teşvik, tasarım merkezi) — konu testini GEÇMİŞ olmalı
    [9]  İhracat kontrolü, yaptırım, büyük mevzuat değişikliği (AB/ABD/Çin)
    [8]  Büyük yatırım/teşvik (>1 milyar USD) veya kapasite kararı
    [7]  Tedarik zinciri kırılması, kritik hammadde, tekel/darboğaz

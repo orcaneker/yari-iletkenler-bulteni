@@ -1177,6 +1177,47 @@ def _haber_metni(s):
                     + list(s.get("countries") or []))
 
 
+# ⚠ DESTEK KAYNAĞI SEÇİMİ
+# Olayın TÜM kaynakları destek olarak yazılıyordu. Büyük bir haberde triyaj
+# haklı olarak çok kaynak kümeliyor ve okuyucunun altına sekiz bağlantı
+# düşüyor — üstelik aynı yayından birkaç tane.
+# Gerçek vaka (yarı iletken, Sayı 3 — Sony/TSMC Kumamoto ortak girişimi):
+# 2 × asia.nikkei.com, 3 × digitimes.com, 1 × apps.digitimes.com, dunya.com,
+# ekonomim.com. Aynı olayın farklı açılardan yazılmış haberleri; okuyucuya
+# hiçbiri ek bilgi vermiyor, sadece kalabalık yapıyor.
+# Kural: bir yayından EN FAZLA BİR bağlantı, toplamda en fazla üç.
+DESTEK_AZAMI = 3
+_IKI_SEVIYE_TLD = {"co", "com", "org", "net", "gov", "edu", "ac"}
+
+
+def _yayin_koku(domain):
+    """apps.digitimes.com ve digitimes.com AYNI yayındır; asia.nikkei.com da
+    nikkei.com'dur. bbc.co.uk gibi iki seviyeli uzantılar korunur."""
+    p = (domain or "").lower().replace("www.", "").split(".")
+    if len(p) >= 3 and p[-2] in _IKI_SEVIYE_TLD:
+        return ".".join(p[-3:])
+    return ".".join(p[-2:])
+
+
+def _destek_sec(kaynaklar, birincil):
+    """Yayın başına bir, toplamda DESTEK_AZAMI kadar destek kaynağı seç.
+
+    Sıra korunur: olaylari_zenginlestir kaynakları zaten güvenilirliğe
+    (tier) ve metin zenginliğine göre sıralamıştı.
+    """
+    gorulen = {_yayin_koku(birincil.get("domain"))}
+    secilen = []
+    for k in kaynaklar:
+        kok = _yayin_koku(k.get("domain"))
+        if kok in gorulen:
+            continue
+        gorulen.add(kok)
+        secilen.append(k)
+        if len(secilen) >= DESTEK_AZAMI:
+            break
+    return secilen
+
+
 def _kaynak_yaz(st, o):
     """Haberin kaynak alanlarını olayın GERÇEK kaynaklarıyla doldur."""
     kaynaklar = o.get("kaynaklar") or []
@@ -1190,7 +1231,7 @@ def _kaynak_yaz(st, o):
     }
     st["supporting_sources"] = [
         {"name": k["name"], "url": k["url"], "domain": k["domain"]}
-        for k in kaynaklar[1:]
+        for k in _destek_sec(kaynaklar[1:], bir)
     ]
     if bir.get("published_date"):
         st["published_date"] = bir["published_date"]
