@@ -1,5 +1,5 @@
 {
-  "issue_no": 2,
+  "issue_no": 3,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -80,6 +80,46 @@
     {
       "baslik_ozet": "Güçlü talep nedeniyle TSMC’nin aylık 3 nm wafer üretimi 2026’nın 4. çeyreği başında 180 bine ulaşacak; beklentilerin 2-3 ay önünde",
       "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "FCC, Çin menşeli optik alıcı-vericilere ithalat yasağı önerdi",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "SK Hynix, yapay zeka belleği için 720 milyar dolarlık dev yatırımı sürdürüyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Sony ve TSMC, Kumamoto'da görüntü sensörü ortak girişimi kuruyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Nvidia Jetson Orin çipi, Rus S-71 seyir füzesinde bulundu",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Güney Kore, yonga tedarik zincirinde daha fazla pay elde etmek amacıyla 5 trilyon wonluk çip fonu kuruyor.",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Honam çip kümesi Gwangju'dan Güney Jeolla'ya dokuz fabrikaya genişleyebilir",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Çin, kritik mineral ihracat kısıtlamalarını askeri kullanım alanında sürdürüyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Sunrise Energy Metals, skandiyum madeni için 400 milyon dolarlık ABD kredisi aldı",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Samsung, Giheung'daki Ar-Ge hattını 2nm HBM taban çip üretimine çevirebilir",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Tata Sons başkanının istifası, 11 milyar dolarlık Hindistan çip fabrikasını riske attı",
+      "hafta": "2026-H33"
     }
   ],
   "urls": [
@@ -188,6 +228,54 @@
     "https://evertiq.com/design/2026-08-03-intel-partners-with-lens-to-boost-advanced-semiconductor-packaging",
     "https://electronicsweekly.com/news/power-integrations-demonstrates-2200v-gan-technology-2026-08",
     "https://evertiq.com/news/2026-08-05-ai-server-shipments-forecast-raised-to-31-yoy-in-2026",
-    "https://cnbc.com/2026/08/04/amd-earnings-report-q2-2026.html"
+    "https://cnbc.com/2026/08/04/amd-earnings-report-q2-2026.html",
+    "https://donanimhaber.com/yerli-ucak-motoru-gelistirme-sureci-tek-cati-altinda-toplaniyor--209097",
+    "https://tomshardware.com/tech-industry/fcc-proposes-import-ban-on-chinese-optical-transceivers-blockade-targets-key-ai-interconnects-as-china-holds-56-percent-global-market-share",
+    "https://digitimes.com/news/a20260810VL204/fcc-technology-chips-equipment-component.html",
+    "https://cnbc.com/2026/08/13/inside-sk-hynixs-720-billion-bet-to-build-enough-memory-for-ai.html",
+    "https://cnbc.com/video/2026/08/13/exclusive-look-inside-sk-hynixs-720-billion-ai-memory-expansion.html",
+    "https://eetimes.com/sony-tsmc-4-7b-deal-helps-thwart-samsung-analysts-say",
+    "https://asia.nikkei.com/business/tech/semiconductors/sony-tsmc-to-invest-6.3bn-in-advanced-image-sensor-plant-in-kumamoto",
+    "https://digitimes.com/news/a20260811VL214/tsmc-sony-production-sensor-technology.html",
+    "https://dunya.com/is-dunyasi/sony-ile-tsmcden-63-milyar-dolarlik-plan-haberi-835587",
+    "https://aa.com.tr/tr/ekonomi/turkiye-hyundainin-avrupadaki-elektrikli-otomobil-uretim-ussu-oldu/4027609",
+    "https://donanimhaber.com/sk-hynix-dram-ve-nand-uretimine-38-milyar-dolar-yatirim-yapacak--209066",
+    "https://kelo.com/2026/08/09/apple-tests-chinas-cxmt-memory-chips-for-iphones-and-macbooks-wsj-reports",
+    "https://digitimes.com/news/a20260810VL213/apple-cxmt-security-testing-dram.html",
+    "https://theregister.com/offbeat/2026/08/14/russian-missile-uses-nvidia-ai-chip-to-help-target-ukraine/5287976",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech",
+    "https://thenextweb.com/news/south-korea-5-trillion-won-chip-materials-fund",
+    "https://digitimes.com/news/a20260811VL203/market-samsung-sk-hynix-infrastructure-investment.html",
+    "https://en.sedaily.com/society/2026/08/15/honam-chip-cluster-may-expand-beyond-gwangju-to-south-jeolla",
+    "https://digitimes.com/news/a20260814VL230/investment-government-infrastructure-industrial-production.html",
+    "https://compoundsemiconductor.net/article/125091/The_quiet_war_beneath_our_electronic_chips",
+    "https://cnbc.com/2026/08/10/rare-earths-sunrise-energy-metals-trump-cina.html",
+    "https://asia.nikkei.com/business/markets/commodities/australian-scandium-miner-gets-us-backing-as-chinese-restrictions-bite",
+    "https://www2.stockmarketwatch.com/stock-market-news/samsung-repurposes-rd-line-for-2nm-foundry-expansion-to-meet-ai-demand/66511",
+    "https://trendforce.com/news/2026/08/14/news-samsung-may-repurpose-rd-line-for-foundry-targeting-2nm-hbm-base-dies-for-future-nvidia-demand",
+    "https://cnbc.com/2026/08/14/tata-chairman-resignation-chandrasekaran-chips-iphone-air-india.html",
+    "https://en.sedaily.com/society/2026/08/10/samsung-hbm4-yield-nears-80-percent-challenging-sk-hynix",
+    "https://longbridge.com/news/295516346",
+    "https://tomshardware.com/pc-components/ssds/sk-hynix-to-expand-production-capacity-in-china-as-it-mulls-solidigm-ipo-report-claims-second-phase-of-fab-could-boost-local-production-by-50-percent",
+    "https://theregister.com/off-prem/2026/08/11/ovh-cloud-warns-of-87-price-hikes-to-help-it-cover-rampocalypse-costs/5285867",
+    "https://tomshardware.com/tech-industry/ymtc-breaks-into-the-top-three-nand-makers-for-the-first-time",
+    "https://semiengineering.com/chip-industry-week-in-review-151",
+    "https://tradingkey.com/analysis/stocks/us-stocks/262101043-tsmc-cowos-yield-breakthrough-14x-reticle-roadmap-tradingkey",
+    "https://cnbc.com/2026/08/10/intel-intc-stock-offering-ai.html",
+    "https://theregister.com/systems/2026/08/11/intel-upsizes-stock-sale-to-20b-with-spending-plans-still-fuzzy/5286313",
+    "https://newsroom.lamresearch.com/2026-08-13-Lam-Research-Announces-Plans-to-Invest-More-than-3B-to-Expand-Global-Lab-Network,-Increase-Innovation-Velocity-in-the-AI-Era",
+    "https://cnbc.com/2026/08/11/gm-makes-4point5-billion-parts-deal-to-bolster-supply-chain.html",
+    "https://3dincites.com/2026/08/koh-young-productioncenter",
+    "https://cnbc.com/2026/08/10/tsmc-revenue-surge-ai-chip-big-tech.html",
+    "https://blogs.nvidia.com/blog/nvidia-ai-factory-compute",
+    "https://tomshardware.com/tech-industry/photonics/how-optical-interconnects-and-silicon-photonics-emerged-as-ais-next-hot-commodity-looming-us-china-summit-puts-photonics-into-the-crosshairs",
+    "https://semiengineering.com/coppers-grip-on-ai-scaling-is-starting-to-slip",
+    "https://semiengineering.com/how-data-center-ai-can-keep-growing-despite-supply-chain-bottlenecks",
+    "https://tomshardware.com/tech-industry/samsung-foundry-updates-process-roadmap-to-move-1-4nm-node-to-2029-high-na-euv-will-enable-1nm-class-and-smaller-nodes-in-2030-and-beyond",
+    "https://tomshardware.com/tech-industry/drones/us-imposes-up-to-100-percent-tariffs-on-foreign-made-drones-and-components-china-remains-primary-target-as-washington-moves-to-reduce-reliance-on-overseas-suppliers",
+    "https://cnbc.com/2026/08/13/apples-tim-cook-and-howard-lutnick-open-houston-manufacturing-plant.html",
+    "https://electronicsweekly.com/news/business/q2-semi-sales-hit-403bn-says-sia-2026-08",
+    "https://electronicsweekly.com/news/business/ymtc-in-big-3-for-nand-units-2026-08",
+    "https://electronicsweekly.com/news/business/solid-state-auto-batteries-2026-08"
   ]
 }

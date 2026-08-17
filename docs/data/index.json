@@ -1,5 +1,16 @@
 [
   {
+    "number": 3,
+    "hafta": "2026-H33",
+    "publication_date": "2026-08-17",
+    "coverage_start": "2026-08-09",
+    "coverage_end": "2026-08-16",
+    "lead_title": "FCC, Çin menşeli optik alıcı-vericilere ithalat yasağı önerdi",
+    "story_count": 9,
+    "radar_count": 23,
+    "file": "data/arsiv/2026-H33.json"
+  },
+  {
     "number": 2,
     "hafta": "2026-H32",
     "publication_date": "2026-08-10",
