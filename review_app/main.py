@@ -90,7 +90,7 @@ def _gorunum(sayi):
     """Arayüze gönderilecek tek biçimli görünüm (her zaman taslak şeklinde)."""
     govde, tip = _govde(sayi)
     if tip == "draft_json":
-        return govde
+        return _brief_uyum_isaretle(govde)
     lead = govde.get("lead") or {}
     haberler = ([dict(lead, secim="one_cikan")] if lead else []) + \
                [dict(s, secim="one_cikan") for s in (govde.get("stories") or [])]
@@ -100,13 +100,45 @@ def _gorunum(sayi):
     brief = [{"text": (m.get("text", "") if isinstance(m, dict) else str(m)),
               "ref": slug2id.get(m.get("slug")) if isinstance(m, dict) else None}
              for m in (govde.get("brief") or [])]
-    return {
+    return _brief_uyum_isaretle({
         "issue": govde.get("issue", {}),
         "brief": brief,
         "lead_id": lead.get("id"),
         "stories": haberler,
         "radar": govde.get("radar", []),
-    }
+    })
+
+
+def _brief_uyum_isaretle(gorunum):
+    """Brief maddesinin metni ile bağlı olduğu haber uyuşuyor mu — uyuşmuyorsa öner.
+
+    ⚠ NEDEN: Hakem "60 Saniyede" maddesinin METNİNİ düzenlediğinde bağlantı
+    ESKİ haberde kalıyor; metin A haberini anlatırken bağlantı B'ye gidiyor.
+    Nükleer Sayı 3'te tam olarak bu oldu (madde 3 ve 4). Sistem bunu sessizce
+    kabul ediyordu, çünkü bağlantı teknik olarak GEÇERLİYDİ.
+
+    Burada uyumsuzluk yakalanıp arayüze "öneri" olarak bildiriliyor.
+    OTOMATİK DEĞİŞTİRİLMİYOR: hakem metni bilerek değiştirmiş olabilir,
+    kararı ona bırakıyoruz — tek tıkla uygulayabiliyor.
+    """
+    try:
+        from pipeline import brief_aday_bul     # ağır modül — yalnızca gerektiğinde
+    except Exception:
+        return gorunum
+
+    haberler = gorunum.get("stories") or []
+    havuz = {s.get("id"): (s.get("title", "") + " " + (s.get("excerpt") or ""))
+             for s in haberler if s.get("id")}
+    baslik = {s.get("id"): s.get("title", "") for s in haberler if s.get("id")}
+
+    for m in (gorunum.get("brief") or []):
+        ref = m.get("ref")
+        aday, skor, degistir = brief_aday_bul(m.get("text", ""), havuz,
+                                              ref if ref in havuz else None)
+        if degistir and aday:
+            m["oneri"] = {"id": aday, "baslik": baslik.get(aday, ""),
+                          "skor": round(skor, 2)}
+    return gorunum
 
 
 def _haber_bul(govde, tip, hid):

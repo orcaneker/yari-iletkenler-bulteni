@@ -152,6 +152,15 @@ body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
 .brief-bag select:focus{outline:2px solid var(--yesil);outline-offset:-1px}
 .brief-bag.bos select{border-color:var(--uyari)}
 .brief-bag .ok{color:var(--yesil-koyu)}
+/* madde metni ile bağlantısı uyuşmuyorsa uyarı */
+.brief-oneri{width:100%;margin:5px 0 0;padding:6px 9px;background:#FFF6E5;
+  border-left:3px solid var(--spore,#C9871A);font-family:var(--mono);font-size:11px;
+  color:#7A5510;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.brief-oneri b{font-weight:500;color:#5A3E0B}
+.brief-oneri button{font-family:var(--mono);font-size:11px;padding:3px 9px;cursor:pointer;
+  border:1px solid #C9871A;background:#fff;color:#7A5510}
+.brief-oneri button:hover{background:#C9871A;color:#fff}
+
 .kalem{font-family:var(--mono);font-size:11px;color:var(--yesil-koyu);cursor:pointer;
   border:0;background:none;padding:0 4px;text-decoration:underline}
 .kalem:hover{color:var(--murekkep)}
@@ -516,6 +525,11 @@ function ciz(){
         <span class="${m.ref?"ok":""}">${m.ref?"↳ bağlı:":"↳ bağlantı yok:"}</span>
         <select onchange="briefBaglantiSec(${i}, this.value)">${secenekler}</select>
       </div>
+        ${m.oneri ? `<div class="brief-oneri">
+          <span>⚠ metin bu haberle uyuşmuyor · daha uygun:</span>
+          <b>${esc(m.oneri.baslik.slice(0,54))}</b>
+          <button onclick="briefBaglantiSec(${i}, '${esc(m.oneri.id)}')">bunu bağla</button>
+        </div>` : ""}
     </li>`;
   }).join("");
 
