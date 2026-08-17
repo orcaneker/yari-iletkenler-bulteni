@@ -1532,6 +1532,75 @@ def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
         else:
             yeni_brief.append({"text": m.get("text", ""), "ref": m.get("ref")})
     b["brief"] = yeni_brief
+
+    # --- brief bağlantı onarımı ---
+    # ⚠ NEDEN: Yazım modeli "60 Saniyede" maddelerini yanlış habere bağlıyor
+    # ya da hiç bağlamıyor. Okuyucu maddeye tıklayınca alakasız haber açılıyor.
+    # Üç kusur da yakalanır: BOŞ, GEÇERSİZ ve GEÇERLİ AMA YANLIŞ bağlantı.
+    # Sonuncusu en sinsisi: ref var, gerçek bir habere işaret ediyor, ama
+    # yanlış habere — sadece "boş mu?" diye bakan bir kontrol bunu kaçırır.
+    #
+    # ⚠ EŞLEŞTİRME BAŞLIK + ÖZET ÜZERİNDEN: brief maddesi çoğunlukla haberin
+    # özetinden türetildiği için sinyal orada. Ölçüldü (Sayı 3, yarı iletken):
+    #   yalnızca başlıkla : doğru haber 0.22 / 0.09  → eşik altında kalıyordu
+    #   başlık + özetle   : doğru haber 0.62 / 0.37, rakipler 0.02 / 0.11
+    baslik = {s.get("id"): s.get("title", "") for s in stories if s.get("id")}
+    metin_havuzu = {s.get("id"): (s.get("title", "") + " " + (s.get("excerpt") or ""))
+                    for s in stories if s.get("id")}
+
+    def _skor(metin, sid):
+        return benzerlik(metin, metin_havuzu.get(sid, ""))[0]
+
+    def _en_iyi(metin):
+        aday, skor = None, 0.0
+        for sid in metin_havuzu:
+            sk = _skor(metin, sid)
+            if sk > skor:
+                aday, skor = sid, sk
+        return aday, skor
+
+    # Eşikler ölçüme göre: doğru eşleşmeler ≥0.37, yanlış rakipler ≤0.11.
+    ESIK_BAGLA = 0.25      # boş/geçersiz maddeyi bağlamak için yeterli güven
+    ESIK_DEGISTIR = 0.30   # mevcut bağlantıyı değiştirmek için gereken güven
+    KAT = 3.0              # yeni aday, mevcuttan bu kadar kat iyi olmalı
+
+    kullanilan = set()
+    for i, m in enumerate(b["brief"], 1):
+        ref = m.get("ref")
+        metin = m.get("text", "")
+        gecersiz = ref is not None and ref not in metin_havuzu
+        mukerrer = ref is not None and ref in kullanilan
+        aday, aday_skor = _en_iyi(metin)
+
+        if ref and not gecersiz and not mukerrer:
+            # Geçerli bağlantı — ama DOĞRU haber mi? Çok daha iyi bir aday varsa değiştir.
+            mevcut_skor = _skor(metin, ref)
+            if (aday and aday != ref and aday not in kullanilan
+                    and aday_skor >= ESIK_DEGISTIR
+                    and aday_skor >= max(mevcut_skor, 0.01) * KAT):
+                m["ref"] = aday
+                kullanilan.add(aday)
+                hatalar.append(
+                    f"brief {i}: yanlış bağlantı düzeltildi → {baslik[aday][:40]} "
+                    f"(eşleşme {aday_skor:.2f}, öncekinin {mevcut_skor:.2f})")
+            else:
+                kullanilan.add(ref)
+            continue
+
+        if aday and aday not in kullanilan and aday_skor >= ESIK_BAGLA:
+            m["ref"] = aday
+            kullanilan.add(aday)
+            sebep = "mükerrer" if mukerrer else "geçersiz" if gecersiz else "boş"
+            hatalar.append(f"brief {i}: {sebep} bağlantı onarıldı → "
+                           f"{baslik[aday][:40]} (eşleşme {aday_skor:.2f})")
+        elif ref:
+            m["ref"] = None   # yanlış bağlamaktansa bağlantısız bırak
+            hatalar.append(f"brief {i}: {'mükerrer' if mukerrer else 'geçersiz'} "
+                           f"bağlantı kaldırıldı (uygun haber bulunamadı)")
+        else:
+            hatalar.append(f"brief {i}: bağlantısız — eşleşen haber bulunamadı "
+                           f"(en iyi aday {aday_skor:.2f})")
+
     return hatalar
 
 

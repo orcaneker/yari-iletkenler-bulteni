@@ -132,9 +132,51 @@ body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
   text-transform:uppercase;color:var(--ok);border:1px solid var(--ok);padding:2px 8px}
 
 /* satır içi düzenlenebilir metinler (60 saniyede, radar) */
-.satir-duzen{flex:1;font-family:var(--serif);font-size:15px;line-height:1.5;
-  color:var(--murekkep);background:#fff;border:1px solid var(--cizgi);padding:5px 8px}
+/* ⚠ Genişlik: metin kutusu, içinde bulunduğu span'i TAMAMEN doldurmalı.
+   Önceden input'a flex:1 veriliyordu ama ebeveyni (span) flex kabı olmadığı
+   için etkisizdi ve kutu ~20 karakterlik varsayılan boyda kalıyordu.
+   Çözüm: span esner (flex:1), input onu %100 doldurur. */
+.satir-metin{flex:1;min-width:0}
+.satir-duzen{width:100%;box-sizing:border-box;font-family:var(--serif);
+  font-size:15px;line-height:1.5;color:var(--murekkep);background:#fff;
+  border:1px solid var(--cizgi);padding:5px 8px}
 .satir-duzen:focus{outline:2px solid var(--yesil);outline-offset:-1px}
+
+/* 60 Saniyede — madde bağlantısı seçici */
+.brief li{flex-wrap:wrap}
+.brief-ust{display:flex;gap:12px;align-items:baseline;width:100%}
+.brief-bag{display:flex;gap:8px;align-items:center;width:100%;
+  margin:6px 0 0 0;font-family:var(--mono);font-size:11px;color:var(--soluk)}
+.brief-bag select{flex:1;min-width:0;font-family:var(--serif);font-size:13px;
+  color:var(--murekkep);background:#fff;border:1px solid var(--cizgi);padding:4px 6px}
+.brief-bag select:focus{outline:2px solid var(--yesil);outline-offset:-1px}
+.brief-bag.bos select{border-color:var(--uyari)}
+.brief-bag .ok{color:var(--yesil-koyu)}
+.kalem{font-family:var(--mono);font-size:11px;color:var(--yesil-koyu);cursor:pointer;
+  border:0;background:none;padding:0 4px;text-decoration:underline}
+.kalem:hover{color:var(--murekkep)}
+
+.islemler{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:12px;padding:7px 14px;cursor:pointer;
+  border:1px solid var(--murekkep);background:var(--panel);color:var(--murekkep)}
+.btn:hover{background:var(--murekkep);color:#fff}
+.btn.mavi{border-color:var(--yesil-koyu);color:var(--yesil-koyu)}
+.btn.mavi:hover{background:var(--yesil-koyu);color:#fff}
+.btn.kirmizi{border-color:var(--uyari);color:var(--uyari)}
+.btn.kirmizi:hover{background:var(--uyari);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* takas seçici */
+.takas-panel{display:none;margin-top:12px;border:1px dashed var(--yesil);
+  background:var(--yesil-acik);padding:12px}
+.takas-panel.acik{display:block}
+.takas-panel .baslik{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:10px;color:var(--yesil-koyu)}
+.takas-secenek{display:flex;gap:10px;align-items:baseline;padding:8px 10px;
+  background:#fff;border:1px solid var(--cizgi);margin-bottom:6px;cursor:pointer}
+.takas-secenek:hover{border-color:var(--yesil)}
+.takas-secenek b{font-family:var(--display);font-weight:600;font-size:15px}
+.takas-secenek .k{font-family:var(--mono);font-size:10px;color:var(--soluk)}
 .kalem{font-family:var(--mono);font-size:11px;color:var(--yesil-koyu);cursor:pointer;
   border:0;background:none;padding:0 4px;text-decoration:underline}
 .kalem:hover{color:var(--murekkep)}
@@ -458,10 +500,24 @@ function ciz(){
       rel="noopener">Siteyi aç ↗</a>`;
   }
 
-  document.getElementById("brief").innerHTML = (t.brief||[]).map((m,i) => `<li>
-      <span class="satir-metin" id="brief-metin-${i}">${esc(m.text)}</span>
-      <button class="kalem" onclick="briefDuzenle(${i})" id="brief-btn-${i}">düzelt</button>
-    </li>`).join("");
+  // Bağlantı seçeneği: bültene giren haberler (manşet dahil)
+  const baglanabilir = (t.stories||[]).filter(s => s.secim === "one_cikan");
+  document.getElementById("brief").innerHTML = (t.brief||[]).map((m,i) => {
+    const secenekler = [`<option value=""${m.ref?"":" selected"}>— bağlantısız —</option>`]
+      .concat(baglanabilir.map(s =>
+        `<option value="${esc(s.id)}"${s.id===m.ref?" selected":""}>${esc(s.title)}</option>`))
+      .join("");
+    return `<li>
+      <div class="brief-ust">
+        <span class="satir-metin" id="brief-metin-${i}">${esc(m.text)}</span>
+        <button class="kalem" onclick="briefDuzenle(${i})" id="brief-btn-${i}">düzelt</button>
+      </div>
+      <div class="brief-bag${m.ref?"":" bos"}">
+        <span class="${m.ref?"ok":""}">${m.ref?"↳ bağlı:":"↳ bağlantı yok:"}</span>
+        <select onchange="briefBaglantiSec(${i}, this.value)">${secenekler}</select>
+      </div>
+    </li>`;
+  }).join("");
 
   document.getElementById("secili-sayac").textContent = ` — ${secili.length} haber`;
   // manşet en üstte
@@ -577,6 +633,15 @@ function briefDuzenle(i){
       mesaj("Madde düzeltildi"); await yukle();
     }catch(e){ mesaj(e.message, true); await yukle(); }
   });
+}
+
+async function briefBaglantiSec(i, id){
+  try{
+    await api("brief-link", {index:i, id: id || null});
+    mesaj(id ? "Madde habere bağlandı" : "Bağlantı kaldırıldı");
+    if(VERI.status === "published") DEGISIKLIK_VAR = true;
+    await yukle();
+  }catch(e){ mesaj(e.message, true); await yukle(); }
 }
 
 function radarDuzenle(i){

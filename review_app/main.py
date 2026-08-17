@@ -94,9 +94,15 @@ def _gorunum(sayi):
     lead = govde.get("lead") or {}
     haberler = ([dict(lead, secim="one_cikan")] if lead else []) + \
                [dict(s, secim="one_cikan") for s in (govde.get("stories") or [])]
+    # Yayınlanmış gövdede brief maddeleri habere `slug` ile bağlıdır; arayüz
+    # her iki durumda da haber id'siyle çalışsın diye `ref`e çevriliyor.
+    slug2id = {s.get("slug"): s.get("id") for s in haberler if s.get("slug")}
+    brief = [{"text": (m.get("text", "") if isinstance(m, dict) else str(m)),
+              "ref": slug2id.get(m.get("slug")) if isinstance(m, dict) else None}
+             for m in (govde.get("brief") or [])]
     return {
         "issue": govde.get("issue", {}),
-        "brief": govde.get("brief", []),
+        "brief": brief,
         "lead_id": lead.get("id"),
         "stories": haberler,
         "radar": govde.get("radar", []),
@@ -307,6 +313,51 @@ async def gorsel_ayarla(token: str, req: Request):
              {"id": veri.get("id"), "eski": eski, "yeni": url or None})
     return {"ok": True, "image": st["image"],
             "yayinda": sayi["status"] == "published"}
+
+
+@app.post("/api/{token}/brief-link")
+async def brief_baglanti(token: str, req: Request):
+    """'60 Saniyede' maddesinin bağlandığı haberi değiştir (veya bağlantıyı kaldır).
+
+    ⚠ İKİ FARKLI ALAN: taslakta madde habere `ref` (haber id'si) ile bağlanır,
+    yayınlanmış sayıda ise `slug` ile. Hangi gövde üzerinde çalışıyorsak doğru
+    alanı yazıyoruz; yanlışını yazmak bağlantıyı sessizce koparır.
+    """
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    veri = await req.json()
+    i, hid = veri.get("index"), veri.get("id")     # id=None → bağlantıyı kaldır
+    govde, govde_alani = _govde(sayi)
+
+    maddeler = govde.get("brief") or []
+    if not isinstance(i, int) or not (0 <= i < len(maddeler)):
+        raise HTTPException(400, "Madde bulunamadı")
+    if not isinstance(maddeler[i], dict):
+        maddeler[i] = {"text": str(maddeler[i])}
+
+    if hid is None:
+        maddeler[i].pop("ref", None)
+        maddeler[i].pop("slug", None)
+        maddeler[i]["ref" if govde_alani == "draft_json" else "slug"] = None
+        db.govde_guncelle(sayi["id"], govde_alani, govde)
+        db.logla(sayi["id"], h["ad"], "brief_baglanti", {"index": i, "hedef": None})
+        return {"ok": True, "yayinda": sayi["status"] == "published"}
+
+    st = _haber_bul(govde, govde_alani, hid)
+    if not st:
+        raise HTTPException(400, "Haber bulunamadı")
+
+    if govde_alani == "draft_json":
+        maddeler[i]["ref"] = hid
+    else:
+        if not st.get("slug"):
+            raise HTTPException(400, "Haberin slug'ı yok — bağlanamaz")
+        maddeler[i]["slug"] = st["slug"]
+
+    db.govde_guncelle(sayi["id"], govde_alani, govde)
+    db.logla(sayi["id"], h["ad"], "brief_baglanti",
+             {"index": i, "hedef": hid, "baslik": (st.get("title") or "")[:80]})
+    return {"ok": True, "yayinda": sayi["status"] == "published"}
 
 
 @app.post("/api/{token}/swap")
