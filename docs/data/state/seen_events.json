@@ -1,5 +1,5 @@
 {
-  "issue_no": 3,
+  "issue_no": 4,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -120,6 +120,38 @@
     {
       "baslik_ozet": "Tata Sons başkanının istifası, 11 milyar dolarlık Hindistan çip fabrikasını riske attı",
       "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "SK Hynix, Yongin ve Cheongju fabrikalarına 38 milyar dolar yatırım onayladı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Türkiye'nin 2026-2030 Yapay Zeka Eylem Planı resmen yayımlandı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Supermicro, 2,5 milyar dolarlık Çin'e GPU kaçakçılığı soruşturması sonrası çalışan işten çıkardı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Çin, Tayvan'a germanyum ve kuvars ihracatını kısıtladığı bildirildi",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Micron'un 50 milyar dolarlık Boise yatırımı 17 binden fazla iş yaratacak",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Samsung, Onyang'da 6 trilyon wonluk HBM fabrikasına eylülde başlıyor",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "TSMC'nin CoWoS paketlemesi seri üretimde yüzde 98 üzeri verime ulaştı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Nvidia, OpenAI'nin Ohio veri merkezine 105 milyar dolara varan finansman sağlıyor",
+      "hafta": "2026-H34"
     }
   ],
   "urls": [
@@ -276,6 +308,53 @@
     "https://cnbc.com/2026/08/13/apples-tim-cook-and-howard-lutnick-open-houston-manufacturing-plant.html",
     "https://electronicsweekly.com/news/business/q2-semi-sales-hit-403bn-says-sia-2026-08",
     "https://electronicsweekly.com/news/business/ymtc-in-big-3-for-nand-units-2026-08",
-    "https://electronicsweekly.com/news/business/solid-state-auto-batteries-2026-08"
+    "https://electronicsweekly.com/news/business/solid-state-auto-batteries-2026-08",
+    "https://evertiq.com/news/2026-08-17-sk-hynix-invests-38-billion-in-chip-plants-in-south-korea",
+    "https://aa.com.tr/tr/bilim-teknoloji/turkiyeden-yapay-zeka-cagina-mukemmel-adim/4030219",
+    "https://sanayi.gov.tr/yapayzekaeylemplani",
+    "https://bloomberght.com/yorum/dr-ali-cinar/3785839-turkiye-yapay-zek-yarisinda-yeni-bir-sayfa-aciyor",
+    "https://tomshardware.com/tech-industry/big-tech/supermicro-fires-several-employees-following-investigation-into-usd2-5-billion-china-ai-chip-smuggling-claims-that-senior-management-had-no-knowledge-of-illicit-transactions",
+    "https://theregister.com/legal/2026/08/21/supermicro-fired-staff-after-probe-into-25-billion-gpus-to-china-smuggling-operation/5290791",
+    "https://tokyotribune.com/china-restricts-germanium-quartz-and-magnet-exports-to-taiwan-disrupting-supply-chains",
+    "https://asia.nikkei.com/spotlight/supply-chain/exclusive-china-slows-exports-of-key-optical-aerospace-metals-to-taiwan",
+    "https://digitimes.com/news/a20260820PD230/materials-quartz-taiwan-gallium-supplier.html",
+    "https://tomshardware.com/tech-industry/micron-commits-usd10-billion-to-new-us-based-research-labs-boise-hub-to-target-post-dram-and-nand-technologies-and-packaging",
+    "https://bloomberght.com/micron-dan-ar-ge-laboratuvarina-10-milyar-dolarlik-yatirim-3786075",
+    "https://cnbc.com/2026/08/20/micron-boise-chip-fab-expansion.html",
+    "https://en.sedaily.com/society/2026/08/19/samsung-chip-plant-in-chungnam-to-break-ground-in-september",
+    "https://trendforce.com/news/2026/08/20/news-samsung-to-break-ground-on-krw-6t-onyang-hbm-fab-in-sept-p5-eyes-triple-fab-shift-as-expansion-accelerates",
+    "https://digitimes.com/news/a20260820VL203/samsung-hbm-packaging-plant-production.html?chid=10",
+    "https://stockjabber.com/news/why-is-japan-pouring-another-944-million-into-rapidus",
+    "https://asia.nikkei.com/business/tech/semiconductors/japan-to-invest-additional-940m-in-homegrown-chipmaker-rapidus",
+    "https://siliconanalysts.com/market/tsmc-cowos-5-5x-reticle-hits-98-99-yield-in-volume-production-14x-roadmap-confir-2026-08-18",
+    "https://trendforce.com/news/2026/08/19/news-intel-emib-t-push-gains-momentum-as-tsmc-cowos-crunch-drives-spillover-unimicron-ase-stand-to-benefit",
+    "https://cnbc.com/2026/08/18/nvidias-ai-moat-is-shifting-from-chips-to-capital.html",
+    "https://aa.com.tr/tr/gundem/yok-baskani-ozvardan-turkiye-stratejik-teknoloji-insan-kaynagi-programina-iliskin-aciklama/4033271",
+    "https://dunya.com/ekonomi/turkiyeden-teknoloji-hamlesi-5-yilda-3-bin-genc-arastirmaci-yetistirilecek-haberi-837059",
+    "https://aa.com.tr/tr/bilim-teknoloji/milli-denizalti-yapay-zekayla-donatilacak/4033557",
+    "https://cnbc.com/2026/08/19/china-ai-nvidia-chips-us-export-controls.html",
+    "https://tomshardware.com/tech-industry/semiconductors/smic-is-raising-wafer-prices-into-a-shortage-as-sanctions-wall-off-chinas-ai-demand",
+    "https://engadget.com/2239738/china-reportedly-allows-bytedance-tencent-import-10000-h200-chips",
+    "https://tomshardware.com/pc-components/dram/cxmt-planned-to-use-stolen-samsung-ip-to-develop-its-dram-court-hears-former-samsung-engineer-who-jumped-to-chinese-memory-maker-now-behind-bars",
+    "https://tomshardware.com/tech-industry/white-house-cuts-data-centers-batteries-and-ar-from-the-us-critical-technology-list",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/chinas-homegrown-ai-accelerators-to-supply-90-percent-of-the-countrys-domestic-market-analysts-suggest-cambricon-and-huawei-expected-to-be-the-biggest-winners-in-the-shift-away-from-nvidia-and-amd",
+    "https://evertiq.com/news/2026-08-18-lam-research-to-invest-more-than-3-billion-in-global-rd-lab-network",
+    "https://evertiq.com/design/2026-08-20-asmpt-secures-orders-for-more-than-50-chip-to-substrate-bonding-tools",
+    "https://pccentral.net/rapidus-targets-600mm-glass-interposers-for-2030-advanced-packaging",
+    "https://synopsys.com/blogs/chip-design/3d-pcie-6-0-phy-8-lane-test-chip.html",
+    "https://semiengineering.com/chip-industry-week-in-review-152",
+    "https://electronicsweekly.com/news/business/samsung-foundry-delays-1-4nm-process-for-three-years-2026-08",
+    "https://dunya.com/is-dunyasi/samsungda-yatirimcisina-72-milyar-dolar-hazirligi-haberi-836962",
+    "https://theregister.com/on-prem/2026/08/17/siemens-and-reinhausen-turn-up-the-voltage-for-hungry-ai-racks/5288565",
+    "https://compoundsemiconductor.net/article/125180/Clas-SiC_Wafer_Fab_gets_1.9m_grant",
+    "https://theregister.com/systems/2026/08/19/cerebras-cs-4-rack-systems-juice-their-dinner-plate-sized-ai-chips-for-every-last-drop-of-ai-perf/5289286",
+    "https://electronicsweekly.com/news/business/nvidia-books-tsmc-1-6nm-process-for-feynman-in-h2-2028-2026-08",
+    "https://nature.com/articles/s41928-026-01681-6",
+    "https://dunya.com/sektorler/bilim-ve-teknoloji/aselsandan-deniz-savunmasina-60-milyon-euroluk-yeni-yatirim-3-tesis-ve-2-test-cihazi-geliyor-haberi-837257",
+    "https://aa.com.tr/tr/bilim-teknoloji/baykar-ve-t3-vakfinin-gelistirdigi-t3-gemstone-o1-bircok-ozelligi-tek-kartta-topluyor/4034966",
+    "https://dunya.com/sirketler/turkcellden-6g-ve-yapay-zeka-hamlesi-avrupanin-6-buyuk-ar-ge-projesinde-yer-alacak-haberi-836843",
+    "https://aa.com.tr/tr/bilim-teknoloji/kurumlari-yapay-zekaya-tasiyacak-milli-platform-goreve-hazir/4028756",
+    "https://parallelquant.com/posts/japan-s-ajinomoto-cuts-chip-packaging-film-supply-to-china-6dbbea",
+    "https://evertiq.com/design/2026-08-20-sony-semiconductor-returns-to-full-operations-at-kumamoto-facility-after-earthquake"
   ]
 }
