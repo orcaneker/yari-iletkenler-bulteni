@@ -1,5 +1,5 @@
 {
-  "issue_no": 4,
+  "issue_no": 5,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -152,6 +152,46 @@
     {
       "baslik_ozet": "Nvidia, OpenAI'nin Ohio veri merkezine 105 milyar dolara varan finansman sağlıyor",
       "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "ABD, MATCH Yasası ile ASML'nin Çin'e DUV satışlarını tamamen durdurmayı hedefliyor",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "YÖK, Stratejik Teknoloji İnsan Kaynağı Programı'nda ilk yıl 550 araştırmacı hedefliyor",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "SK Hynix, Indiana'da 4 milyar dolarlık HBM paketleme tesisinin temelini attı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Kioxia ve Sandisk, Japonya'da 31 milyar doları aşan bellek yatırımı açıkladı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Tayvan, NVIDIA B300 GPU'larının Çin'e kaçak ihracatı için 9 kişiyi suçladı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Trump yönetimi, Çin'in uzaktan yapay zeka sunucusu erişimini kısıtlamayı planlıyor",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Powertech, 2,2 milyar dolarlık yatırımla panel düzeyi paketlemede öncü olmayı hedefliyor",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "NVIDIA'nın tedarik taahhütleri 279 milyar dolara çıktı, HBM fiyatları 2027'de artabilir",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "OpenAI, Broadcom ile geliştirdiği Jalapeño çıkırını Hot Chips 2026'da tanıttı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Bakan Kacır: sabit maliyetli kredilerde yıllık finansman oranı yüzde 25'e inecek",
+      "hafta": "2026-H35"
     }
   ],
   "urls": [
@@ -355,6 +395,64 @@
     "https://dunya.com/sirketler/turkcellden-6g-ve-yapay-zeka-hamlesi-avrupanin-6-buyuk-ar-ge-projesinde-yer-alacak-haberi-836843",
     "https://aa.com.tr/tr/bilim-teknoloji/kurumlari-yapay-zekaya-tasiyacak-milli-platform-goreve-hazir/4028756",
     "https://parallelquant.com/posts/japan-s-ajinomoto-cuts-chip-packaging-film-supply-to-china-6dbbea",
-    "https://evertiq.com/design/2026-08-20-sony-semiconductor-returns-to-full-operations-at-kumamoto-facility-after-earthquake"
+    "https://evertiq.com/design/2026-08-20-sony-semiconductor-returns-to-full-operations-at-kumamoto-facility-after-earthquake",
+    "https://aa.com.tr/tr/bilim-teknoloji/turkiye-stratejik-teknoloji-insan-kaynagi-programinda-ilk-yil-550-arastirmaci-yetistirilecek/4040894",
+    "https://hamerintel.com/data/articles/15364",
+    "https://trendforce.com/news/2026/08/25/news-u-s-may-push-near-total-asml-china-ban-on-duv-sales-and-servicing-amid-chinas-domestic-lithography-push",
+    "https://cnbc.com/2026/08/27/sk-hynix-ceo-says-indiana-will-be-key-memory-production-base-by-2030.html",
+    "https://trendforce.com/news/2026/08/28/news-sk-hynix-breaks-ground-on-indiana-packaging-plant-eyes-hbm4e-by-3q29-ceo-sees-tight-supply-through-2030",
+    "https://asia.nikkei.com/business/technology/artificial-intelligence/sk-hynix-starts-construction-of-first-hbm-chip-packaging-plant-in-us",
+    "https://digitimes.com/news/a20260828VL202/sk-hynix-hbm-packaging-plant-usa-production.html",
+    "https://kioxia.com/en-jp/about/news/2026/20260827-2.html",
+    "https://asia.nikkei.com/business/tech/semiconductors/kioxia-to-invest-6.3bn-in-new-memory-production-facility-in-japan",
+    "https://trendforce.com/news/2026/08/27/news-kioxia-reportedly-plans-jpy-1t-nand-fab-in-japan-operations-eyed-for-2029-or-later",
+    "https://kioxia.com/en-jp/about/news/2026/20260827-3.html",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/nine-indicted-by-taiwan-over-illegal-export-of-nvidia-b300-gpus-to-china-details-reveal-five-point-strategy-to-exploit-and-avoid-customs-controls",
+    "https://asia.nikkei.com/business/technology/artificial-intelligence/taiwan-issues-indictments-over-alleged-illegal-export-of-ai-servers-to-china",
+    "https://evertiq.com/news/2026-08-28-taiwan-charges-9-over-illegal-ai-server-exports-to-china",
+    "https://pro.edgex.exchange/en-US/news/article/trump-ai-chip-restrictions-china-access-abroad",
+    "https://tomshardware.com/tech-industry/policy/new-us-export-controls-reportedly-target-chinese-access-to-remote-ai-servers-trump-admins-cut-down-ai-diffusion-rule-could-be-shared-with-industry-as-soon-as-september",
+    "https://xenospectrum.com/en/china-taiwan-germanium-quartz-slowdown",
+    "https://tomshardware.com/tech-industry/china-strategically-slows-exports-of-critical-materials-used-in-semiconductor-fabrication-to-taiwan-germanium-and-quartz-exports-to-the-region-also-threaten-optical-and-robotics-supply-chain",
+    "https://techgolly.com/news/powertech-targets-worlds-first-panel-level-packaging-for-ai-chips-in-2027-with-2-2-billion-investment",
+    "https://asia.nikkei.com/business/tech/semiconductors/powertech-eyes-world-s-first-panel-level-packaging-for-ai-chips-in-2027",
+    "https://btw.media/en/nvidia-supply-commitments-rise-279-billion",
+    "https://trendforce.com/news/2026/08/27/news-nvidias-supply-commitments-soar-to-279b-as-memory-costs-surge-new-nvhbm-boosts-bandwidth-30-cuts-power-15",
+    "https://theregister.com/systems/2026/08/25/openais-upcoming-jalapeno-chip-looks-like-itll-be-an-inference-beast/5292052",
+    "https://trendforce.com/news/2026/08/26/news-openai-debuts-jalapeno-ai-inference-chip-with-samsung-reportedly-supplying-hbm4",
+    "https://cnbc.com/2026/08/26/openai-jalapeno-ai-chip-nvidia.html",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-openais-jalapeno-ai-asic-unpacked-accelerator-developed-using-ai-achieves-efficiency-and-throughput-gains-against-power-hungry-blackwell",
+    "https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-unlocks-ultrafast-interactivity-at-long-context-on-nvidia-vera-rubin",
+    "https://cnbc.com/2026/08/24/nvidia-says-groq-racks-will-be-online-this-year-after-20-billion-deal.html",
+    "https://theregister.com/systems/2026/08/24/what-nvidias-first-groq-3-lpu-benchmarks-tell-us-about-its-20b-gamble/5291880",
+    "https://aa.com.tr/tr/ekonomi/bakan-kacir-sabit-maliyetli-kredilerde-yillik-finansman-orani-yuzde-25e-kadar-dusmus-olacak/4040127",
+    "https://bloomberght.com/sanayici-icin-tedbirler-ovpde-yer-alacak-3786725",
+    "https://aa.com.tr/tr/bilim-teknoloji/turkiyenin-norobilim-merkezi-norom-nato-diana-projelerinde-gelistirilen-teknolojileri-test-edecek/4035020",
+    "https://tomshardware.com/tech-industry/policy/trump-administration-weighs-expanding-chip-tariffs-to-laptops-consoles-and-servers",
+    "https://bitget.com/news/detail/12560605723489",
+    "https://straitstimes.com/business/spore-based-apex-logistics-fully-cooperating-in-us-probe-over-alleged-smuggling-of-nvidia-chips",
+    "https://compoundsemiconductor.net/article/125204/Bosch_boosts_SiC_capacity",
+    "https://electronicsweekly.com/news/business/navitas-semi-buys-claros-2026-08",
+    "https://evertiq.com/design/2026-08-24-infineon-acquires-bangalore-based-c2i-semiconductors",
+    "https://newsroom.lamresearch.com/2026-08-26-Lam-Research-Breaks-Ground-on-New-Oregon-Lab-to-Accelerate-AI-Era-Semiconductor-Research-Development-Locally,-Globally",
+    "https://evertiq.com/news/2026-08-24-fujifilm-completes-new-production-facility-in-oita",
+    "https://evertiq.com/design/2026-08-26-zeiss-smt-expands-capacity-in-oberkochen-and-key-semiconductor-markets",
+    "https://theregister.com/hpc/2026/08/25/intel-diamond-rapids-xeon-7-cpu-deep-dive/5292427",
+    "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents",
+    "https://newsroom.arm.com/blog/ibm-and-arm-expanding-ecosystem-for-next-era-of-enterprise-computing",
+    "https://theregister.com/off-prem/2026/08/25/spacex-claims-it-will-put-a-vera-rubin-nvl72-rack-scale-system-into-orbit-next-year/5292067",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/hot-chips-2026-cerebras-lays-out-the-future-of-wafer-scale-ai-nexus-system-architecture-triples-rack-scale-performance-cs-6-wafer-to-incorporate-stacked-dram",
+    "https://newsroom.intel.com/client-computing/intel-outlines-architectures-for-agentic-ai-at-hot-chips-2026",
+    "https://theregister.com/systems/2026/08/26/metas-new-mtia-400-chip-has-a-split-personality-training-ai-and-serving-ads/5292727",
+    "https://tomshardware.com/pc-components/gpus/hot-chips-2026-intel-dives-deep-on-crescent-island-ai-accelerator-larger-caches-and-deeper-xmx-engines-target-maximum-ai-flops-per-watt",
+    "https://tomshardware.com/pc-components/cpus/hot-chips-2026-arm-details-agi-server-cpu-with-two-70-core-n3p-chiplets-touts-2-tb-s-ucie-fabric-link-and-12-channel-memory-controller",
+    "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion",
+    "https://tomshardware.com/pc-components/dram/nvidia-custom-nvhbm-promises-30-percent-higher-bandwidth-15-percent-lower-power-than-commodity-hbm4e-custom-base-die-and-phy-will-be-available-to-nvlink-fusion-partners",
+    "https://tomshardware.com/tech-industry/manufacturing/glass-substrate-roadmap-examined",
+    "https://electronicsweekly.com/news/products/quintessent-begins-sampling-single-chip-dwdm-comb-laser-2026-08",
+    "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
+    "https://tomshardware.com/pc-components/dram/nvidia-reportedly-warns-biggest-customers-of-15-percent-price-hikes-on-ai-servers",
+    "https://eetimes.com/indias-osat-atmp-build-out-from-legacy-packages-to-2-5d",
+    "https://cnbc.com/2026/08/26/nvidia-70percent-growth-forecast-puts-it-on-track-to-be-tech-no-2-company.html"
   ]
 }

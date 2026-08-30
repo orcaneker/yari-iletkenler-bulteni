@@ -1,5 +1,16 @@
 [
   {
+    "number": 5,
+    "hafta": "2026-H35",
+    "publication_date": "2026-08-30",
+    "coverage_start": "2026-08-23",
+    "coverage_end": "2026-08-30",
+    "lead_title": "ABD, MATCH Yasası ile ASML'nin Çin'e DUV satışlarını tamamen durdurmayı hedefliyor",
+    "story_count": 9,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H35.json"
+  },
+  {
     "number": 4,
     "hafta": "2026-H34",
     "publication_date": "2026-08-23",
