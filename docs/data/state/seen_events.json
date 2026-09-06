@@ -1,5 +1,5 @@
 {
-  "issue_no": 5,
+  "issue_no": 6,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -192,6 +192,50 @@
     {
       "baslik_ozet": "Bakan Kacır: sabit maliyetli kredilerde yıllık finansman oranı yüzde 25'e inecek",
       "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "TSMC'nin ekipman talebi altı ayda neredeyse iki katına çıktı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Tayvanlı şirketler ABD'ye 20 milyar dolar ek yatırım sözü verdi",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Analist: Çin'in EUV teknolojisi ASML'nin 2004'teki seviyesinde",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Bakan Lutnick: Yurt içinde üretene tarife yok, üretmeyene var",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "ABD veri merkezlerinde Çin'e bağımlılık güvenlik sorunu haline geldi",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Hindistan, 13,4 milyar dolarlık Semicon 2.0 programını başlattı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "SK Hynix, Indiana'da 4 milyar dolarlık HBM paketleme tesisi kuruyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Sumitomo Chemical, 4 inç InP wafer'da seri üretime başladı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Intel, İrlanda'daki Leixlip kampüsüne 5 milyar euro yatırım yapıyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Kioxia ve Sandisk, Japonya'da NAND'a 31 milyar dolar yatırım öngörüyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Nvidia, MediaTek'e 3,5 milyar dolar yatırdı, NVLink Fusion'ı paylaşacak",
+      "hafta": "2026-H36"
     }
   ],
   "urls": [
@@ -453,6 +497,57 @@
     "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-says-hybrid-bonding-wont-be-ready-for-hbm4e-as-ai-memory-runs-into-a-775-micron-ceiling",
     "https://tomshardware.com/pc-components/dram/nvidia-reportedly-warns-biggest-customers-of-15-percent-price-hikes-on-ai-servers",
     "https://eetimes.com/indias-osat-atmp-build-out-from-legacy-packages-to-2-5d",
-    "https://cnbc.com/2026/08/26/nvidia-70percent-growth-forecast-puts-it-on-track-to-be-tech-no-2-company.html"
+    "https://cnbc.com/2026/08/26/nvidia-70percent-growth-forecast-puts-it-on-track-to-be-tech-no-2-company.html",
+    "https://tomshardware.com/tech-industry/semiconductors/tsmc-fab-equipment-demand-nearly-doubles-in-six-months-ai-surge-pushes-2026-capex-toward-usd64b-amid-tool-shortages",
+    "https://digitimes.com/news/a20260903PD217/tsmc-equipment-demand-supply-chain-taiwan.html",
+    "https://trendforce.com/news/2026/09/03/news-tsmc-equipment-demand-reportedly-jumps-90-in-just-over-half-a-year-substrate-capacity-faces-ai-squeeze",
+    "https://dunya.com/ekonomi/cip-uretiminde-para-abdye-akiyor-haberi-838435",
+    "https://ticaret.gov.tr/blog/sektor-haberleri/tayvanli-sirketler-abdnin-cip-sektorune-20-milyar-dolar-daha-yatirim-yapma-sozu-verdi",
+    "https://tomshardware.com/tech-industry/semiconductors/chinas-euv-technology-at-a-similar-stage-to-asml-in-2004-analyst-claims-beijings-semiconductor-industry-remains-well-behind-western-rivals",
+    "https://digitimes.com/news/a20260903VL217/euv-duv-equipment-technology-asml.html",
+    "https://trendforce.com/news/2026/09/02/news-chinas-duv-could-reach-high-volume-production-in-2-5-years-euv-reportedly-unlikely-within-a-decade",
+    "https://cnbc.com/2026/09/02/cnbc-excerpts-us-commerce-secretary-howard-lutnick-speaks-with-cnbcs-squawk-box-today.html",
+    "https://apps.digitimes.com/news/a20260903VL203/taiwan-investment-production-legal.html",
+    "https://cnbc.com/2026/09/03/us-ai-data-centers-china-supply-chain.html",
+    "https://digitimes.com/news/a20260831VL216/chips-data-data-center-exports-hardware.html",
+    "https://semiengineering.com/chip-industry-week-in-review-154",
+    "https://digitimes.com/news/a20260901PR200/semicon-design-policy-talent-chip-supply.html",
+    "https://eetimes.com/sk-hynixs-4b-hbm-project-targets-u-s-chipmaking-gap",
+    "https://digitimes.com/news/a20260904PR204/sumitomo-chemical-inp-production-data-sales.html",
+    "https://trendforce.com/news/2026/09/03/news-inp-sector-gains-traction-sumitomo-initiates-epitaxial-wafer-mass-production-wuhan-tianyuan-enters-market-via-cny-7-5-million-acquisition",
+    "https://intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-invests-5-billion-euro-to-expand-manufacturing-in-europe.html",
+    "https://evertiq.com/design/2026-08-31-kioxia-and-sandisk-bet-31-billion-on-nand-flash-as-ai-demand-surges",
+    "https://europesays.com/netherlands/43273",
+    "https://trendforce.com/news/2026/09/04/news-asml-japan-to-boost-workforce-40-by-2030-to-support-rapidus-tsmc-advanced-chip-push",
+    "https://asia.nikkei.com/business/tech/semiconductors/asml-to-expand-japan-workforce-to-aid-next-gen-chipmakers-rapidus-tsmc",
+    "https://mrj-laserclean.com/news/asml-announces-high-volume-production-of-high-85630421.html",
+    "https://digitimes.com/news/a20260901VL216/asml-euv-taiwan-performance-wafer.html",
+    "https://trendforce.com/news/2026/09/01/news-asml-advances-high-na-euv-toward-high-volume-manufacturing-as-10-systems-reportedly-go-live-at-4-customers",
+    "https://tomshardware.com/pc-components/dram/cxmt-reportedly-begins-risk-production-of-hbm3e-memory-in-breakthrough-for-chinese-dram-production-company-could-be-in-mass-production-in-2027",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/nvidia-pours-usd3-5-billion-into-mediatek-company-will-adopt-nvlink-fusion-for-its-custom-ai-accelerators",
+    "https://digitimes.com/news/a20260831PD231/nvidia-hbm-asic-infrastructure.html",
+    "https://theregister.com/systems/2026/08/31/nvidia-is-building-an-ip-licensing-empire-on-the-back-of-nvlink/5293530",
+    "https://bloomberght.com/nvidia-dan-tayvanli-cip-ureticisine-3-5-milyar-dolar-yatirim-3786890",
+    "https://aa.com.tr/tr/ekonomi/ulastirma-ve-altyapi-bakani-uraloglu-vodafone-izmir-veri-merkezinin-acilisinda-konustu/4047268",
+    "https://aa.com.tr/tr/ekonomi/yapay-zekanin-islem-gucu-kobi-ve-girisimlere-herkes-icin-gpu-ile-acilacak/4042291",
+    "https://tomshardware.com/tech-industry/policy/taiwan-cracks-down-on-tech-businesses-with-illegal-chinese-ownership-166-investigations-and-at-least-36-convictions-since-2020",
+    "https://tomshardware.com/tech-industry/big-tech/key-nvidia-and-intel-supplier-raided-over-alleged-china-origin-fraud-unimicron-faces-probe-over-pcb-origin-washing-risk-of-40-percent-u-s-tariff-penalty",
+    "https://tomshardware.com/pc-components/dram/chinas-cmxt-had-an-actual-roadmap-for-its-alleged-industrial-espionage-from-samsung-south-korean-court-says-project-hefei-was-responsible-for-cxmts-current-position-as-major-dram-maker",
+    "https://tomshardware.com/tech-industry/chinese-court-freezes-318-million-in-nexperia-assets-as-wingtech-presses-to-regain-control",
+    "https://spectrum.ieee.org/europes-ai-drive",
+    "https://ekonomim.com/dunya/yapay-zeka-diplomasisi-abd-ermenistana-baris-anlasmasi-karsiliginda-dev-cip-vaadinde-bulundu-haberi-916456",
+    "https://anewz.tv/ai-next/artificial-intelligence/24026/hua-hong-pours-2-billion-into-wuxi-expansion-ai-demand/news",
+    "https://businesskorea.co.kr/news/articleView.html?idxno=275888",
+    "https://evertiq.com/design/2026-09-03-sivers-semiconductors-to-expand-photonics-manufacturing-in-glasgow",
+    "https://semiconductor.samsung.com/news-events/tech-blog/fms-2026-3d-nand-innovation-award-v10-bv-nand-pushing-the-boundaries-of-ai-storage-beyond-400-layers",
+    "https://tomshardware.com/pc-components/dram/samsung-teases-new-hbm5-with-twice-the-performance-of-hbm4e-ambitious-data-transfer-rates-could-hint-at-4-096-bit-interface",
+    "https://tomshardware.com/tech-industry/semiconductors/hybrid-bonding-roadmap-examined",
+    "https://retailnews.asia/google-to-roll-out-two-ai-chips-a-year-and-expand-taiwan-hub",
+    "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face",
+    "https://ekonomim.com/dunya/google-ve-nvidia-pesine-dustu-boyutu-20-kat-kuculten-ispanyol-girisimden-tarihi-basari-haberi-916425",
+    "https://donanimhaber.com/gan-teknolojisinde-buyuk-atilim-4-000-volt-baraji-asildi--209911",
+    "https://gf.com/news-and-events/news/navitas-delivers-latest-gen-5-ganfast-manufactured-in-the-u-s-through-globalfoundries-partnership-to-accelerate-ai-infrastructure",
+    "https://electronicsweekly.com/news/business/the-designless-semiconductor-industry-2026-09",
+    "https://cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html"
   ]
 }

@@ -1,5 +1,16 @@
 [
   {
+    "number": 6,
+    "hafta": "2026-H36",
+    "publication_date": "2026-09-06",
+    "coverage_start": "2026-08-30",
+    "coverage_end": "2026-09-06",
+    "lead_title": "TSMC'nin ekipman talebi altı ayda neredeyse iki katına çıktı",
+    "story_count": 10,
+    "radar_count": 21,
+    "file": "data/arsiv/2026-H36.json"
+  },
+  {
     "number": 5,
     "hafta": "2026-H35",
     "publication_date": "2026-08-30",
