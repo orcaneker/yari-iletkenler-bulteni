@@ -1,5 +1,16 @@
 [
   {
+    "number": 7,
+    "hafta": "2026-H37",
+    "publication_date": "2026-09-14",
+    "coverage_start": "2026-09-06",
+    "coverage_end": "2026-09-13",
+    "lead_title": "Türkiye 2027-2029 OVP'de yerli çip üretimi ve tasarımını stratejik hedef ilan etti",
+    "story_count": 8,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H37.json"
+  },
+  {
     "number": 6,
     "hafta": "2026-H36",
     "publication_date": "2026-09-06",

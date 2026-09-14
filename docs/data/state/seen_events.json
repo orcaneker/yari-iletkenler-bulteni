@@ -1,5 +1,5 @@
 {
-  "issue_no": 6,
+  "issue_no": 7,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -236,6 +236,42 @@
     {
       "baslik_ozet": "Nvidia, MediaTek'e 3,5 milyar dolar yatırdı, NVLink Fusion'ı paylaşacak",
       "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Türkiye 2027-2029 OVP'de yerli çip üretimi ve tasarımını stratejik hedef ilan etti",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "YÖK, 550 araştırmacı hedefiyle Stratejik Teknoloji İnsan Kaynağı Programı'nı başlattı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "ASML, TSMC, Samsung ve Intel 12 inçlik fotomaskeye geçişte iş birliği kurdu",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "ABD, GlobalFoundries'e 375 milyon dolarlık kuantum çip CHIPS anlaşmasını kesinleştirdi",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Amkor, Arizona paketleme kampüsünü genişletip yatırımı 12 milyar dolara çıkardı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "TSMC, Nanjing'de 12 inçlik wafer fabrikası için 3 milyar dolar yatırım yaptı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "OpenAI, yeni nesil çipleri için Samsung Foundry'yi TSMC'ye ek kaynak olarak değerlendiriyor",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Qualcomm ve AWS, 60 milyar dolara varan çok nesilli özel silikon anlaşması imzaladı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Çin, Japon diklorosilanına yüzde 80,8-99,2 arası anti-damping teminatı getirdi",
+      "hafta": "2026-H37"
     }
   ],
   "urls": [
@@ -548,6 +584,72 @@
     "https://donanimhaber.com/gan-teknolojisinde-buyuk-atilim-4-000-volt-baraji-asildi--209911",
     "https://gf.com/news-and-events/news/navitas-delivers-latest-gen-5-ganfast-manufactured-in-the-u-s-through-globalfoundries-partnership-to-accelerate-ai-infrastructure",
     "https://electronicsweekly.com/news/business/the-designless-semiconductor-industry-2026-09",
-    "https://cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html"
+    "https://cnbc.com/2026/09/03/south-korea-semiconductor-exports-surging-concerns.html",
+    "https://aa.com.tr/tr/ekonomi/savunma-sanayisindeki-teknoloji-ve-yetkinlikler-sivil-sektorlere-de-seviye-atlatacak/4050447",
+    "https://donanimhaber.com/ovp-de-teknoloji-hedefleri-yapay-zeka-cip-batarya-ve-enerji--210195",
+    "https://dunya.com/ekonomi/kritik-urun-ve-teknolojiler-icin-yeni-donem-yerli-uretime-yeni-destekler-geliyor-haberi-839051",
+    "https://aa.com.tr/tr/bilim-teknoloji/turkiye-stratejik-teknoloji-insan-kaynagi-programina-basvurular-basladi/4050598",
+    "https://asml.com/en/news/press-releases/2026/tsmc-and-asml-announce-industry-transition-to-large-format-photomasks-for-high-na-euv",
+    "https://asia.nikkei.com/business/tech/semiconductors/tsmc-intel-and-samsung-all-bet-on-asml-s-latest-chip-tool-in-ai-race",
+    "https://tomshardware.com/tech-industry/semiconductors/tsmc-samsung-and-intel-shore-up-support-with-asml-to-deploy-larger-high-na-euv-photomasks-6-12-inch-photomask-transition-may-take-years-despite-unified-effort",
+    "https://theregister.com/systems/2026/09/08/asml-and-tsmc-want-bigger-masks-for-smaller-chips/5294982",
+    "https://gf.com/news-and-events/news/globalfoundries-and-us-department-of-commerce-finalize-375m-r-and-d-award-to-advance-american-quantum-leadership",
+    "https://digitimes.com/news/a20260909PR207/worldwide-funding-quantum-computing-hardware-technology.html",
+    "https://evertiq.com/design/2026-09-10-globalfoundries-finalises-375-million-chips-award-for-quantum-semiconductor-rd",
+    "https://markets.ft.com/data/announce/detail?dockey=600-202609080730PR_NEWS_EURO_ND__EN41147-1",
+    "https://3dincites.com/2026/09/amkor-technology-announces-phase-2-of-arizona-advanced-packaging-and-test-campus-expands-investment-to-12-billion",
+    "https://digitimes.com/news/a20260909PR205/amkor-arizona-packaging-expansion-demand.html",
+    "https://evertiq.com/design/2026-09-09-amkor-expands-arizona-campus-to-12-billion-investment",
+    "https://electronicsweekly.com/news/business/asml-breaks-ground-on-new-campus-2026-09",
+    "https://eetimes.com/tsmc-to-invest-3b-for-wafer-fab-in-china",
+    "https://digitimes.com/news/a20260909VL200/asml-manufacturing-region-expansion-dutch.html",
+    "https://evertiq.com/design/2026-09-08-asml-breaks-ground-on-new-eindhoven-campus",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/openai-says-its-next-generation-processors-could-be-made-at-samsung-double-sourcing-with-tsmc-hints-at-massive-volume-requirements",
+    "https://digitimes.com/news/a20260909VL233/samsung-openai-capacity-chips-2nm.html",
+    "https://cnbc.com/2026/09/08/qualcomm-amazon-data-center-infrastructure-deal.html",
+    "https://digitimes.com/news/a20260909VL201/qualcomm-silicon-market-aws-amazon.html",
+    "https://theregister.com/off-prem/2026/09/08/amazon-ropes-qualcomm-into-something-something-ai-networking-chips/5295071",
+    "https://english.news.cn/20260907/73b6037d95604ba08ba9c4277bfab840/c.html",
+    "https://asia.nikkei.com/economy/trade/china-imposes-anti-dumping-measures-on-key-chipmaking-material-from-japan",
+    "https://digitimes.com/news/a20260909VL213/production-silicon-capacity-2022-wafer.html",
+    "https://donanimhaber.com/tsmc-nin-1-4-nm-cip-uretimi-icin-tarih-ortaya-cikti--210351",
+    "https://tomshardware.com/tech-industry/semiconductors/belgian-chinese-semiconductor-researcher-arrested-over-alleged-gan-trade-secret-theft-prosecutors-suspect-belgan-insiders-transferred-chip-ip-to-china-before-the-company-collapsed",
+    "https://wsj.com/world/china/belgiums-arrest-of-chinese-alleged-chip-tech-thief-fuels-european-fear-of-beijing-5824008f",
+    "https://evertiq.com/news/2026-09-10-belgian-authorities-arrest-belgan-employee-in-chip-technology-leak-investigation",
+    "https://compoundsemiconductor.net/article/125320/Belgium_holds_researcher_over_GaN_espionage_case",
+    "https://news.samsung.com/global/samsung-electronics-and-asml-expand-strategic-collaboration-for-next-generation-semiconductor-manufacturing",
+    "https://cnbc.com/2026/09/08/tsmc-samsung-asml-high-na-euv-machine-ai-chips.html",
+    "https://trendforce.com/news/2026/09/09/news-the-race-to-2028-samsung-sk-hynix-set-high-na-euv-timelines-for-dram-as-micron-stays-tight-lipped",
+    "https://digitimes.com/news/a20260910VL220/sk-hynix-high-na-dram-2028-samsung.html",
+    "https://technode.com/2026/09/08/huawei-unveils-kirin-9050-pro-chip-debuts-new-mate-xt-2-tri-folding-smartphone",
+    "https://asia.nikkei.com/techasia/huawei-vs.-apple-and-musk-chinamaxxes",
+    "https://digitimes.com/news/a20260907VL215/huawei-kirin-flagship-smartphone-launch-performance.html",
+    "https://trendforce.com/news/2026/09/07/news-huawei-addresses-tau-scaling-heat-concerns-as-kirin-2026-tests-show-55-higher-density-but-lower-power",
+    "https://fudzilla.com/huawei-takes-charge-of-chinas-lithography-push",
+    "https://intel.com/content/www/us/en/newsroom/news/intel-foundry/intel-foundry-asml-accelerate-industry-readiness-for-high-na-euv.html",
+    "https://imec-int.com/en/press/imec-demonstrates-extension-chemically-amplified-resists-high-na-euv-lithography",
+    "https://imec-int.com/en/press/imec-advances-scalable-superconducting-technology-world-first-nbtin-circuits-and-30nm",
+    "https://evertiq.com/design/2026-09-11-xanadu-asml-to-advance-lithography-for-photonic-quantum-hardware",
+    "https://wccftech.com/cxmt-faces-hbm-memory-chip-shock-as-yields-sink-to-25-with-close-to-80-out-of-100-hbm3-chips-failing-final-tests-says-report",
+    "https://ajupress.com/view/20260908201670728",
+    "https://techpowerup.com/352432/samsung-foundry-allocates-half-of-4-nm-capacity-for-hbm4-base-dies",
+    "https://evertiq.com/news/2026-09-07-dram-industry-revenue-surges-595-in-q2-as-supply-lags-demand",
+    "https://theregister.com/systems/2026/09/09/samsung-to-help-fortify-openais-semiconductor-supply-chain/5295374",
+    "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/chinas-ai-accelerator-supplier-biren-posts-2-000-percent-year-over-year-revenue-growth-export-controls-benefit-homegrown-chips-as-nvidia-and-amd-exit-market",
+    "https://evertiq.com/news/2026-09-11-positron-raises-875m-to-advance-next-gen-inference-silicon",
+    "https://newsroom.arm.com/news/arm-css-for-mobile-2-agentic-ai-mobile-graphics",
+    "https://newsroom.arm.com/news/arm-everywhere-the-compute-platform-for-agentic-ai",
+    "https://newsroom.arm.com/news/arm-agi-cpu-neoverse-css-n4-agentic-ai",
+    "https://channelnewsasia.com/business/analog-devices-buy-alif-semiconductor-135-billion-6373196",
+    "https://tomshardware.com/tech-industry/semiconductors/the-state-of-abf-substrates-in-data-center-silicon-in-2026-solving-the-supply-crunch-and-material-wall-beneath-every-ai-accelerator",
+    "https://compoundsemiconductor.net/article/125342/Ayar_Labs_expands_2026_funding_to_650m",
+    "https://electronicsweekly.com/news/business/dual-phase-smart-power-stage-family-power-density-exceeding-2-a-mm%C2%B2-2026-09",
+    "https://sammyguru.com/samsung-taylor-foundry-fab-fills-up-with-major-chip-orders",
+    "https://compoundsemiconductor.net/article/125335/5N_Plus_gets_7.3m_to_close_US_GaAs_supply-chain_gap",
+    "https://theregister.com/ai-and-ml/2026/09/09/us-claims-chinese-ai-companies-core-ai-strategy-is-distilling-american-models/5295171",
+    "https://tomshardware.com/tech-industry/semiconductors/chinese-quartz-approved-for-semiconductor-equipment-and-dram-manufacturing-but-it-still-cant-break-americas-monopoly-china-secures-domestic-supply-for-chipmaking-components-but-spruce-pine-still-holds-the-crucible-monopoly",
+    "https://cnbc.com/video/2026/09/09/a20-pro-is-apples-first-2nm-iphone-chip-that-enables-on-device-ai.html",
+    "https://donanimhaber.com/aselsan-dan-alp-300-g-aciklamasi-s-400-radarindan-daha-iyi--210180"
   ]
 }
