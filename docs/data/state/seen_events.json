@@ -1,5 +1,5 @@
 {
-  "issue_no": 7,
+  "issue_no": 8,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -272,6 +272,50 @@
     {
       "baslik_ozet": "Çin, Japon diklorosilanına yüzde 80,8-99,2 arası anti-damping teminatı getirdi",
       "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Applied Materials, Hindistan'a 10 yılda 5 milyar dolar yatırım yapacak",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Japonya ve ABD 19 milyar dolarlık çip fabrikasını görüşüyor",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "IBM iştiraki Anderon'a kuantum çip üretimi için 1 milyar dolarlık CHIPS ödülü",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "TSMC'nin CoWoS paketleme kapasitesinin 2028'e kadar ikiye katlanacağı bildirildi",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "SK Hynix, ABD'de bellek üretimi için Intel ile görüşüyor",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Hindistan, yarı iletkende 13,25 milyar dolarlık ISM 2.0 dönemine girdi",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Samsung, Tesla'nın AI5 çipinin deneme üretimine Texas'ta başladı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Nexperia, Hindistan'da çip üretimi için Tata ile ortak girişim kurdu",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Türkiye'nin 2027-2029 OVP'sinde yerli çip üretimi öncelikli hedef oldu",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Güney Kore'nin çip ekipmanı ihracat izinleri iki aya uzadı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Samsung ve TSMC, ASML'nin High NA EUV teknolojisine geçiyor",
+      "hafta": "2026-H38"
     }
   ],
   "urls": [
@@ -650,6 +694,56 @@
     "https://theregister.com/ai-and-ml/2026/09/09/us-claims-chinese-ai-companies-core-ai-strategy-is-distilling-american-models/5295171",
     "https://tomshardware.com/tech-industry/semiconductors/chinese-quartz-approved-for-semiconductor-equipment-and-dram-manufacturing-but-it-still-cant-break-americas-monopoly-china-secures-domestic-supply-for-chipmaking-components-but-spruce-pine-still-holds-the-crucible-monopoly",
     "https://cnbc.com/video/2026/09/09/a20-pro-is-apples-first-2nm-iphone-chip-that-enables-on-device-ai.html",
-    "https://donanimhaber.com/aselsan-dan-alp-300-g-aciklamasi-s-400-radarindan-daha-iyi--210180"
+    "https://donanimhaber.com/aselsan-dan-alp-300-g-aciklamasi-s-400-radarindan-daha-iyi--210180",
+    "https://eetimes.com/no-summer-lull-for-semiconductors",
+    "https://finance.yahoo.com/technology/articles/japan-us-weigh-19bn-chip-125505615.html",
+    "https://asia.nikkei.com/economy/trade-war/trump-tariffs/japan-us-in-talks-to-build-chip-factory-as-part-of-tariff-deal2",
+    "https://nist.gov/news-events/news/2026/09/department-commerce-announces-finalization-chips-rd-award-anderon",
+    "https://eetimes.com/u-s-awards-anderon-1b-for-quantum-wafer-manufacturing",
+    "https://evertiq.com/news/2026-09-18-applied-materials-to-invest-5-billion-in-india-by-2035",
+    "https://asia.nikkei.com/business/tech/semiconductors/applied-materials-to-invest-5bn-in-india-as-country-ups-chip-support",
+    "https://digitimes.com/news/a20260917VL200/applied-materials-investment-equipment-karnataka-design.html",
+    "https://eetimes.com/eu-set-to-ease-state-aid-rules-to-fund-ambitious-chips-act",
+    "https://rcrtech.com/semiconductor-news/tsmc-double-cowos-capacity-by-2028",
+    "https://trendforce.com/news/2026/09/14/news-tsmc-reportedly-targets-22-2nm-16-3nm-capacity-boost-by-mid-2027-cowos-to-double-by-2028",
+    "https://cnbc.com/2026/09/16/intel-sk-hynix-us-memory-chips.html",
+    "https://digitimes.com/news/a20260916VL214/sk-hynix-intel-production-investment-manufacturing.html",
+    "https://tomshardware.com/tech-industry/semiconductors/sk-hynix-reportedly-discussing-us-memory-chip-manufacturing-with-intel-options-include-leasing-ohio-plant-or-forming-joint-venture-with-other-ai-hyperscalers",
+    "https://trendforce.com/news/2026/09/16/news-sk-hynix-reportedly-explores-leasing-intels-ohio-fab-could-produce-memory-in-u-s-for-first-time",
+    "https://eetimes.com/piecing-together-the-indian-electronics-and-semiconductor-ecosystem",
+    "https://notateslaapp.com/news/4701/tesla-ai5-chip-enters-trial-production-at-samsungs-texas-fab",
+    "https://digitimes.com/news/a20260917VL212/samsung-production-tesla-fab-2nm.html",
+    "https://electronicsweekly.com/news/business/tata-and-nexperia-join-in-far-reaching-jv-2026-09",
+    "https://aa.com.tr/tr/ekonomi/turkiye-kuresel-cip-yarisinda-milli-projeler-ve-yeni-tesislerle-one-cikacak/4055664",
+    "https://dunya.com/is-dunyasi/cip-ihracatinda-izin-krizi-sure-iki-aya-maliyet-yuzde-20ye-cikti-haberi-840096",
+    "https://news.samsung.com/br/samsung-electronics-e-asml-ampliam-parceria-estrategica-para-a-fabricacao-avancada-de-semicondutores",
+    "https://donanimhaber.com/cip-uretiminde-yeni-cag-basliyor-high-na-euv-icin-tarih-verildi--210230",
+    "https://newsquawk.com/headlines/-us-is-pressuring-mexican-officials-to-accept-new-rules-for-exports-of-ai-hardware-to-prevent-chinese-companies-and-other-foreign-firms-from-circumventing-tariffs-according-to-wsj",
+    "https://wsj.com/economy/trade/u-s-pressures-mexico-to-box-out-chinas-ai-hardware-exports-4f708103",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/billions-worth-of-export-restricted-ai-accelerators-sold-to-china-report-details-how-chinese-firms-skirt-trumps-regulations",
+    "https://ibtimes.sg/south-korea-expands-espionage-law-chip-technology-becomes-national-security-target-93745",
+    "https://cnbc.com/2026/09/14/cnbcs-the-china-connection-newsletter-tech-controls-employees.html",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/us-frontier-ai-companies-warn-authorities-over-sophisticated-distillation-attacks-china-warns-of-countermeasures-if-america-tries-to-constrain-domestic-ai-models",
+    "https://cnbc.com/2026/09/20/bessent-chinas-he-to-hold-talks-on-ai-trade-minerals-reuters.html",
+    "https://policy.trade.ec.europa.eu/news/2026-update-eu-control-list-dual-use-items-2026-09-14_en",
+    "https://news-area.com/2026/09/17/exclusive-chinas-cas-institute-charts-duv-route-to-3nm-gaa-without-euv",
+    "https://electronicsweekly.com/news/business/imec-demoes-22nm-pitch-and-28nm-vias-on-single-print-high-na-step-2026-09",
+    "https://eetimes.com/intel-puts-high-na-euv-into-production-but-stitching-still-has-something-to-prove",
+    "https://tomshardware.com/tech-industry/semiconductors/asml-snubs-elon-musk-backed-particle-accelerator-chipmaking-tech-firm-doubles-down-on-1-000w-laser-produced-plasma-systems-for-chipmaking-tools",
+    "https://thehindubusinessline.com/companies/lam-research-to-invest-10000-cr-in-first-silicon-component-manufacturing-facility-in-india/article71472662.ece",
+    "https://evertiq.com/news/2026-09-17-fujifilm-to-invest-83m-in-semiconductor-materials-facility-in-india",
+    "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia",
+    "https://electronicsweekly.com/news/business/dealing-in-ai-who-has-the-cards-2026-09",
+    "https://eetimes.com/analysis-micron-cell-innovation-changes-dram-economics",
+    "https://tomshardware.com/pc-components/dram/micron-announces-512gb-ddr5-9200-memory-modules-with-16w-power-draw-up-to-12tb-per-server-claims-60-percent-less-energy-intensive-than-four-128gb-modules",
+    "https://semiconductor.samsung.com/news-events/tech-blog/samsung-bm1773-ultra-high-density-storage-solution-for-ai-data-centers",
+    "https://eetimes.com/samsung-starts-3d-v-nand-production",
+    "https://trendforce.com/news/2026/09/17/news-winbonds-1-12b-infineon-nor-flash-deal-could-lift-global-share-above-30-widening-its-lead",
+    "https://evertiq.com/news/2026-09-16-suss-to-invest-45m-in-advanced-packaging-innovation-center",
+    "https://compoundsemiconductor.net/article/125389/Onsemi_introduces_the_Embedded_Power_Platform",
+    "https://theregister.com/systems/2026/09/18/marvell-pushes-globalfoundries-to-light-up-wafer-production/5297340",
+    "https://eetimes.com/smic-aims-high-with-beijing-300-mm-fab",
+    "https://luxembourg.representation.ec.europa.eu/actualites-et-evenements/actualites/2026-state-union-address-president-von-der-leyen-2026-09-16_en",
+    "https://theregister.com/systems/2026/09/17/fujitsu-ready-to-sell-its-custom-monaka-arm-chip-maybe-to-rival-server-makers/5297025"
   ]
 }
