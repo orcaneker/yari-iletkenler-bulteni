@@ -45,6 +45,7 @@ GEREKEN ANAHTARLAR
 """
 
 import os
+import hashlib
 import re
 import sys
 import json
@@ -389,8 +390,25 @@ def main():
             v = os.environ.get(k, "")
             if not v or v == "BURAYA_YAPISTIR":
                 print(f"  {k:20} ✗ EKSİK")
-            else:
-                print(f"  {k:20} ✓ yüklendi ({len(v)} karakter)")
+                continue
+            # ⚠ PARMAK İZİ — anahtarın kendisi DEĞİL, SHA-256 özetinin ilk 10
+            # hanesi. İki makinede anahtar gerçekten aynı mı diye bakmanın güvenli
+            # yolu: izler eşitse anahtar birebir aynıdır, farklıysa kopyalama
+            # hatası vardır. "Bende çalışıyor ama onda 401 veriyor" vakalarının
+            # neredeyse tamamı budur — eksik karakter, satır sonu, tırnak,
+            # görünmez boşluk. İzi karşı tarafa yazmak güvenlidir; özetten
+            # anahtar geri üretilemez.
+            iz = hashlib.sha256(v.encode("utf-8")).hexdigest()[:10]
+            uyari = ""
+            if v != v.strip():
+                uyari = "  ⚠ BAŞINDA/SONUNDA BOŞLUK VAR"
+            elif v[0] in "\"'" or v[-1] in "\"'":
+                uyari = "  ⚠ TIRNAK İŞARETİ ANAHTARA DAHİL OLMUŞ"
+            elif any(c in v for c in " \t\r\n"):
+                uyari = "  ⚠ İÇİNDE BOŞLUK/SATIR SONU VAR — anahtar bölünmüş"
+            elif not v.isascii():
+                uyari = "  ⚠ ASCII DIŞI KARAKTER VAR — kopyalarken bozulmuş"
+            print(f"  {k:20} ✓ {len(v)} karakter · iz {iz}{uyari}")
         for k in ("MODEL_YAZIM", "REASONING_EFFORT"):
             print(f"  {k:20} = {os.environ.get(k) or '(tanımsız → config kullanılır)'}")
         return
