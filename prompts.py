@@ -317,6 +317,13 @@ Her haberi yazdıktan sonra ikisini de tek tek kontrol et.
    geçmeli. Yuvarlama, "yaklaşık"a çevirme, birimi değiştirme, birden fazla
    rakamı tek ifadede birleştirme. Para birimini olduğu gibi bırak.
    Kaynakta beş rakam varsa metinde de beşi birden bulunmalı.
+   ⚠ ÖLÇÜ BİRİMİNİ TÜRK BİRİMİNE ÇEVİRME — birimi Türkçe okunuşuyla yaz:
+   acre → "akre", foot/feet → "fit", mile → "mil", gallon → "galon",
+   pound → "libre", inch → "inç", ton türleri → "metrik ton"/"kısa ton".
+   Özellikle akre'yi DÖNÜM yazma: 1 akre ≈ 4 dönüm, dörde katlanan bir hata
+   olur (gerçek vaka: "170-acre campus" → "170 dönümlük kampüs" yazıldı).
+   Dönüştürmen gerekiyorsa hesabı doğru yap ve özgün birimi parantezde koru:
+   "170 akre (yaklaşık 688 dönüm)".
 
 ━━━ UZUNLUK DİSİPLİNİ ━━━
 
