@@ -25,6 +25,8 @@ DESEN = os.path.join(ARACLAR, "*_testi.py")
 
 # Gerçek LLM / ağ çağrısı yapanlar — ücretli ve yavaş, elle koşulur.
 CANLI = {
+    "openrouter_testi.py",       # OpenRouter geçidine gerçek istek atar
+                                 # (çevrimdışı karşılığı: openrouter_birim_testi.py)
     "birlestirme_testi.py",      # gerçek sayı verisiyle gerçek LLM çağrısı
 }
 

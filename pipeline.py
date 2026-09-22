@@ -722,7 +722,12 @@ def triyaj(adaylar, bas, bit, state):
     olaylar, reject = [], []
     B = AYARLAR["triyaj_batch"]
 
-    # Sistem bloğu her partide AYNI → cache'lenir (Anthropic tarafında).
+    # Sistem bloğu her partide AYNI → cache'lenmesi HEDEFLENİR.
+    # ⚠ ÖLÇÜLDÜ (22 Eylül 2026): Haiku 4.5'in asgari cache'lenebilir önek
+    # eşiği 4096 token; bu blok ~2.000-3.500 token. Eşiğin altında kalan
+    # istek SESSİZCE cache'lenmez — hata dönmez, cache_creation_input_tokens
+    # 0 gelir. Yani cache=True burada büyük olasılıkla hiç işe yaramıyor;
+    # zarar da vermiyor (yazma ücreti ancak cache oluşursa doğar).
     sistem = prompts.TRIYAJ_PROMPT + prompts.onceki_olaylar_bloku(onceki)
 
     for i in range(0, len(adaylar), B):
@@ -1045,8 +1050,14 @@ def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=None):
     # Akıl yürüten modellerde düşünme token'ları da çıktı bütçesinden düşer →
     # görünür metnin kesilmemesi için daha geniş limit kullanılır.
     # (gpt-5.x · Sonnet 5 · Opus 4.7+ · Fable 5 — hepsinde düşünme varsayılan açık)
+    # ⚠ OpenRouter geçidi için ayrı önek gerekir ("openrouter:anthropic/..."):
+    # liste güncellenmezse yazım dar bütçeyle çalışır, düşünme token'ları payı
+    # yer ve JSON ORTADAN KESİLİR.
     AKIL_YURUTEN = ("openai:gpt-5", "anthropic:claude-sonnet-5",
-                    "anthropic:claude-opus-", "anthropic:claude-fable-")
+                    "anthropic:claude-opus-", "anthropic:claude-fable-",
+                    "openrouter:anthropic/claude-sonnet-5",
+                    "openrouter:anthropic/claude-opus-",
+                    "openrouter:anthropic/claude-fable-")
     limit = (AYARLAR.get("max_tokens_yazim_reasoning", AYARLAR["max_tokens_yazim"])
              if model.startswith(AKIL_YURUTEN) else AYARLAR["max_tokens_yazim"])
     log(f"  yazım modeli: {model} · max_tokens={limit:,} · "
@@ -2253,6 +2264,11 @@ def main():
                     help="DB ve e-posta yok; taslak_preview.json üretir")
     ap.add_argument("--mock", action="store_true",
                     help="Exa/LLM yok; sahte taslak üretir")
+    ap.add_argument("--mini", type=int, nargs="?", const=3, metavar="N",
+                    help="KÜÇÜK PROVA: ilk N sorgu (vars. 3), 3 derin olay, "
+                         "6 radar. Gerçek Exa + gerçek LLM ama ~1/5 maliyet. "
+                         "Zincirin tamamını sınamak içindir; yayına uygun bir "
+                         "sayı üretmez. --dry-run ile birlikte kullanın.")
     ap.add_argument("--davet-yinele", action="store_true",
                     help="Bekleyen taslağın davetlerini yeniden gönderir; "
                          "Exa/LLM çalıştırmaz, ücret doğurmaz")
@@ -2263,14 +2279,36 @@ def main():
     if args.davet_yinele:
         sys.exit(davet_yinele())
 
-    if not args.mock and (not EXA_API_KEY or not os.environ.get("ANTHROPIC_API_KEY",
-                          os.environ.get("OPENAI_API_KEY"))):
-        sys.exit("HATA: EXA_API_KEY ve LLM anahtarı gerekli (veya --mock kullanın)")
+    llm_anahtari = (os.environ.get("OPENROUTER_API_KEY")
+                    or os.environ.get("ANTHROPIC_API_KEY")
+                    or os.environ.get("OPENAI_API_KEY"))
+    if not args.mock and (not EXA_API_KEY or not llm_anahtari):
+        sys.exit("HATA: EXA_API_KEY ve LLM anahtarı (OPENROUTER_API_KEY / "
+                 "ANTHROPIC_API_KEY / OPENAI_API_KEY) gerekli "
+                 "(veya --mock kullanın)")
+
+    # ── KÜÇÜK PROVA ──
+    # Sistem değişikliklerinden sonra tüm zinciri gerçek veriyle sınamak
+    # gerekir; tam çalışma ~15 dk ve Exa + model masrafı doğuruyor.
+    # --mini ölçeği küçültür, akış aynı kalır. Yalnızca komut satırı bayrağı;
+    # cron "python pipeline.py" olarak çalıştığı için üretime sızmaz.
+    if args.mini:
+        globals()["SORGULAR"] = SORGULAR[:args.mini]
+        AYARLAR.update({
+            "derin_olay_sayisi": 3, "toplam_olay_sayisi": 9,
+            "one_cikan_min": 1, "one_cikan_max": 3,
+            "radar_min": 1, "radar_max": 6, "brief_madde": 3,
+        })
 
     t0 = time.time()
     bugun = datetime.now(timezone.utc)
     log("═" * 46)
     log(f"YARI İLETKEN BÜLTENİ — TASLAK — {bugun.strftime('%Y-%m-%d')}")
+    if args.mini:
+        log(f"⚠ KÜÇÜK PROVA — {args.mini} sorgu · 3 derin olay · 6 radar")
+        log("  (yayına uygun sayı DEĞİL; zincir denemesi)")
+        if not args.dry_run:
+            log("  ⚠ --dry-run YOK: taslak kaydedilecek ve davet gidecek!")
 
     state = state_yukle()
     sayi_no = AYARLAR.get("sayi_no_sabit") or (son_sayi_no(state) + 1)

@@ -20,7 +20,7 @@ LLM katmanı, cron **Render**'da, yayın **GitHub Pages** üzerinden.
 ```
 config.py            Sorgular (12), kategori taksonomisi (12), kaynaklar, ayarlar
 prompts.py           LLM promptları — triyaj + yazım
-llm.py               Sağlayıcı soyutlama (anthropic:… / openai:…)
+llm.py               Sağlayıcı soyutlama (openrouter:… / anthropic:… / openai:…)
 pipeline.py          CRON 1 (Pazar 12:30 TSİ): tarama → taslak → Neon → davet
 publish.py           CRON 2 (Pazartesi 08:00 TSİ): yayın veya hatırlatma
 db.py                Neon Postgres şeması + CRUD + hakem yönetimi
@@ -59,7 +59,8 @@ Repo'yu Render'a bağlayın — `render.yaml` otomatik algılanır (Blueprint).
 | Anahtar | Zorunlu | Not |
 |---|---|---|
 | `EXA_API_KEY` | ✅ (cron 1) | exa.ai |
-| `ANTHROPIC_API_KEY` | ✅ (cron 1) | |
+| `OPENROUTER_API_KEY` | ✅ (cron 1) | openrouter.ai/settings/keys — `sk-or-v1-…`; anahtara kredi limiti koyun |
+| `ANTHROPIC_API_KEY` | — | yedek: `config.py`'de `anthropic:` modeline dönülürse |
 | `OPENAI_API_KEY` | — | sadece `openai:` modeli denenirse |
 | `DATABASE_URL` | ✅ (hepsi) | Neon |
 | `RESEND_API_KEY` | ✅ (hepsi) | resend.com |
@@ -140,3 +141,20 @@ uvicorn review_app.main:app --port 8000
   aynı dosya adlarıyla üzerine yazın.
 - Ayar noktaları: hacim `config.py → AYARLAR`, kota `KATEGORILER[...]["kota"]`,
   kaynak `KAYNAK_TIER1/TIER2/TURKIYE`, sorgu `SORGULAR`.
+
+### OpenRouter geçidi
+
+LLM çağrıları OpenRouter'ın **Anthropic-uyumlu** ucundan (`/api/v1/messages`)
+geçer; OpenAI formatındaki `/chat/completions` kullanılmaz. İstek gövdesi
+(system bloğu, `cache_control`, `output_config.effort`) ve akış olayları
+Anthropic şemasında kalır. Modeller değişmedi: triyaj Haiku 4.5, yazım Sonnet 5.
+
+* Model adı org öneki + noktalı sürüm: `anthropic/claude-haiku-4.5`.
+  Tarihli kimlikler (`…-20251001`) OpenRouter'da yoktur → 404.
+* Sağlayıcı `config.py` → `openrouter_saglayici` ile seçilir. Kurumsal
+  hesapta Anthropic'in kendi ucu filtrelenmiş durumda; istekleri Amazon
+  Bedrock karşılıyor. `OPENROUTER_SAGLAYICI` ortam değişkeni ezer.
+* Bağlantı testi (bülteni etkilemez, ~$0.06):
+  `python denemeler/araclar/openrouter_testi.py`
+* Kurum ağı TLS'i araya giriyorsa (CERTIFICATE_VERIFY_FAILED):
+  `python denemeler/araclar/ca_paketi_olustur.py`

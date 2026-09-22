@@ -83,18 +83,45 @@ AYARLAR = {
     "radar_min": 18,
     "radar_max": 30,
 
-    # LLM — sağlayıcı öneki zorunlu: "anthropic:..." veya "openai:..."
-    "model_triyaj": "anthropic:claude-haiku-4-5-20251001",
-    "model_yazim": "anthropic:claude-sonnet-5",
+    # LLM — sağlayıcı öneki zorunlu:
+    #   "openrouter:..." → OpenRouter geçidi (KURUMSAL HESAP, varsayılan)
+    #   "anthropic:..."  → doğrudan Anthropic (ANTHROPIC_API_KEY ile; yedek yol)
+    #   "openai:..."     → OpenAI
+    # ⚠ OpenRouter model adı org öneki + NOKTALI sürüm kullanır
+    # ("anthropic/claude-haiku-4.5"). Anthropic'in tarihli kimlikleri
+    # ("claude-haiku-4-5-20251001") OpenRouter'da yoktur → 404.
+    # Modeller BİLEREK aynı: triyaj Haiku 4.5, yazım Sonnet 5.
+    # Doğrudan Anthropic'e dönmek için:
+    #   "model_triyaj": "anthropic:claude-haiku-4-5-20251001"
+    #   "model_yazim":  "anthropic:claude-sonnet-5"
+    "model_triyaj": "openrouter:anthropic/claude-haiku-4.5",
+    "model_yazim": "openrouter:anthropic/claude-sonnet-5",
     # NOT: temperature parametresi BİLEREK gönderilmiyor (model uyumsuzluk deneyimi).
 
-    # OpenAI reasoning modelleri (gpt-5.6 ailesi) için akıl yürütme seviyesi:
-    # none | low | medium | high | xhigh | max
-    # Anthropic modellerinde yok sayılır. REASONING_EFFORT ortam değişkeni
-    # bu ayarı ezer (deneme yaparken pratik).
-    "reasoning_effort": "medium",
+    # AKIL YÜRÜTME SEVİYESİ — none | low | medium | high | xhigh | max
+    # ⚠ Bu ayar HEM OpenAI (reasoning_effort) HEM Anthropic (output_config.effort)
+    # modellerine gider. (Eski yorumda "Anthropic'te yok sayılır" yazıyordu —
+    # llm.py effort'u Sonnet 4.6+/5, Opus 4.5+ ve Fable'a GÖNDERİYOR. Haiku 4.5
+    # ve Sonnet 4.5 kabul etmediği için onlara gönderilmez.)
+    # ⚠ Düşünme token'ları ÇIKTI fiyatından faturalanır.
+    # 22 Eylül 2026: "high"a çıkıldı — bültenin işi İngilizce kaynaktan Türkçe
+    # haber üretmek; çeviri + veri aktarımı doğruluğa duyarlı ve Anthropic'in
+    # kendi varsayılanı da "high". Ölçülen fark: aynı iş için çıktı 2.075 →
+    # 3.541 token, sayı başına ~15 sent.
+    # REASONING_EFFORT ortam değişkeni bu ayarı EZER (tek çalışmayı etkiler).
+    "reasoning_effort": "high",
     "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
-    "model_birlestirme": "anthropic:claude-sonnet-5",   # olay birlestirme
+    # OpenRouter hangi altyapıyı kullansın? (yalnızca openrouter: modelleri)
+    # Aynı Claude modeli birden çok altyapıdan sunuluyor: Anthropic'in kendi
+    # API'si, Amazon Bedrock, Google Vertex, Azure.
+    # ⚠ 22 Eylül 2026 ölçümü: kurumsal hesap Anthropic'in kendi ucunu görmüyor
+    # (huni: 8 uç → bölge filtresi 4 → guardrails 2 → katı sabitleme 0 → 404).
+    # Sabitleme kalkınca isteği Amazon Bedrock karşıladı. Bu yüzden Bedrock
+    # TERCİH edilir ama KİLİTLENMEZ; allow_fallbacks False yine sıfırlar.
+    # ⚠ OPENROUTER_SAGLAYICI ortam değişkeni ezer:
+    #     serbest · amazon-bedrock,google-vertex · sadece:anthropic
+    "openrouter_saglayici": {"order": ["amazon-bedrock"], "allow_fallbacks": True},
+    "model_birlestirme": "openrouter:anthropic/claude-sonnet-5",   # olay birlestirme
     # ^ girdi kucuk (yalnizca olay ozetleri) -> guclu model ucuza gelir
     "max_tokens_birlestirme": 4000,
     "max_tokens_triyaj": 8000,
@@ -151,6 +178,14 @@ FIYAT = {
     # tanıtım fiyatı $2/$10. Aşağıda LİSTE fiyatı yazılı — maliyet raporu böylece
     # olduğundan düşük görünmez.
     "anthropic:claude-sonnet-5":           {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
+    # ── OpenRouter geçidi (22 Eylül 2026'da openrouter.ai/api/v1/models'dan okundu) ──
+    # ⚠ YEDEKTİR: OpenRouter yanıtta gerçek maliyeti (usage.cost) döndürür ve
+    # llm.py onu kullanır; bu satırlar yalnızca cost gelmezse devreye girer.
+    # Sonnet 5 burada tanıtım fiyatıyla listeli ($2/$10); tanıtım bitince
+    # Anthropic liste fiyatına ($3/$15) döner.
+    "openrouter:anthropic/claude-sonnet-5":  {"in": 2.00, "out": 10.00, "cache_w": 2.50, "cache_r": 0.20},
+    "openrouter:anthropic/claude-haiku-4.5": {"in": 1.00, "out":  5.00, "cache_w": 1.25, "cache_r": 0.10},
+    "openrouter:anthropic/claude-sonnet-4.6": {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
 }
 
 # ============================================================

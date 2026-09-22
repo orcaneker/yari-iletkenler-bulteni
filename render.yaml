@@ -27,7 +27,9 @@ envVarGroups:
     envVars:
       - key: EXA_API_KEY           # cron 1 — exa.ai
         sync: false
-      - key: ANTHROPIC_API_KEY     # cron 1
+      - key: OPENROUTER_API_KEY    # cron 1 — kurumsal OpenRouter hesabı (ASIL)
+        sync: false
+      - key: ANTHROPIC_API_KEY     # yedek — config'de anthropic: modeline dönülürse
         sync: false
       - key: OPENAI_API_KEY        # opsiyonel — openai: modeli denenirse
         sync: false

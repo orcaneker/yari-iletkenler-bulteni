@@ -384,7 +384,8 @@ def main():
 
     # ── anahtar kontrolü — değerler ASLA ekrana basılmaz ──
     if args.kontrol:
-        for k in ("EXA_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY"):
+        for k in ("EXA_API_KEY", "OPENROUTER_API_KEY", "OPENAI_API_KEY",
+                  "ANTHROPIC_API_KEY"):
             v = os.environ.get(k, "")
             if not v or v == "BURAYA_YAPISTIR":
                 print(f"  {k:20} ✗ EKSİK")
