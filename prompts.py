@@ -626,10 +626,10 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
                   "Ama YİNE DE kaynağın erişilebilirliğinden METİNDE BAHSETME."
                   if o.get("ikinci_el") else "")
         bloklar.append(
-            f"### OLAY {o['event_key']} | kategori: {o['kategori']} | "
-            f"puan: {o['puan']} | olgunluk: {o.get('olgunluk')}{ikinci}\n"
+            f"### OLAY {o['event_key']} | kategori: {o.get('kategori') or '-'} | "
+            f"puan: {o.get('puan')} | olgunluk: {o.get('olgunluk')}{ikinci}\n"
             f"→ Bu olaydan yazacağın story'nin id'si: {o['event_key']}\n"
-            f"Özet: {o['baslik_ozet']}\n"
+            f"Özet: {o.get('baslik_ozet') or '-'}\n"
             f"Şirketler: {', '.join(o.get('sirketler') or []) or '-'} | "
             f"Ülkeler: {', '.join(o.get('ulkeler') or []) or '-'}\n"
             f"Kaynaklar:\n{kaynaklar}\n\n{metinler}"
@@ -639,7 +639,7 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
     for o in radar_havuz:
         k = o["kaynaklar"][0]
         radar_satirlari.append(
-            f"- [{o['kategori']}] {o['baslik_ozet']} "
+            f"- [{o.get('kategori') or '-'}] {o.get('baslik_ozet') or '-'} "
             f"({k['name']}, {k.get('published_date') or '?'}) {k['url']}"
         )
 

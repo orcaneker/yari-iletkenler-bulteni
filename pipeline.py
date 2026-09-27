@@ -717,6 +717,54 @@ def on_eleme(adaylar, state):
 # ============================================================
 # 4) AŞAMA 1 — TRİYAJ
 # ============================================================
+# ⚠ NEDEN ŞEMA ONARIMI VAR
+# Gerçek vaka (biyoekonomi, 27 Eylül 2026 — OpenRouter'a geçişten sonraki
+# ilk cron): triyaj 69 olay döndürdü, en az birinde "baslik_ozet" alanı
+# YOKTU. Birleştirme, teyit ve tarih doğrulama .get() ile okuduğu için
+# sessiz geçti; çökme ancak 5 dakika ve tüm Exa/triyaj ücreti harcandıktan
+# sonra, yazım mesajı kurulurken KeyError olarak geldi. Model alanı bazen
+# atlıyor ya da Türkçe karakterle ("başlık_özet") yazıyor. Kural: triyaj
+# çıktısı SÖZLEŞME değil öneri — alanlar burada tek noktada tamamlanır.
+_OZET_ESANLAMLI = ("başlık_özet", "baslik_özet", "başlık_ozet", "ozet", "özet",
+                   "summary", "title", "baslik", "başlık", "headline")
+
+
+def triyaj_olaylarini_onar(olaylar, adaylar):
+    """Triyaj çıktısındaki eksik/bozuk alanları tamamla.
+    Dönen: (geçerli olaylar, onarım notları)"""
+    idx = {a["id"]: a for a in adaylar}
+    gecerli, notlar = [], []
+    for o in olaylar:
+        if not isinstance(o, dict):
+            notlar.append(f"sözlük olmayan kayıt atıldı: {str(o)[:40]}")
+            continue
+        if not isinstance(o.get("supporting_ids"), list):
+            o["supporting_ids"] = []
+        if not isinstance(o.get("baslik_ozet"), str) or not o["baslik_ozet"].strip():
+            ozet = next((o[k] for k in _OZET_ESANLAMLI
+                         if isinstance(o.get(k), str) and o[k].strip()), None)
+            kaynak = "eşanlamlı alan"
+            if not ozet:
+                aday = idx.get(o.get("primary_id")) or next(
+                    (idx[i] for i in o["supporting_ids"] if i in idx), None)
+                ozet = aday["title"] if aday else None
+                kaynak = "aday başlığı"
+            if not ozet:
+                notlar.append(f"özetsiz ve kaynaksız olay atıldı: "
+                              f"{o.get('event_key') or '?'} (alanlar: {sorted(o)})")
+                continue
+            o["baslik_ozet"] = ozet
+            notlar.append(f"eksik baslik_ozet {kaynak} ile dolduruldu: "
+                          f"{o.get('event_key') or '?'} (alanlar: {sorted(o)})")
+        if not isinstance(o.get("puan"), (int, float)):
+            try:
+                o["puan"] = float(o.get("puan"))
+            except (TypeError, ValueError):
+                o["puan"] = 0
+        gecerli.append(o)
+    return gecerli, notlar
+
+
 def triyaj(adaylar, bas, bit, state):
     onceki = [e.get("baslik_ozet", "") for e in state.get("events", [])]
     olaylar, reject = [], []
@@ -745,6 +793,10 @@ def triyaj(adaylar, bas, bit, state):
             reject += d.get("reject", [])
         except Exception as e:
             log(f"  ! Triyaj partisi başarısız: {e}")
+
+    olaylar, onarimlar = triyaj_olaylarini_onar(olaylar, adaylar)
+    for n in onarimlar:
+        log(f"  ! triyaj şema onarımı: {n}")
 
     # Aynı event_key birden fazla partide çıkabilir → birleştir
     birlesik = {}
