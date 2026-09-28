@@ -1,5 +1,16 @@
 [
   {
+    "number": 9,
+    "hafta": "2026-H39",
+    "publication_date": "2026-09-28",
+    "coverage_start": "2026-09-20",
+    "coverage_end": "2026-09-27",
+    "lead_title": "Türkiye, HIT-30 programıyla 10 milyar dolarlık yatırım hedefi belirledi",
+    "story_count": 12,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H39.json"
+  },
+  {
     "number": 8,
     "hafta": "2026-H38",
     "publication_date": "2026-09-21",

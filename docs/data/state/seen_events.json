@@ -1,5 +1,5 @@
 {
-  "issue_no": 8,
+  "issue_no": 9,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -316,6 +316,58 @@
     {
       "baslik_ozet": "Samsung ve TSMC, ASML'nin High NA EUV teknolojisine geçiyor",
       "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Türkiye, HIT-30 programıyla 10 milyar dolarlık yatırım hedefi belirledi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Xi'nin ABD ziyareti öncesi Huawei ve Alibaba yeni yapay zeka çipleri tanıttı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "ABD, ulusal güvenlik kararıyla polisilikon stoklamasını kısıtlıyor",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Tower Semiconductor, Japonya'da 4 milyar dolarlık optik çip merkezi kuruyor",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "CXMT, dörtlü desenleme kullanan 5. nesil DRAM'ini seri üretime aldı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "TSMC, 1,4nm A14 sürecinde pilot üretime başladı, 2028 seri üretim hedefi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "ASML, 2026'da Avrupa'da sıfır litografi satışı bildirdi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "IBM'in kuantum foundry'si Anderon, 1 milyar dolarlık CHIPS desteğini kesinleştirdi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Xi'nin ABD ziyaretinde 30 milyar dolarlık tarife indirimi anlaşması yapıldı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "SemiAnalysis, AMD'nin ihracat kısıtlı radar çipiyle ilgili soruşturma çağrısı yaptı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "ASML ve TSMC, 12 inç EUV fotomaskeye geçişte iş birliği yapacak",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "ByteDance, Norveç veri merkezi üzerinden 2.304 Nvidia B200 çipine erişti",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Samsung'un Taylor fabrikası, Tesla'nın 2nm A15 çipini prototiplemeye başladı",
+      "hafta": "2026-H39"
     }
   ],
   "urls": [
@@ -744,6 +796,57 @@
     "https://theregister.com/systems/2026/09/18/marvell-pushes-globalfoundries-to-light-up-wafer-production/5297340",
     "https://eetimes.com/smic-aims-high-with-beijing-300-mm-fab",
     "https://luxembourg.representation.ec.europa.eu/actualites-et-evenements/actualites/2026-state-union-address-president-von-der-leyen-2026-09-16_en",
-    "https://theregister.com/systems/2026/09/17/fujitsu-ready-to-sell-its-custom-monaka-arm-chip-maybe-to-rival-server-makers/5297025"
+    "https://theregister.com/systems/2026/09/17/fujitsu-ready-to-sell-its-custom-monaka-arm-chip-maybe-to-rival-server-makers/5297025",
+    "https://dunya.com/ekonomi/turkiyeye-10-milyar-dolarlik-yatirim-hedefi-dev-sirketlerin-rotasi-degisiyor-haberi-841272",
+    "https://aa.com.tr/tr/ekonomi/sanayi-ve-teknoloji-bakani-kacir-ilk-10-savunma-sanayi-ihracatcisi-ulkeden-biri-olacagiz/4066127",
+    "https://cnbc.com/2026/09/24/trump-xi-china-summit-ai-export-control-nvidia-huawei-alibaba-.html",
+    "https://asia.nikkei.com/politics/international-relations/bessent-and-china-s-he-launch-talks-on-ai-trade-and-critical-minerals",
+    "https://semiengineering.com/chip-industry-week-in-review-157",
+    "https://tomshardware.com/tech-industry/photonics/tower-semiconductor-to-invest-usd4-billion-in-japanese-ops-to-set-up-massive-optical-connectivity-hub-dual-track-expansion-aims-to-increase-output-by-40-times-by-2029",
+    "https://asia.nikkei.com/business/tech/semiconductors/israeli-foundry-tower-semiconductor-to-make-japan-main-hub-for-optical-chips",
+    "https://tomshardware.com/pc-components/dram/chinas-cxmt-hits-12nm-class-dram-milestone-new-5th-gen-dram-tech-uses-quadruple-patterning-to-boost-die-capacity-by-50-percent",
+    "https://trendforce.com/news/2026/09/21/news-cxmt-g5-dram-enters-mass-production-with-50-higher-dies-per-wafer-saqp-enables-11-95nm-half-pitch",
+    "https://asia.nikkei.com/business/tech/semiconductors/cxmt-smic-power-620-surge-in-profits-in-china-s-chip-industry",
+    "https://evertiq.com/news/2026-09-21-chinas-cxmt-says-5th-gen-dram-platform-enters-mass-production",
+    "https://donanimhaber.com/tsmc-1-4-nm-ciplerin-pilot-uretimine-basladi-hedef-2028--210904",
+    "https://trendforce.com/news/2026/09/22/news-tsmcs-a14-race-heats-up-pilot-run-reportedly-pulled-forward-to-1q27-closing-in-on-intels-14a",
+    "https://tomshardware.com/tech-industry/semiconductors/asml-says-its-sells-absolutely-nothing-in-europe-calls-on-eu-to-help-create-demand",
+    "https://digitimes.com/news/a20260924VL212/asml-sales-eu-europe-investment.html",
+    "https://evertiq.com/news/2026-09-21-anderon-finalizes-agreement-for-1-billion-chips-award",
+    "https://digitimes.com/news/a20260921PR200/ibm-manufacturing-wafer-award-quantum-computing.html",
+    "https://cnbc.com/2026/09/26/china-us-tariff-cut-ai-dialogue.html",
+    "https://asia.nikkei.com/spotlight/trump-xi-summit/us-and-china-agree-on-tariff-relief-for-30bn-of-nonsensitive-goods-each",
+    "https://wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-09-23-2026/card/u-s-and-china-will-extend-tariff-truce-until-january-bessent-says-ZjWvDxWTqTZhyKkCR9Ra",
+    "https://tomshardware.com/tech-industry/leading-semiconductor-analyst-accuses-amd-of-treason-over-restricted-chips-availability-in-china-amd-blames-diversion-of-export-controlled-rfsoc-usd36-000-radar-silicon-allegedly-quoted-at-usd1-000-for-crowdfunding-project",
+    "https://evertiq.com/design/2026-09-24-asml-tsmc-to-advance-transition-to-large-format-euv-photomasks",
+    "https://tomshardware.com/tech-industry/data-centers/filing-reveals-how-bytedance-gained-access-to-over-2-000-nvidia-b200-chips-through-nscales-norway-data-center-singaporean-subsidiary-spring-contributed-73-percent-of-uk-neoclouds-2025-revenue",
+    "https://buzzingasia.com/story/us-tungsten-supplier-elmet-to-buy-stake-in-vietnamese-miner-masan/r139041820",
+    "https://asia.nikkei.com/business/business-deals/us-tungsten-supplier-elmet-to-buy-stake-in-vietnamese-miner-masan",
+    "https://electronicsweekly.com/news/business/manufacturing/samsungs-taylor-fab-running-prototypes-of-teslas-2nm-a15-chip-2026-09",
+    "https://tomshardware.com/tech-industry/china-crafts-working-3nm-gate-all-around-transistors-without-euv-stacked-nanosheets-target-3nm-without-euv-but-full-node-remains-distant",
+    "https://tomshardware.com/tech-industry/semiconductors/intel-expects-14a-to-be-within-5-percent-the-performance-of-tsmcs-a14-conservative-forecast-clashes-with-18as-frequency-lead-and-promised-20-percent-gains",
+    "https://3dincites.com/2026/09/siemens-and-tsmc-advance-ai-powered-semiconductor-design-automation",
+    "https://dailysynapse.com/news/tsmc-starts-a14-pilot-production-ahead-of-2027-risk-run",
+    "https://eetimes.com/inside-tsmcs-evolving-design-ecosystem-shaping-the-future-of-ai-with-ai",
+    "https://evertiq.com/news/2026-09-23-taiwan-breaks-ground-on-advanced-packaging-industrial-park",
+    "https://eetimes.com/semicon-india-2026-india-starts-packaging-chips-as-ecosystem-takes-shape",
+    "https://vdo.com.vn/vi/tin-tuc/tin-cong-nghe/cuoc-dua-dong-goi-chip-ai-intel-emib-huong-toi-ti-le-thanh-pham-60-n3378",
+    "https://newelectronics.co.uk/content/news/intel-patent-reveals-glass-substrate-packaging-design-with-integrated-micro-leds",
+    "https://theregister.com/off-prem/2026/09/22/alibaba-cloud-plans-six-year-stroll-to-20gw-of-datacenters-reveals-chip-to-power-them/5298062",
+    "https://thestandard.com.hk/innovation/article/343489/DeepSeek-to-use-more-domestic-chips-like-Huawei-for-AI-training",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/huawei-shelves-global-ai-chip-rollout-as-chinas-own-demand-outstrips-supply-15-488-chip-atlas-clusters-leverage-optical-networking-to-counter-nvidia-scales-to-120-eflops",
+    "https://tomshardware.com/tech-industry/data-centers/google-is-blasting-an-experimental-ai-data-center-into-orbit-first-satellite-will-feature-just-four-tensor-processing-units",
+    "https://zaikei.co.jp/article/20260925/871173.html",
+    "https://semiconductor.samsung.com/news-events/tech-blog/samsung-lpddr6-advancing-low-power-memory-for-ai-with-industry-first-validation-on-qualcomm-technologies-new-snapdragon-platform",
+    "https://eetimes.com/chinas-dram-specialist-cxmt-eyes-nand-flash-entry",
+    "https://tomshardware.com/pc-components/storage/chinas-ymtc-wins-patent-battle-against-micron-in-ongoing-3-year-legal-war-over-memory-patents-new-injunctions-could-restrict-microns-supply-into-germany",
+    "https://compoundsemiconductor.net/article/125436/Coherent_launches_PhotonLink_platform_for_next_gen_data_centres",
+    "https://electronicsweekly.com/news/products/openlight-samples-3-t-dr8-silicon-photonics-pics-2026-09",
+    "https://finviz.com/news/393684/lumentum-qualcomm-and-corning-to-demonstrate-high-density-1060-nm-vcsel-optical-d2d-connectivity-for-ai-scale-up-at-ecoc-2026",
+    "https://ams-osram.com/documents/d/ams-osram/press_2026_en_ams-osram_ecoc-datacom",
+    "https://evertiq.com/news/2026-09-23-us-firm-quantinuum-finalizes-100-million-chips-rd-award",
+    "https://evertiq.com/design/2026-09-23-nexperia-partners-with-tata-electronics-on-semiconductor-manufacturing-in-india",
+    "https://gate.com/news/detail/ai-demand-drives-12-inch-wafer-prices-up-40-in-2027-lta-negotiations-24547433",
+    "https://cnbc.com/2026/09/26/arming-taiwan-is-an-important-us-interest-taipei-official-says.html"
   ]
 }
