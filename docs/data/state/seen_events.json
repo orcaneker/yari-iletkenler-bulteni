@@ -1,5 +1,5 @@
 {
-  "issue_no": 9,
+  "issue_no": 10,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -368,6 +368,42 @@
     {
       "baslik_ozet": "Samsung'un Taylor fabrikası, Tesla'nın 2nm A15 çipini prototiplemeye başladı",
       "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Micron 2026 mali yılını 133,19 milyar dolarlık rekor gelirle kapattı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "TSMC, Texas'ta altı fabrika için 265 milyar doları aşan yatırımı değerlendiriyor",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Micron'un Tayvan yatırımı 1,6 trilyon Yeni Tayvan dolarını aştı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "AST, Singapur'da ilk yüksek seviye FC-BGA altlık tesisini açtı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Tata Electronics, Besi ile Assam'daki paketleme tesisi için iş birliği kurdu",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "OpenAI, Jalapeño isimli uygulamaya özel entegre devresini (ASIC) yapay zeka destekli tasarımla geliştirdi",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "OpenAI ve Synopsys, çip tasarımı için GPT-Synopsys modelini duyurdu",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Nvidia, ajan güvenliği için OpenShell platformunu ve Vera CPU'yu tanıttı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Yongatek, Beko ile 2028-2029'da 30 milyon çip üretimini hedefliyor",
+      "hafta": "2026-H40"
     }
   ],
   "urls": [
@@ -847,6 +883,59 @@
     "https://evertiq.com/news/2026-09-23-us-firm-quantinuum-finalizes-100-million-chips-rd-award",
     "https://evertiq.com/design/2026-09-23-nexperia-partners-with-tata-electronics-on-semiconductor-manufacturing-in-india",
     "https://gate.com/news/detail/ai-demand-drives-12-inch-wafer-prices-up-40-in-2027-lta-negotiations-24547433",
-    "https://cnbc.com/2026/09/26/arming-taiwan-is-an-important-us-interest-taipei-official-says.html"
+    "https://cnbc.com/2026/09/26/arming-taiwan-is-an-important-us-interest-taipei-official-says.html",
+    "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/default.aspx",
+    "https://trendforce.com/news/2026/10/01/news-micron-fy2026-revenue-surges-256-to-133-2b-locks-in-35-of-revenue-through-2030",
+    "https://wsj.com/business/earnings/micron-profit-revenue-surge-on-memory-demand-562034e6",
+    "https://digitimes.com/news/a20261001VL206/micron-hbm-2027-dram-growth.html",
+    "https://electronicsweekly.com/news/business/tsmc-looking-to-build-six-fabs-in-texas-2026-09",
+    "https://trendforce.com/news/2026/09/29/news-tsmc-reportedly-eyes-texas-expansion-that-could-top-us265b-vis-nxp-mulls-second-singapore-fab",
+    "https://digitimes.com/news/a20260930PD215/tsmc-texas-fab-arizona-ic-manufacturing.html",
+    "https://focustaiwan.tw/business/202610010013",
+    "https://trendforce.com/news/2026/10/02/news-micron-taiwan-investment-tops-nt1-6t-as-four-site-expansion-accelerates-nanya-adds-pingtung-project",
+    "https://eetimes.com/hynix-slapped-with-57-import-duties",
+    "https://broadcom.com/company/news/releases/ast-broadcom-toppan-open-substrate-facility",
+    "https://asia.nikkei.com/business/technology/broadcom-toppan-open-singapore-s-first-advanced-chip-substrate-facility",
+    "https://evertiq.com/design/2026-09-30-broadcom-and-toppan-jv-opens-fc-bga-substrate-plant-in-singapore",
+    "https://digitimes.com/news/a20260930VL202/ast-fc-bga-substrate-plant-high-end.html",
+    "https://evertiq.com/design/2026-09-29-tata-electronics-and-besi-enter-strategic-partnership-to-strengthen-advanced-packaging-capabilities",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/openai-jalapeno-design-interview-transcript-hardware-vp-richard-ho-explains-how-ai-assisted-design-may-shape-the-future-of-inference-asics",
+    "https://investor.synopsys.com/news/news-details/2026/OpenAI-and-Synopsys-Announce-GPT-Synopsys-Frontier-Intelligence-to-Revolutionize-Chip-Design",
+    "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx",
+    "https://cnbc.com/2026/09/28/nvidia-releases.html",
+    "https://community.cadence.com/cadence_blogs_8/b/corporate-news/posts/trusted-autonomy-with-cadence-ai-super-agents-and-nvidia-agent-safety-platform",
+    "https://aa.com.tr/tr/bilim-teknoloji/yongatek-genel-muduru-barandan-teknofest-teknolojik-donusum-atesinin-yakildigi-bir-olimpiyat-degerlendirmesi/4077132",
+    "https://evertiq.com/news/2026-09-28-vsmc-opens-its-first-12-inch-fab-in-tampines-singapore",
+    "https://asia.nikkei.com/business/tech/semiconductors/tsmc-affiliate-already-eyes-expansion-as-first-singapore-plant-sells-out",
+    "https://electronicsweekly.com/news/business/a-guard-and-nxp-open-new-jv-fab-and-plan-another-2026-09",
+    "https://dunya.com/is-dunyasi/samsungdan-ai-sunucularina-5-milyar-dolarlik-yatirim-haberi-841750",
+    "https://dunya.com/ekonomi/micronda-yapay-zeka-talebi-32-milyar-dolara-cikti-haberi-842184",
+    "https://ekonomim.com/kose-yazisi/aselsan-ve-turk-telekomun-yerli-telefonu-malatyada-uretilecek-2027de-cikacak/921256",
+    "https://donanimhaber.com/yerli-akilli-telefon-geliyor--211052",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/california-tech-ceo-arrested-faces-up-to-20-years-in-prison-for-smuggling-usd300-million-in-nvidia-ai-servers-to-china-federal-prosecutors-say-chips-were-routed-through-malaysia-and-singapore-using-false-paperwork",
+    "https://cnbc.com/2026/09/28/trump-xi-summit-tangible-outcomes-us-china-truce.html",
+    "https://cnbc.com/2026/09/28/cnbcs-the-china-connection-trump-xi-summit-about-domestic-messaging.html",
+    "https://tomshardware.com/pc-components/ssds/micron-lawsuit-claims-chinese-memory-maker-ymtc-poached-its-engineers-then-sued-it-using-its-own-stolen-tech-ex-employees-hid-roles-on-linkedin-patented-micron-tech-and-won-a-german-injunction",
+    "https://theregister.com/systems/2026/09/30/huawei-boss-claims-homegrown-ai-chip-sales-top-nvidia-in-china/5300266",
+    "https://cnbc.com/2026/10/01/broadcom-lending-anthropic-42-billion-chips-reuters.html",
+    "https://theregister.com/ai-and-ml/2026/09/28/amd-bets-82b-that-worlds-matter-more-than-words-in-ai/5299609",
+    "https://chipdispatch.com/articles/infineon-opens-1-4-billion-thai-plant-for-ev-and-data-center-chips-34f4fc1a",
+    "https://evertiq.com/design/2026-10-01-infineon-opens-backend-site-in-bangkok-with-room-for-five-modules",
+    "https://straitstimes.com/business/semiconductor-firm-vsmc-opens-first-plant-in-singapore-to-create-1600-jobs",
+    "https://eastasiabrief.com/semiconductors/sk-hynix-validates-hbm5-tsmc-next-generation-cowos-415",
+    "https://evertiq.com/design/2026-09-30-kioxia-joins-applied-materials-epic-center-as-memory-makers-line-up",
+    "https://pccentral.net/nvidia-glass-substrates-gpu-manufacturing-2028",
+    "https://semi.org/en/node/175881",
+    "https://tomshardware.com/tech-industry/photonics/intel-patent-embeds-microleds-in-chip-packaging-technology-may-enable-embedded-optical-interconnects-through-tgvs",
+    "https://aistockwire.com/blog/resonac-300mm-silicon-carbide-wafer-wolfspeed-wolf-sicc-september-2026",
+    "https://compoundsemiconductor.net/article/125469/Navitas_to_develop_10kV_SiC_chips_for_US_Government",
+    "https://renesas.com/en/about/newsroom/renesas-unveils-industrys-first-650v-gan-dual-side-cooled-8x8mm-package-megawatt-scale-ai-data",
+    "https://airliquide.com/group/press-releases-news/2026-09-30/air-liquide-invests-over-170-million-euros-support-semiconductor-leader-expanding-manufacturing",
+    "https://communicationstoday.co.in/linde-india-secures-8-acre-sanand-land-parcel-for-semiconductor-gas-facility",
+    "https://synopsys.com/blogs/chip-design/long-horizon-agentengineer-solutions.html",
+    "https://tomshardware.com/tech-industry/amazon-and-synopsys-ink-multi-year-billion-dollar-deal-in-multi-year-ip-agreement-to-accelerate-ai-chip-design-efforts-synopsys-to-adopt-amazon-bedrock-to-deploy-ai-agents-harnessing-aws-compute-and-storage-capabilities",
+    "https://newsroom.lamresearch.com/self-aligned-cfet-architecture-cmos-scaling",
+    "https://bloomberght.com/veri-merkezi-platformu-digital-realty-turkiyeye-geliyor-3790008",
+    "https://evertiq.com/news/2026-09-29-samsung-electro-mechanics-to-invest-5-billion-to-meet-fcbga-demand"
   ]
 }

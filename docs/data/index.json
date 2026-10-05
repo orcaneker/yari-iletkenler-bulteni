@@ -1,5 +1,16 @@
 [
   {
+    "number": 10,
+    "hafta": "2026-H40",
+    "publication_date": "2026-10-05",
+    "coverage_start": "2026-09-27",
+    "coverage_end": "2026-10-04",
+    "lead_title": "Micron 2026 mali yılını 133,19 milyar dolarlık rekor gelirle kapattı",
+    "story_count": 8,
+    "radar_count": 25,
+    "file": "data/arsiv/2026-H40.json"
+  },
+  {
     "number": 9,
     "hafta": "2026-H39",
     "publication_date": "2026-09-28",
