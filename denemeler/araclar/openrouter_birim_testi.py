@@ -50,9 +50,11 @@ for slug, bekle in {
     "anthropic/claude-opus-4.8": True,
     "anthropic/claude-fable-5.1": True,
     "anthropic/claude-haiku-4.5": False,        # gönderilirse 400
+    "anthropic/claude-haiku-5.5": True,         # 5 ailesi effort kabul eder
     "anthropic/claude-sonnet-4.5": False,
     "claude-sonnet-5": True,                     # doğrudan Anthropic yolu
     "claude-haiku-4-5-20251001": False,
+    "claude-haiku-5-5": True,
 }.items():
     dogrula(f"effort kapısı: {slug}", llm._effort_destekler(slug) == bekle,
             f"beklenen {bekle}")
@@ -128,6 +130,16 @@ dogrula("cache=True → system bloğu cache_control ile",
         isinstance(k["body"].get("system"), list)
         and k["body"]["system"][0].get("cache_control") == {"type": "ephemeral"})
 
+# ── Haiku 5.5 (triyaj, 11 Eki 2026'dan beri): effort GÖNDERİLMELİ ──
+k = _yakala()
+llm.llm_cagri("openrouter:anthropic/claude-haiku-5.5", "SİSTEM", "KULLANICI",
+              1000, cache=True)
+dogrula("Haiku 5.5'e effort gönderildi",
+        (k["body"].get("output_config") or {}).get("effort")
+        == AYARLAR.get("reasoning_effort"),
+        str(k["body"].get("output_config")))
+dogrula("Haiku 5.5'e temperature gönderilmedi", "temperature" not in k["body"])
+
 # ── OPENROUTER_SAGLAYICI ortam değişkeni: config'i ezer ──
 os.environ["OPENROUTER_SAGLAYICI"] = "serbest"
 k = _yakala()
@@ -200,9 +212,12 @@ for anahtar in ("model_triyaj", "model_yazim", "model_birlestirme"):
         dogrula(f"{anahtar} tarihsiz", not any(
             p in slug for p in ("-2024", "-2025", "-2026")), slug)
 
-dogrula("triyaj modeli Haiku 4.5 (değişmedi)",
-        AYARLAR["model_triyaj"].endswith("claude-haiku-4.5"),
+dogrula("triyaj modeli Haiku 5.5",
+        AYARLAR["model_triyaj"].endswith("claude-haiku-5.5"),
         AYARLAR["model_triyaj"])
+# Haiku 5.5 düşünür; eski 8K bütçe JSON'u kesip partiyi sessizce kaybettirebilir
+dogrula("triyaj bütçesi düşünme payını kaldırır (≥ 16K)",
+        AYARLAR["max_tokens_triyaj"] >= 16000, str(AYARLAR["max_tokens_triyaj"]))
 dogrula("yazım modeli Sonnet 5 (değişmedi)",
         AYARLAR["model_yazim"].endswith("claude-sonnet-5"),
         AYARLAR["model_yazim"])

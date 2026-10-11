@@ -25,6 +25,7 @@ temperature parametresi BİLEREK gönderilmiyor (model uyumsuzluk deneyimi).
 """
 
 import os
+import re
 import json
 import time
 from datetime import datetime, timezone
@@ -102,19 +103,26 @@ def maliyet_raporu():
     return "\n".join(satirlar), toplam
 
 
+_EFFORT_LOGLANAN = set()
+
+
 def _effort_destekler(ad):
     """Anthropic modeli output_config.effort kabul ediyor mu?
 
-    Kabul EDENLER : Sonnet 4.6 / Sonnet 5, Opus 4.5 ve sonrası, Fable 5
+    Kabul EDENLER : Sonnet 4.6 / Sonnet 5, Opus 4.5 ve sonrası, Haiku 5+, Fable 5
     Kabul ETMEYEN : Haiku 4.5, Sonnet 4.5  → gönderilirse istek hata döner.
-    Triyaj Haiku'da çalıştığı için bu ayrım kritik.
+    Triyaj Haiku'da çalıştığı için bu ayrım kritik — ve SÜRÜME bakmalı:
+    eskiden "claude-haiku" önekinin tamamı reddediliyordu; Haiku 5.5'e
+    geçişte (11 Eki 2026) effort o yüzden sessizce hiç gönderilmeyecekti.
     """
     # OpenRouter slug'ı: "anthropic/claude-sonnet-4.6" → "claude-sonnet-4-6".
     # Bu normalizasyon olmadan aşağıdaki startswith kontrolleri tutmaz ve
     # effort SESSİZCE gönderilmez (model varsayılan "high"a düşer, maliyet artar).
     ad = ad.split("/")[-1].replace(".", "-")
     if ad.startswith("claude-haiku"):
-        return False
+        # Haiku 3.x / 4.x: hayır · Haiku 5 ve sonrası: evet
+        surum = re.match(r"claude-haiku-(\d+)", ad)
+        return bool(surum) and int(surum.group(1)) >= 5
     if ad.startswith("claude-sonnet-4-5"):
         return False
     return ad.startswith(("claude-sonnet-4-6", "claude-sonnet-5",
@@ -211,14 +219,16 @@ def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
     # Anthropic'te akıl yürütme derinliği bu parametreyle ayarlanır
     # (OpenAI'deki reasoning_effort'un karşılığı; aynı config anahtarını kullanıyoruz).
     # ⚠ HER MODEL DESTEKLEMEZ: Haiku 4.5 ve Sonnet 4.5'e gönderilirse HATA verir —
-    # triyaj Haiku'da çalıştığı için bu kapı şart. Sonnet 4.6+/5, Opus 4.5+ ve
-    # Fable 5 destekler.
+    # triyaj Haiku'da çalıştığı için bu kapı şart. Sonnet 4.6+/5, Opus 4.5+,
+    # Haiku 5+ ve Fable 5 destekler.
     # ⚠ temperature / top_p / top_k ve thinking.budget_tokens BİLEREK gönderilmiyor:
-    # Sonnet 5 ve Opus 4.7+ bunları 400 ile reddediyor.
+    # Sonnet 5, Haiku 5.5 ve Opus 4.7+ bunları 400 ile reddediyor.
     seviye = os.environ.get("REASONING_EFFORT", "").strip() or _A.get("reasoning_effort")
     if seviye and _effort_destekler(ad):
         body["output_config"] = {"effort": seviye}
-        _log(f"{ad}: effort={seviye}")
+        if (ad, seviye) not in _EFFORT_LOGLANAN:      # triyaj 8 parti → 1 satır
+            _EFFORT_LOGLANAN.add((ad, seviye))
+            _log(f"{ad}: effort={seviye}")
 
     if stream:
         body["stream"] = True
@@ -250,6 +260,11 @@ def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
                 if r.status_code == 200:
                     d = r.json()
                     kullanim_ekle(model, d.get("usage", {}))
+                    # Düşünme token'ları bütçeyi yerse JSON ortadan kesilir ve
+                    # çağıran yalnızca "JSON ayıklanamadı" görür. Sebep logda dursun.
+                    if d.get("stop_reason") == "max_tokens":
+                        _log(f"{etiket} ⚠ yanıt max_tokens ({max_tokens:,}) "
+                             f"sınırında KESİLDİ — {ad} için bütçeyi artırın")
                     return "".join(b.get("text", "") for b in d.get("content", [])
                                    if b.get("type") == "text")
                 _log(f"{etiket} {r.status_code}: {r.text[:200]}")

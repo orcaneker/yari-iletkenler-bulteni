@@ -16,7 +16,8 @@ NE YAPAR:
   1. effort kapısı — ağsız birim testi (OpenRouter slug normalizasyonu)
   2. Ham HTTP sondası — isteği hangi sağlayıcı karşıladı, maliyet geldi mi
   2b. Yetenek sondası — o sağlayıcı effort ve prompt cache'i kabul ediyor mu
-  3. Triyaj yolu  — Haiku 4.5, prompt cache açık, gerçek TRIYAJ_PROMPT
+  3. Triyaj yolu  — config'deki triyaj modeli (Haiku 5.5), effort'lu,
+                    prompt cache açık, gerçek TRIYAJ_PROMPT
   4. Yazım yolu   — Sonnet 5, akışlı, effort'lu, gerçek YAZIM_PROMPT
   5. Maliyet raporu (llm.py'nin kendi muhasebesi)
 
@@ -44,6 +45,10 @@ import llm
 import pipeline                               # json_ayikla + yazim_eksik için
                                                # (db/emails yalnızca main içinde
                                                #  import edilir → yan etki yok)
+
+# Sondalar triyaj modelini AYARLARDAN alır — model değişince test eskimesin.
+# (11 Eki 2026'ya kadar burada "anthropic/claude-haiku-4.5" sabit yazılıydı.)
+TRIYAJ_SLUG = AYARLAR["model_triyaj"].split(":", 1)[-1]
 
 GECER, KALIR = [], []
 
@@ -89,6 +94,7 @@ def test_effort_kapisi():
         "anthropic/claude-sonnet-4.6": True,
         "anthropic/claude-opus-4.8": True,
         "anthropic/claude-haiku-4.5": False,      # effort göndermek 400 verir
+        "anthropic/claude-haiku-5.5": True,       # 5 ailesi kabul eder
         "anthropic/claude-sonnet-4.5": False,
         "claude-sonnet-5": True,                   # doğrudan Anthropic yolu
         "claude-haiku-4-5-20251001": False,
@@ -117,8 +123,9 @@ def test_sonda(gecit):
         url = llm.OPENROUTER_URL
         basliklar = {"Authorization": f"Bearer {llm.OPENROUTER_API_KEY}",
                      "Content-Type": "application/json"}
-        model = "anthropic/claude-haiku-4.5"
-        govde = {"model": model, "max_tokens": 32,
+        model = TRIYAJ_SLUG
+        # 256: Haiku 5.5 düşünür — 32 token'da görünür metin boş kalabilir
+        govde = {"model": model, "max_tokens": 256,
                  "messages": [{"role": "user", "content": "Tek kelime yaz: hazir"}]}
         sag = llm._openrouter_saglayici()
         if sag:
@@ -242,7 +249,7 @@ def test_yetenek(gecit):
     dolgu = ("Bülten triyaj sistem bloğu için dolgu metni; "
              "bu satır yalnızca prompt cache eşiğini aşmak içindir. ") * 200
     d, hata = istek({
-        "model": "anthropic/claude-haiku-4.5", "max_tokens": 16,
+        "model": TRIYAJ_SLUG, "max_tokens": 256,
         "system": [{"type": "text", "text": dolgu,
                     "cache_control": {"type": "ephemeral"}}],
         "messages": [{"role": "user", "content": "Tek kelime yaz: hazir"}],
@@ -266,7 +273,7 @@ def test_yetenek(gecit):
 
 
 # ============================================================
-# 3) TRİYAJ YOLU — Haiku 4.5 + prompt cache
+# 3) TRİYAJ YOLU — config'deki triyaj modeli + prompt cache
 # ============================================================
 SAHTE_ADAYLAR = [
     {"id": "t1", "title": "TSMC to add third Arizona fab with $12 billion investment",
@@ -318,12 +325,13 @@ def test_triyaj(model):
         sonuc("prompt cache yazımı", True, f"{k['cache_w']:,} token cache'e yazıldı")
     else:
         # BİLGİ satırı, hata değil: Haiku 4.5'in asgari cache eşiği 4096
-        # token, triyaj sistem bloğu ~2.000 → cache zaten oluşmuyor (bkz.
-        # pipeline.triyaj). Testin çıkış kodunu kirletmesin diye sonuc() ile
+        # token, triyaj sistem bloğu ~2.000 → cache oluşmuyordu (bkz.
+        # pipeline.triyaj). Haiku 5.5'in eşiği henüz ölçülmedi — bu satır
+        # onu ölçer. Testin çıkış kodunu kirletmesin diye sonuc() ile
         # sayılmıyor.
-        print("  ℹ prompt cache yazılmadı — BEKLENEN: Haiku 4.5'in asgari "
-              "cache eşiği 4096 token,")
-        print("    triyaj sistem bloğu ~2.000. Sistem çalışır, yalnızca "
+        print(f"  ℹ prompt cache yazılmadı — {model} için triyaj sistem bloğu "
+              "(~2.000 token)")
+        print("    asgari cache eşiğinin altında. Sistem çalışır, yalnızca "
               "cache tasarrufu oluşmaz.")
     return olaylar
 

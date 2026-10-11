@@ -10,7 +10,7 @@ Exa → triyaj (Haiku) → yazım (Sonnet) → Neon taslak → hakem incelemesi 
 ```
 
 Eski tek-script + Cloudflare Pages tabanlı sistemin yerini alan yeni mimari:
-arama motoru **Exa AI**, triyaj **Claude Haiku 4.5**, yazım **Claude Sonnet 5**,
+arama motoru **Exa AI**, triyaj **Claude Haiku 5.5**, yazım **Claude Sonnet 5**,
 yayın öncesi **onay katmanı** (Neon + Resend + FastAPI inceleme arayüzü), tüm
 derin olayların yazılması (**hakem takası için yedek havuz**), sağlayıcı-bağımsız
 LLM katmanı, cron **Render**'da, yayın **GitHub Pages** üzerinden.
@@ -78,7 +78,7 @@ sonra cron'ların environment'ına yazın.
 `config.py`:
 
 ```python
-"model_triyaj": "anthropic:claude-haiku-4-5-20251001",   # vars.
+"model_triyaj": "openrouter:anthropic/claude-haiku-5.5",   # vars. (öncesi haiku-4.5)
 "model_yazim":  "anthropic:claude-sonnet-5",             # vars.
 # OpenAI denemesi: OPENAI_API_KEY tanımlayıp şunları yazın:
 # "model_triyaj": "openai:gpt-5-mini",
@@ -147,9 +147,9 @@ uvicorn review_app.main:app --port 8000
 LLM çağrıları OpenRouter'ın **Anthropic-uyumlu** ucundan (`/api/v1/messages`)
 geçer; OpenAI formatındaki `/chat/completions` kullanılmaz. İstek gövdesi
 (system bloğu, `cache_control`, `output_config.effort`) ve akış olayları
-Anthropic şemasında kalır. Modeller değişmedi: triyaj Haiku 4.5, yazım Sonnet 5.
+Anthropic şemasında kalır. Triyaj 11 Ekim 2026'da Haiku 5.5'e geçti; yazım Sonnet 5.
 
-* Model adı org öneki + noktalı sürüm: `anthropic/claude-haiku-4.5`.
+* Model adı org öneki + noktalı sürüm: `anthropic/claude-haiku-5.5`.
   Tarihli kimlikler (`…-20251001`) OpenRouter'da yoktur → 404.
 * Sağlayıcı `config.py` → `openrouter_saglayici` ile seçilir. Kurumsal
   hesapta Anthropic'in kendi ucu filtrelenmiş durumda; istekleri Amazon

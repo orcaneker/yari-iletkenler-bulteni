@@ -776,6 +776,9 @@ def triyaj(adaylar, bas, bit, state):
     # istek SESSİZCE cache'lenmez — hata dönmez, cache_creation_input_tokens
     # 0 gelir. Yani cache=True burada büyük olasılıkla hiç işe yaramıyor;
     # zarar da vermiyor (yazma ücreti ancak cache oluşursa doğar).
+    # 11 Eki 2026: triyaj Haiku 5.5'e geçti; onun eşiği ÖLÇÜLMEDİ. Canlı test
+    # (denemeler/araclar/openrouter_testi.py, 3. adım) cache yazılıp
+    # yazılmadığını raporlar. Haiku 5.5'te cache okuma $0.01/M — fark küçük.
     sistem = prompts.TRIYAJ_PROMPT + prompts.onceki_olaylar_bloku(onceki)
 
     for i in range(0, len(adaylar), B):
