@@ -140,6 +140,25 @@ dogrula("Haiku 5.5'e effort gönderildi",
         str(k["body"].get("output_config")))
 dogrula("Haiku 5.5'e temperature gönderilmedi", "temperature" not in k["body"])
 
+# ── Triyaj kendi seviyesini verir; yazımın seviyesini ve ortamı ezer ──
+os.environ["REASONING_EFFORT"] = "xhigh"
+k = _yakala()
+llm.llm_cagri("openrouter:anthropic/claude-haiku-5.5", "S", "K", 1000,
+              cache=True, effort=AYARLAR.get("reasoning_effort_triyaj"))
+del os.environ["REASONING_EFFORT"]
+dogrula("triyaj seviyesi medium (config)",
+        AYARLAR.get("reasoning_effort_triyaj") == "medium",
+        str(AYARLAR.get("reasoning_effort_triyaj")))
+dogrula("effort parametresi ortam değişkenini ezdi",
+        (k["body"].get("output_config") or {}).get("effort") == "medium",
+        str(k["body"].get("output_config")))
+k = _yakala()
+llm.llm_cagri("openrouter:anthropic/claude-sonnet-5", "S", "K", 1000)
+dogrula("parametresiz çağrı (yazım) config seviyesinde kaldı",
+        (k["body"].get("output_config") or {}).get("effort")
+        == AYARLAR.get("reasoning_effort"),
+        str(k["body"].get("output_config")))
+
 # ── OPENROUTER_SAGLAYICI ortam değişkeni: config'i ezer ──
 os.environ["OPENROUTER_SAGLAYICI"] = "serbest"
 k = _yakala()

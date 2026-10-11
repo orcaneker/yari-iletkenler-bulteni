@@ -113,7 +113,8 @@ AYARLAR = {
     # modellerine gider. (Eski yorumda "Anthropic'te yok sayılır" yazıyordu —
     # llm.py effort'u Sonnet 4.6+/5, Opus 4.5+, Haiku 5+ ve Fable'a GÖNDERİYOR.
     # Haiku 4.5 ve Sonnet 4.5 kabul etmediği için onlara gönderilmez.)
-    # ⚠ 11 Eki 2026'dan beri triyaj (Haiku 5.5) da bu seviyeyle çalışır.
+    # ⚠ Triyaj (Haiku 5.5) bu seviyeyi KULLANMAZ — aşağıdaki
+    # reasoning_effort_triyaj'a bakar. Ortam değişkeni de triyajı etkilemez.
     # ⚠ Düşünme token'ları ÇIKTI fiyatından faturalanır.
     # 22 Eylül 2026: "high"a çıkıldı — bültenin işi İngilizce kaynaktan Türkçe
     # haber üretmek; çeviri + veri aktarımı doğruluğa duyarlı ve Anthropic'in
@@ -121,6 +122,15 @@ AYARLAR = {
     # 3.541 token, sayı başına ~15 sent.
     # REASONING_EFFORT ortam değişkeni bu ayarı EZER (tek çalışmayı etkiler).
     "reasoning_effort": "high",
+    # TRİYAJA ÖZEL SEVİYE — yukarıdakini (yazımın seviyesini) triyaj için ezer.
+    # 11 Eki 2026 ölçümü, aynı 40 adaylık parti, Haiku 5.5:
+    #   high   → 20-23K çıktı token'ı (32K bütçenin %64-71'i), ~$0.012/parti
+    #   medium → 14-18K (%44-55), ~$0.008-0.010/parti, partisi ~%30 daha kısa
+    #   low    → 11K (%35) ama daha gevşek: sınırdaki haberleri kabul ediyor
+    # medium ile high'ın kararları, iki high denemesinin KENDİ ARASINDAKİ farka
+    # yakın oranda ayrıştı → triyaj (sınıflandırma) için medium yeterli.
+    # (Karşılaştırma: Haiku 4.5 aynı partide ~6K token, $0.043/parti.)
+    "reasoning_effort_triyaj": "medium",
     "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
     # OpenRouter hangi altyapıyı kullansın? (yalnızca openrouter: modelleri)
     # Aynı Claude modeli birden çok altyapıdan sunuluyor: Anthropic'in kendi

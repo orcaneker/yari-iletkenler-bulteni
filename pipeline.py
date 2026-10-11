@@ -790,6 +790,7 @@ def triyaj(adaylar, bas, bit, state):
                 prompts.triyaj_kullanici_mesaji(parti, bas, bit),
                 AYARLAR["max_tokens_triyaj"],
                 cache=True,
+                effort=AYARLAR.get("reasoning_effort_triyaj"),
             )
             d = json_ayikla(cikti)
             olaylar += d.get("events", [])

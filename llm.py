@@ -170,20 +170,33 @@ def _parcala(model):
     return saglayici, ad
 
 
-def llm_cagri(model, sistem, kullanici, max_tokens, stream=False, cache=False):
-    """Tek arayüz. Dönen değer: modelin ürettiği metin (str)."""
+def llm_cagri(model, sistem, kullanici, max_tokens, stream=False, cache=False,
+              effort=None):
+    """Tek arayüz. Dönen değer: modelin ürettiği metin (str).
+
+    effort → bu çağrıya özel akıl yürütme seviyesi. Verilmezse
+    REASONING_EFFORT ortam değişkeni, o da yoksa config'deki
+    reasoning_effort kullanılır. Triyaj kendi seviyesini verir
+    (reasoning_effort_triyaj) — yazımın seviyesini paylaşmaz.
+    """
     saglayici, ad = _parcala(model)
     if saglayici in ("anthropic", "openrouter"):
         return _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
-                          gecit=saglayici)
-    return _openai(model, ad, sistem, kullanici, max_tokens, stream)
+                          gecit=saglayici, effort=effort)
+    return _openai(model, ad, sistem, kullanici, max_tokens, stream, effort=effort)
+
+
+def _seviye(effort):
+    """Çağrıya özel seviye > REASONING_EFFORT ortam değişkeni > config."""
+    return (effort or os.environ.get("REASONING_EFFORT", "").strip()
+            or _A.get("reasoning_effort"))
 
 
 # ============================================================
 # ANTHROPIC — Messages API (ham HTTP; yarı iletken bülteninden kanıtlanmış)
 # ============================================================
 def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
-               gecit="anthropic"):
+               gecit="anthropic", effort=None):
     """gecit="openrouter" → istek OpenRouter'ın Anthropic-uyumlu ucuna gider.
     Gövde AYNI kalır; yalnızca URL, kimlik başlığı ve sağlayıcı bloğu değişir.
     Bu yüzden cache, effort ve akış çözümleme kodu ortaktır.
@@ -223,7 +236,7 @@ def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
     # Haiku 5+ ve Fable 5 destekler.
     # ⚠ temperature / top_p / top_k ve thinking.budget_tokens BİLEREK gönderilmiyor:
     # Sonnet 5, Haiku 5.5 ve Opus 4.7+ bunları 400 ile reddediyor.
-    seviye = os.environ.get("REASONING_EFFORT", "").strip() or _A.get("reasoning_effort")
+    seviye = _seviye(effort)
     if seviye and _effort_destekler(ad):
         body["output_config"] = {"effort": seviye}
         if (ad, seviye) not in _EFFORT_LOGLANAN:      # triyaj 8 parti → 1 satır
@@ -332,7 +345,7 @@ def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache,
 # ============================================================
 # OPENAI — Chat Completions API
 # ============================================================
-def _openai(model, ad, sistem, kullanici, max_tokens, stream):
+def _openai(model, ad, sistem, kullanici, max_tokens, stream, effort=None):
     if not OPENAI_API_KEY:
         raise RuntimeError(
             "OPENAI_API_KEY tanımlı değil — config.py'de openai: modeli seçildi "
@@ -355,7 +368,7 @@ def _openai(model, ad, sistem, kullanici, max_tokens, stream):
     # Reasoning desteklemeyen eski modellere (gpt-4o vb.) gönderilmez.
     # REASONING_EFFORT ortam değişkeni config'i EZER — model kıyası yaparken
     # seviyeyi Render'dan değiştirip kod dokunmadan tekrar denemek için.
-    seviye = os.environ.get("REASONING_EFFORT", "").strip() or _A.get("reasoning_effort")
+    seviye = _seviye(effort)
     if seviye and ad.startswith(("gpt-5", "o1", "o3", "o4")):
         body["reasoning_effort"] = seviye
         _log(f"{ad}: reasoning_effort={seviye}")

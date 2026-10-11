@@ -261,9 +261,16 @@ def test_yetenek(gecit):
         return False
     u = d.get("usage") or {}
     yazilan = u.get("cache_creation_input_tokens") or 0
+    # Aynı dolgu metni kısa süre önce gönderildiyse (ör. kardeş depoların
+    # testi art arda koşulunca) cache YAZILMAZ, OKUNUR. 11 Eki 2026'da bu
+    # yüzden yanlış alarm verdi — okuma da cache'in çalıştığının kanıtı.
+    okunan = u.get("cache_read_input_tokens") or 0
     sonuc("cache_control kabul edildi", True, f"sağlayıcı: {d.get('provider')}")
     if yazilan:
         sonuc("prompt cache gerçekten yazıldı", True, f"{yazilan:,} token")
+    elif okunan:
+        sonuc("prompt cache gerçekten yazıldı", True,
+              f"önceki istekten okundu: {okunan:,} token")
     else:
         # Hata değil ama maliyet farkı: sessizce yok sayılıyor olabilir.
         sonuc("prompt cache gerçekten yazıldı", False,
@@ -303,6 +310,7 @@ def test_triyaj(model):
             prompts.triyaj_kullanici_mesaji(SAHTE_ADAYLAR, "2026-09-15", "2026-09-22"),
             AYARLAR["max_tokens_triyaj"],
             cache=True,          # pipeline da böyle çağırıyor
+            effort=AYARLAR.get("reasoning_effort_triyaj"),
         )
     except Exception as e:
         sonuc("triyaj çağrısı", False, str(e)[:200])
@@ -435,7 +443,8 @@ def main():
     print(f"OPENROUTER TESTİ — geçit: {gecit}")
     print(f"  triyaj : {triyaj_model}")
     print(f"  yazım  : {yazim_model}")
-    print(f"  effort : {AYARLAR.get('reasoning_effort')}")
+    print(f"  effort : triyaj {AYARLAR.get('reasoning_effort_triyaj') or AYARLAR.get('reasoning_effort')}"
+          f" · yazım {AYARLAR.get('reasoning_effort')}")
     print("  ⚠ Bu betik DB'ye yazmaz, e-posta atmaz, bülteni değiştirmez.")
     print("═" * 62)
 
