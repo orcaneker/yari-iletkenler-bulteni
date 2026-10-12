@@ -1,5 +1,5 @@
 {
-  "issue_no": 10,
+  "issue_no": 11,
   "events": [
     {
       "baslik_ozet": "Çin'in yerli DUV litografi makinesi seri üretime geçtiği bildirildi",
@@ -404,6 +404,42 @@
     {
       "baslik_ozet": "Yongatek, Beko ile 2028-2029'da 30 milyon çip üretimini hedefliyor",
       "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "MCT Technic Türkiye'de çip üretim tesisi için regülasyon onayını bekliyor",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Tayvan'da 10 kişi, ABD menşeli askeri çipleri Çin'e kaçırmaktan suçlandı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Wolfspeed'e ABD Savaş Bakanlığı'ndan 30 yıllık 1,5 milyar dolarlık koşullu kredi",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Samsung Electro-Mechanics, yarı iletken altlık üretimine 5 milyar dolar yatırıyor",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "GlobalFoundries, TSMC'nin CoWoS paketlemesi için ABD'de interposer üretecek",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Çin'in 343 adet daldırmalı DUV cihazı biriktirdiği öne sürüldü",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "GlobalFoundries, Dresden'de Fiziksel Yapay Zeka için FDX Fusion FD-SOI platformunu açıkladı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "METLEN, Japon kimya şirketiyle uzun vadeli galyum tedarik anlaşması imzaladı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Silicon Box, Singapur’daki panel düzeyinde paketleme fabrikasında 1 milyar barajını geçti",
+      "hafta": "2026-H41"
     }
   ],
   "urls": [
@@ -936,6 +972,55 @@
     "https://tomshardware.com/tech-industry/amazon-and-synopsys-ink-multi-year-billion-dollar-deal-in-multi-year-ip-agreement-to-accelerate-ai-chip-design-efforts-synopsys-to-adopt-amazon-bedrock-to-deploy-ai-agents-harnessing-aws-compute-and-storage-capabilities",
     "https://newsroom.lamresearch.com/self-aligned-cfet-architecture-cmos-scaling",
     "https://bloomberght.com/veri-merkezi-platformu-digital-realty-turkiyeye-geliyor-3790008",
-    "https://evertiq.com/news/2026-09-29-samsung-electro-mechanics-to-invest-5-billion-to-meet-fcbga-demand"
+    "https://evertiq.com/news/2026-09-29-samsung-electro-mechanics-to-invest-5-billion-to-meet-fcbga-demand",
+    "https://ekonomim.com/sirketler/turkiyeden-stratejik-cip-uretim-hamlesi-altyapi-hazir-regulasyon-sureci-bekleniyor-haberi-923316",
+    "https://tomshardware.com/tech-industry/taiwan-indicts-10-for-smuggling-us-military-grade-chips-to-china-parts-routed-to-missile-and-radar-programs-using-forged-taiwan-defense-institute-orders-texas-instruments-and-analog-devices-hardware-passed-off-as-made-in-taiwan",
+    "https://wolfspeed.com/company/news-events/news/wolfspeed-announces-conditional-30-year-loan-commitment-from-us-department-of-war-to-advance-domestic-wide-bandgap-supply-chain",
+    "https://electronicsweekly.com/news/business/wolfspeed-gets-1-5bn-loan-from-us-government-2026-10",
+    "https://compoundsemiconductor.net/article/125559/Wolfspeed_gets_1.5b_loan_from_US_DoW",
+    "https://ekonomim.com/dunya/samsung-vietnami-cip-ussune-donusturuyor-5-milyar-dolarlik-yatirim-plani-haberi-923854",
+    "https://tomshardware.com/tech-industry/semiconductors/globalfoundries-to-produce-silicon-interposers-for-tsmcs-cowos-in-the-us-five-year-agreement-valued-at-usd2-billion",
+    "https://electronicsweekly.com/news/business/globalfoundries-to-make-interposers-for-tsmc-2026-10",
+    "https://tomshardware.com/tech-industry/semiconductors/china-stockpiled-343-immersion-duv-tools-for-advanced-chipmaking-report-claims-270-asml-scanners-can-produce-7nm-processors-without-sanctioned-euv-tools",
+    "https://digitimes.com/news/a20261005PD233/duv-asml-equipment-ban-netherlands.html",
+    "https://trendforce.com/news/2026/10/05/news-china-reportedly-spent-13b-stockpiling-asml-duv-tools-in-2024-25-as-advanced-chip-push-continues",
+    "https://gf.com/news-and-events/news/gf-unveils-roadmap-to-deliver-worlds-most-advanced-platform-for-physical-ai",
+    "https://eetimes.com/manfred-horstmann-globalfoundries-bets-on-fdx-fusion-for-physical-ai",
+    "https://prnewswire.co.uk/news-releases/metlen-new-gallium-agreement-with-major-japanese-chemical-company-302898280.html",
+    "https://markets.ft.com/data/announce/detail?dockey=1323-17818804-34938I8JJ1FF93N3AQTALC0EFF",
+    "https://evertiq.com/design/2026-10-07-silicon-box-passes-1-billion-units-targets-2-billion-by-year-end",
+    "https://tomshardware.com/tech-industry/semiconductors/department-of-war-dishes-out-usd1-5-billion-loan-commitment-to-boost-semiconductor-supply-chain-wolfspeed-to-focus-on-national-security-applications-as-part-of-30-year-agreement",
+    "https://evertiq.com/design/2026-10-09-us-department-of-war-offers-wolfspeed-15-billion-loan",
+    "https://globalindepth.com/samsung-electro-mechanics-to-invest-5-billion-in-semiconductor-substrates-across-south-korea-and-vietnam",
+    "https://asia.nikkei.com/business/tech/semiconductors/samsung-takes-vietnam-up-semiconductor-value-chain-with-5bn-expansion",
+    "https://gf.com/news-and-events/news/globalfoundries-reaches-agreement-to-establish-us-based-supply-of-silicon-interposers-for-advanced-ai-packaging",
+    "https://theregister.com/systems/2026/10/08/tsmc-taps-globalfoundries-to-bolster-us-silicon-interposer-production-in-2b-deal/5302061",
+    "https://evertiq.com/news/2026-10-09-globalfoundries-to-make-ai-chip-component-for-tsmc-in-2b-deal",
+    "https://electronicsweekly.com/news/business/asml-starts-on-hyper-na-euv-2026-10",
+    "https://tomshardware.com/tech-industry/gigaphoton-debuts-neon-recycling-system-with-claimed-50-percent-recovery-rate-systems-throw-a-lifeline-to-chipmakers-that-utilize-70-percent-of-global-neon-supply-in-duv-lithography",
+    "https://tomshardware.com/tech-industry/semiconductors/russias-zntc-reportedly-completes-development-of-130nm-capable-litho-tool-volume-production-still-years-away",
+    "https://buzzingasia.com/story/synopsys-looks-to-work-with-chinese-ai-labs-to-speed-up-chip-design/r140587391",
+    "https://eetimes.com/gpt-synopsys-combines-ic-design-eda-with-agentic-ai",
+    "https://electronicsweekly.com/news/business/qualcomm-vs-arm-day-3-2026-10",
+    "https://tomshardware.com/tech-industry/semiconductors/qualcomm-will-license-patents-behind-huaweis-logicfolding-chip-architecture-report-says-the-kirin-9050-pro-already-uses-it-with-a-teardown-showing-its-lower-die-is-mostly-cache-and-i-o",
+    "https://rapidus.inc/en/news_topics/information/20261005-2",
+    "https://nature.com/articles/s41586-026-11085-3",
+    "https://compoundsemiconductor.net/article/125553/Mivium_announces_GaN_nanoparticle_breakthrough",
+    "https://compoundsemiconductor.net/article/125535/and_Future-readyand__GaN_chip_delivers_20x_better_signal_quality",
+    "https://nature.com/articles/s41586-026-11095-1",
+    "https://semiconductors.org/understanding-dependencies-in-the-u-s-semiconductor-supply-chain",
+    "https://semiconductors.org/sia-report-highlights-strategies-for-strengthening-supply-chains-supporting-the-u-s-chip-ecosystem",
+    "https://semiconductors.org/year-to-date-global-semiconductor-sales-top-1-trillion-through-august",
+    "https://cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html",
+    "https://pr.tsmc.com/english/news/3343",
+    "https://tomshardware.com/tech-industry/artificial-intelligence/super-micro-smuggling-co-conspirator-pleads-guilty-to-sending-ai-chips-to-china-broker-admits-breaking-export-control-rules-as-company-co-founder-denies-charges",
+    "https://tomshardware.com/tech-industry/semiconductors/musk-rejects-rumors-of-tsmc-takeover-of-terafab-intel-reaffirms-14a-node-deal-as-musk-floats-cleanroom-sublease",
+    "https://babnews.org/articles/40154",
+    "https://indoinquirer.com/story/taiwans-auo-innolux-bet-on-glass-as-nextgen-ai-chip-material/r140348089",
+    "https://evertiq.com/design/2026-10-06-x-fab-breaks-ground-on-chips-act-funded-cleanroom-in-erfurt",
+    "https://focustaiwan.tw/business/202610070021",
+    "https://cnbc.com/2026/10/08/samsung-q3-earnings.html",
+    "https://tomshardware.com/tech-industry/semiconductors/former-groq-engineers-sue-board-over-usd20-billion-nvidia-deal-saying-it-handed-nvidia-the-lpu-and-the-team-that-built-it-plaintiffs-allege-the-board-kept-billions-from-other-shareholders",
+    "https://intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html"
   ]
 }

@@ -1,5 +1,16 @@
 [
   {
+    "number": 11,
+    "hafta": "2026-H41",
+    "publication_date": "2026-10-12",
+    "coverage_start": "2026-10-04",
+    "coverage_end": "2026-10-11",
+    "lead_title": "MCT Technic Türkiye'de çip üretim tesisi için regülasyon onayını bekliyor",
+    "story_count": 8,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H41.json"
+  },
+  {
     "number": 10,
     "hafta": "2026-H40",
     "publication_date": "2026-10-05",

@@ -1,0 +1,786 @@
+{
+  "issue": {
+    "number": 11,
+    "hafta": "2026-H41",
+    "publication_date": "2026-10-12",
+    "coverage_start": "2026-10-04",
+    "coverage_end": "2026-10-11",
+    "window_days": 7,
+    "audio": {
+      "url": "assets/audio/2026-H41.mp3",
+      "duration_sec": 52,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "chars": 684,
+      "generated_at": "2026-10-12"
+    }
+  },
+  "brief": [
+    {
+      "text": "CTS raporuna göre Çin, 343 adet daldırmalı DUV cihazı biriktirdi; rapor ihracat kontrolündeki boşluğun kapatılmasını istiyor.",
+      "slug": "cin-in-343-adet-daldirmali-duv-cihazi-biriktirdigi-one-suruldu"
+    },
+    {
+      "text": "Samsung Electro-Mechanics, 2028'e kadar Güney Kore ve Vietnam'daki yarı iletken altlık üretimine 5 milyar dolar yatıracak.",
+      "slug": "samsung-electro-mechanics-yari-iletken-altlik-uretimine-5-milyar-dolar"
+    },
+    {
+      "text": "GlobalFoundries, Dresden'de Fiziksel Yapay Zeka için 7 nanometre sınıfı FDX Fusion FD-SOI platformunu tanıttı.",
+      "slug": "globalfoundries-dresden-de-physical-ai-icin-fdx-fusion-fd-soi-platform"
+    },
+    {
+      "text": "Tayvan, ABD menşeli askeri çiplerin sahte evraklarla Çin'e kaçırıldığı iddiasıyla 10 yöneticiyi suçladı.",
+      "slug": "tayvan-da-10-kisi-abd-menseli-askeri-cipleri-cin-e-kacirmaktan-sucland"
+    },
+    {
+      "text": "MCT Technic, Türkiye'de planlanan çip üretim tesisi için regülasyon sürecinin tamamlanmasını bekliyor.",
+      "slug": "mct-technic-turkiye-de-cip-uretim-tesisi-icin-regulasyon-onayini-bekli"
+    }
+  ],
+  "metrics": {
+    "aciklanan_yatirim_usd_milyon": 21800,
+    "proje_sayisi": 9,
+    "politika_gelismesi": 2,
+    "kapsanan_ulke": 12
+  },
+  "lead": {
+    "id": "turkiye-yerli-cip-uretim-tesisi",
+    "slug": "mct-technic-turkiye-de-cip-uretim-tesisi-icin-regulasyon-onayini-bekli",
+    "image": {
+      "url": "https://img.ekonomim.com/rcman/Cw1280h720q95gc/storage/files/images/2026/10/08/turkiyeden-stratejik-cip-uretim-hamlesi-altyapi-hazir-regulasyon-sureci-bekleniyor-rvts_cover.jpg",
+      "type": "og-sayfa",
+      "credit": "ekonomim.com"
+    },
+    "score": 9,
+    "secim": "one_cikan",
+    "title": "MCT Technic Türkiye'de çip üretim tesisi için regülasyon onayını bekliyor",
+    "detail": "İstanbul'da düzenlenen ACE BPSC 2026 Konferansı'na Sanayi ve Teknoloji Bakanı Mehmet Fatih Kacır ile Ticaret Bakanı Ömer Bolat katıldı. Konferansta Türkiye'nin yüksek katma değerli üretim ve teknoloji yatırımlarına yönelik hedefleri ele alındı. MCT Technic Kurucusu Hacı Yılmaz, bu platformda Türkiye'de planlanan yeni bir çip üretim yatırımını ilk kez kamuoyuyla paylaştı.\n\nYılmaz, çip üretim tesisinin teknik altyapısının, üretim planlamasının ve yatırım hazırlıklarının tamamlandığını belirtti. Şirket, yatırımın başlaması için resmi regülasyon süreçlerinin sonuçlanmasını bekliyor. Yılmaz'ın ifadesine göre süreç tamamlandığı anda MCT Technic harekete geçmeye hazır olacak. Takvime ilişkin kesin bir tarih paylaşılmadı.\n\nPlanlanan tesis tek bir sektöre odaklanmayacak. Yılmaz, otomotiv, savunma sanayii, uzay çalışmaları ve sağlık sektörlerindeki çip ihtiyaçlarına yönelik üretim yapılmasının hedeflendiğini açıkladı. Bu kapsamda tesisin birden fazla kritik alanda tedarik sağlaması planlanıyor.\n\nYılmaz, yatırımın şirket ölçeğinin dışına taşan bir etki yaratacağını vurguladı. Nitelikli istihdam, yan sanayi gelişimi, yeni teknoloji ekosistemleri ve ihracat gibi alanlarda ekonomik değer oluşturulması bekleniyor. Konferansta ayrıca Bakan Kacır, Türkiye'nin küresel imalat sanayi katma değerindeki payının son 20 yılda iki katına çıktığını belirtti. Bakan Bolat ise Türkiye ile ABD arasındaki ticaret hacminin uzun vadede 100 milyar dolara çıkarılmasının hedeflendiğini açıkladı.\n\nYılmaz, MCT Technic'in yalnızca sensör üreten bir şirket olarak konumlanmadığını belirtti. Şirketin emisyon ölçümü, çevre teknolojileri, çip yatırımı ve uluslararası iş birlikleriyle büyüyen bir teknoloji vizyonu olduğunu söyledi. MCT Technic'in sensör, yazılım, uzaktan ölçüm sistemleri ve dijital teknolojiler alanlarında çalıştığı, Almanya, Bulgaristan ve ABD'deki yapılanmalarla uluslararası büyümesini sürdürdüğü belirtildi.\n\nKonferansta MCT Technic'in çevre teknolojileri alanındaki çalışmaları da gündeme geldi. Şirketin geliştirdiği MCT UAT - Uzaktan Algılama Emisyon Ölçüm Sistemi, gerçek trafik koşullarında emisyon ölçümüne yönelik bir uygulama olarak tanıtıldı.",
+    "source": {
+      "url": "https://ekonomim.com/sirketler/turkiyeden-stratejik-cip-uretim-hamlesi-altyapi-hazir-regulasyon-sureci-bekleniyor-haberi-923316",
+      "name": "ekonomim.com",
+      "tier": 2,
+      "type": "news_agency",
+      "domain": "ekonomim.com",
+      "primary": true
+    },
+    "excerpt": "MCT Technic Kurucusu Hacı Yılmaz, İstanbul'daki ACE BPSC 2026 Konferansı'nda Türkiye'de planlanan çip üretim tesisinin teknik altyapısının ve yatırım hazırlıklarının tamamlandığını açıkladı. Tesis, resmi regülasyon sürecinin sonuçlanmasını bekliyor; otomotiv, savunma, uzay ve sağlık sektörlerine yönelik üretim hedefleniyor.",
+    "capacity": null,
+    "category": "turkiye",
+    "maturity": "announced",
+    "companies": [
+      "MCT Technic"
+    ],
+    "countries": [
+      "Turkey"
+    ],
+    "event_key": "turkiye-yerli-cip-uretim-tesisi",
+    "investment": null,
+    "value_chain": [
+      "wafer-uretim"
+    ],
+    "neden_onemli": null,
+    "technologies": null,
+    "subcategories": [
+      "çip üretimi",
+      "yatırım duyurusu"
+    ],
+    "published_date": "2026-10-08",
+    "technology_nodes": null,
+    "supporting_sources": []
+  },
+  "stories": [
+    {
+      "id": "tayvan-askeri-cip-kacakciligi-iddianame",
+      "slug": "tayvan-da-10-kisi-abd-menseli-askeri-cipleri-cin-e-kacirmaktan-sucland",
+      "image": {
+        "url": "https://cdn.mos.cms.futurecdn.net/goUyTkyxEwRoTKN4fjq8B4-1920-80.jpg",
+        "type": "og-sayfa",
+        "credit": "tomshardware.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Tayvan'da 10 kişi, ABD menşeli askeri çipleri Çin'e kaçırmaktan suçlandı",
+      "detail": "Tayvanlı savcılar, Texas Instruments (TI) ve Analog Devices (ADI) üretimi askeri sınıf çiplerin Çin'e satıldığı iddiasıyla 10 şirket yöneticisi hakkında iddianame hazırladı. United Daily News'in haberine göre siparişler, Tayvan'ın kendi savunma araştırma enstitüsünün adı kullanılarak verildi ve çipler \"Made in Taiwan\" etiketiyle ihraç edildi. Soruşturmayı yürütenler, çiplerin füze ve askeri radar geliştiren Çinli araştırma birimlerine ulaştığına inanıyor.\n\nSöz konusu çipler, Tayvan'ın stratejik yüksek teknoloji ürünler listesinde yer alan yüksek hızlı askeri-sanayi parçaları. ABD Ticaret Bakanlığı, bu parçaların Çin, Hong Kong veya Makao'ya gönderilmesine izin vermiyor; alıcıların üretici sevkiyat yapmadan önce son kullanıcı beyanı sunması gerekiyor. Kaçakçılığa konu olan ekipmanlar arasında radar alıcıları, elektronik istihbarat sistemleri, karıştırıcılar, ultrason cihazları, iletişim ekipmanları ve anten dizileri bulunuyor.\n\nADI ve TI'nin üç Tayvanlı distribütöründeki eski çalışanlar ve ticaret ortakları, kendi şirketleri üzerinden sipariş verdi. Siparişler, Ulusal Chung-Shan Bilim ve Teknoloji Enstitüsü (NCSIST) adına veya Tayvan içi kullanım iddiasıyla başka şirketlerin adına verildi. Savcılara göre bu beyanlar sahteydi. Üç ana sanık grubu sırasıyla 92,75 milyon, 135,83 milyon ve 108,11 milyon Yeni Tayvan Doları kazanç sağladı; dört diğer sanık ise birkaç yüz bin ile 6,41 milyon Yeni Tayvan Doları arasında kazanç elde etti.\n\nParçalar ABD, Tayland, Filipinler ve Güney Kore'de üretildi; Tayvan'da menşe değişikliği oluşturacak bir işlem yapılmadığı halde \"Made in Taiwan\" olarak beyan edildi. Alıcılar arasında Hong Kong merkezli veya anakara Çin'den etkin biçimde kontrol edilen şirketler bulunuyor. Sanıklar hakkında dolandırıcılık, sahtecilik ve Kara Para Aklamayı Önleme Kanunu ihlalleri gibi suçlamalar yöneltildi; savcılar her sanık için 2 ile 10 yıl arasında hapis cezası istedi.",
+      "source": {
+        "url": "https://tomshardware.com/tech-industry/taiwan-indicts-10-for-smuggling-us-military-grade-chips-to-china-parts-routed-to-missile-and-radar-programs-using-forged-taiwan-defense-institute-orders-texas-instruments-and-analog-devices-hardware-passed-off-as-made-in-taiwan",
+        "name": "tomshardware.com",
+        "tier": 2,
+        "type": "news_agency",
+        "domain": "tomshardware.com",
+        "primary": true
+      },
+      "excerpt": "Tayvan savcıları, Texas Instruments ve Analog Devices'a ait askeri sınıf çiplerin sahte evraklarla Çin'e satıldığı iddiasıyla 10 şirket yöneticisi hakkında iddianame hazırladı. Soruşturmaya göre çipler, füze ve radar programları yürüten Çinli araştırma birimlerine ulaştı.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": null,
+      "companies": [
+        "Texas Instruments",
+        "Analog Devices"
+      ],
+      "countries": [
+        "Taiwan",
+        "China",
+        "USA"
+      ],
+      "event_key": "tayvan-askeri-cip-kacakciligi-iddianame",
+      "investment": null,
+      "value_chain": [
+        "uygulama"
+      ],
+      "neden_onemli": null,
+      "technologies": null,
+      "subcategories": [
+        "ihracat kontrolü",
+        "kaçakçılık"
+      ],
+      "published_date": "2026-10-08",
+      "technology_nodes": null,
+      "supporting_sources": []
+    },
+    {
+      "id": "wolfspeed-dow-1-5b-loan",
+      "slug": "wolfspeed-e-abd-savas-bakanligi-ndan-30-yillik-1-5-milyar-dolarlik-kos",
+      "image": {
+        "url": "https://www.wolfspeed.com/static/channels4_profile-b0241818d038f8a4091d4f0a01463449.jpg",
+        "type": "og-sayfa",
+        "credit": "wolfspeed.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Wolfspeed'e ABD Savaş Bakanlığı'ndan 30 yıllık 1,5 milyar dolarlık koşullu kredi",
+      "detail": "Wolfspeed, Inc. (NYSE: WOLF), ABD Savaş Bakanlığı'nın (Department of War, DoW) Stratejik Sermaye Ofisi (Office of Strategic Capital, OSC) aracılığıyla 30 yıl vadeli, 1,5 milyar dolara kadar koşullu bir kredi taahhüt mektubu aldığını açıkladı. Şirket, silikon karbür (SiC) ve galyum nitrür (GaN) malzeme ve cihaz üretiminde uzmanlaşmış durumda. 7 Ekim tarihli resmi açıklamaya göre finansman, GaN epitaksi kapasitesinin yükseltilmesinde ve mevcut SiC ile gelecekteki GaN ürünleri için radyasyona dayanıklılık kapasitesinin geliştirilmesinde kullanılacak.\n\nWolfspeed CEO'su Robert Feurle, SiC ve GaN'ın kritik ulusal güvenlik uygulamalarına sahip olduğunu belirtti. Şirket, bu finansmanla hem DoW'a hizmet vermeyi sürdürmeyi hem de ABD ulusal güvenliği için kapasitesini genişletmeyi planlıyor. Finansman, savunma, havacılık, yapay zeka ve kritik altyapı gibi alanlardaki güç ve radyo frekansı uygulamalarını kapsayacak.\n\nKredi koşulları kapsamında Wolfspeed, DoW'a şirketin tam seyreltilmiş özsermayesinin %7,5'ine kadarını satın alma hakkı veren varantlar vermek zorunda. Varantlar, hisse senedinin hacim ağırlıklı ortalama fiyatı (VWAP) üzerinden fiyatlandırılacak ve kredinin her diliminin fonlanmasıyla orantılı olarak teslim edilecek. Kredi, OSC'nin durum tespiti sürecinin tamamlanmasına, ABD hükümeti onaylarına, ödeneklerine ve mevcut kreditörlerin onayına bağlı; Wolfspeed finansmanın gerçekleşeceğine dair garanti olmadığını belirtti.\n\nŞirketin CFO'su Gregor van Issum, bu koşullu 30 yıllık taahhüdün Wolfspeed'in sermaye yapısını optimize etme ve mali temelini güçlendirme çalışmalarında önemli bir aşama olduğunu söyledi. Açıklama, ABD'nin kritik yarı iletken üretimini yurt içine taşıma ve tedarik zincirini güçlendirme çabalarının bir parçası. ABD hükümeti, 54,2 milyar dolarlık CHIPS ve Bilim Yasası kapsamında TSMC, Intel, GlobalFoundries ve Micron gibi şirketlerin fabrikalarına milyarlarca dolar aktarmış, Bölüm 48D Gelişmiş Üretim Vergi Kredisi gibi düzenlemeleri de devreye almıştı.",
+      "source": {
+        "url": "https://wolfspeed.com/company/news-events/news/wolfspeed-announces-conditional-30-year-loan-commitment-from-us-department-of-war-to-advance-domestic-wide-bandgap-supply-chain",
+        "name": "wolfspeed.com",
+        "tier": 1,
+        "type": "company",
+        "domain": "wolfspeed.com",
+        "primary": true
+      },
+      "excerpt": "Wolfspeed, ABD Savaş Bakanlığı'nın (Department of War) Stratejik Sermaye Ofisi aracılığıyla 30 yıl vadeli, 1,5 milyar dolarlık koşullu kredi taahhüt mektubu aldı. Finansman, silikon karbür (SiC) ve galyum nitrür (GaN) üretimini desteklemeyi ve ulusal güvenlik uygulamalarını güçlendirmeyi hedefliyor.",
+      "capacity": null,
+      "category": "guc",
+      "maturity": "announced",
+      "companies": [
+        "Wolfspeed"
+      ],
+      "countries": [
+        "United States"
+      ],
+      "event_key": "wolfspeed-dow-1-5b-loan",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 1.5,
+        "amount_usd_million": 1500,
+        "public_support_usd_million": 1500
+      },
+      "value_chain": [
+        "malzeme",
+        "wafer-uretim"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "SiC",
+        "GaN"
+      ],
+      "subcategories": [
+        "SiC",
+        "GaN",
+        "savunma finansmanı"
+      ],
+      "published_date": "2026-10-07",
+      "technology_nodes": null,
+      "supporting_sources": [
+        {
+          "url": "https://electronicsweekly.com/news/business/wolfspeed-gets-1-5bn-loan-from-us-government-2026-10",
+          "name": "electronicsweekly.com",
+          "domain": "electronicsweekly.com"
+        },
+        {
+          "url": "https://compoundsemiconductor.net/article/125559/Wolfspeed_gets_1.5b_loan_from_US_DoW",
+          "name": "compoundsemiconductor.net",
+          "domain": "compoundsemiconductor.net"
+        }
+      ]
+    },
+    {
+      "id": "samsung-em-substrate-5bn-2028",
+      "slug": "samsung-electro-mechanics-yari-iletken-altlik-uretimine-5-milyar-dolar",
+      "image": {
+        "url": "https://img.ekonomim.com/rcman/Cw1280h720q95gc/storage/files/images/2026/10/10/samsung-vietnami-cip-ussune-donusturuyor-5-milyar-dolarlik-yatirim-plani-5n03_cover.jpg",
+        "type": "og-sayfa",
+        "credit": "ekonomim.com"
+      },
+      "score": 7,
+      "secim": "one_cikan",
+      "title": "Samsung Electro-Mechanics, yarı iletken altlık üretimine 5 milyar dolar yatırıyor",
+      "detail": "Samsung Electro-Mechanics, 2028 yılına kadar yarı iletken altlık üretim kapasitesini genişletmek amacıyla toplam yaklaşık 5 milyar dolarlık yatırım planlıyor. Yatırımın yaklaşık 3,2 milyar doları Güney Kore'nin Sejong kentindeki tesise, 1,87 milyar doları ise Vietnam'daki Thai Nguyen iştirakine ayrılacak. Yatırımın merkezinde yapay zeka sunucuları, robotlar ve akıllı otomobillerde kullanılan çiplerin önemli bileşenlerinden biri olan FC-BGA tipi yarı iletken altlıklar bulunuyor.\n\nSamsung, yapay zeka iş yüklerinin karmaşıklaşmasıyla birlikte daha geniş, çok katmanlı ve yüksek entegrasyonlu FC-BGA yapılarına yönelik talebin arttığına dikkat çekiyor. Thai Nguyen tesisinde FC-BGA altlıklarının test çalışmaları 2022 yılında başlamıştı. Yeni yatırımla birlikte mevcut tesisin kapasitesinin artırılması ve seri üretime geçilmesi planlanıyor. Samsung, Thai Nguyen'de savunma sanayisi, yapay zeka sunucuları ve yüksek performanslı bilişim sistemlerinde kullanılabilecek ultra büyük FC-BGA altlıklarının üretimi için onay aldı.\n\nSamsung, Güney Kore ve Vietnam'daki tesislerini farklı üretim amaçlarına göre konumlandıracak. Sejong tesisi daha yüksek katma değerli ve karmaşık üretime odaklanacak. Thai Nguyen tesisi ise küresel ölçekte yüksek hacimli üretime yönelik istikrarlı tedarik sağlayacak. Bu yapı, şirketin ileri teknoloji gerektiren üretim ile yüksek hacimli üretimi aynı tedarik zinciri içinde yürütmesine olanak sağlayacak.\n\nSamsung'un açıkladığı yatırım planlarının arkasında küresel teknoloji ve yarı iletken müşterileriyle kurulan orta ve uzun vadeli anlaşmalar bulunuyor. Bu müşterilerin yatırımlara finansal destek sağlaması ve belirli sipariş garantileri vermesi bekleniyor. Samsung, Vietnam'daki faaliyetlerine 2008 yılında cep telefonu üretimiyle başlamıştı; yeni yatırım, Vietnam operasyonlarının daha ileri teknoloji alanlarına taşınması açısından yeni bir aşama oluşturuyor.",
+      "source": {
+        "url": "https://ekonomim.com/dunya/samsung-vietnami-cip-ussune-donusturuyor-5-milyar-dolarlik-yatirim-plani-haberi-923854",
+        "name": "ekonomim.com",
+        "tier": 2,
+        "type": "news_agency",
+        "domain": "ekonomim.com",
+        "primary": true
+      },
+      "excerpt": "Samsung Electro-Mechanics, 2028 yılına kadar Güney Kore ve Vietnam'daki yarı iletken altlık (substrate) kapasitesini genişletmek için toplam yaklaşık 5 milyar dolar yatırım yapacak. Yatırımın 3,2 milyar doları Sejong, 1,87 milyar doları ise Vietnam'daki Thai Nguyen tesisine ayrılacak.",
+      "capacity": null,
+      "category": "yatirim",
+      "maturity": "announced",
+      "companies": [
+        "Samsung Electro-Mechanics"
+      ],
+      "countries": [
+        "South Korea",
+        "Vietnam"
+      ],
+      "event_key": "samsung-em-substrate-5bn-2028",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 5,
+        "amount_usd_million": 5000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "malzeme",
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "FC-BGA"
+      ],
+      "subcategories": [
+        "FC-BGA altlık",
+        "yarı iletken substrate"
+      ],
+      "published_date": "2026-10-10",
+      "technology_nodes": null,
+      "supporting_sources": []
+    },
+    {
+      "id": "globalfoundries-tsmc-cowos-interposer",
+      "slug": "globalfoundries-tsmc-nin-cowos-paketlemesi-icin-abd-de-interposer-uret",
+      "image": {
+        "url": "https://cdn.mos.cms.futurecdn.net/3U4RCLfXwdNRTJWLyMCVXX-1600-80.jpg",
+        "type": "og-sayfa",
+        "credit": "tomshardware.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "GlobalFoundries, TSMC'nin CoWoS paketlemesi için ABD'de interposer üretecek",
+      "detail": "GlobalFoundries ve TSMC, beş yıllık ve 2 milyar dolar değerinde bir üretim anlaşması imzaladı. Anlaşma kapsamında GlobalFoundries, TSMC'nin chip-on-wafer-on-substrate (CoWoS) ileri paketleme teknolojisi için silikon interposer üretecek. Düzenleme, bu bileşenler için ABD merkezli bir üretim kaynağı oluşturacak ve TSMC müşterilerinin ürünlerini tamamen ABD'de üretilmiş ve paketlenmiş olarak etiketlemesine olanak sağlayacak. Hacimli üretimin 2028'in ilk yarısında devreye alınması planlanıyor.\n\nGlobalFoundries, New York eyaletindeki Malta tesisinde üretim kapasitesini genişletecek. Üretilecek silikon interposer'lar, mantık yonga parçacıkları (chiplet) ile yüksek bant genişlikli bellek (HBM) yığınları arasında yüksek yoğunluklu bağlantılar sağlıyor ve yapay zeka ile yüksek performanslı bilişim (HPC) uygulamaları için karmaşık çoklu kalıp işlemcilerin oluşturulmasına olanak veriyor. Taraflar üretim kapasitesine ilişkin rakam paylaşmadı ancak anlaşma, talebe bağlı olarak ek genişleme için bir çerçeve sunuyor.\n\nInterposer'lar, lojik çiplet sayısı, boyutları, konumlandırmaları ve aralarındaki bağlantılara göre işlemci tasarımına özgü şekilde özelleştiriliyor. Tasarımlar, güç dağıtım ağları ve gömülü derin hendek kondansatörleri (DTC) dahil olmak üzere belirli işlemcilerin güç dağıtım gereksinimlerini karşılamak zorunda. GlobalFoundries, standart olmayan müşteriye özel interposer tasarımlarını üretecek bir taşeron olarak çalışacak; TSMC'nin tedarikçisi değil, hizmet sağlayıcısı konumunda olacak.\n\nGlobalFoundries CMOS İş Birimi Kıdemli Başkan Yardımcısı Ed Kaste, şirketin güvenilir ABD üretim altyapısını kullanarak müşterilerin inovasyonu hızlandırmasına ve yarı iletken tedarik zincirini güçlendirmesine yardımcı olacak güvenli ve ölçeklenebilir bir kaynak oluşturduklarını belirtti. Anlaşma, GlobalFoundries'in TSMC için büyük ölçekli bir ileri paketleme bileşeni taşeronu haline gelmesini sağlıyor.",
+      "source": {
+        "url": "https://tomshardware.com/tech-industry/semiconductors/globalfoundries-to-produce-silicon-interposers-for-tsmcs-cowos-in-the-us-five-year-agreement-valued-at-usd2-billion",
+        "name": "tomshardware.com",
+        "tier": 2,
+        "type": "news_agency",
+        "domain": "tomshardware.com",
+        "primary": true
+      },
+      "excerpt": "GlobalFoundries ve TSMC, beş yıllık ve 2 milyar dolar değerinde bir üretim anlaşması imzaladı. GlobalFoundries, Malta, New York tesisinde TSMC'nin CoWoS-S ileri paketleme ekosistemi için silikon interposer üretecek; hacimli üretimin 2028'in ilk yarısında başlaması planlanıyor.",
+      "capacity": null,
+      "category": "paketleme",
+      "maturity": "announced",
+      "companies": [
+        "GlobalFoundries",
+        "TSMC"
+      ],
+      "countries": [
+        "United States",
+        "Taiwan"
+      ],
+      "event_key": "globalfoundries-tsmc-cowos-interposer",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 2,
+        "amount_usd_million": 2000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "CoWoS-S",
+        "silikon interposer"
+      ],
+      "subcategories": [
+        "CoWoS",
+        "silikon interposer"
+      ],
+      "published_date": "2026-10-08",
+      "technology_nodes": null,
+      "supporting_sources": [
+        {
+          "url": "https://electronicsweekly.com/news/business/globalfoundries-to-make-interposers-for-tsmc-2026-10",
+          "name": "electronicsweekly.com",
+          "domain": "electronicsweekly.com"
+        }
+      ]
+    },
+    {
+      "id": "cin-duv-stok-ihracat-acigi",
+      "slug": "cin-in-343-adet-daldirmali-duv-cihazi-biriktirdigi-one-suruldu",
+      "image": {
+        "url": "https://cdn.mos.cms.futurecdn.net/sTYxT4FqfMMyrwcpqmHrQW-1280-80.jpg",
+        "type": "og-sayfa",
+        "credit": "tomshardware.com"
+      },
+      "score": 7,
+      "secim": "one_cikan",
+      "title": "Çin'in 343 adet daldırmalı DUV cihazı biriktirdiği öne sürüldü",
+      "detail": "Washington merkezli düşünce kuruluşu Centre for Technology & Statecraft (CTS), Çinli çip üreticilerinin 2012'den 2026 başına kadar 343 adet daldırmalı (immersion) DUV litografi cihazı biriktirdiğini öne sürdü. Rapora göre bu cihazların önemli bir kısmı 7 nanometre sınıfı süreç teknolojileriyle çip üretiminde kullanılabiliyor. CTS, bu ekipmanın Çinli fabrikalara, ASML'nin daha gelişmiş EUV sistemlerini tedarik edememelerine karşın karmaşık işlemciler üretme konusunda ciddi potansiyel sağladığını savunuyor.\n\nCTS, bu cihazların 270 adedinin ASML'nin Twinscan NXT:1980i modeli olduğunu belirtiyor; bu modelin 38 nanometre çözünürlüğü ve 7 nanometre sınıfı düğümler için çoklu desenlemede kritik olan 2,5 nanometrelik eşleştirilmiş makine örtüşme kapasitesi bulunuyor. Rapora göre Çinli fabrikalar ayrıca 22 adet NXT:2050i ve 6 adet NXT:2000i sistemine sahip. Çin'e sevk edilen 296 gelişmiş daldırmalı DUV tarayıcıdan kaçının halen faal olduğu belirsizliğini koruyor.\n\nHollanda yetkilileri, Eylül 2023'te ASML'nin NXT:2000i ve daha yetenekli daldırmalı DUV tarayıcılarının ihracatına lisans zorunluluğu getirdi; bu, modellerin Çin'e sevkiyatını etkin biçimde engelliyor. Çinli üreticiler bunun sonucunda daha az yetenekli NXT:1980i modeline yöneldi. CTS, Çinli fabrikaların 2024'te yaklaşık 90, 2025'te ise 89 adet NXT:1980i tarayıcısı satın aldığını, bu iki yıllık dönemde 13 milyar dolardan fazla harcama yaptığını tahmin ediyor.\n\nHollanda, Eylül 2024'te ihracat kontrollerini NXT:1980i modelini de kapsayacak şekilde genişletti ancak bu modelin bireysel ihracatları halen belirli koşullarda onay alabiliyor. Raporun yazarları, mevcut ihracat kontrollerinin önemli bir açık bıraktığını belirtiyor; çünkü daha az gelişmiş süreçler için edinilmiş litografi ekipmanı, bir maliyet karşılığında daha sofistike süreçlere yeniden tahsis edilebiliyor. CTS, tüm daldırmalı DUV sistemlerinin Çin'e ihracatının yasaklanmasını ve gelişmiş fabrikalara kurulu makineler için yedek parça ile bakım hizmetlerinin kısıtlanmasını öneriyor; bu öneri, Nisan ayında meclise sunulan iki partili MATCH Yasası ile uyumlu.",
+      "source": {
+        "url": "https://tomshardware.com/tech-industry/semiconductors/china-stockpiled-343-immersion-duv-tools-for-advanced-chipmaking-report-claims-270-asml-scanners-can-produce-7nm-processors-without-sanctioned-euv-tools",
+        "name": "tomshardware.com",
+        "tier": 2,
+        "type": "news_agency",
+        "domain": "tomshardware.com",
+        "primary": true
+      },
+      "excerpt": "Washington merkezli Centre for Technology & Statecraft'ın raporuna göre Çinli çip üreticileri 2012'den 2026 başına kadar 343 adet daldırmalı DUV litografi cihazı edindi; bunların 270'i ASML'nin Twinscan NXT:1980i modeli. Rapor, bu ekipmanla 7 nanometre sınıfı işlemci üretiminin mümkün olduğunu savunuyor.",
+      "capacity": null,
+      "category": "politika",
+      "maturity": null,
+      "companies": [
+        "ASML"
+      ],
+      "countries": [
+        "China",
+        "Netherlands",
+        "USA"
+      ],
+      "event_key": "cin-duv-stok-ihracat-acigi",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 13,
+        "amount_usd_million": 13000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "ekipman"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "immersion DUV",
+        "NXT:1980i",
+        "NXT:2050i",
+        "NXT:2000i"
+      ],
+      "subcategories": [
+        "ihracat kontrolü",
+        "DUV litografi"
+      ],
+      "published_date": "2026-10-05",
+      "technology_nodes": [
+        "7nm"
+      ],
+      "supporting_sources": [
+        {
+          "url": "https://digitimes.com/news/a20261005PD233/duv-asml-equipment-ban-netherlands.html",
+          "name": "digitimes.com",
+          "domain": "digitimes.com"
+        },
+        {
+          "url": "https://trendforce.com/news/2026/10/05/news-china-reportedly-spent-13b-stockpiling-asml-duv-tools-in-2024-25-as-advanced-chip-push-continues",
+          "name": "trendforce.com",
+          "domain": "trendforce.com"
+        }
+      ]
+    },
+    {
+      "id": "gf-fdx-fusion-dresden",
+      "slug": "globalfoundries-dresden-de-physical-ai-icin-fdx-fusion-fd-soi-platform",
+      "image": {
+        "url": "https://assets.gf.com/image/328833518282/image_4ee35772ot5879lie0o53bl61h/-C1350x900%2C225%2C0-S1920x1280-FWEBP",
+        "type": "og-sayfa",
+        "credit": "gf.com"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "GlobalFoundries, Dresden'de Fiziksel Yapay Zeka için FDX Fusion FD-SOI platformunu açıkladı",
+      "detail": "GlobalFoundries, Dresden, Almanya'daki tesisinde yeni FDX Fusion FD-SOI platformunu tanıttı. Platform, Avrupa'da EUV litografi gerektirmeden tek hane nanometre sınıfı dijital performans sunacak ilk süreç teknolojisi olarak konumlandırılıyor. Şirket, FDX Fusion teknolojisiyle üretime 2028'de Dresden'deki ileri tesisinde başlamayı planlıyor; bu adım, Dresden'in farklılaştırılmış yarı iletken teknolojileri için stratejik Avrupa merkezi rolünü güçlendirecek.\n\nFDX Fusion'ın ilk kuşağının 7 nanometre sınıfı dijital performans sunması bekleniyor. Platform, gelişmiş alt tabaka mühendisliği, ön uç transistör inovasyonu ve arka uç ara bağlantı entegrasyonunu, 0,5 THz'e kadar RF performansı, analog ve karma sinyal özellikleri, düşük sızıntılı çalışma, bellek içi hesaplama kapasitesi ve gömülü enerji bağımsız bellek ile birleştiriyor. GlobalFoundries, FDX Fusion'ın ilk kuşak FDX teknolojisine kıyasla 2 kattan fazla yoğunluk artışı sunmasını bekliyor.\n\nGlobalFoundries, aynı gün Dresden'deki SPRINT genişleme projesinin topping-out aşamasını da kutladı. 1,1 milyar euroluk SPRINT projesi, 2028 sonuna kadar Dresden'in kapasitesini yıllık 1 milyondan fazla 300mm wafer düzeyine çıkarmayı hedefliyor. Şirket, FDX Fusion'ın otomotiv, tüketici ve endüstriyel pazarlarda uç çıkarım, robotik, endüstriyel otomasyon, otonom sistemler ve sensör füzyonu mimarilerini kapsayan geniş bir Fiziksel Yapay Zeka uygulama yelpazesine hitap etmesini bekliyor.\n\nCMOS İş Birimi Kıdemli Başkan Yardımcısı Ed Kaste, Fiziksel Yapay Zeka'nın bulut dışına, gerçek zamanlı veri işleyebilen sistem ve cihazlara taşındıkça yeni bir yarı iletken gereksinimler sınıfı yarattığını belirtti. Şirket, FDX Fusion tasarımlarının pazara çıkış süresini hızlandırmak için birçok müşteriyle erken geliştirme ve değerlendirme çalışmaları yürütüyor.",
+      "source": {
+        "url": "https://gf.com/news-and-events/news/gf-unveils-roadmap-to-deliver-worlds-most-advanced-platform-for-physical-ai",
+        "name": "gf.com",
+        "tier": 1,
+        "type": "company",
+        "domain": "gf.com",
+        "primary": true
+      },
+      "excerpt": "GlobalFoundries, Dresden'deki 1,1 milyar euroluk SPRINT genişleme projesinin topping-out aşamasını kutlarken yeni FDX Fusion FD-SOI platformunu tanıttı. Üretimin 2028'de başlaması planlanan platform, 7 nanometre sınıfı dijital performans ve ilk kuşak FDX'e kıyasla iki kattan fazla yoğunluk artışı sunacak.",
+      "capacity": "1 milyondan fazla 300mm wafer/yıl (2028 sonu itibarıyla)",
+      "category": "teknoloji",
+      "maturity": "construction",
+      "companies": [
+        "GlobalFoundries"
+      ],
+      "countries": [
+        "Germany"
+      ],
+      "event_key": "gf-fdx-fusion-dresden",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 1.1,
+        "amount_usd_million": null,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "wafer-uretim"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "FD-SOI",
+        "FDX Fusion"
+      ],
+      "subcategories": [
+        "FD-SOI",
+        "Physical AI"
+      ],
+      "published_date": "2026-10-09",
+      "technology_nodes": [
+        "7nm"
+      ],
+      "supporting_sources": [
+        {
+          "url": "https://eetimes.com/manfred-horstmann-globalfoundries-bets-on-fdx-fusion-for-physical-ai",
+          "name": "eetimes.com",
+          "domain": "eetimes.com"
+        }
+      ]
+    },
+    {
+      "id": "metlen-gallium-japan-offtake",
+      "slug": "metlen-japon-kimya-sirketiyle-uzun-vadeli-galyum-tedarik-anlasmasi-imz",
+      "image": {
+        "url": "https://www.ekathimerini.com/wp-content/uploads/2024/08/metlen_logo-960x600.jpg",
+        "type": "hakem",
+        "credit": "ekathimerini.com"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "METLEN, Japon kimya şirketiyle uzun vadeli galyum tedarik anlaşması imzaladı",
+      "detail": "METLEN, Yunanistan'da inşa halindeki tesisinden gelecekteki galyum tedarikine yönelik büyük bir Japon kimya şirketiyle uzun vadeli ticari anlaşma imzaladığını açıkladı. Anlaşma, METLEN'in toplam yıllık galyum üretiminin %16'sına kadarını kapsıyor. Ticari koşullar gizli tutuluyor. Bu anlaşma, METLEN'in galyum tedarikine yönelik duyurduğu ikinci stratejik ticari düzenleme oldu.\n\nŞirket, bu anlaşmayla birlikte 50 metrik ton/yıl kapasiteli üretimin tamamının, 2027'nin üçüncü çeyreğinde planlanan ticari üretim başlangıcından aylar önce satılmış olacağının neredeyse kesinleştiğini bildirdi. METLEN'in entegre üretim modeli, kendisine ait Aluminium of Greece rafinerisinden sağlanan hammaddeyi, kendi mülkiyetindeki endüstriyel tesisler ve Avrupa'da benzersiz ölçekte üretim kapasiteleriyle birleştiriyor.\n\nMETLEN İcra Kurulu Başkanı Evangelos Mytilineos, galyum projesine yönelik uluslararası ilginin beklentileri aştığını belirtti. Mytilineos, art arda açıklanan ticari anlaşmaların küresel sanayinin güvenilir, yüksek kaliteli ve çeşitlendirilmiş tedarik kaynakları aradığını gösterdiğini söyledi. Şirket, bu yatırımla Yunanistan'ın yeni bir küresel teknoloji ekosisteminin parçası haline geldiğini ve Avrupa'nın stratejik bir pazardaki rolünü güçlendirdiğini vurguladı.",
+      "source": {
+        "url": "https://prnewswire.co.uk/news-releases/metlen-new-gallium-agreement-with-major-japanese-chemical-company-302898280.html",
+        "name": "prnewswire.co.uk",
+        "tier": 3,
+        "type": "company",
+        "domain": "prnewswire.co.uk",
+        "primary": true
+      },
+      "excerpt": "Yunan şirketi METLEN, inşa halindeki Yunanistan tesisinden yıllık galyum üretiminin %16'sına kadarını kapsayan uzun vadeli bir tedarik anlaşmasını büyük bir Japon kimya şirketiyle imzaladığını bildirdi. Tesisin yıllık 50 metrik ton kapasiteli üretiminin tamamının, 2027'nin üçüncü çeyreğindeki ticari üretim başlangıcından aylar önce satılacağı belirtiliyor.",
+      "capacity": "yıllık 50 metrik ton galyum (50MT p.a.)",
+      "category": "ekipman",
+      "maturity": "construction",
+      "companies": [
+        "METLEN"
+      ],
+      "countries": [
+        "Greece",
+        "Japan"
+      ],
+      "event_key": "metlen-gallium-japan-offtake",
+      "investment": null,
+      "value_chain": [
+        "malzeme"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "gallium"
+      ],
+      "subcategories": [
+        "galyum",
+        "kritik hammadde"
+      ],
+      "published_date": "2026-10-05",
+      "technology_nodes": null,
+      "supporting_sources": [
+        {
+          "url": "https://markets.ft.com/data/announce/detail?dockey=1323-17818804-34938I8JJ1FF93N3AQTALC0EFF",
+          "name": "markets.ft.com",
+          "domain": "markets.ft.com"
+        }
+      ]
+    },
+    {
+      "id": "silicon-box-1bn-units-panel-packaging",
+      "slug": "silicon-box-singapur-da-1-milyar-panel-seviyeli-paketleme-unitesini-ge",
+      "image": {
+        "url": null,
+        "type": null,
+        "credit": null
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Silicon Box, Singapur’daki panel düzeyinde paketleme fabrikasında 1 milyar barajını geçti",
+      "detail": "Silicon Box, Singapur'daki panel seviyeli paketleme (panel-level packaging) fabrikasından 1 milyardan fazla ünite sevk etti. Bu rakam, bir yıl önce 100 milyon ünite seviyesini geçtiği dönemin on katına denk geliyor. Şirket, 2026 yıl sonuna kadar 2 milyar üniteye ulaşmayı hedefliyor. Bu hedefe erişmek, son üç ayda şirketin tüm tarihinde sevk ettiği kadar ünitenin sevk edilmesini gerektirecek.\n\nSingapur tesisinde hem gelir hem üretim hacmi son on iki ayda on katına çıktı. Müşteriler arasında yapay zeka ve yüksek performanslı bilişim, otomotiv, mobil, robotik ve uzay teknolojisi sektörleri bulunuyor. Şirket Eş Kurucusu ve CEO'su Dr. Byung Joon (BJ) Han, Singapur fabrikasında gelir ve üretim hacmini son on iki ayda on katına çıkardıklarını, bunu gelişmiş panel seviyeli paketlemede sektör lideri verim oranını koruyarak gerçekleştirdiklerini belirtti.\n\nSilicon Box'ın Mayıs ayında başlayan Tampines Wafer Park'taki 300 milyon dolarlık kapasite genişlemesi planlandığı şekilde ilerliyor; tam kapasitenin 2028'e kadar kurulması bekleniyor. Şirket ayrıca 2026 yılında işgücünü iki katına çıkarmayı hedefliyor ve bu hedefe doğru yolunda olduğunu belirtiyor. Han, şirketin Singapur'da ve İtalya'ya uzanan şekilde panel ölçeğinde ileri paketlemeyi büyütmeye devam ettiğini söyledi.",
+      "source": {
+        "url": "https://evertiq.com/design/2026-10-07-silicon-box-passes-1-billion-units-targets-2-billion-by-year-end",
+        "name": "evertiq.com",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "evertiq.com",
+        "primary": true
+      },
+      "excerpt": "Silicon Box, Singapur'daki panel seviyeli paketleme fabrikasından 1 milyardan fazla ünite sevk etti; bu rakam bir yıl önceki 100 milyon seviyesinin on katı. Şirket, 2026 yıl sonuna kadar 2 milyar ünite hedefliyor ve Tampines Wafer Park'taki 300 milyon dolarlık kapasite genişlemesini sürdürüyor.",
+      "capacity": "1 milyardan fazla ünite sevkiyatı; yıl sonu hedefi 2 milyar ünite",
+      "category": "paketleme",
+      "maturity": "mass_production",
+      "companies": [
+        "Silicon Box"
+      ],
+      "countries": [
+        "Singapore"
+      ],
+      "event_key": "silicon-box-1bn-units-panel-packaging",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 300,
+        "amount_usd_million": 300,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "paketleme-test"
+      ],
+      "neden_onemli": null,
+      "technologies": [
+        "panel-level packaging"
+      ],
+      "subcategories": [
+        "panel-level packaging"
+      ],
+      "published_date": "2026-10-07",
+      "technology_nodes": null,
+      "supporting_sources": []
+    }
+  ],
+  "radar": [
+    {
+      "kume": "Litografi ve ekipman gelişmeleri",
+      "maddeler": [
+        {
+          "url": "https://electronicsweekly.com/news/business/asml-starts-on-hyper-na-euv-2026-10",
+          "date": "2026-10-09",
+          "title": "ASML ve Zeiss, Hyper-NA EUV geliştirmesine başladı (NA≥0,75), 5nm sınıfı özellikler hedefleniyor",
+          "source": "electronicsweekly.com",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/gigaphoton-debuts-neon-recycling-system-with-claimed-50-percent-recovery-rate-systems-throw-a-lifeline-to-chipmakers-that-utilize-70-percent-of-global-neon-supply-in-duv-lithography",
+          "date": "2026-10-06",
+          "title": "Gigaphoton, ArF lazerleri için %50 geri kazanım iddiasıyla neon gazı geri dönüşüm sistemi tanıttı",
+          "source": "tomshardware.com",
+          "category": "ekipman"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/russias-zntc-reportedly-completes-development-of-130nm-capable-litho-tool-volume-production-still-years-away",
+          "date": "2026-10-05",
+          "title": "Rus ZNTC, 130nm kapasiteli litografi step cihazı prototipini tamamladı; hacimli üretim 2029'dan önce beklenmiyor",
+          "source": "tomshardware.com",
+          "category": "ekipman"
+        }
+      ]
+    },
+    {
+      "kume": "Tasarım ve EDA",
+      "maddeler": [
+        {
+          "url": "https://buzzingasia.com/story/synopsys-looks-to-work-with-chinese-ai-labs-to-speed-up-chip-design/r140587391",
+          "date": "2026-10-09",
+          "title": "Synopsys, ABD kontrollerine karşın Çinli büyük dil modeli laboratuvarlarıyla çip tasarım araçları için çalışmak istiyor",
+          "source": "buzzingasia.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://eetimes.com/gpt-synopsys-combines-ic-design-eda-with-agentic-ai",
+          "date": "2026-10-05",
+          "title": "Synopsys ve OpenAI, EDA araçlarını yöneten özel model GPT-Synopsys'i geliştirmek için ortaklık kurdu",
+          "source": "eetimes.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://electronicsweekly.com/news/business/qualcomm-vs-arm-day-3-2026-10",
+          "date": "2026-10-08",
+          "title": "Qualcomm-Arm lisans davasında jüri, royalti şartları konusunda karara varamadı",
+          "source": "electronicsweekly.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/qualcomm-will-license-patents-behind-huaweis-logicfolding-chip-architecture-report-says-the-kirin-9050-pro-already-uses-it-with-a-teardown-showing-its-lower-die-is-mostly-cache-and-i-o",
+          "date": "2026-10-07",
+          "title": "Qualcomm'un, Huawei'nin LogicFolding mimarisi patentlerini lisanslayacağı bildirildi",
+          "source": "tomshardware.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://rapidus.inc/en/news_topics/information/20261005-2",
+          "date": "2026-10-05",
+          "title": "Rapidus, 2nm sınıfı geliştirme için tasarım çözüm ortaklarıyla Rapidus CORE ekosistem çerçevesini tanıttı",
+          "source": "rapidus.inc",
+          "category": "tasarim"
+        }
+      ]
+    },
+    {
+      "kume": "Malzeme ve bileşik yarı iletken araştırmaları",
+      "maddeler": [
+        {
+          "url": "https://nature.com/articles/s41586-026-11085-3",
+          "date": "2026-10-07",
+          "title": "Silikon katkılı α-(AlGa)2O3 filmi 7 eV'den büyük bant aralığı ve rekor iletkenlikle AlphaFET'i mümkün kıldı",
+          "source": "nature.com",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://compoundsemiconductor.net/article/125553/Mivium_announces_GaN_nanoparticle_breakthrough",
+          "date": "2026-10-07",
+          "title": "Mivium, üçüncü taraf karakterizasyonuyla yüksek saflıkta submikron GaN parçacık üretimini bildirdi",
+          "source": "compoundsemiconductor.net",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://compoundsemiconductor.net/article/125535/and_Future-readyand__GaN_chip_delivers_20x_better_signal_quality",
+          "date": "2026-10-05",
+          "title": "Northrop Grumman, radar, elektronik harp ve 6G için tek çipli FORTITUDE GaN çözümünü tanıttı",
+          "source": "compoundsemiconductor.net",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://nature.com/articles/s41586-026-11095-1",
+          "date": "2026-10-07",
+          "title": "Aşındırma-akı aracılı tek merkezli çekirdeklenme, deterministik tek kristal 2D yarı iletken büyümesini sağladı",
+          "source": "nature.com",
+          "category": "teknoloji"
+        }
+      ]
+    },
+    {
+      "kume": "Pazar verileri ve kazanç raporları",
+      "maddeler": [
+        {
+          "url": "https://semiconductors.org/understanding-dependencies-in-the-u-s-semiconductor-supply-chain",
+          "date": "2026-10-08",
+          "title": "SIA, ABD yarı iletken tedarik zinciri bağımlılıkları üzerine kapsamlı rapor yayımladı",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://semiconductors.org/sia-report-highlights-strategies-for-strengthening-supply-chains-supporting-the-u-s-chip-ecosystem",
+          "date": "2026-10-09",
+          "title": "SIA raporu, Project Vault mineral stoku dahil tedarik zincirini güçlendirme stratejilerini öne çıkardı",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://semiconductors.org/year-to-date-global-semiconductor-sales-top-1-trillion-through-august",
+          "date": "2026-10-05",
+          "title": "SIA/WSTS: Küresel yarı iletken satışları Ağustos 2026'da 159,7 milyar dolara ulaştı, yıl başı toplamı ilk kez 1 trilyon doları geçti",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html",
+          "date": "2026-10-08",
+          "title": "TSMC, Eylül 2026'da yıllık bazda %50'den fazla artışla rekor satış bildirdi",
+          "source": "cnbc.com",
+          "category": "rapor"
+        },
+        {
+          "url": "https://pr.tsmc.com/english/news/3343",
+          "date": "2026-10-08",
+          "title": "TSMC'nin 2026 üçüncü çeyrek geliri rekor 1,49 trilyon Yeni Tayvan Doları ile tahminleri aştı, net kâr %64 arttı",
+          "source": "pr.tsmc.com",
+          "category": "rapor"
+        }
+      ]
+    },
+    {
+      "kume": "İhracat kontrolleri ve hukuki süreçler",
+      "maddeler": [
+        {
+          "url": "https://tomshardware.com/tech-industry/artificial-intelligence/super-micro-smuggling-co-conspirator-pleads-guilty-to-sending-ai-chips-to-china-broker-admits-breaking-export-control-rules-as-company-co-founder-denies-charges",
+          "date": "2026-10-10",
+          "title": "Super Micro kaçakçılık davasında suç ortağı, yapay zeka sunucularını Çin'e gönderdiğini kabul etti",
+          "source": "tomshardware.com",
+          "category": "politika"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/musk-rejects-rumors-of-tsmc-takeover-of-terafab-intel-reaffirms-14a-node-deal-as-musk-floats-cleanroom-sublease",
+          "date": "2026-10-07",
+          "title": "Musk, Terafab'da TSMC'nin rolünü olası kiralamayla sınırlıyor; Intel 14A anlaşmasıyla dahil olduğunu söylüyor",
+          "source": "tomshardware.com",
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "İleri paketleme",
+      "maddeler": [
+        {
+          "url": "https://babnews.org/articles/40154",
+          "date": "2026-10-08",
+          "title": "Hindistan'ın OSAT tesisleri ilk çip paketleme ihracat sevkiyatlarına başladı; ölçek ve beceri zorlukları sürüyor",
+          "source": "babnews.org",
+          "category": "paketleme"
+        },
+        {
+          "url": "https://indoinquirer.com/story/taiwans-auo-innolux-bet-on-glass-as-nextgen-ai-chip-material/r140348089",
+          "date": "2026-10-08",
+          "title": "AUO ve Innolux, yeni nesil yapay zeka çip paketleme malzemesi olarak cam çekirdekli alt tabakalara yöneliyor",
+          "source": "indoinquirer.com",
+          "category": "paketleme"
+        }
+      ]
+    },
+    {
+      "kume": "Avrupa fab yatırımları",
+      "maddeler": [
+        {
+          "url": "https://evertiq.com/design/2026-10-06-x-fab-breaks-ground-on-chips-act-funded-cleanroom-in-erfurt",
+          "date": "2026-10-06",
+          "title": "X-FAB, Erfurt'ta CHIPS Act destekli mikro sistem ve fotonik temiz oda inşaatına başladı",
+          "source": "evertiq.com",
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "Bellek",
+      "maddeler": [
+        {
+          "url": "https://focustaiwan.tw/business/202610070021",
+          "date": "2026-10-07",
+          "title": "Micron Tayvan sendikası, ikramiye anlaşmazlığında grev için %99 yetki aldı",
+          "source": "focustaiwan.tw",
+          "category": "bellek"
+        },
+        {
+          "url": "https://cnbc.com/2026/10/08/samsung-q3-earnings.html",
+          "date": "2026-10-07",
+          "title": "Samsung, HBM4 ve bellek fiyatlarıyla 2026 üçüncü çeyrekte 80 milyar dolar üzerinde rekor faaliyet kârı bekliyor",
+          "source": "cnbc.com",
+          "category": "bellek"
+        }
+      ]
+    },
+    {
+      "kume": "Yapay zeka çip ekosistemi",
+      "maddeler": [
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/former-groq-engineers-sue-board-over-usd20-billion-nvidia-deal-saying-it-handed-nvidia-the-lpu-and-the-team-that-built-it-plaintiffs-allege-the-board-kept-billions-from-other-shareholders",
+          "date": "2026-10-08",
+          "title": "Eski Groq mühendisleri, LPU teknolojisini Nvidia'ya devreden 20 milyar dolarlık anlaşma için yönetim kurulunu dava etti",
+          "source": "tomshardware.com",
+          "category": "yatirim"
+        },
+        {
+          "url": "https://intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html",
+          "date": "2026-10-09",
+          "title": "Intel, 18A düğümünde üretilen ilk Xeon 6+ veri merkezi işlemcilerini soket başına 288 E-çekirdeğe kadar kapasiteyle tanıttı",
+          "source": "intel.com",
+          "category": "teknoloji"
+        }
+      ]
+    }
+  ]
+}
