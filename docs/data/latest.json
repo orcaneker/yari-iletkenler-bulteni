@@ -1,47 +1,4 @@
 {
-  "issue": {
-    "number": 11,
-    "hafta": "2026-H41",
-    "publication_date": "2026-10-12",
-    "coverage_start": "2026-10-04",
-    "coverage_end": "2026-10-11",
-    "window_days": 7,
-    "audio": {
-      "url": "assets/audio/2026-H41.mp3",
-      "duration_sec": 52,
-      "voice": "lxZLq5dcyw12UangGJgN",
-      "chars": 684,
-      "generated_at": "2026-10-12"
-    }
-  },
-  "brief": [
-    {
-      "text": "CTS raporuna göre Çin, 343 adet daldırmalı DUV cihazı biriktirdi; rapor ihracat kontrolündeki boşluğun kapatılmasını istiyor.",
-      "slug": "cin-in-343-adet-daldirmali-duv-cihazi-biriktirdigi-one-suruldu"
-    },
-    {
-      "text": "Samsung Electro-Mechanics, 2028'e kadar Güney Kore ve Vietnam'daki yarı iletken altlık üretimine 5 milyar dolar yatıracak.",
-      "slug": "samsung-electro-mechanics-yari-iletken-altlik-uretimine-5-milyar-dolar"
-    },
-    {
-      "text": "GlobalFoundries, Dresden'de Fiziksel Yapay Zeka için 7 nanometre sınıfı FDX Fusion FD-SOI platformunu tanıttı.",
-      "slug": "globalfoundries-dresden-de-physical-ai-icin-fdx-fusion-fd-soi-platform"
-    },
-    {
-      "text": "Tayvan, ABD menşeli askeri çiplerin sahte evraklarla Çin'e kaçırıldığı iddiasıyla 10 yöneticiyi suçladı.",
-      "slug": "tayvan-da-10-kisi-abd-menseli-askeri-cipleri-cin-e-kacirmaktan-sucland"
-    },
-    {
-      "text": "MCT Technic, Türkiye'de planlanan çip üretim tesisi için regülasyon sürecinin tamamlanmasını bekliyor.",
-      "slug": "mct-technic-turkiye-de-cip-uretim-tesisi-icin-regulasyon-onayini-bekli"
-    }
-  ],
-  "metrics": {
-    "aciklanan_yatirim_usd_milyon": 21800,
-    "proje_sayisi": 9,
-    "politika_gelismesi": 2,
-    "kapsanan_ulke": 12
-  },
   "lead": {
     "id": "turkiye-yerli-cip-uretim-tesisi",
     "slug": "mct-technic-turkiye-de-cip-uretim-tesisi-icin-regulasyon-onayini-bekli",
@@ -86,6 +43,278 @@
     "published_date": "2026-10-08",
     "technology_nodes": null,
     "supporting_sources": []
+  },
+  "brief": [
+    {
+      "slug": "cin-in-343-adet-daldirmali-duv-cihazi-biriktirdigi-one-suruldu",
+      "text": "CTS raporuna göre Çin, 343 adet daldırmalı DUV cihazı biriktirdi; rapor ihracat kontrolündeki boşluğun kapatılmasını istiyor."
+    },
+    {
+      "slug": "samsung-electro-mechanics-yari-iletken-altlik-uretimine-5-milyar-dolar",
+      "text": "Samsung Electro-Mechanics, 2028'e kadar Güney Kore ve Vietnam'daki yarı iletken altlık üretimine 5 milyar dolar yatıracak."
+    },
+    {
+      "slug": "globalfoundries-dresden-de-physical-ai-icin-fdx-fusion-fd-soi-platform",
+      "text": "GlobalFoundries, Dresden'de Fiziksel Yapay Zeka için 7 nanometre sınıfı FDX Fusion FD-SOI platformunu tanıttı."
+    },
+    {
+      "slug": "tayvan-da-10-kisi-abd-menseli-askeri-cipleri-cin-e-kacirmaktan-sucland",
+      "text": "Tayvan, ABD menşeli askeri çiplerin sahte evraklarla Çin'e kaçırıldığı iddiasıyla 10 yöneticiyi suçladı."
+    },
+    {
+      "slug": "mct-technic-turkiye-de-cip-uretim-tesisi-icin-regulasyon-onayini-bekli",
+      "text": "MCT Technic, Türkiye'de planlanan çip üretim tesisi için regülasyon sürecinin tamamlanmasını bekliyor."
+    }
+  ],
+  "issue": {
+    "audio": {
+      "url": "assets/audio/2026-H41.mp3",
+      "chars": 684,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "duration_sec": 52,
+      "generated_at": "2026-10-12"
+    },
+    "hafta": "2026-H41",
+    "number": 11,
+    "window_days": 7,
+    "coverage_end": "2026-10-11",
+    "coverage_start": "2026-10-04",
+    "publication_date": "2026-10-12"
+  },
+  "radar": [
+    {
+      "kume": "Litografi ve ekipman gelişmeleri",
+      "maddeler": [
+        {
+          "url": "https://electronicsweekly.com/news/business/asml-starts-on-hyper-na-euv-2026-10",
+          "date": "2026-10-09",
+          "title": "ASML ve Zeiss, Hyper-NA EUV geliştirmesine başladı (NA≥0,75), 5nm sınıfı özellikler hedefleniyor",
+          "source": "electronicsweekly.com",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/gigaphoton-debuts-neon-recycling-system-with-claimed-50-percent-recovery-rate-systems-throw-a-lifeline-to-chipmakers-that-utilize-70-percent-of-global-neon-supply-in-duv-lithography",
+          "date": "2026-10-06",
+          "title": "Gigaphoton, ArF lazerleri için %50 geri kazanım iddiasıyla neon gazı geri dönüşüm sistemi tanıttı",
+          "source": "tomshardware.com",
+          "category": "ekipman"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/russias-zntc-reportedly-completes-development-of-130nm-capable-litho-tool-volume-production-still-years-away",
+          "date": "2026-10-05",
+          "title": "Rus ZNTC, 130nm kapasiteli litografi step cihazı prototipini tamamladı; hacimli üretim 2029'dan önce beklenmiyor",
+          "source": "tomshardware.com",
+          "category": "ekipman"
+        }
+      ]
+    },
+    {
+      "kume": "Tasarım ve EDA",
+      "maddeler": [
+        {
+          "url": "https://buzzingasia.com/story/synopsys-looks-to-work-with-chinese-ai-labs-to-speed-up-chip-design/r140587391",
+          "date": "2026-10-09",
+          "title": "Synopsys, ABD kontrollerine karşın Çinli büyük dil modeli laboratuvarlarıyla çip tasarım araçları için çalışmak istiyor",
+          "source": "buzzingasia.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://eetimes.com/gpt-synopsys-combines-ic-design-eda-with-agentic-ai",
+          "date": "2026-10-05",
+          "title": "Synopsys ve OpenAI, EDA araçlarını yöneten özel model GPT-Synopsys'i geliştirmek için ortaklık kurdu",
+          "source": "eetimes.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://electronicsweekly.com/news/business/qualcomm-vs-arm-day-3-2026-10",
+          "date": "2026-10-08",
+          "title": "Qualcomm-Arm lisans davasında jüri, royalti şartları konusunda karara varamadı",
+          "source": "electronicsweekly.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/qualcomm-will-license-patents-behind-huaweis-logicfolding-chip-architecture-report-says-the-kirin-9050-pro-already-uses-it-with-a-teardown-showing-its-lower-die-is-mostly-cache-and-i-o",
+          "date": "2026-10-07",
+          "title": "Qualcomm'un, Huawei'nin LogicFolding mimarisi patentlerini lisanslayacağı bildirildi",
+          "source": "tomshardware.com",
+          "category": "tasarim"
+        },
+        {
+          "url": "https://rapidus.inc/en/news_topics/information/20261005-2",
+          "date": "2026-10-05",
+          "title": "Rapidus, 2nm sınıfı geliştirme için tasarım çözüm ortaklarıyla Rapidus CORE ekosistem çerçevesini tanıttı",
+          "source": "rapidus.inc",
+          "category": "tasarim"
+        }
+      ]
+    },
+    {
+      "kume": "Malzeme ve bileşik yarı iletken araştırmaları",
+      "maddeler": [
+        {
+          "url": "https://nature.com/articles/s41586-026-11085-3",
+          "date": "2026-10-07",
+          "title": "Silikon katkılı α-(AlGa)2O3 filmi 7 eV'den büyük bant aralığı ve rekor iletkenlikle AlphaFET'i mümkün kıldı",
+          "source": "nature.com",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://compoundsemiconductor.net/article/125553/Mivium_announces_GaN_nanoparticle_breakthrough",
+          "date": "2026-10-07",
+          "title": "Mivium, üçüncü taraf karakterizasyonuyla yüksek saflıkta submikron GaN parçacık üretimini bildirdi",
+          "source": "compoundsemiconductor.net",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://compoundsemiconductor.net/article/125535/and_Future-readyand__GaN_chip_delivers_20x_better_signal_quality",
+          "date": "2026-10-05",
+          "title": "Northrop Grumman, radar, elektronik harp ve 6G için tek çipli FORTITUDE GaN çözümünü tanıttı",
+          "source": "compoundsemiconductor.net",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://nature.com/articles/s41586-026-11095-1",
+          "date": "2026-10-07",
+          "title": "Aşındırma-akı aracılı tek merkezli çekirdeklenme, deterministik tek kristal 2D yarı iletken büyümesini sağladı",
+          "source": "nature.com",
+          "category": "teknoloji"
+        }
+      ]
+    },
+    {
+      "kume": "Pazar verileri ve kazanç raporları",
+      "maddeler": [
+        {
+          "url": "https://semiconductors.org/understanding-dependencies-in-the-u-s-semiconductor-supply-chain",
+          "date": "2026-10-08",
+          "title": "SIA, ABD yarı iletken tedarik zinciri bağımlılıkları üzerine kapsamlı rapor yayımladı",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://semiconductors.org/sia-report-highlights-strategies-for-strengthening-supply-chains-supporting-the-u-s-chip-ecosystem",
+          "date": "2026-10-09",
+          "title": "SIA raporu, Project Vault mineral stoku dahil tedarik zincirini güçlendirme stratejilerini öne çıkardı",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://semiconductors.org/year-to-date-global-semiconductor-sales-top-1-trillion-through-august",
+          "date": "2026-10-05",
+          "title": "SIA/WSTS: Küresel yarı iletken satışları Ağustos 2026'da 159,7 milyar dolara ulaştı, yıl başı toplamı ilk kez 1 trilyon doları geçti",
+          "source": "semiconductors.org",
+          "category": "rapor"
+        },
+        {
+          "url": "https://cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html",
+          "date": "2026-10-08",
+          "title": "TSMC, Eylül 2026'da yıllık bazda %50'den fazla artışla rekor satış bildirdi",
+          "source": "cnbc.com",
+          "category": "rapor"
+        },
+        {
+          "url": "https://pr.tsmc.com/english/news/3343",
+          "date": "2026-10-08",
+          "title": "TSMC'nin 2026 üçüncü çeyrek geliri rekor 1,49 trilyon Yeni Tayvan Doları ile tahminleri aştı, net kâr %64 arttı",
+          "source": "pr.tsmc.com",
+          "category": "rapor"
+        }
+      ]
+    },
+    {
+      "kume": "İhracat kontrolleri ve hukuki süreçler",
+      "maddeler": [
+        {
+          "url": "https://tomshardware.com/tech-industry/artificial-intelligence/super-micro-smuggling-co-conspirator-pleads-guilty-to-sending-ai-chips-to-china-broker-admits-breaking-export-control-rules-as-company-co-founder-denies-charges",
+          "date": "2026-10-10",
+          "title": "Super Micro kaçakçılık davasında suç ortağı, yapay zeka sunucularını Çin'e gönderdiğini kabul etti",
+          "source": "tomshardware.com",
+          "category": "politika"
+        },
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/musk-rejects-rumors-of-tsmc-takeover-of-terafab-intel-reaffirms-14a-node-deal-as-musk-floats-cleanroom-sublease",
+          "date": "2026-10-07",
+          "title": "Musk, Terafab'da TSMC'nin rolünü olası kiralamayla sınırlıyor; Intel 14A anlaşmasıyla dahil olduğunu söylüyor",
+          "source": "tomshardware.com",
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "İleri paketleme",
+      "maddeler": [
+        {
+          "url": "https://babnews.org/articles/40154",
+          "date": "2026-10-08",
+          "title": "Hindistan'ın OSAT tesisleri ilk çip paketleme ihracat sevkiyatlarına başladı; ölçek ve beceri zorlukları sürüyor",
+          "source": "babnews.org",
+          "category": "paketleme"
+        },
+        {
+          "url": "https://indoinquirer.com/story/taiwans-auo-innolux-bet-on-glass-as-nextgen-ai-chip-material/r140348089",
+          "date": "2026-10-08",
+          "title": "AUO ve Innolux, yeni nesil yapay zeka çip paketleme malzemesi olarak cam çekirdekli alt tabakalara yöneliyor",
+          "source": "indoinquirer.com",
+          "category": "paketleme"
+        }
+      ]
+    },
+    {
+      "kume": "Avrupa fab yatırımları",
+      "maddeler": [
+        {
+          "url": "https://evertiq.com/design/2026-10-06-x-fab-breaks-ground-on-chips-act-funded-cleanroom-in-erfurt",
+          "date": "2026-10-06",
+          "title": "X-FAB, Erfurt'ta CHIPS Act destekli mikro sistem ve fotonik temiz oda inşaatına başladı",
+          "source": "evertiq.com",
+          "category": "yatirim"
+        }
+      ]
+    },
+    {
+      "kume": "Bellek",
+      "maddeler": [
+        {
+          "url": "https://focustaiwan.tw/business/202610070021",
+          "date": "2026-10-07",
+          "title": "Micron Tayvan sendikası, ikramiye anlaşmazlığında grev için %99 yetki aldı",
+          "source": "focustaiwan.tw",
+          "category": "bellek"
+        },
+        {
+          "url": "https://cnbc.com/2026/10/08/samsung-q3-earnings.html",
+          "date": "2026-10-07",
+          "title": "Samsung, HBM4 ve bellek fiyatlarıyla 2026 üçüncü çeyrekte 80 milyar dolar üzerinde rekor faaliyet kârı bekliyor",
+          "source": "cnbc.com",
+          "category": "bellek"
+        }
+      ]
+    },
+    {
+      "kume": "Yapay zeka çip ekosistemi",
+      "maddeler": [
+        {
+          "url": "https://tomshardware.com/tech-industry/semiconductors/former-groq-engineers-sue-board-over-usd20-billion-nvidia-deal-saying-it-handed-nvidia-the-lpu-and-the-team-that-built-it-plaintiffs-allege-the-board-kept-billions-from-other-shareholders",
+          "date": "2026-10-08",
+          "title": "Eski Groq mühendisleri, LPU teknolojisini Nvidia'ya devreden 20 milyar dolarlık anlaşma için yönetim kurulunu dava etti",
+          "source": "tomshardware.com",
+          "category": "yatirim"
+        },
+        {
+          "url": "https://intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html",
+          "date": "2026-10-09",
+          "title": "Intel, 18A düğümünde üretilen ilk Xeon 6+ veri merkezi işlemcilerini soket başına 288 E-çekirdeğe kadar kapasiteyle tanıttı",
+          "source": "intel.com",
+          "category": "teknoloji"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "proje_sayisi": 9,
+    "kapsanan_ulke": 12,
+    "politika_gelismesi": 2,
+    "aciklanan_yatirim_usd_milyon": 21800
   },
   "stories": [
     {
@@ -506,9 +735,9 @@
       "id": "silicon-box-1bn-units-panel-packaging",
       "slug": "silicon-box-singapur-da-1-milyar-panel-seviyeli-paketleme-unitesini-ge",
       "image": {
-        "url": null,
-        "type": null,
-        "credit": null
+        "url": "https://evertiq.com/th/n700x300nimgBuildingSilicon-Box_logo-on-building.webp",
+        "type": "hakem",
+        "credit": "evertiq.com"
       },
       "score": 6,
       "secim": "one_cikan",
@@ -552,235 +781,6 @@
       "published_date": "2026-10-07",
       "technology_nodes": null,
       "supporting_sources": []
-    }
-  ],
-  "radar": [
-    {
-      "kume": "Litografi ve ekipman gelişmeleri",
-      "maddeler": [
-        {
-          "url": "https://electronicsweekly.com/news/business/asml-starts-on-hyper-na-euv-2026-10",
-          "date": "2026-10-09",
-          "title": "ASML ve Zeiss, Hyper-NA EUV geliştirmesine başladı (NA≥0,75), 5nm sınıfı özellikler hedefleniyor",
-          "source": "electronicsweekly.com",
-          "category": "teknoloji"
-        },
-        {
-          "url": "https://tomshardware.com/tech-industry/gigaphoton-debuts-neon-recycling-system-with-claimed-50-percent-recovery-rate-systems-throw-a-lifeline-to-chipmakers-that-utilize-70-percent-of-global-neon-supply-in-duv-lithography",
-          "date": "2026-10-06",
-          "title": "Gigaphoton, ArF lazerleri için %50 geri kazanım iddiasıyla neon gazı geri dönüşüm sistemi tanıttı",
-          "source": "tomshardware.com",
-          "category": "ekipman"
-        },
-        {
-          "url": "https://tomshardware.com/tech-industry/semiconductors/russias-zntc-reportedly-completes-development-of-130nm-capable-litho-tool-volume-production-still-years-away",
-          "date": "2026-10-05",
-          "title": "Rus ZNTC, 130nm kapasiteli litografi step cihazı prototipini tamamladı; hacimli üretim 2029'dan önce beklenmiyor",
-          "source": "tomshardware.com",
-          "category": "ekipman"
-        }
-      ]
-    },
-    {
-      "kume": "Tasarım ve EDA",
-      "maddeler": [
-        {
-          "url": "https://buzzingasia.com/story/synopsys-looks-to-work-with-chinese-ai-labs-to-speed-up-chip-design/r140587391",
-          "date": "2026-10-09",
-          "title": "Synopsys, ABD kontrollerine karşın Çinli büyük dil modeli laboratuvarlarıyla çip tasarım araçları için çalışmak istiyor",
-          "source": "buzzingasia.com",
-          "category": "tasarim"
-        },
-        {
-          "url": "https://eetimes.com/gpt-synopsys-combines-ic-design-eda-with-agentic-ai",
-          "date": "2026-10-05",
-          "title": "Synopsys ve OpenAI, EDA araçlarını yöneten özel model GPT-Synopsys'i geliştirmek için ortaklık kurdu",
-          "source": "eetimes.com",
-          "category": "tasarim"
-        },
-        {
-          "url": "https://electronicsweekly.com/news/business/qualcomm-vs-arm-day-3-2026-10",
-          "date": "2026-10-08",
-          "title": "Qualcomm-Arm lisans davasında jüri, royalti şartları konusunda karara varamadı",
-          "source": "electronicsweekly.com",
-          "category": "tasarim"
-        },
-        {
-          "url": "https://tomshardware.com/tech-industry/semiconductors/qualcomm-will-license-patents-behind-huaweis-logicfolding-chip-architecture-report-says-the-kirin-9050-pro-already-uses-it-with-a-teardown-showing-its-lower-die-is-mostly-cache-and-i-o",
-          "date": "2026-10-07",
-          "title": "Qualcomm'un, Huawei'nin LogicFolding mimarisi patentlerini lisanslayacağı bildirildi",
-          "source": "tomshardware.com",
-          "category": "tasarim"
-        },
-        {
-          "url": "https://rapidus.inc/en/news_topics/information/20261005-2",
-          "date": "2026-10-05",
-          "title": "Rapidus, 2nm sınıfı geliştirme için tasarım çözüm ortaklarıyla Rapidus CORE ekosistem çerçevesini tanıttı",
-          "source": "rapidus.inc",
-          "category": "tasarim"
-        }
-      ]
-    },
-    {
-      "kume": "Malzeme ve bileşik yarı iletken araştırmaları",
-      "maddeler": [
-        {
-          "url": "https://nature.com/articles/s41586-026-11085-3",
-          "date": "2026-10-07",
-          "title": "Silikon katkılı α-(AlGa)2O3 filmi 7 eV'den büyük bant aralığı ve rekor iletkenlikle AlphaFET'i mümkün kıldı",
-          "source": "nature.com",
-          "category": "teknoloji"
-        },
-        {
-          "url": "https://compoundsemiconductor.net/article/125553/Mivium_announces_GaN_nanoparticle_breakthrough",
-          "date": "2026-10-07",
-          "title": "Mivium, üçüncü taraf karakterizasyonuyla yüksek saflıkta submikron GaN parçacık üretimini bildirdi",
-          "source": "compoundsemiconductor.net",
-          "category": "teknoloji"
-        },
-        {
-          "url": "https://compoundsemiconductor.net/article/125535/and_Future-readyand__GaN_chip_delivers_20x_better_signal_quality",
-          "date": "2026-10-05",
-          "title": "Northrop Grumman, radar, elektronik harp ve 6G için tek çipli FORTITUDE GaN çözümünü tanıttı",
-          "source": "compoundsemiconductor.net",
-          "category": "teknoloji"
-        },
-        {
-          "url": "https://nature.com/articles/s41586-026-11095-1",
-          "date": "2026-10-07",
-          "title": "Aşındırma-akı aracılı tek merkezli çekirdeklenme, deterministik tek kristal 2D yarı iletken büyümesini sağladı",
-          "source": "nature.com",
-          "category": "teknoloji"
-        }
-      ]
-    },
-    {
-      "kume": "Pazar verileri ve kazanç raporları",
-      "maddeler": [
-        {
-          "url": "https://semiconductors.org/understanding-dependencies-in-the-u-s-semiconductor-supply-chain",
-          "date": "2026-10-08",
-          "title": "SIA, ABD yarı iletken tedarik zinciri bağımlılıkları üzerine kapsamlı rapor yayımladı",
-          "source": "semiconductors.org",
-          "category": "rapor"
-        },
-        {
-          "url": "https://semiconductors.org/sia-report-highlights-strategies-for-strengthening-supply-chains-supporting-the-u-s-chip-ecosystem",
-          "date": "2026-10-09",
-          "title": "SIA raporu, Project Vault mineral stoku dahil tedarik zincirini güçlendirme stratejilerini öne çıkardı",
-          "source": "semiconductors.org",
-          "category": "rapor"
-        },
-        {
-          "url": "https://semiconductors.org/year-to-date-global-semiconductor-sales-top-1-trillion-through-august",
-          "date": "2026-10-05",
-          "title": "SIA/WSTS: Küresel yarı iletken satışları Ağustos 2026'da 159,7 milyar dolara ulaştı, yıl başı toplamı ilk kez 1 trilyon doları geçti",
-          "source": "semiconductors.org",
-          "category": "rapor"
-        },
-        {
-          "url": "https://cnbc.com/2026/10/08/tsmc-september-sales-hit-another-record-as-ai-boom-rolls-on.html",
-          "date": "2026-10-08",
-          "title": "TSMC, Eylül 2026'da yıllık bazda %50'den fazla artışla rekor satış bildirdi",
-          "source": "cnbc.com",
-          "category": "rapor"
-        },
-        {
-          "url": "https://pr.tsmc.com/english/news/3343",
-          "date": "2026-10-08",
-          "title": "TSMC'nin 2026 üçüncü çeyrek geliri rekor 1,49 trilyon Yeni Tayvan Doları ile tahminleri aştı, net kâr %64 arttı",
-          "source": "pr.tsmc.com",
-          "category": "rapor"
-        }
-      ]
-    },
-    {
-      "kume": "İhracat kontrolleri ve hukuki süreçler",
-      "maddeler": [
-        {
-          "url": "https://tomshardware.com/tech-industry/artificial-intelligence/super-micro-smuggling-co-conspirator-pleads-guilty-to-sending-ai-chips-to-china-broker-admits-breaking-export-control-rules-as-company-co-founder-denies-charges",
-          "date": "2026-10-10",
-          "title": "Super Micro kaçakçılık davasında suç ortağı, yapay zeka sunucularını Çin'e gönderdiğini kabul etti",
-          "source": "tomshardware.com",
-          "category": "politika"
-        },
-        {
-          "url": "https://tomshardware.com/tech-industry/semiconductors/musk-rejects-rumors-of-tsmc-takeover-of-terafab-intel-reaffirms-14a-node-deal-as-musk-floats-cleanroom-sublease",
-          "date": "2026-10-07",
-          "title": "Musk, Terafab'da TSMC'nin rolünü olası kiralamayla sınırlıyor; Intel 14A anlaşmasıyla dahil olduğunu söylüyor",
-          "source": "tomshardware.com",
-          "category": "yatirim"
-        }
-      ]
-    },
-    {
-      "kume": "İleri paketleme",
-      "maddeler": [
-        {
-          "url": "https://babnews.org/articles/40154",
-          "date": "2026-10-08",
-          "title": "Hindistan'ın OSAT tesisleri ilk çip paketleme ihracat sevkiyatlarına başladı; ölçek ve beceri zorlukları sürüyor",
-          "source": "babnews.org",
-          "category": "paketleme"
-        },
-        {
-          "url": "https://indoinquirer.com/story/taiwans-auo-innolux-bet-on-glass-as-nextgen-ai-chip-material/r140348089",
-          "date": "2026-10-08",
-          "title": "AUO ve Innolux, yeni nesil yapay zeka çip paketleme malzemesi olarak cam çekirdekli alt tabakalara yöneliyor",
-          "source": "indoinquirer.com",
-          "category": "paketleme"
-        }
-      ]
-    },
-    {
-      "kume": "Avrupa fab yatırımları",
-      "maddeler": [
-        {
-          "url": "https://evertiq.com/design/2026-10-06-x-fab-breaks-ground-on-chips-act-funded-cleanroom-in-erfurt",
-          "date": "2026-10-06",
-          "title": "X-FAB, Erfurt'ta CHIPS Act destekli mikro sistem ve fotonik temiz oda inşaatına başladı",
-          "source": "evertiq.com",
-          "category": "yatirim"
-        }
-      ]
-    },
-    {
-      "kume": "Bellek",
-      "maddeler": [
-        {
-          "url": "https://focustaiwan.tw/business/202610070021",
-          "date": "2026-10-07",
-          "title": "Micron Tayvan sendikası, ikramiye anlaşmazlığında grev için %99 yetki aldı",
-          "source": "focustaiwan.tw",
-          "category": "bellek"
-        },
-        {
-          "url": "https://cnbc.com/2026/10/08/samsung-q3-earnings.html",
-          "date": "2026-10-07",
-          "title": "Samsung, HBM4 ve bellek fiyatlarıyla 2026 üçüncü çeyrekte 80 milyar dolar üzerinde rekor faaliyet kârı bekliyor",
-          "source": "cnbc.com",
-          "category": "bellek"
-        }
-      ]
-    },
-    {
-      "kume": "Yapay zeka çip ekosistemi",
-      "maddeler": [
-        {
-          "url": "https://tomshardware.com/tech-industry/semiconductors/former-groq-engineers-sue-board-over-usd20-billion-nvidia-deal-saying-it-handed-nvidia-the-lpu-and-the-team-that-built-it-plaintiffs-allege-the-board-kept-billions-from-other-shareholders",
-          "date": "2026-10-08",
-          "title": "Eski Groq mühendisleri, LPU teknolojisini Nvidia'ya devreden 20 milyar dolarlık anlaşma için yönetim kurulunu dava etti",
-          "source": "tomshardware.com",
-          "category": "yatirim"
-        },
-        {
-          "url": "https://intel.com/content/www/us/en/products/details/processors/xeon/6-plus-series.html",
-          "date": "2026-10-09",
-          "title": "Intel, 18A düğümünde üretilen ilk Xeon 6+ veri merkezi işlemcilerini soket başına 288 E-çekirdeğe kadar kapasiteyle tanıttı",
-          "source": "intel.com",
-          "category": "teknoloji"
-        }
-      ]
     }
   ]
 }
